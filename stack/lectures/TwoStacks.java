@@ -2,7 +2,7 @@ package stack.lectures;
 
 public class TwoStacks {
 
-  static class Stack {
+  public static class Stack {
 
     private final int[] arr;
     private int top_1, top_2;

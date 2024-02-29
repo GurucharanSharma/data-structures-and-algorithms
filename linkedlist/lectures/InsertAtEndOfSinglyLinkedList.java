@@ -1,7 +1,7 @@
 package linkedlist.lectures;
 
-import common.SNode;
-import common.Util;
+import linkedlist.common.SNode;
+import linkedlist.common.Util;
 
 public class InsertAtEndOfSinglyLinkedList {
 

@@ -3,7 +3,7 @@ package stack.lectures;
 import java.util.Stack;
 
 public class GetMinInStack {
-    static class MinStack {
+    public static class MinStack {
         private Stack<Integer> mainStack;
         private Stack<Integer> auxStack;
 
@@ -48,7 +48,7 @@ public class GetMinInStack {
         }
     }
 
-    static class PositiveMinStack {
+    public static class PositiveMinStack {
         private Stack<Integer> stack;
         private int min;
 
@@ -105,7 +105,7 @@ public class GetMinInStack {
         }
     }
 
-    static class ConstantMinStack {
+    public static class ConstantMinStack {
         private Stack<Integer> stack;
         private int min;
 

@@ -1,6 +1,6 @@
 package linkedlist.lectures;
 
-import common.SNode;
+import linkedlist.common.SNode;
 
 public class TraverseSinglyLinkedList {
 
