@@ -144,7 +144,7 @@ public class QueueRunner {
 
     // Sliding Window Maximum
     System.out.println("\nSlidingWindowMaximum => ");
-    int[] brr = {10, 8, 5, 12, 15, 7, 6};
+    int[] brr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     System.out.println(Arrays.toString(brr));
     SlidingWindowMaximum.execute(brr, 3);
 
