@@ -14,5 +14,7 @@ public class ThreeEqualSumPartition {
         for (int i = 0; i < array.length; i++) {
             
         }
+
+        return false;
     }
 }

@@ -187,9 +187,9 @@ public class Problems {
     static boolean game(int a, int b){
         // Code Here
         double phi = (1 + Math.sqrt(5)) / 2;
-        int n = (int) (phi * (Math.abs(A - B)));
+        int n = (int) (phi * (Math.abs(a - b)));
 
-        if (n == Math.min(A, B)) return false;
+        if (n == Math.min(a, b)) return false;
         else return true;
     }
 
