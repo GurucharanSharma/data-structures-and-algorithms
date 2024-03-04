@@ -4,6 +4,7 @@ import tree.BinaryTree.Node;
 import tree.lectures.BottomViewOfBinaryTree;
 import tree.lectures.CheckBalancedBinaryTree;
 import tree.lectures.ChildrenSumProperty;
+import tree.lectures.ConvertBinaryTreeToDLL;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
 import tree.lectures.LeftViewOfBinaryTree;
@@ -160,5 +161,9 @@ public class TreeRunner {
     System.out.println("\n# MaximumTreeWidth => ");
     System.out.println(MaximumTreeWidth.execute(wideTree.root));
     System.out.println(MaximumTreeWidth.execute(tree.root));
+
+    // Convert a given Binary Tree to Doubly Linked List
+    System.out.println("\n# ConvertBinaryTreeToDLL => ");
+    ConvertBinaryTreeToDLL.print(ConvertBinaryTreeToDLL.execute(tree.root));
   }
 }
