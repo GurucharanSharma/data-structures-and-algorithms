@@ -1,6 +1,7 @@
 package tree;
 
 import tree.BinaryTree.Node;
+import tree.lectures.BottomViewOfBinaryTree;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
 import tree.lectures.LeftViewOfBinaryTree;
@@ -11,6 +12,7 @@ import tree.lectures.PreOrderTraversal;
 import tree.lectures.PrintNodesAtDistanceK;
 import tree.lectures.RightViewOfBinaryTree;
 import tree.lectures.SizeOfBinaryTree;
+import tree.lectures.TopViewOfBinaryTree;
 
 public class TreeRunner {
 
@@ -87,5 +89,19 @@ public class TreeRunner {
     RightViewOfBinaryTree.execute(tree.root, 1);
     System.out.println("Iterative Approach: ");
     RightViewOfBinaryTree.execute(tree.root);
+
+    // Top view of a Binary Tree
+    System.out.println("\n# TopViewOfBinaryTree => ");
+    System.out.println("Iterative Approach (1): ");
+    TopViewOfBinaryTree.execute(tree.root);
+    System.out.println("Iterative Approach (2): ");
+    TopViewOfBinaryTree.execute1(tree.root);
+
+    // Bottom view of a Binary Tree
+    System.out.println("\n# BottomViewOfBinaryTree => ");
+    System.out.println("Iterative Approach (1): ");
+    BottomViewOfBinaryTree.execute(tree.root);
+    System.out.println("Iterative Approach (2): ");
+    BottomViewOfBinaryTree.execute1(tree.root);
   }
 }
