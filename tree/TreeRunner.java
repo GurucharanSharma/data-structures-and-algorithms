@@ -2,6 +2,7 @@ package tree;
 
 import tree.BinaryTree.Node;
 import tree.lectures.BottomViewOfBinaryTree;
+import tree.lectures.CheckBalancedBinaryTree;
 import tree.lectures.ChildrenSumProperty;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
@@ -116,5 +117,21 @@ public class TreeRunner {
     System.out.println("\n# Children sum property => ");
     System.out.println(ChildrenSumProperty.execute(tree.root));
     System.out.println(ChildrenSumProperty.execute(csPropTree.root));
+
+    // Check for Balanced Binary Tree
+    BinaryTree balTree = new BinaryTree();
+    balTree.root = new Node(10);
+    balTree.root.left = new Node(5);
+    balTree.root.right = new Node(30);
+    balTree.root.left.left = new Node(15);
+    balTree.root.left.right = new Node(20);
+
+    System.out.println("\n# CheckBalancedBinaryTree => ");
+    System.out.println("Naive Approach: ");
+    System.out.println(CheckBalancedBinaryTree.execute(tree.root));
+    System.out.println(CheckBalancedBinaryTree.execute(balTree.root));
+    System.out.println("Efficient Approach: ");
+    System.out.println(CheckBalancedBinaryTree.execute1(tree.root) != -1);
+    System.out.println(CheckBalancedBinaryTree.execute1(balTree.root) != -1);
   }
 }
