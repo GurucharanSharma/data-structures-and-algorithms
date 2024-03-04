@@ -9,6 +9,7 @@ import tree.lectures.InOrderTraversal;
 import tree.lectures.LeftViewOfBinaryTree;
 import tree.lectures.LevelOrderTraversal;
 import tree.lectures.MaximumInBinaryTree;
+import tree.lectures.MaximumTreeWidth;
 import tree.lectures.PostOrderTraversal;
 import tree.lectures.PreOrderTraversal;
 import tree.lectures.PrintNodesAtDistanceK;
@@ -133,5 +134,31 @@ public class TreeRunner {
     System.out.println("Efficient Approach: ");
     System.out.println(CheckBalancedBinaryTree.execute1(tree.root) != -1);
     System.out.println(CheckBalancedBinaryTree.execute1(balTree.root) != -1);
+
+    // Maximum width of Binary Tree
+		/*
+		Constructed binary tree is:
+			   1
+			  / \
+		   2   3
+		  / \   \
+		 4   5   8
+				/ \
+			 6   7
+		*/
+
+    BinaryTree wideTree = new BinaryTree();
+    wideTree.root = new Node(1);
+    wideTree.root.left = new Node(2);
+    wideTree.root.right = new Node(3);
+    wideTree.root.left.left = new Node(4);
+    wideTree.root.left.right = new Node(5);
+    wideTree.root.right.right = new Node(8);
+    wideTree.root.right.right.left = new Node(6);
+    wideTree.root.right.right.right = new Node(7);
+
+    System.out.println("\n# MaximumTreeWidth => ");
+    System.out.println(MaximumTreeWidth.execute(wideTree.root));
+    System.out.println(MaximumTreeWidth.execute(tree.root));
   }
 }
