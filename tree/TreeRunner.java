@@ -2,6 +2,7 @@ package tree;
 
 import tree.BinaryTree.Node;
 import tree.lectures.BottomViewOfBinaryTree;
+import tree.lectures.ChildrenSumProperty;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
 import tree.lectures.LeftViewOfBinaryTree;
@@ -103,5 +104,17 @@ public class TreeRunner {
     BottomViewOfBinaryTree.execute(tree.root);
     System.out.println("Iterative Approach (2): ");
     BottomViewOfBinaryTree.execute1(tree.root);
+
+    // Children sum property
+    BinaryTree csPropTree = new BinaryTree();
+    csPropTree.root = new Node(20);
+    csPropTree.root.left = new Node(8);
+    csPropTree.root.right = new Node(12);
+    csPropTree.root.right.left = new Node(3);
+    csPropTree.root.right.right = new Node(9);
+
+    System.out.println("\n# Children sum property => ");
+    System.out.println(ChildrenSumProperty.execute(tree.root));
+    System.out.println(ChildrenSumProperty.execute(csPropTree.root));
   }
 }
