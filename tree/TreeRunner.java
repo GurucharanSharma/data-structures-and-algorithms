@@ -9,6 +9,7 @@ import tree.lectures.MaximumInBinaryTree;
 import tree.lectures.PostOrderTraversal;
 import tree.lectures.PreOrderTraversal;
 import tree.lectures.PrintNodesAtDistanceK;
+import tree.lectures.RightViewOfBinaryTree;
 import tree.lectures.SizeOfBinaryTree;
 
 public class TreeRunner {
@@ -22,6 +23,9 @@ public class TreeRunner {
     tree.root.left.right = new Node(5);
     tree.root.right.left = new Node(8);
     tree.root.right.left.right = new Node(9);
+    tree.root.left.left.left = new Node(10);
+    tree.root.left.left.right = new Node(11);
+    tree.root.left.left.right.right = new Node(12);
 
     // In-order traversal
     System.out.println("\n# InOrderTraversal => ");
@@ -76,5 +80,12 @@ public class TreeRunner {
     LeftViewOfBinaryTree.execute(tree.root, 1);
     System.out.println("Iterative Approach: ");
     LeftViewOfBinaryTree.execute(tree.root);
+
+    // Right view of a Binary Tree
+    System.out.println("\n# RightViewOfBinaryTree => ");
+    System.out.println("Recursive Approach: ");
+    RightViewOfBinaryTree.execute(tree.root, 1);
+    System.out.println("Iterative Approach: ");
+    RightViewOfBinaryTree.execute(tree.root);
   }
 }
