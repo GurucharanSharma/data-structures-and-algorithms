@@ -11,6 +11,7 @@ import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
 import tree.lectures.LeftViewOfBinaryTree;
 import tree.lectures.LevelOrderTraversal;
+import tree.lectures.LowestCommonAncestor;
 import tree.lectures.MaximumInBinaryTree;
 import tree.lectures.MaximumTreeWidth;
 import tree.lectures.PostOrderTraversal;
@@ -225,5 +226,19 @@ public class TreeRunner {
     System.out.println("Efficient Approach: ");
     BinaryTreeDiameter.execute1(tree.root);
     System.out.println(BinaryTreeDiameter.res);
+
+    // Finding LCA in Binary Tree
+    System.out.println("\n# Lowest Common Ancestor => ");
+    System.out.println("Naive Approach: ");
+    LowestCommonAncestor.execute(tree.root, 10, 12);
+    LowestCommonAncestor.execute(tree.root, 5, 9);
+    LowestCommonAncestor.execute(tree.root, 8, 9);
+    System.out.println("Efficient Approach: ");
+    Node lca = LowestCommonAncestor.execute1(tree.root, 10, 12);
+    System.out.println(lca == null ? -1 : lca.key);
+    lca = LowestCommonAncestor.execute1(tree.root, 5, 9);
+    System.out.println(lca == null ? -1 : lca.key);
+    lca = LowestCommonAncestor.execute1(tree.root, 8, 9);
+    System.out.println(lca == null ? -1 : lca.key);
   }
 }
