@@ -1,6 +1,7 @@
 package tree;
 
 import tree.BinaryTree.Node;
+import tree.lectures.BinaryTreeDiameter;
 import tree.lectures.BottomViewOfBinaryTree;
 import tree.lectures.CheckBalancedBinaryTree;
 import tree.lectures.ChildrenSumProperty;
@@ -17,6 +18,7 @@ import tree.lectures.PreOrderTraversal;
 import tree.lectures.PrintNodesAtDistanceK;
 import tree.lectures.RightViewOfBinaryTree;
 import tree.lectures.SizeOfBinaryTree;
+import tree.lectures.SpiralTreeTraversal;
 import tree.lectures.TopViewOfBinaryTree;
 
 public class TreeRunner {
@@ -186,8 +188,17 @@ public class TreeRunner {
     System.out.println(MaximumTreeWidth.execute(tree.root));
 
     // Convert a given Binary Tree to Doubly Linked List
+    BinaryTree dllTree = new BinaryTree();
+    dllTree.root = new Node(1);
+    dllTree.root.left = new Node(2);
+    dllTree.root.right = new Node(3);
+    dllTree.root.left.left = new Node(4);
+    dllTree.root.left.right = new Node(5);
+    dllTree.root.right.right = new Node(8);
+    dllTree.root.right.right.left = new Node(6);
+    dllTree.root.right.right.right = new Node(7);
     System.out.println("\n# ConvertBinaryTreeToDLL => ");
-    ConvertBinaryTreeToDLL.print(ConvertBinaryTreeToDLL.execute(tree.root));
+    ConvertBinaryTreeToDLL.print(ConvertBinaryTreeToDLL.execute(dllTree.root));
 
     // Construct Binary Tree from Inorder and Preorder
     System.out.println("\n# ConstructBinaryTreeFromInorderAndPreorder => ");
@@ -198,5 +209,21 @@ public class TreeRunner {
     System.out.println();
     BinaryTree.printTree(root, "", false);
     System.out.println();
+
+    // Tree Traversal in Spiral Form
+    System.out.println("\n# SpiralTreeTraversal => ");
+    BinaryTree.traversePreOrder(tree.root);
+    System.out.println("Naive Approach: ");
+    SpiralTreeTraversal.execute(tree.root);
+    System.out.println("Efficient Approach: ");
+    SpiralTreeTraversal.execute1(tree.root);
+
+    // Diameter of a Binary Tree
+    System.out.println("\n# Binary Tree Diameter => ");
+    System.out.println("Naive Approach: ");
+    System.out.println(BinaryTreeDiameter.execute(tree.root));
+    System.out.println("Efficient Approach: ");
+    BinaryTreeDiameter.execute1(tree.root);
+    System.out.println(BinaryTreeDiameter.res);
   }
 }
