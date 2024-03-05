@@ -4,6 +4,7 @@ import tree.BinaryTree.Node;
 import tree.lectures.BottomViewOfBinaryTree;
 import tree.lectures.CheckBalancedBinaryTree;
 import tree.lectures.ChildrenSumProperty;
+import tree.lectures.ConstructBinaryTreeFromInorderAndPreorder;
 import tree.lectures.ConvertBinaryTreeToDLL;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
@@ -21,6 +22,19 @@ import tree.lectures.TopViewOfBinaryTree;
 public class TreeRunner {
 
   public static void main(String[] args) {
+    /*
+    Constructed binary tree:
+              1
+            /   \
+           2     3
+          / \   /
+         4   5 8
+        / \
+      10   11
+             \
+              12
+     */
+
     BinaryTree tree = new BinaryTree();
     tree.root = new Node(1);
     tree.root.left = new Node(2);
@@ -121,6 +135,15 @@ public class TreeRunner {
     System.out.println(ChildrenSumProperty.execute(csPropTree.root));
 
     // Check for Balanced Binary Tree
+    /*
+		Constructed binary tree is:
+			   10
+			  /  \
+		   5    30
+		  / \
+		 15  20
+		*/
+
     BinaryTree balTree = new BinaryTree();
     balTree.root = new Node(10);
     balTree.root.left = new Node(5);
@@ -165,5 +188,15 @@ public class TreeRunner {
     // Convert a given Binary Tree to Doubly Linked List
     System.out.println("\n# ConvertBinaryTreeToDLL => ");
     ConvertBinaryTreeToDLL.print(ConvertBinaryTreeToDLL.execute(tree.root));
+
+    // Construct Binary Tree from Inorder and Preorder
+    System.out.println("\n# ConstructBinaryTreeFromInorderAndPreorder => ");
+    int[] in = {20, 10, 40, 30, 50};
+    int[] pre = {10, 20, 30, 40, 50};
+    Node root = ConstructBinaryTreeFromInorderAndPreorder.execute(in, pre, 0, in.length - 1);
+    BinaryTree.traversePreOrder(root);
+    System.out.println();
+    BinaryTree.printTree(root, "", false);
+    System.out.println();
   }
 }
