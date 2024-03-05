@@ -1,5 +1,6 @@
 package tree;
 
+import java.util.ArrayList;
 import tree.BinaryTree.Node;
 import tree.lectures.BinaryTreeDiameter;
 import tree.lectures.BottomViewOfBinaryTree;
@@ -7,6 +8,7 @@ import tree.lectures.CheckBalancedBinaryTree;
 import tree.lectures.ChildrenSumProperty;
 import tree.lectures.ConstructBinaryTreeFromInorderAndPreorder;
 import tree.lectures.ConvertBinaryTreeToDLL;
+import tree.lectures.DeserializeBinaryTree;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
 import tree.lectures.LeftViewOfBinaryTree;
@@ -18,6 +20,7 @@ import tree.lectures.PostOrderTraversal;
 import tree.lectures.PreOrderTraversal;
 import tree.lectures.PrintNodesAtDistanceK;
 import tree.lectures.RightViewOfBinaryTree;
+import tree.lectures.SerializeBinaryTree;
 import tree.lectures.SizeOfBinaryTree;
 import tree.lectures.SpiralTreeTraversal;
 import tree.lectures.TopViewOfBinaryTree;
@@ -240,5 +243,14 @@ public class TreeRunner {
     System.out.println(lca == null ? -1 : lca.key);
     lca = LowestCommonAncestor.execute1(tree.root, 8, 9);
     System.out.println(lca == null ? -1 : lca.key);
+
+    // Serialize and Deserialize a Binary Tree
+    System.out.println("\n# SerializeBinaryTree => ");
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    SerializeBinaryTree.execute(tree.root, arrayList);
+    System.out.println(arrayList);
+    System.out.println("\n# DeserializeBinaryTree => ");
+    Node dRoot = DeserializeBinaryTree.execute(arrayList);
+    BinaryTree.traversePreOrder(dRoot);
   }
 }
