@@ -11,6 +11,7 @@ import tree.lectures.ConvertBinaryTreeToDLL;
 import tree.lectures.DeserializeBinaryTree;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
+import tree.lectures.InsertionInBinaryTree;
 import tree.lectures.IterativeInOrderTraversal;
 import tree.lectures.IterativePreOrderTraversal;
 import tree.lectures.LeftViewOfBinaryTree;
@@ -28,6 +29,7 @@ import tree.lectures.SpiralTreeTraversal;
 import tree.lectures.TopViewOfBinaryTree;
 
 public class TreeRunner {
+  private static final TreeFormatter formatter = new TreeFormatter();
 
   public static void main(String[] args) {
     /*
@@ -211,14 +213,12 @@ public class TreeRunner {
     int[] in = {20, 10, 40, 30, 50};
     int[] pre = {10, 20, 30, 40, 50};
     Node root = ConstructBinaryTreeFromInorderAndPreorder.execute(in, pre, 0, in.length - 1);
-    BinaryTree.traversePreOrder(root);
-    System.out.println();
-    BinaryTree.printTree(root, "", false);
+    formatter.topDown(root);
     System.out.println();
 
     // Tree Traversal in Spiral Form
     System.out.println("\n# SpiralTreeTraversal => ");
-    BinaryTree.traversePreOrder(tree.root);
+    formatter.topDown(tree.root);
     System.out.println("Naive Approach: ");
     SpiralTreeTraversal.execute(tree.root);
     System.out.println("Efficient Approach: ");
@@ -253,7 +253,7 @@ public class TreeRunner {
     System.out.println(arrayList);
     System.out.println("\n# DeserializeBinaryTree => ");
     Node dRoot = DeserializeBinaryTree.execute(arrayList);
-    BinaryTree.traversePreOrder(dRoot);
+    formatter.topDown(dRoot);
 
     // Iterative Inorder Traversal
     System.out.println("\n# IterativeInOrderTraversal => ");
@@ -270,5 +270,11 @@ public class TreeRunner {
     System.out.println();
     PreOrderTraversal.execute(tree.root);
     System.out.println();
+
+    // Insertion in a Binary Tree
+    System.out.println("\n# InsertionInBinaryTree => ");
+    formatter.topDown(tree.root);
+    InsertionInBinaryTree.execute(tree.root, 15);
+    formatter.topDown(tree.root);
   }
 }
