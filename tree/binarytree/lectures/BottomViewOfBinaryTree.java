@@ -75,8 +75,6 @@ public class BottomViewOfBinaryTree {
     System.out.println();
   }
 
-  // TODO: https://www.geeksforgeeks.org/print-nodes-top-view-binary-tree/
-
   record Pair(Node node, int dist) {
 
   }

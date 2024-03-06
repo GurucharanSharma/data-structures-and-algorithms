@@ -1,7 +1,7 @@
-package tree;
+package tree.binarytree;
 
 import java.util.ArrayList;
-import tree.binarytree.BinaryTree;
+import tree.TreeFormatter;
 import tree.binarytree.BinaryTree.Node;
 import tree.binarytree.lectures.BinaryTreeDiameter;
 import tree.binarytree.lectures.BottomViewOfBinaryTree;
@@ -31,7 +31,7 @@ import tree.binarytree.lectures.SizeOfBinaryTree;
 import tree.binarytree.lectures.SpiralTreeTraversal;
 import tree.binarytree.lectures.TopViewOfBinaryTree;
 
-public class TreeRunner {
+public class BinaryTreeRunner {
 
   private static final TreeFormatter formatter = new TreeFormatter();
 
