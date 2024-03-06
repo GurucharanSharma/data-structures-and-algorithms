@@ -54,7 +54,7 @@ public class BinaryTree {
 
   public static class Node {
 
-    public final int key;
+    public int key;
     public Node left;
     public Node right;
 

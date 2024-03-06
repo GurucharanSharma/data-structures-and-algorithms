@@ -8,6 +8,7 @@ import tree.lectures.CheckBalancedBinaryTree;
 import tree.lectures.ChildrenSumProperty;
 import tree.lectures.ConstructBinaryTreeFromInorderAndPreorder;
 import tree.lectures.ConvertBinaryTreeToDLL;
+import tree.lectures.DeletionInBinaryTree;
 import tree.lectures.DeserializeBinaryTree;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
@@ -19,6 +20,7 @@ import tree.lectures.LevelOrderTraversal;
 import tree.lectures.LowestCommonAncestor;
 import tree.lectures.MaximumInBinaryTree;
 import tree.lectures.MaximumTreeWidth;
+import tree.lectures.MirrorBinaryTree;
 import tree.lectures.PostOrderTraversal;
 import tree.lectures.PreOrderTraversal;
 import tree.lectures.PrintNodesAtDistanceK;
@@ -29,6 +31,7 @@ import tree.lectures.SpiralTreeTraversal;
 import tree.lectures.TopViewOfBinaryTree;
 
 public class TreeRunner {
+
   private static final TreeFormatter formatter = new TreeFormatter();
 
   public static void main(String[] args) {
@@ -275,6 +278,27 @@ public class TreeRunner {
     System.out.println("\n# InsertionInBinaryTree => ");
     formatter.topDown(tree.root);
     InsertionInBinaryTree.execute(tree.root, 15);
+    formatter.topDown(tree.root);
+
+    // Deletion in a Binary Tree
+    BinaryTree delTree = new BinaryTree();
+    delTree.root = new Node(10);
+    delTree.root.left = new Node(11);
+    delTree.root.left.left = new Node(7);
+    delTree.root.left.right = new Node(12);
+    delTree.root.right = new Node(9);
+    delTree.root.right.left = new Node(15);
+    delTree.root.right.right = new Node(8);
+
+    System.out.println("\n# DeletionInBinaryTree => ");
+    formatter.topDown(delTree.root);
+    DeletionInBinaryTree.execute(delTree.root, 11);
+    formatter.topDown(delTree.root);
+
+    // Convert a Binary Tree into its Mirror Tree
+    System.out.println("\n# MirrorBinaryTree => ");
+    formatter.topDown(tree.root);
+    MirrorBinaryTree.execute(tree.root);
     formatter.topDown(tree.root);
   }
 }
