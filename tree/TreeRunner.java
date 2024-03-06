@@ -11,6 +11,8 @@ import tree.lectures.ConvertBinaryTreeToDLL;
 import tree.lectures.DeserializeBinaryTree;
 import tree.lectures.HeightOfBinaryTree;
 import tree.lectures.InOrderTraversal;
+import tree.lectures.IterativeInOrderTraversal;
+import tree.lectures.IterativePreOrderTraversal;
 import tree.lectures.LeftViewOfBinaryTree;
 import tree.lectures.LevelOrderTraversal;
 import tree.lectures.LowestCommonAncestor;
@@ -252,5 +254,21 @@ public class TreeRunner {
     System.out.println("\n# DeserializeBinaryTree => ");
     Node dRoot = DeserializeBinaryTree.execute(arrayList);
     BinaryTree.traversePreOrder(dRoot);
+
+    // Iterative Inorder Traversal
+    System.out.println("\n# IterativeInOrderTraversal => ");
+    IterativeInOrderTraversal.execute(tree.root);
+    System.out.println();
+    InOrderTraversal.execute(tree.root);
+    System.out.println();
+
+    // Iterative Preorder Traversal
+    System.out.println("\n# IterativePreOrderTraversal => ");
+    IterativePreOrderTraversal.execute(tree.root);
+    System.out.println();
+    IterativePreOrderTraversal.execute1(tree.root);
+    System.out.println();
+    PreOrderTraversal.execute(tree.root);
+    System.out.println();
   }
 }
