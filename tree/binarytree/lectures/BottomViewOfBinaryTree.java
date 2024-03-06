@@ -1,13 +1,13 @@
-package tree.lectures;
+package tree.binarytree.lectures;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
-import tree.BinaryTree.Node;
+import tree.binarytree.BinaryTree.Node;
 
-public class TopViewOfBinaryTree {
+public class BottomViewOfBinaryTree {
 
   /**
    * Time complexity: O(N * log(N)), where N is the number of nodes in the given tree.<br> Auxiliary Space: O(N), As we store nodes in the map and
@@ -24,9 +24,7 @@ public class TopViewOfBinaryTree {
 
     while (!queue.isEmpty()) {
       Pair pair = queue.poll();
-      if (!map.containsKey(pair.dist)) {
-        map.put(pair.dist, pair.node.key);
-      }
+      map.put(pair.dist, pair.node.key);
 
       if (pair.node.left != null) {
         queue.offer(new Pair(pair.node.left, pair.dist - 1));
@@ -44,8 +42,7 @@ public class TopViewOfBinaryTree {
 
   /**
    * Time Complexity: O(N), Since we only perform level-order traversal and print some part of the N nodes which at max will be 2N in case of skew
-   * tree. <br>
-   * Auxiliary Space: O(N), Since we store the nodes in the map and queue.
+   * tree. <br> Auxiliary Space: O(N), Since we store the nodes in the map and queue.
    */
   public static void execute1(Node root) {
     if (root == null) {
@@ -60,9 +57,7 @@ public class TopViewOfBinaryTree {
 
     while (!queue.isEmpty()) {
       Pair pair = queue.poll();
-      if (!map.containsKey(pair.dist)) {
-        map.put(pair.dist, pair.node.key);
-      }
+      map.put(pair.dist, pair.node.key);
 
       if (pair.node.left != null) {
         min = Math.min(min, pair.dist - 1);

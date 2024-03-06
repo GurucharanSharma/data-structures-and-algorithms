@@ -1,9 +1,9 @@
-package tree.lectures;
+package tree.binarytree.lectures;
 
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
-import tree.BinaryTree.Node;
+import tree.binarytree.BinaryTree.Node;
 
 public class MaximumTreeWidth {
 

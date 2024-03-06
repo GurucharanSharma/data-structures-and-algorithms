@@ -1,6 +1,6 @@
-package tree.lectures;
+package tree.binarytree.lectures;
 
-import tree.BinaryTree.Node;
+import tree.binarytree.BinaryTree.Node;
 
 public class ConvertBinaryTreeToDLL {
 

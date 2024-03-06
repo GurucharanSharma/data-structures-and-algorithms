@@ -1,13 +1,16 @@
-package tree.lectures;
+package tree.binarytree.lectures;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import tree.BinaryTree.Node;
+import tree.binarytree.BinaryTree.Node;
 
-public class RightViewOfBinaryTree {
+public class LeftViewOfBinaryTree {
 
   private static int maxLevel = 0;
 
+  /**
+   * Recursive Approach
+   */
   public static void execute(Node root, int level) {
     if (root == null) {
       return;
@@ -18,8 +21,8 @@ public class RightViewOfBinaryTree {
       maxLevel = level;
     }
 
-    execute(root.right, level + 1);
     execute(root.left, level + 1);
+    execute(root.right, level + 1);
   }
 
   public static void execute(Node root) {
@@ -28,7 +31,7 @@ public class RightViewOfBinaryTree {
     }
 
     Queue<Node> queue = new LinkedList<>();
-    queue.offer(root);
+    queue.add(root);
 
     while (!queue.isEmpty()) {
       int size = queue.size();
@@ -36,8 +39,8 @@ public class RightViewOfBinaryTree {
         Node curr = queue.poll();
         assert curr != null;
 
-        if (i == size - 1) {
-          System.out.println(curr.key);
+        if (i == 0) {
+          System.out.println(curr.key + " ");
         }
 
         if (curr.left != null) {

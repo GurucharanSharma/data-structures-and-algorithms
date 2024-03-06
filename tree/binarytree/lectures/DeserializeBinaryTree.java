@@ -1,7 +1,7 @@
-package tree.lectures;
+package tree.binarytree.lectures;
 
 import java.util.ArrayList;
-import tree.BinaryTree.Node;
+import tree.binarytree.BinaryTree.Node;
 
 public class DeserializeBinaryTree {
 
