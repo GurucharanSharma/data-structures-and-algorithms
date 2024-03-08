@@ -3,6 +3,7 @@ package tree.binarysearchtree;
 import tree.BinaryTree;
 import tree.BinaryTree.Node;
 import tree.TreeFormatter;
+import tree.binarysearchtree.lectures.InsertInBST;
 import tree.binarysearchtree.lectures.SearchInBST;
 
 public class BinarySearchTreeRunner {
@@ -32,7 +33,7 @@ public class BinarySearchTreeRunner {
 
     formatter.topDown(tree.root);
 
-    // In-order traversal
+    // Search In BST
     System.out.println("\n# SearchInBST => ");
     Node res = SearchInBST.execute(tree.root, 3);
     System.out.println(res == null ? "Not found" : "Found");
@@ -54,5 +55,13 @@ public class BinarySearchTreeRunner {
     System.out.println(res == null ? "Not found" : "Found");
     res = SearchInBST.execute1(tree.root, 200);
     System.out.println(res == null ? "Not found" : "Found");
+
+    // Insert In BST
+    System.out.println("\n# InsertInBST => ");
+    InsertInBST.execute1(tree.root, 85);
+    InsertInBST.execute1(tree.root, 17);
+    InsertInBST.execute1(tree.root, 10);
+    InsertInBST.execute1(tree.root, 1);
+    formatter.topDown(tree.root);
   }
 }
