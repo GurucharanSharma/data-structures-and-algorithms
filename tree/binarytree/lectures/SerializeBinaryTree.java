@@ -1,7 +1,7 @@
 package tree.binarytree.lectures;
 
 import java.util.ArrayList;
-import tree.binarytree.BinaryTree.Node;
+import tree.BinaryTree.Node;
 
 public class SerializeBinaryTree {
 

@@ -2,7 +2,7 @@ package tree;
 
 import java.util.ArrayList;
 import java.util.List;
-import tree.binarytree.BinaryTree.Node;
+import tree.BinaryTree.Node;
 
 public class TreeFormatter {
 

@@ -1,4 +1,4 @@
-package tree.binarytree;
+package tree;
 
 public class BinaryTree {
 

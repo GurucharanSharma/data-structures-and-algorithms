@@ -1,6 +1,6 @@
 package tree.binarytree.lectures;
 
-import tree.binarytree.BinaryTree.Node;
+import tree.BinaryTree.Node;
 
 /**
  * Children Sum Property is a property in which the sum of values of the left child and right child should be equal to the value of their node if both

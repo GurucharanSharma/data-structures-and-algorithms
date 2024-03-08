@@ -2,7 +2,7 @@ package tree.binarytree.lectures;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import tree.binarytree.BinaryTree.Node;
+import tree.BinaryTree.Node;
 
 public class LeftViewOfBinaryTree {
 

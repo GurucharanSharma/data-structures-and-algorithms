@@ -1,8 +1,9 @@
 package tree.binarytree;
 
 import java.util.ArrayList;
+import tree.BinaryTree;
 import tree.TreeFormatter;
-import tree.binarytree.BinaryTree.Node;
+import tree.BinaryTree.Node;
 import tree.binarytree.lectures.BinaryTreeDiameter;
 import tree.binarytree.lectures.BottomViewOfBinaryTree;
 import tree.binarytree.lectures.CheckBalancedBinaryTree;
