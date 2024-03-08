@@ -3,6 +3,7 @@ package tree.binarysearchtree;
 import tree.BinaryTree;
 import tree.BinaryTree.Node;
 import tree.TreeFormatter;
+import tree.binarysearchtree.lectures.DeleteInBST;
 import tree.binarysearchtree.lectures.InsertInBST;
 import tree.binarysearchtree.lectures.SearchInBST;
 
@@ -62,6 +63,11 @@ public class BinarySearchTreeRunner {
     InsertInBST.execute1(tree.root, 17);
     InsertInBST.execute1(tree.root, 10);
     InsertInBST.execute1(tree.root, 1);
+    formatter.topDown(tree.root);
+
+    // Delete In BST
+    System.out.println("\n# DeleteInBST => ");
+    DeleteInBST.execute(tree.root, 15);
     formatter.topDown(tree.root);
   }
 }
