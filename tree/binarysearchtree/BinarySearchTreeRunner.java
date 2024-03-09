@@ -1,5 +1,6 @@
 package tree.binarysearchtree;
 
+import java.util.HashSet;
 import tree.BinaryTree;
 import tree.BinaryTree.Node;
 import tree.TreeFormatter;
@@ -11,6 +12,7 @@ import tree.binarysearchtree.lectures.FixBSTWithTwoSwappedNodes;
 import tree.binarysearchtree.lectures.FloorInBST;
 import tree.binarysearchtree.lectures.InsertInBST;
 import tree.binarysearchtree.lectures.KthSmallest;
+import tree.binarysearchtree.lectures.PairSumInBST;
 import tree.binarysearchtree.lectures.SearchInBST;
 
 public class BinarySearchTreeRunner {
@@ -135,7 +137,7 @@ public class BinarySearchTreeRunner {
 
     // Find Kth Smallest in BST
     System.out.println("\n# KthSmallest => ");
-    // formatter.topDown(tree.root);
+//    formatter.topDown(tree.root);
 
     System.out.println("Approach 1: ");
     KthSmallest.execute(tree.root, 9);
@@ -190,5 +192,13 @@ public class BinarySearchTreeRunner {
     formatter.topDown(sTRoot);
     FixBSTWithTwoSwappedNodes.execute(sTRoot);
     formatter.topDown(sTRoot);
+
+    // Pair Sum with given BST
+    System.out.println("\n# PairSumInBST => ");
+//    formatter.topDown(tree.root);
+
+    System.out.println(PairSumInBST.execute(tree.root, 30, new HashSet<>()));
+    System.out.println(PairSumInBST.execute(tree.root, 165, new HashSet<>()));
+    System.out.println(PairSumInBST.execute(tree.root, 170, new HashSet<>()));
   }
 }
