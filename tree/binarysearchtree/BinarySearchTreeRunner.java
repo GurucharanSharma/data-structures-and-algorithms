@@ -7,6 +7,7 @@ import tree.binarysearchtree.lectures.CeilInBST;
 import tree.binarysearchtree.lectures.CeilingOnLeftSideInArray;
 import tree.binarysearchtree.lectures.CheckForBST;
 import tree.binarysearchtree.lectures.DeleteInBST;
+import tree.binarysearchtree.lectures.FixBSTWithTwoSwappedNodes;
 import tree.binarysearchtree.lectures.FloorInBST;
 import tree.binarysearchtree.lectures.InsertInBST;
 import tree.binarysearchtree.lectures.KthSmallest;
@@ -175,5 +176,19 @@ public class BinarySearchTreeRunner {
     System.out.println("Approach 3: ");
     System.out.println(CheckForBST.execute2(tree.root));
     System.out.println(CheckForBST.execute2(root));
+
+    // Fix BST with Two Nodes Swapped
+    System.out.println("\n# FixBSTWithTwoSwappedNodes => ");
+
+    Node sTRoot = new Node(18);
+    sTRoot.left = new Node(60);
+    sTRoot.right = new Node(70);
+    sTRoot.left.left = new Node(4);
+    sTRoot.right.left = new Node(8);
+    sTRoot.right.right = new Node(80);
+
+    formatter.topDown(sTRoot);
+    FixBSTWithTwoSwappedNodes.execute(sTRoot);
+    formatter.topDown(sTRoot);
   }
 }
