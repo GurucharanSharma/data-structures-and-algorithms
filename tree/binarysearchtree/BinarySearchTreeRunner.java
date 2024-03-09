@@ -15,6 +15,7 @@ import tree.binarysearchtree.lectures.KthSmallest;
 import tree.binarysearchtree.lectures.PairSumInBST;
 import tree.binarysearchtree.lectures.SearchInBST;
 import tree.binarysearchtree.lectures.VerticalSum;
+import tree.binarysearchtree.lectures.VerticalTraversal;
 
 public class BinarySearchTreeRunner {
 
@@ -213,5 +214,15 @@ public class BinarySearchTreeRunner {
     formatter.topDown(tree.root);
 
     VerticalSum.execute(tree.root);
+
+    // Vertical Traversal of Binary Tree
+    System.out.println("\n# VerticalTraversal => ");
+    formatter.topDown(tree.root);
+
+    System.out.println("Approach 1: ");
+    VerticalTraversal.execute(tree.root);
+
+    System.out.println("Approach 2: ");
+    VerticalTraversal.execute1(tree.root);
   }
 }
