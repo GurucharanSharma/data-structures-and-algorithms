@@ -14,6 +14,7 @@ import tree.binarysearchtree.lectures.InsertInBST;
 import tree.binarysearchtree.lectures.KthSmallest;
 import tree.binarysearchtree.lectures.PairSumInBST;
 import tree.binarysearchtree.lectures.SearchInBST;
+import tree.binarysearchtree.lectures.VerticalSum;
 
 public class BinarySearchTreeRunner {
 
@@ -197,8 +198,20 @@ public class BinarySearchTreeRunner {
     System.out.println("\n# PairSumInBST => ");
 //    formatter.topDown(tree.root);
 
-    System.out.println(PairSumInBST.execute(tree.root, 30, new HashSet<>()));
-    System.out.println(PairSumInBST.execute(tree.root, 165, new HashSet<>()));
-    System.out.println(PairSumInBST.execute(tree.root, 170, new HashSet<>()));
+    System.out.println("Approach 1: ");
+    System.out.println(PairSumInBST.execute(tree.root, 30));
+    System.out.println(PairSumInBST.execute(tree.root, 165));
+    System.out.println(PairSumInBST.execute(tree.root, 170));
+
+    System.out.println("Approach 2: ");
+    System.out.println(PairSumInBST.execute1(tree.root, 30, new HashSet<>()));
+    System.out.println(PairSumInBST.execute1(tree.root, 165, new HashSet<>()));
+    System.out.println(PairSumInBST.execute1(tree.root, 170, new HashSet<>()));
+
+    // Vertical Sum in a Binary Tree
+    System.out.println("\n# VerticalSum => ");
+    formatter.topDown(tree.root);
+
+    VerticalSum.execute(tree.root);
   }
 }
