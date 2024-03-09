@@ -8,6 +8,7 @@ import tree.binarysearchtree.lectures.CeilingOnLeftSideInArray;
 import tree.binarysearchtree.lectures.DeleteInBST;
 import tree.binarysearchtree.lectures.FloorInBST;
 import tree.binarysearchtree.lectures.InsertInBST;
+import tree.binarysearchtree.lectures.KthSmallest;
 import tree.binarysearchtree.lectures.SearchInBST;
 
 public class BinarySearchTreeRunner {
@@ -118,5 +119,25 @@ public class BinarySearchTreeRunner {
     CeilingOnLeftSideInArray.execute(arr);
     System.out.println("Approach 2: ");
     CeilingOnLeftSideInArray.execute1(arr);
+
+    // Find Kth Smallest in BST
+    System.out.println("\n# KthSmallest => ");
+    formatter.topDown(tree.root);
+
+    KthSmallest.execute(tree.root, 9);
+
+    KSmallestTree.Node kRoot = new KSmallestTree.Node(25);
+    KSmallestTree.insert(kRoot, 20);
+    KSmallestTree.insert(kRoot, 15);
+    KSmallestTree.insert(kRoot, 10);
+    KSmallestTree.insert(kRoot, 18);
+    KSmallestTree.insert(kRoot, 30);
+    KSmallestTree.insert(kRoot, 35);
+    KSmallestTree.insert(kRoot, 12);
+
+    KSmallestTree.Node kSNode = KthSmallest.execute(kRoot, 3);
+    System.out.println(kSNode == null ? "Kth smallest not found !" : kSNode.key);
+    kSNode = KthSmallest.execute(kRoot, 5);
+    System.out.println(kSNode == null ? "Kth smallest not found !" : kSNode.key);
   }
 }
