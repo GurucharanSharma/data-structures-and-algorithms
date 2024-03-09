@@ -4,6 +4,7 @@ import tree.BinaryTree;
 import tree.BinaryTree.Node;
 import tree.TreeFormatter;
 import tree.binarysearchtree.lectures.CeilInBST;
+import tree.binarysearchtree.lectures.CeilingOnLeftSideInArray;
 import tree.binarysearchtree.lectures.DeleteInBST;
 import tree.binarysearchtree.lectures.FloorInBST;
 import tree.binarysearchtree.lectures.InsertInBST;
@@ -109,5 +110,13 @@ public class BinarySearchTreeRunner {
     System.out.println(CeilInBST.ceil == null ? "No ceil found !" : CeilInBST.ceil.key);
     CeilInBST.execute2(tree.root, 19);
     System.out.println(CeilInBST.ceil == null ? "No ceil found !" : CeilInBST.ceil.key);
+
+    // Ceiling on left side in an array
+    System.out.println("\n# CeilingOnLeftSideInArray => ");
+    int[] arr = {2, 8, 30, 15, 25, 12};
+    System.out.println("Approach 1: ");
+    CeilingOnLeftSideInArray.execute(arr);
+    System.out.println("Approach 2: ");
+    CeilingOnLeftSideInArray.execute1(arr);
   }
 }
