@@ -3,6 +3,7 @@ package tree.binarysearchtree;
 import tree.BinaryTree;
 import tree.BinaryTree.Node;
 import tree.TreeFormatter;
+import tree.binarysearchtree.lectures.CeilInBST;
 import tree.binarysearchtree.lectures.DeleteInBST;
 import tree.binarysearchtree.lectures.FloorInBST;
 import tree.binarysearchtree.lectures.InsertInBST;
@@ -88,5 +89,25 @@ public class BinarySearchTreeRunner {
     System.out.println(res == null ? "No floor found for key 80" : res.key);
     res = FloorInBST.execute2(tree.root, 19);
     System.out.println(res == null ? "No floor found for key 19" : res.key);
+
+    // Ceiling in BST
+    System.out.println("\n# CeilInBST => ");
+    System.out.println("Approach 1: ");
+    Node ceil = CeilInBST.execute(tree.root, 80);
+    System.out.println(ceil == null ? "No ceiling found for key 80" : ceil.key);
+    ceil = CeilInBST.execute(tree.root, 81);
+    System.out.println(ceil == null ? "No ceiling found for key 81" : ceil.key);
+    ceil = CeilInBST.execute(tree.root, 19);
+    System.out.println(ceil == null ? "No ceiling found for key 19" : ceil.key);
+    System.out.println("Approach 2: ");
+    CeilInBST.execute1(tree.root, 19);
+    System.out.println(CeilInBST.ceil == null ? "No ceiling found !" : CeilInBST.ceil.key);
+    System.out.println("Approach 3: ");
+    CeilInBST.execute2(tree.root, 80);
+    System.out.println(CeilInBST.ceil == null ? "No ceil found !" : CeilInBST.ceil.key);
+    CeilInBST.execute2(tree.root, 81);
+    System.out.println(CeilInBST.ceil == null ? "No ceil found !" : CeilInBST.ceil.key);
+    CeilInBST.execute2(tree.root, 19);
+    System.out.println(CeilInBST.ceil == null ? "No ceil found !" : CeilInBST.ceil.key);
   }
 }
