@@ -40,6 +40,7 @@ public class BinarySearchTreeRunner {
 
     // Search In BST
     System.out.println("\n# SearchInBST => ");
+
     Node res = SearchInBST.execute(tree.root, 3);
     System.out.println(res == null ? "Not found" : "Found");
     res = SearchInBST.execute1(tree.root, 3);
@@ -63,6 +64,7 @@ public class BinarySearchTreeRunner {
 
     // Insert In BST
     System.out.println("\n# InsertInBST => ");
+
     InsertInBST.execute1(tree.root, 85);
     InsertInBST.execute1(tree.root, 17);
     InsertInBST.execute1(tree.root, 10);
@@ -71,21 +73,25 @@ public class BinarySearchTreeRunner {
 
     // Delete In BST
     System.out.println("\n# DeleteInBST => ");
+
     DeleteInBST.execute(tree.root, 15);
     formatter.topDown(tree.root);
 
     // Floor in BST
     System.out.println("\n# FloorInBST => ");
+
     System.out.println("Approach 1: ");
     FloorInBST.execute(tree.root, 80);
     System.out.println(FloorInBST.floor == null ? "No floor found for key 80" : FloorInBST.floor.key);
     FloorInBST.execute(tree.root, 19);
     System.out.println(FloorInBST.floor == null ? "No floor found for key 19" : FloorInBST.floor.key);
+
     System.out.println("Approach 2: ");
     FloorInBST.execute1(tree.root, 80);
     System.out.println(FloorInBST.floor == null ? "No floor found for key 80" : FloorInBST.floor.key);
     FloorInBST.execute1(tree.root, 19);
     System.out.println(FloorInBST.floor == null ? "No floor found for key 19" : FloorInBST.floor.key);
+
     System.out.println("Approach 3: ");
     res = FloorInBST.execute2(tree.root, 80);
     System.out.println(res == null ? "No floor found for key 80" : res.key);
@@ -94,6 +100,7 @@ public class BinarySearchTreeRunner {
 
     // Ceiling in BST
     System.out.println("\n# CeilInBST => ");
+
     System.out.println("Approach 1: ");
     Node ceil = CeilInBST.execute(tree.root, 80);
     System.out.println(ceil == null ? "No ceiling found for key 80" : ceil.key);
@@ -101,9 +108,11 @@ public class BinarySearchTreeRunner {
     System.out.println(ceil == null ? "No ceiling found for key 81" : ceil.key);
     ceil = CeilInBST.execute(tree.root, 19);
     System.out.println(ceil == null ? "No ceiling found for key 19" : ceil.key);
+
     System.out.println("Approach 2: ");
     CeilInBST.execute1(tree.root, 19);
     System.out.println(CeilInBST.ceil == null ? "No ceiling found !" : CeilInBST.ceil.key);
+
     System.out.println("Approach 3: ");
     CeilInBST.execute2(tree.root, 80);
     System.out.println(CeilInBST.ceil == null ? "No ceil found !" : CeilInBST.ceil.key);
@@ -115,17 +124,21 @@ public class BinarySearchTreeRunner {
     // Ceiling on left side in an array
     System.out.println("\n# CeilingOnLeftSideInArray => ");
     int[] arr = {2, 8, 30, 15, 25, 12};
+
     System.out.println("Approach 1: ");
     CeilingOnLeftSideInArray.execute(arr);
+
     System.out.println("Approach 2: ");
     CeilingOnLeftSideInArray.execute1(arr);
 
     // Find Kth Smallest in BST
     System.out.println("\n# KthSmallest => ");
-    formatter.topDown(tree.root);
+//    formatter.topDown(tree.root);
 
+    System.out.println("Approach 1: ");
     KthSmallest.execute(tree.root, 9);
 
+    System.out.println("Approach 2: ");
     KSmallestTree.Node kRoot = new KSmallestTree.Node(25);
     KSmallestTree.insert(kRoot, 20);
     KSmallestTree.insert(kRoot, 15);
