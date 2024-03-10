@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
 import tree.BinaryTree.Node;
+import tree.binarytree.lectures.BottomViewOfBinaryTree.Pair;
 
 public class TopViewOfBinaryTree {
 
@@ -24,15 +25,15 @@ public class TopViewOfBinaryTree {
 
     while (!queue.isEmpty()) {
       Pair pair = queue.poll();
-      if (!map.containsKey(pair.dist)) {
-        map.put(pair.dist, pair.node.key);
+      if (!map.containsKey(pair.dist())) {
+        map.put(pair.dist(), pair.node().key);
       }
 
-      if (pair.node.left != null) {
-        queue.offer(new Pair(pair.node.left, pair.dist - 1));
+      if (pair.node().left != null) {
+        queue.offer(new Pair(pair.node().left, pair.dist() - 1));
       }
-      if (pair.node.right != null) {
-        queue.offer(new Pair(pair.node.right, pair.dist + 1));
+      if (pair.node().right != null) {
+        queue.offer(new Pair(pair.node().right, pair.dist() + 1));
       }
     }
 
@@ -60,17 +61,17 @@ public class TopViewOfBinaryTree {
 
     while (!queue.isEmpty()) {
       Pair pair = queue.poll();
-      if (!map.containsKey(pair.dist)) {
-        map.put(pair.dist, pair.node.key);
+      if (!map.containsKey(pair.dist())) {
+        map.put(pair.dist(), pair.node().key);
       }
 
-      if (pair.node.left != null) {
-        min = Math.min(min, pair.dist - 1);
-        queue.offer(new Pair(pair.node.left, pair.dist - 1));
+      if (pair.node().left != null) {
+        min = Math.min(min, pair.dist() - 1);
+        queue.offer(new Pair(pair.node().left, pair.dist() - 1));
       }
-      if (pair.node.right != null) {
-        max = Math.max(max, pair.dist + 1);
-        queue.offer(new Pair(pair.node.right, pair.dist + 1));
+      if (pair.node().right != null) {
+        max = Math.max(max, pair.dist() + 1);
+        queue.offer(new Pair(pair.node().right, pair.dist() + 1));
       }
     }
 
@@ -81,8 +82,4 @@ public class TopViewOfBinaryTree {
   }
 
   // TODO: https://www.geeksforgeeks.org/print-nodes-top-view-binary-tree/
-
-  record Pair(Node node, int dist) {
-
-  }
 }
