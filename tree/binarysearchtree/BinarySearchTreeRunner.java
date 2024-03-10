@@ -4,6 +4,7 @@ import java.util.HashSet;
 import tree.BinaryTree;
 import tree.BinaryTree.Node;
 import tree.TreeFormatter;
+import tree.binarysearchtree.lectures.BottomView;
 import tree.binarysearchtree.lectures.CeilInBST;
 import tree.binarysearchtree.lectures.CeilingOnLeftSideInArray;
 import tree.binarysearchtree.lectures.CheckForBST;
@@ -230,5 +231,10 @@ public class BinarySearchTreeRunner {
     System.out.println("\n# TopView => ");
     TopView.execute(tree.root);
     TopView.execute1(tree.root);
+
+    // Bottom View of Binary Tree
+    System.out.println("\n# BottomView => ");
+    BottomView.execute(tree.root);
+    BottomView.execute1(tree.root);
   }
 }
