@@ -13,6 +13,7 @@ import tree.binarysearchtree.lectures.FixBSTWithTwoSwappedNodes;
 import tree.binarysearchtree.lectures.FloorInBST;
 import tree.binarysearchtree.lectures.InsertInBST;
 import tree.binarysearchtree.lectures.KthSmallest;
+import tree.binarysearchtree.lectures.LowestCommonAncestor;
 import tree.binarysearchtree.lectures.PairSumInBST;
 import tree.binarysearchtree.lectures.SearchInBST;
 import tree.binarysearchtree.lectures.TopView;
@@ -236,5 +237,16 @@ public class BinarySearchTreeRunner {
     System.out.println("\n# BottomView => ");
     BottomView.execute(tree.root);
     BottomView.execute1(tree.root);
+
+    // Finding LCA in Binary Search Tree
+    System.out.println("\n# LowestCommonAncestor => ");
+    Node lca = LowestCommonAncestor.execute(tree.root, 10, 80);
+    System.out.println(lca == null ? "No LCA found !" : lca.key);
+    lca = LowestCommonAncestor.execute(tree.root, 17, 20);
+    System.out.println(lca == null ? "No LCA found !" : lca.key);
+    lca = LowestCommonAncestor.execute1(tree.root, 10, 80);
+    System.out.println(lca == null ? "No LCA found !" : lca.key);
+    lca = LowestCommonAncestor.execute1(tree.root, 17, 20);
+    System.out.println(lca == null ? "No LCA found !" : lca.key);
   }
 }
