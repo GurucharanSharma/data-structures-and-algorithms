@@ -75,10 +75,22 @@ public class MaxHeap {
     }
   }
 
+  public int extractMax() {
+    if (size <= 0) {
+      System.out.println("Heap empty !");
+      return Integer.MAX_VALUE;
+    }
+
+    swap(0, --size);
+    heapify(0);
+
+    return arr[size];
+  }
+
   public void print() {
     System.out.print("[");
     for (int i = 0; i < size; i++) {
-      System.out.print(arr[i] + ((i + 1) < size ? ", ": ""));
+      System.out.print(arr[i] + ((i + 1) < size ? ", " : ""));
     }
     System.out.print("]");
     System.out.println();
