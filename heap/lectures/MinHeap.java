@@ -123,6 +123,18 @@ public class MinHeap {
     return true;
   }
 
+  public boolean deleteKey(int i) {
+    if (i < 0 || i >= size) {
+      System.out.println("Invalid index !");
+      return false;
+    }
+
+    swap(i, size - 1);
+    size--;
+    heapify(i);
+    return true;
+  }
+
   public void print() {
     System.out.print("[");
     for (int i = 0; i < size; i++) {
