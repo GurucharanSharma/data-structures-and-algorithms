@@ -1,6 +1,6 @@
 package heap;
 
-import heap.lectures.MaxHeap;
+import heap.lectures.MinHeap;
 
 public class HeapRunner {
 
@@ -59,7 +59,7 @@ public class HeapRunner {
 //    maxHeap.print();
 
     /*
-     * Extract Min
+     * Extract Min in Min Heap
      */
 //    System.out.println("\n# MinHeap.extractMin() => ");
 //    MinHeap minHeap = new MinHeap(10);
@@ -74,7 +74,7 @@ public class HeapRunner {
 //    minHeap.print();
 
     /*
-     * Extract Max
+     * Extract Max in Max Heap
      */
 //    System.out.println("\n# MaxHeap.extractMax() => ");
 //    MaxHeap maxHeap = new MaxHeap(10);
@@ -87,5 +87,27 @@ public class HeapRunner {
 //    maxHeap.print();
 //    System.out.println(maxHeap.extractMax());
 //    maxHeap.print();
+
+    /*
+     * Decrease/Increase Key in Min Heap
+     */
+    System.out.println("\n# MaxHeap.extractMax() => ");
+    MinHeap minHeap = new MinHeap(10);
+    minHeap.decreaseKey(2, 1);
+    minHeap.print();
+    minHeap.insert(50);
+    minHeap.insert(40);
+    minHeap.insert(30);
+    minHeap.insert(20);
+    minHeap.insert(10);
+    minHeap.print();
+    System.out.println(minHeap.decreaseKey(2, 5));
+    minHeap.print();
+    System.out.println(minHeap.decreaseKey(2, 55));
+    minHeap.print();
+    System.out.println(minHeap.increasKey(1, 55));
+    minHeap.print();
+    System.out.println(minHeap.increasKey(1, 5));
+    minHeap.print();
   }
 }

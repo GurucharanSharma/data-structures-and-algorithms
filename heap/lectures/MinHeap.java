@@ -87,10 +87,46 @@ public class MinHeap {
     return arr[size];
   }
 
+  public boolean decreaseKey(int i, int key) {
+    if (i < 0 || i >= size) {
+      System.out.println("Invalid index !");
+      return false;
+    }
+
+    if (key > arr[i]) {
+      System.out.println("Provided value greater !");
+      return false;
+    }
+
+    arr[i] = key;
+    while (i >= 0 && arr[getParent(i)] > arr[i]) {
+      swap(i, getParent(i));
+      i = getParent(i);
+    }
+
+    return true;
+  }
+
+  public boolean increasKey(int i, int key) {
+    if (i < 0 || i >= size) {
+      System.out.println("Invalid index !");
+      return false;
+    }
+
+    if (key < arr[i]) {
+      System.out.println("Provided value smaller !");
+      return false;
+    }
+
+    arr[i] = key;
+    heapify(i);
+    return true;
+  }
+
   public void print() {
     System.out.print("[");
     for (int i = 0; i < size; i++) {
-      System.out.print(arr[i] + ((i + 1) < size ? ", ": ""));
+      System.out.print(arr[i] + ((i + 1) < size ? ", " : ""));
     }
     System.out.print("]");
     System.out.println();
