@@ -52,6 +52,29 @@ public class MinHeap {
     }
   }
 
+  public void heapify(int i) {
+    if (i < 0 || i >= size) {
+      System.out.println("Invalid index !");
+      return;
+    }
+
+    int min = i;
+    int left = getLeft(i);    // left
+    if (left < size && arr[min] > arr[left]) {
+      min = left;
+    }
+
+    int right = getRight(i);  // right
+    if (right < size && arr[min] > arr[right]) {
+      min = right;
+    }
+
+    if (min != i) {
+      swap(i, min);
+      heapify(min);
+    }
+  }
+
   public void print() {
     System.out.print("[");
     for (int i : arr) {
