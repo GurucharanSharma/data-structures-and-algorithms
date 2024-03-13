@@ -1,5 +1,6 @@
 package heap;
 
+import heap.lectures.MaxHeap;
 import heap.lectures.MinHeap;
 
 public class HeapRunner {
@@ -91,23 +92,45 @@ public class HeapRunner {
     /*
      * Decrease/Increase Key in Min Heap
      */
-    System.out.println("\n# MaxHeap.extractMax() => ");
-    MinHeap minHeap = new MinHeap(10);
-    minHeap.decreaseKey(2, 1);
-    minHeap.print();
-    minHeap.insert(50);
-    minHeap.insert(40);
-    minHeap.insert(30);
-    minHeap.insert(20);
-    minHeap.insert(10);
-    minHeap.print();
-    System.out.println(minHeap.decreaseKey(2, 5));
-    minHeap.print();
-    System.out.println(minHeap.decreaseKey(2, 55));
-    minHeap.print();
-    System.out.println(minHeap.increasKey(1, 55));
-    minHeap.print();
-    System.out.println(minHeap.increasKey(1, 5));
-    minHeap.print();
+//    System.out.println("\n# MinHeap.decreaseKey() / MinHeap.increaseKey() => ");
+//    MinHeap minHeap = new MinHeap(10);
+//    minHeap.decreaseKey(2, 1);
+//    minHeap.print();
+//    minHeap.insert(50);
+//    minHeap.insert(40);
+//    minHeap.insert(30);
+//    minHeap.insert(20);
+//    minHeap.insert(10);
+//    minHeap.print();
+//    System.out.println(minHeap.decreaseKey(2, 5));
+//    minHeap.print();
+//    System.out.println(minHeap.decreaseKey(2, 55));
+//    minHeap.print();
+//    System.out.println(minHeap.increasKey(1, 55));
+//    minHeap.print();
+//    System.out.println(minHeap.increasKey(1, 5));
+//    minHeap.print();
+
+    /*
+     * Decrease/Increase Key in Max Heap
+     */
+    System.out.println("\n# MaxHeap.decreaseKey() / MaxHeap.increaseKey() => ");
+    MaxHeap maxHeap = new MaxHeap(10);
+    maxHeap.decreaseKey(2, 1);
+    maxHeap.print();
+    maxHeap.insert(50);
+    maxHeap.insert(40);
+    maxHeap.insert(30);
+    maxHeap.insert(20);
+    maxHeap.insert(10);
+    maxHeap.print();
+    System.out.println(maxHeap.decreaseKey(2, 5));
+    maxHeap.print();
+    System.out.println(maxHeap.decreaseKey(2, 55));
+    maxHeap.print();
+    System.out.println(maxHeap.increaseKey(1, 55));
+    maxHeap.print();
+    System.out.println(maxHeap.increaseKey(1, 5));
+    maxHeap.print();
   }
 }
