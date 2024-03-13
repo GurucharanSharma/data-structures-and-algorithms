@@ -52,6 +52,29 @@ public class MaxHeap {
     }
   }
 
+  public void heapify(int i) {
+    if (i < 0 || i >= size) {
+      System.out.println("Invalid index !");
+      return;
+    }
+
+    int max = i;
+    int left = getLeft(i);
+    if (left < size && arr[left] > arr[max]) {
+      max = left;
+    }
+
+    int right = getRight(i);
+    if (right < size && arr[right] > arr[max]) {
+      max = right;
+    }
+
+    if (max != i) {
+      swap(i, max);
+      heapify(max);
+    }
+  }
+
   public void print() {
     System.out.print("[");
     for (int i : arr) {
