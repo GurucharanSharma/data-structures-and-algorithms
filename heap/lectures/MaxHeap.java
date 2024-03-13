@@ -77,8 +77,8 @@ public class MaxHeap {
 
   public void print() {
     System.out.print("[");
-    for (int i : arr) {
-      System.out.print(i + " ");
+    for (int i = 0; i < size; i++) {
+      System.out.print(arr[i] + ((i + 1) < size ? ", ": ""));
     }
     System.out.print("]");
     System.out.println();

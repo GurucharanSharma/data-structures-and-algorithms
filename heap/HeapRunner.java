@@ -1,6 +1,6 @@
 package heap;
 
-import heap.lectures.MaxHeap;
+import heap.lectures.MinHeap;
 
 public class HeapRunner {
 
@@ -50,12 +50,27 @@ public class HeapRunner {
     /*
      * Maximum heapify
      */
-    System.out.println("\n# MaxHeap.heapify() => ");
-    int[] arr = {5, 20, 35, 10, 15, 25};
-    MaxHeap maxHeap = new MaxHeap(arr);
-    maxHeap.print();
-    maxHeap.heapify(50);
-    maxHeap.heapify(0);
-    maxHeap.print();
+//    System.out.println("\n# MaxHeap.heapify() => ");
+//    int[] arr = {5, 20, 35, 10, 15, 25};
+//    MaxHeap maxHeap = new MaxHeap(arr);
+//    maxHeap.print();
+//    maxHeap.heapify(50);
+//    maxHeap.heapify(0);
+//    maxHeap.print();
+
+    /*
+     * Extract Min
+     */
+    System.out.println("\n# MinHeap.extractMin() => ");
+    MinHeap minHeap = new MinHeap(10);
+    System.out.println(minHeap.extractMin());
+    minHeap.insert(10);
+    minHeap.insert(20);
+    minHeap.insert(30);
+    minHeap.insert(5);
+    minHeap.insert(1);
+    minHeap.print();
+    System.out.println(minHeap.extractMin());
+    minHeap.print();
   }
 }
