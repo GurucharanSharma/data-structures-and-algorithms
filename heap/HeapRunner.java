@@ -1,6 +1,6 @@
 package heap;
 
-import heap.lectures.KSmallestElements;
+import heap.lectures.KClosestElements;
 
 public class HeapRunner {
 
@@ -251,13 +251,27 @@ public class HeapRunner {
     /*
      * K Largest Elements
      */
+//    System.out.println("\n# KLargestElements => ");
 //    int[] arr = {1, 23, 12, 9, 30, 2, 50};
 //    KLargestElements.execute(arr, 3);
 
     /*
      * K smallest Elements
      */
+//    System.out.println("\n# KSmallestElements => ");
 //    int[] arr = {1, 23, 12, 9, 30, 2, 50};
 //    KSmallestElements.execute(arr, 3);
+
+    /*
+     * K Closest Elements
+     */
+    System.out.println("\n# KClosestElements => ");
+    int[] arr = {12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
+
+    System.out.println("Approach 1:");
+    KClosestElements.execute(arr, 4, 35);
+
+    System.out.println("Approach 2:");
+    KClosestElements.execute1(arr, 4, 35);
   }
 }
