@@ -1,6 +1,5 @@
 package heap;
 
-import heap.lectures.MaxHeap;
 import heap.lectures.MinHeap;
 
 public class HeapRunner {
@@ -208,5 +207,23 @@ public class HeapRunner {
 //    maxHeap.print();
 //    maxHeap.buildHeap();
 //    maxHeap.print();
+
+    /*
+     * Heap sort (ascending)
+     */
+//    System.out.println("\n# MaxHeap.heapSort() => ");
+//    int[] arr = {5, 23, 6, 89, 4, 85, 45, 50, 7, 3, 10};
+//    MaxHeap maxHeap = new MaxHeap(arr);
+//    maxHeap.heapSort();
+//    maxHeap.print();
+
+    /*
+     * Heap sort (descending)
+     */
+//    System.out.println("\n# MinHeap.heapSort() => ");
+//    int[] arr = {5, 23, 6, 89, 4, 85, 45, 50, 7, 3, 10};
+//    MinHeap minHeap = new MinHeap(arr);
+//    minHeap.heapSort();
+//    minHeap.print();
   }
 }

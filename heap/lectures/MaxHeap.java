@@ -75,6 +75,28 @@ public class MaxHeap {
     }
   }
 
+  public void heapify(int start, int end) {
+    if (start < 0 || start >= size || start >= end) {
+      return;
+    }
+
+    int max = start;
+    int left = getLeft(start);
+    if (left < end && arr[left] > arr[max]) {
+      max = left;
+    }
+
+    int right = getRight(start);
+    if (right < end && arr[right] > arr[max]) {
+      max = right;
+    }
+
+    if (max != start) {
+      swap(start, max);
+      heapify(max, end);
+    }
+  }
+
   public int extractMax() {
     if (size <= 0) {
       System.out.println("Heap empty !");
@@ -150,12 +172,24 @@ public class MaxHeap {
   }
 
   public void buildHeap() {
-    if (arr.length == 0 || arr.length == 1) {
+    if (size == 0 || size == 1) {
       return;
     }
 
     for (int i = (arr.length - 2) / 2; i >= 0; i--) {
       heapify(i);
+    }
+  }
+
+  public void heapSort() {
+    if (size == 0 || size == 1) {
+      return;
+    }
+
+    buildHeap();
+    for (int i = size - 1; i >= 0; i--) {
+      swap(0, i);
+      heapify(0, i);
     }
   }
 

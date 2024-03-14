@@ -75,6 +75,29 @@ public class MinHeap {
     }
   }
 
+  public void heapify(int start, int end) {
+    if (start < 0 || start >= size || start >= end) {
+      System.out.println("Invalid index !");
+      return;
+    }
+
+    int min = start;
+    int left = getLeft(start);    // left
+    if (left < end && arr[min] > arr[left]) {
+      min = left;
+    }
+
+    int right = getRight(start);  // right
+    if (right < end && arr[min] > arr[right]) {
+      min = right;
+    }
+
+    if (min != start) {
+      swap(start, min);
+      heapify(min, end);
+    }
+  }
+
   public int extractMin() {
     if (size <= 0) {
       System.out.println("Heap empty !");
@@ -148,12 +171,24 @@ public class MinHeap {
   }
 
   public void buildHeap() {
-    if (arr.length == 0 || arr.length == 1) {
+    if (size == 0 || size == 1) {
       return;
     }
 
     for (int i = (arr.length - 2) / 2; i >= 0; i--) {
       heapify(i);
+    }
+  }
+
+  public void heapSort() {
+    if (size == 0 || size == 1) {
+      return;
+    }
+
+    buildHeap();
+    for (int i = size - 1; i >= 0; i--) {
+      swap(0, i);
+      heapify(0, i);
     }
   }
 
