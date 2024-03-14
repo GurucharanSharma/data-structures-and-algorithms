@@ -1,7 +1,6 @@
 package heap;
 
-import heap.lectures.SortKSortedArray;
-import java.util.Arrays;
+import heap.lectures.MaximumItems;
 
 public class HeapRunner {
 
@@ -234,6 +233,19 @@ public class HeapRunner {
 //    SortKSortedArray.execute(arr, 3);
 //    System.out.println(Arrays.toString(arr));
 
+    /*
+     * Buy Maximum Items with Given Sum
+     */
+    System.out.println("\n# MaximumItems() => ");
+    int[] cost1 = {1, 12, 5, 111, 200, 1000, 10, 9, 12, 15};
+    int[] cost2 = {1, 12, 5, 111, 200, 1000, 10};
 
+    System.out.println("Approach 1:");
+    System.out.println(MaximumItems.execute(cost1, 50));
+    System.out.println(MaximumItems.execute(cost2, 50));
+
+    System.out.println("Approach 2:");
+    System.out.println(MaximumItems.execute1(cost1, 50));
+    System.out.println(MaximumItems.execute1(cost2, 50));
   }
 }
