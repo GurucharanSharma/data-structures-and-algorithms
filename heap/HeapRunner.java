@@ -1,6 +1,6 @@
 package heap;
 
-import heap.lectures.MaximumItems;
+import heap.lectures.KSmallestElements;
 
 public class HeapRunner {
 
@@ -236,16 +236,28 @@ public class HeapRunner {
     /*
      * Buy Maximum Items with Given Sum
      */
-    System.out.println("\n# MaximumItems() => ");
-    int[] cost1 = {1, 12, 5, 111, 200, 1000, 10, 9, 12, 15};
-    int[] cost2 = {1, 12, 5, 111, 200, 1000, 10};
+//    System.out.println("\n# MaximumItems() => ");
+//    int[] cost1 = {1, 12, 5, 111, 200, 1000, 10, 9, 12, 15};
+//    int[] cost2 = {1, 12, 5, 111, 200, 1000, 10};
+//
+//    System.out.println("Approach 1:");
+//    System.out.println(MaximumItems.execute(cost1, 50));
+//    System.out.println(MaximumItems.execute(cost2, 50));
+//
+//    System.out.println("Approach 2:");
+//    System.out.println(MaximumItems.execute1(cost1, 50));
+//    System.out.println(MaximumItems.execute1(cost2, 50));
 
-    System.out.println("Approach 1:");
-    System.out.println(MaximumItems.execute(cost1, 50));
-    System.out.println(MaximumItems.execute(cost2, 50));
+    /*
+     * K Largest Elements
+     */
+//    int[] arr = {1, 23, 12, 9, 30, 2, 50};
+//    KLargestElements.execute(arr, 3);
 
-    System.out.println("Approach 2:");
-    System.out.println(MaximumItems.execute1(cost1, 50));
-    System.out.println(MaximumItems.execute1(cost2, 50));
+    /*
+     * K smallest Elements
+     */
+//    int[] arr = {1, 23, 12, 9, 30, 2, 50};
+//    KSmallestElements.execute(arr, 3);
   }
 }
