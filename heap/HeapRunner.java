@@ -1,6 +1,7 @@
 package heap;
 
-import heap.lectures.MinHeap;
+import heap.lectures.SortKSortedArray;
+import java.util.Arrays;
 
 public class HeapRunner {
 
@@ -225,5 +226,14 @@ public class HeapRunner {
 //    MinHeap minHeap = new MinHeap(arr);
 //    minHeap.heapSort();
 //    minHeap.print();
+
+    /*
+     * Sort K-Sorted array
+     */
+//    int[] arr = {2, 6, 3, 12, 56, 8};
+//    SortKSortedArray.execute(arr, 3);
+//    System.out.println(Arrays.toString(arr));
+
+
   }
 }
