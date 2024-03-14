@@ -149,6 +149,16 @@ public class MaxHeap {
     return true;
   }
 
+  public void buildHeap() {
+    if (arr.length == 0 || arr.length == 1) {
+      return;
+    }
+
+    for (int i = (arr.length - 2) / 2; i >= 0; i--) {
+      heapify(i);
+    }
+  }
+
   public void print() {
     System.out.print("[");
     for (int i = 0; i < size; i++) {

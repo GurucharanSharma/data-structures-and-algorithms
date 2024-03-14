@@ -188,5 +188,25 @@ public class HeapRunner {
 //    maxHeap.print();
 //    System.out.println(maxHeap.deleteKey1(0));
 //    maxHeap.print();
+
+    /*
+     * Build min heap
+     */
+//    System.out.println("\n# MinHeap.buildHeap() => ");
+//    int[] arr = {5, 23, 6, 89, 4, 85, 45, 50, 7, 3, 10};
+//    MinHeap minHeap = new MinHeap(arr);
+//    minHeap.print();
+//    minHeap.buildHeap();
+//    minHeap.print();
+
+    /*
+     * Build max heap
+     */
+//    System.out.println("\n# MinHeap.buildHeap() => ");
+//    int[] arr = {5, 23, 6, 89, 4, 85, 45, 50, 7, 3, 10};
+//    MaxHeap maxHeap = new MaxHeap(arr);
+//    maxHeap.print();
+//    maxHeap.buildHeap();
+//    maxHeap.print();
   }
 }
