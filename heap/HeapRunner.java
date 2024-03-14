@@ -1,6 +1,6 @@
 package heap;
 
-import heap.lectures.KClosestElements;
+import heap.lectures.MergeKSortedArrays;
 
 public class HeapRunner {
 
@@ -265,13 +265,28 @@ public class HeapRunner {
     /*
      * K Closest Elements
      */
-    System.out.println("\n# KClosestElements => ");
-    int[] arr = {12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
+//    System.out.println("\n# KClosestElements => ");
+//    int[] arr = {12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
+//
+//    System.out.println("Approach 1:");
+//    KClosestElements.execute(arr, 4, 35);
+//
+//    System.out.println("Approach 2:");
+//    KClosestElements.execute1(arr, 4, 35);
+
+    /*
+     * Merge K Sorted Arrays
+     */
+    System.out.println("\n# MergeKSortedArrays => ");
+    int[][] arr = {{1, 3, 13, 15}, {2, 4, 6, 12}, {0, 9, 10, 11, 14, 20, 21}, {16, 17, 18, 19, 22}};
 
     System.out.println("Approach 1:");
-    KClosestElements.execute(arr, 4, 35);
+    MergeKSortedArrays.execute(arr);
 
     System.out.println("Approach 2:");
-    KClosestElements.execute1(arr, 4, 35);
+    MergeKSortedArrays.execute1(arr);
+
+    System.out.println("Approach 3:");
+    MergeKSortedArrays.execute2(arr);
   }
 }
