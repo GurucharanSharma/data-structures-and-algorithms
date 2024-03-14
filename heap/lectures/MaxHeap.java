@@ -124,6 +124,31 @@ public class MaxHeap {
     return true;
   }
 
+  public boolean deleteKey1(int i) {
+    if (i < 0 || i >= size) {
+      System.out.println("Invalid index !");
+      return false;
+    }
+
+    increaseKey(i, Integer.MAX_VALUE);
+    extractMax();
+
+    return true;
+  }
+
+  public boolean deleteKey2(int i) {
+    if (i < 0 || i >= size) {
+      System.out.println("Invalid index !");
+      return false;
+    }
+
+    swap(i, size - 1);
+    size--;
+    heapify(i);
+
+    return true;
+  }
+
   public void print() {
     System.out.print("[");
     for (int i = 0; i < size; i++) {

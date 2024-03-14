@@ -1,5 +1,6 @@
 package heap;
 
+import heap.lectures.MaxHeap;
 import heap.lectures.MinHeap;
 
 public class HeapRunner {
@@ -135,29 +136,57 @@ public class HeapRunner {
     /*
      * Delete key in Min Heap
      */
-    System.out.println("MinHeap.deleteKey() => ");
-    MinHeap minHeap = new MinHeap(10);
-    minHeap.deleteKey(1);
-    minHeap.print();
-    minHeap.insert(50);
-    minHeap.insert(40);
-    minHeap.insert(30);
-    minHeap.insert(20);
-    minHeap.insert(10);
-    minHeap.print();
-    System.out.println(minHeap.deleteKey(1));
-    minHeap.print();
-    System.out.println(minHeap.deleteKey(0));
-    minHeap.print();
-    System.out.println(minHeap.deleteKey(0));
-    minHeap.print();
-    System.out.println(minHeap.deleteKey(0));
-    minHeap.print();
-    System.out.println(minHeap.deleteKey(0));
-    minHeap.print();
-    System.out.println(minHeap.deleteKey(0));
-    minHeap.print();
-    System.out.println(minHeap.deleteKey(0));
-    minHeap.print();
+//    System.out.println("\n# MinHeap.deleteKey() => ");
+//    MinHeap minHeap = new MinHeap(10);
+//    minHeap.deleteKey1(1);
+//    minHeap.print();
+//    minHeap.insert(50);
+//    minHeap.insert(40);
+//    minHeap.insert(30);
+//    minHeap.insert(20);
+//    minHeap.insert(10);
+//    minHeap.print();
+//    System.out.println(minHeap.deleteKey1(1));
+//    minHeap.print();
+//    System.out.println(minHeap.deleteKey1(0));
+//    minHeap.print();
+//    System.out.println(minHeap.deleteKey1(0));
+//    minHeap.print();
+//    System.out.println(minHeap.deleteKey1(0));
+//    minHeap.print();
+//    System.out.println(minHeap.deleteKey1(0));
+//    minHeap.print();
+//    System.out.println(minHeap.deleteKey1(0));
+//    minHeap.print();
+//    System.out.println(minHeap.deleteKey1(0));
+//    minHeap.print();
+
+    /*
+     * Delete key in Max Heap
+     */
+//    System.out.println("\n# MaxHeap.deleteKey() => ");
+//    MaxHeap maxHeap = new MaxHeap(10);
+//    maxHeap.deleteKey1(1);
+//    maxHeap.print();
+//    maxHeap.insert(50);
+//    maxHeap.insert(40);
+//    maxHeap.insert(30);
+//    maxHeap.insert(20);
+//    maxHeap.insert(10);
+//    maxHeap.print();
+//    System.out.println(maxHeap.deleteKey1(1));
+//    maxHeap.print();
+//    System.out.println(maxHeap.deleteKey1(0));
+//    maxHeap.print();
+//    System.out.println(maxHeap.deleteKey1(0));
+//    maxHeap.print();
+//    System.out.println(maxHeap.deleteKey1(0));
+//    maxHeap.print();
+//    System.out.println(maxHeap.deleteKey1(0));
+//    maxHeap.print();
+//    System.out.println(maxHeap.deleteKey1(0));
+//    maxHeap.print();
+//    System.out.println(maxHeap.deleteKey1(0));
+//    maxHeap.print();
   }
 }

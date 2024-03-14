@@ -107,7 +107,7 @@ public class MinHeap {
     return true;
   }
 
-  public boolean increasKey(int i, int key) {
+  public boolean increaseKey(int i, int key) {
     if (i < 0 || i >= size) {
       System.out.println("Invalid index !");
       return false;
@@ -123,7 +123,7 @@ public class MinHeap {
     return true;
   }
 
-  public boolean deleteKey(int i) {
+  public boolean deleteKey1(int i) {
     if (i < 0 || i >= size) {
       System.out.println("Invalid index !");
       return false;
@@ -132,6 +132,18 @@ public class MinHeap {
     swap(i, size - 1);
     size--;
     heapify(i);
+    return true;
+  }
+
+  public boolean deleteKey2(int i) {
+    if (i < 0 || i >= size) {
+      System.out.println("Invalid index !");
+      return false;
+    }
+
+    decreaseKey(i, Integer.MIN_VALUE);
+    extractMin();
+
     return true;
   }
 
