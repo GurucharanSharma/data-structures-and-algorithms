@@ -1,6 +1,7 @@
 package mathematics;
 
 import mathematics.lectures.CountDigits;
+import mathematics.problems.CheckArmstrong;
 import mathematics.problems.ModulerMultiplicativeInverse;
 import mathematics.problems.PalindromeNumber;
 import mathematics.problems.ReverseBits;
@@ -39,10 +40,15 @@ public class MathematicsRunner {
 //        System.out.println(ReverseBits.reverseBits(4));
 
 //        System.out.println(PalindromeNumber.palindromeNumber(51415));
-        System.out.println(PalindromeNumber.palindromeNumber2(51415));
+//        System.out.println(PalindromeNumber.palindromeNumber2(51415));
 //        System.out.println(PalindromeNumber.palindromeNumber(1032));
-        System.out.println(PalindromeNumber.palindromeNumber2(1032));
+//        System.out.println(PalindromeNumber.palindromeNumber2(1032));
 //        System.out.println(PalindromeNumber.palindromeNumber(121));
-        System.out.println(PalindromeNumber.palindromeNumber2(121));
+//        System.out.println(PalindromeNumber.palindromeNumber2(121));
+
+        System.out.println(CheckArmstrong.checkArmstrong(371));
+        System.out.println(CheckArmstrong.checkArmstrong(1634));
+
+
     }
 }
