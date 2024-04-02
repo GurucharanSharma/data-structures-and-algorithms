@@ -6,6 +6,7 @@ import java.util.Arrays;
  * List all prime number less than the number N
  */
 public class SieveOfEratosthenes {
+
     public static void main(String[] args) {
         int n = 16;
         sieve_2(n);
@@ -24,11 +25,11 @@ public class SieveOfEratosthenes {
         }
 
         for (int i = 2; i <= n; i++) {
-            if (primeArray[i] == true) {
+            if (primeArray[i]) {
                 System.out.print(i + " ");
             }
         }
-    } 
+    }
 
     public static void sieve_2(int n) {
         boolean[] primeArray = new boolean[n + 1];
@@ -45,12 +46,20 @@ public class SieveOfEratosthenes {
     }
 
     public static boolean isPrime(int N) {
-        if (N == 2 || N == 3 || N == 5) return true;
-        if (N == 1 || N % 2 == 0 || N % 3 == 0) return false;
+        if (N == 2 || N == 3 || N == 5 || N == 7) {
+            return true;
+        }
+        if (N == 1 || N % 2 == 0 || N % 3 == 0 || N % 7 == 0) {
+            return false;
+        }
 
-        for (int i = 5; i <= Math.sqrt(N); i = i + 6) {
-            if (N % i == 0) return false;
-            if (N % (i + 2) == 0) return false;
+        for (int i = 11; i <= Math.sqrt(N); i = i + 6) {
+            if (N % i == 0) {
+                return false;
+            }
+            if (N % (i + 2) == 0) {
+                return false;
+            }
         }
 
         return true;

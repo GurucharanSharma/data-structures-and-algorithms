@@ -1,6 +1,8 @@
 package mathematics;
 
+import mathematics.lectures.CheckForPrime;
 import mathematics.lectures.CountDigits;
+import mathematics.lectures.Factorial;
 import mathematics.problems.CheckArmstrong;
 import mathematics.problems.ModulerMultiplicativeInverse;
 import mathematics.problems.PalindromeNumber;
@@ -46,9 +48,12 @@ public class MathematicsRunner {
 //        System.out.println(PalindromeNumber.palindromeNumber(121));
 //        System.out.println(PalindromeNumber.palindromeNumber2(121));
 
-        System.out.println(CheckArmstrong.checkArmstrong(371));
-        System.out.println(CheckArmstrong.checkArmstrong(1634));
+//        System.out.println(CheckArmstrong.checkArmstrong(371));
+//        System.out.println(CheckArmstrong.checkArmstrong(1634));
 
+//        System.out.println(Factorial.factorialOfANumber(5));
+//        System.out.println(Factorial.factorialOfANumber1(5));
 
+        System.out.println(CheckForPrime.checkForPrime(429));
     }
 }
