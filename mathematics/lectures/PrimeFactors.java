@@ -2,7 +2,7 @@ package mathematics.lectures;
 
 public class PrimeFactors {
     public static void main(String[] args) {
-        int n = 450;
+        int n = 457;
         System.out.println("Prime Factors 1: ");
         primeFactors_1(n);
 

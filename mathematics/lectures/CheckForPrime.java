@@ -20,6 +20,8 @@ public class CheckForPrime {
         for (int i = 11; i < Math.sqrt(n); i = i + 6) {
             if (n % i == 0) {
                 return false;
+            } else if (n % (i + 2) == 0) {
+                return false;
             }
         }
 

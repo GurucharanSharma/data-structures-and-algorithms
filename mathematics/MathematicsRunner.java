@@ -54,6 +54,6 @@ public class MathematicsRunner {
 //        System.out.println(Factorial.factorialOfANumber(5));
 //        System.out.println(Factorial.factorialOfANumber1(5));
 
-        System.out.println(CheckForPrime.checkForPrime(429));
+        System.out.println(CheckForPrime.checkForPrime(169));
     }
 }
