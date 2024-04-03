@@ -21,5 +21,8 @@ public class BinaryRepresentation {
 
         StringBuffer input = new StringBuffer(reverseBinaery);
         System.out.println(input.reverse());
+
+        int[] arr = new int[4];
+        System.out.println(Arrays.toString(arr));
     }
 }
