@@ -4,6 +4,7 @@ import mathematics.lectures.CheckForPrime;
 import mathematics.lectures.CountDigits;
 import mathematics.lectures.Factorial;
 import mathematics.problems.CheckArmstrong;
+import mathematics.problems.GPTerm;
 import mathematics.problems.ModulerMultiplicativeInverse;
 import mathematics.problems.PalindromeNumber;
 import mathematics.problems.ReverseBits;
@@ -27,8 +28,7 @@ public class MathematicsRunner {
         // Problems.Exactly3Divisors exactly3Divisors = new Problems.Exactly3Divisors();
         // System.out.println(exactly3Divisors.exactly3Divisors(999999));
 
-        // Problems.GPTerm gpTerm = new Problems.GPTerm();
-        // System.out.println(gpTerm.termOfGP(2, 3, 1));
+         System.out.println(GPTerm.termOfGP(84, 87, 3));
 
 //        ModulerMultiplicativeInverse modulerMultiplicativeInverse = new ModulerMultiplicativeInverse();
 //        System.out.println(modulerMultiplicativeInverse.modInverse(10, 17));

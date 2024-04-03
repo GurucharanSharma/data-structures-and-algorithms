@@ -18,9 +18,7 @@ public class CheckForPrime {
         // because if a number is expressed as n = xy and any of the x or y is greater than the root of n,
         // the other must be less than the root value
         for (int i = 11; i < Math.sqrt(n); i = i + 6) {
-            if (n % i == 0) {
-                return false;
-            } else if (n % (i + 2) == 0) {
+            if (n % i == 0 || n % (i + 2) == 0) {
                 return false;
             }
         }
