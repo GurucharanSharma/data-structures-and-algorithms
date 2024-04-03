@@ -14,8 +14,17 @@ public class SieveOfEratosthenes {
 
     public static void sieve_1(int n) {
         boolean[] primeArray = new boolean[n + 1];
-        Arrays.fill(primeArray, true);
+        for (int i = 2; i < n + 1; i++) {
+            primeArray[i] = true;
+        }
 
+        // According to the algorithm we will mark all the numbers which are divisible by 2 and are greater than or
+        // equal to the square of it.
+        // Now we move to our next unmarked number 3 and mark all the numbers which are multiples of 3 and are greater
+        // than or equal to the square of it.
+        // We move to our next unmarked number 5 and mark all multiples of 5 and are greater than or equal to the
+        // square of it.
+        // We will continue this process till root of n.
         for (int i = 2; i <= Math.sqrt(n); i++) {
             if (isPrime(i)) {
                 for (int j = 2 * i; j <= n; j = j + i) {
@@ -24,16 +33,22 @@ public class SieveOfEratosthenes {
             }
         }
 
-        for (int i = 2; i <= n; i++) {
+        for (int i = 0; i <= n; i++) {
             if (primeArray[i]) {
                 System.out.print(i + " ");
             }
         }
     }
 
+    /**
+     * Time Complexity: O(n*log(log(n))) <br>
+     * Auxiliary Space: O(n)
+     */
     public static void sieve_2(int n) {
         boolean[] primeArray = new boolean[n + 1];
-        Arrays.fill(primeArray, true);
+        for (int i = 2; i < n + 1; i++) {
+            primeArray[i] = true;
+        }
 
         for (int i = 2; i <= n; i++) {
             if (isPrime(i)) {
@@ -41,6 +56,12 @@ public class SieveOfEratosthenes {
                 for (int j = i * i; j <= n; j = j + i) {
                     primeArray[j] = false;
                 }
+            }
+        }
+
+        for (int i = 0; i <= n; i++) {
+            if (primeArray[i]) {
+                System.out.print(i + " ");
             }
         }
     }
