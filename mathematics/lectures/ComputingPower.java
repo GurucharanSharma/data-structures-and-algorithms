@@ -26,12 +26,11 @@ public class ComputingPower {
     }
 
     private static int recursiveSolution(int x, int y) {
-        int temp;
         if (y == 0) {
             return 1;
         }
 
-        temp = recursiveSolution(x, y / 2);
+        int temp = recursiveSolution(x, y / 2);
         
         if (y % 2 == 0) {
             return temp * temp;

@@ -21,7 +21,7 @@ package recursion.lectures;
 public class TowerOfHanoi {
 
     public static void main(String[] args) {
-        moveDisc(5, 1, 2, 3);
+        moveDisc(2, 1, 2, 3);
     }
 
     static void moveDisc(int disk, int a, int b, int c) {

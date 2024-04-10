@@ -5,8 +5,10 @@ import java.util.Arrays;
 public class FibonacciNumber {
 
     public static void main(String[] args) {
+        System.out.println("Approach 1");
         System.out.println(generateFibonacci(10));
 
+        System.out.println("Approach 3");
         int sum = 0;
         for (int i: generateFibonacci1(10)) {
             sum = sum + i;
@@ -16,7 +18,7 @@ public class FibonacciNumber {
     }
 
     /**
-     * Approach 1
+     * Find nth fibonacci number
      */
     static int generateFibonacci(int n) {
         if (n <= 1) {
@@ -27,7 +29,7 @@ public class FibonacciNumber {
     }
 
     /**
-     * Approach 2
+     * Generate all n fibonacci numbers
      */
     public static int[] generateFibonacci1(int n) {
         int[] arr = new int[n];
