@@ -1,8 +1,7 @@
 package recursion;
 
-import recursion.problems.AtoI;
-import recursion.problems.GoodNumbers;
-import recursion.problems.PossibleWords;
+import java.util.Stack;
+import recursion.problems.SortStack;
 
 public class RecursionRunner {
 
@@ -33,10 +32,33 @@ public class RecursionRunner {
 //        System.out.println(AtoI.atoi("45rohit12"));
 //        System.out.println(AtoI.atoi(" +9743764253581200415067431L"));
 
-        System.out.println(GoodNumbers.goodNumbers(840, 850, 6));
-        System.out.println(GoodNumbers.goodNumbers(20, 45, 1));
+//        System.out.println(GoodNumbers.goodNumbers(840, 850, 6));
+//        System.out.println(GoodNumbers.goodNumbers(20, 45, 1));
+//
+//        System.out.println(GoodNumbers.goodNumbers1(840, 850, 6));
+//        System.out.println(GoodNumbers.goodNumbers1(20, 45, 1));
 
-        System.out.println(GoodNumbers.goodNumbers1(840, 850, 6));
-        System.out.println(GoodNumbers.goodNumbers1(20, 45, 1));
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(11);
+//        stack.push(22);
+//        stack.push(33);
+//        stack.push(44);
+//        stack.push(55);
+//
+//        System.out.println(stack);
+//        ReverseStack.reverseStack(stack);
+//        System.out.println(stack);
+
+
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(-5);
+        stack.push(18);
+        stack.push(14);
+        stack.push(-3);
+
+        System.out.println("Original Stack: " + stack);
+        SortStack.sortStack(stack);
+        System.out.println("Sorted Stack: " + stack);
     }
 }
