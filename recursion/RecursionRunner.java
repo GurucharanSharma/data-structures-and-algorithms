@@ -1,7 +1,6 @@
 package recursion;
 
-import java.util.Stack;
-import recursion.problems.SortStack;
+import recursion.problems.SubsequencesWithGivenSum;
 
 public class RecursionRunner {
 
@@ -49,16 +48,27 @@ public class RecursionRunner {
 //        ReverseStack.reverseStack(stack);
 //        System.out.println(stack);
 
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(30);
+//        stack.push(-5);
+//        stack.push(18);
+//        stack.push(14);
+//        stack.push(-3);
+//
+//        System.out.println("Original Stack: " + stack);
+//        SortStack.sortStack(stack);
+//        System.out.println("Sorted Stack: " + stack);
 
-        Stack<Integer> stack = new Stack<>();
-        stack.push(30);
-        stack.push(-5);
-        stack.push(18);
-        stack.push(14);
-        stack.push(-3);
+//        List<String> list = GenerateBinaryStrings.generateString(3);
+//        System.out.println(list);
 
-        System.out.println("Original Stack: " + stack);
-        SortStack.sortStack(stack);
-        System.out.println("Sorted Stack: " + stack);
+//        List<String> list = GenerateParenthesis.validParenthesis(3);
+//        System.out.println(list);
+
+//        System.out.println(MoreSubsequence.moreSubsequence(3, 4, "abc", "dddd"));
+
+        long k = 3;
+        int[] a = {1, 2, 3, 1, 1, 1};
+        System.out.println(SubsequencesWithGivenSum.subarraysWithSumK(a, k));
     }
 }
