@@ -7,27 +7,52 @@ public class SubsequencesWithGivenSum {
 
     public static List<List<Integer>> subarraysWithSumK(int[] a, long k) {
         List<List<Integer>> result = new ArrayList<>();
-
-        int count = countSubArrays(a, 0, 0, k);
-        System.out.println(count);
-
+        countSubArrays(a, 0, 0, k, new ArrayList<>(), result);
         return result;
     }
 
-    private static int countSubArrays(int[] a, int i, long s, long k) {
-        if (i == a.length) {
-            System.out.println("> " + i);
-            if (s == k) {
-                System.out.println("- " + s);
-                return 1;
-            }
+    /**
+     * Approach 1
+     */
+    private static int countSubArrays(int[] a, int i, long s, long k, List<Integer> curr, List<List<Integer>> result) {
+        if (s == k) {
+            result.add(new ArrayList<>(curr));
+            return 1;
+        }
 
+        if (i == a.length || s > k) {
             return 0;
         }
 
-        int left = countSubArrays(a, i + 1, s, k);
-        int right = countSubArrays(a, i + 1, s + a[i], k);
+        curr.add(a[i]);
+        int left = countSubArrays(a, i + 1, s + a[i], k, curr, result);
+
+        curr.remove(curr.size() - 1);
+        int right = countSubArrays(a, i + 1, s, k, curr, result);
 
         return left + right;
+    }
+
+    /**
+     * Approach 2
+     */
+    public static int countSubArrays(int[] arr, int index, long K) {
+        // Base case: if sum becomes K
+        if (K == 0) {
+            return 1;
+        }
+        // Base case: if index exceeds the array length or sum becomes negative
+        if (index == arr.length || K < 0) {
+            return 0;
+        }
+
+        // Recursive case: include the current element in the subsequence
+        int include = countSubArrays(arr, index + 1, K - arr[index]);
+
+        // Recursive case: exclude the current element from the subsequence
+        int exclude = countSubArrays(arr, index + 1, K);
+
+        // Return the sum of subsequences including and excluding the current element
+        return include + exclude;
     }
 }

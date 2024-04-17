@@ -9,8 +9,8 @@ import java.util.stream.Stream;
 
 public class SubsetSumProblem {
     public static void main(String[] args) {
-        List<Integer> set = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        subsetSum(set, new ArrayList<>(), 0, 9);
+        List<Integer> set = Arrays.asList(1, 2, 3, 1, 1, 1);
+        subsetSum(set, new ArrayList<>(), 0, 3);
 
         System.out.println("Subset count: " + countSubsets(set, set.size(), 9));
     }
@@ -18,7 +18,7 @@ public class SubsetSumProblem {
     static void subsetSum(List<Integer> set, List<Integer> curr, int i, int sum) {
         if (i >= set.size()) {
             if (curr.stream().mapToLong(a -> a).sum() == sum) {
-                System.out.println(curr.toString());
+                System.out.println(curr);
             }
             
             return;

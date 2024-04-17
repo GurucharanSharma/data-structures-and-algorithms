@@ -1,6 +1,10 @@
 package recursion;
 
-import recursion.problems.SubsequencesWithGivenSum;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import recursion.problems.CombinationSum;
+import recursion.problems.CombinationSumII;
 
 public class RecursionRunner {
 
@@ -67,8 +71,22 @@ public class RecursionRunner {
 
 //        System.out.println(MoreSubsequence.moreSubsequence(3, 4, "abc", "dddd"));
 
-        long k = 3;
-        int[] a = {1, 2, 3, 1, 1, 1};
-        System.out.println(SubsequencesWithGivenSum.subarraysWithSumK(a, k));
+//        long k = 3;
+//        int[] a = {1, 2, 3, 1, 1, 1};
+//        System.out.println(SubsequencesWithGivenSum.subarraysWithSumK(a, k));
+
+//        int k = 84;
+//        int[] a = {22, 17, 19, 46, 48, 27, 22, 39, 20, 13, 18, 50, 36, 45, 4, 12, 23, 34, 24, 15, 42, 12, 4, 19, 48, 45, 13, 8, 38, 10, 24, 42, 30, 29, 17, 36, 41, 43, 39, 7, 41, 43, 15, 49, 47, 6, 41, 30, 21, 1, 7, 2, 44, 49, 30, 24, 35, 5, 7, 41, 17, 27, 32, 9, 45, 40, 27, 24, 38, 39, 19, 33, 30, 42, 34, 16, 40, 9, 5, 31, 28, 7, 24, 37, 22, 46, 25, 23, 21, 30, 28, 24, 48, 13};
+//        System.out.println(SubsetSum.isSubsetPresent(a.length, k, a));
+
+//        int B = 14;
+//        int[] ARR = {13, 3, 2, 17};
+//        System.out.println(CombinationSum.combSum(ARR, B));
+//        System.out.println(CombinationSum.combinationSum(ARR, B));
+
+        List<Integer> arr = Arrays.asList(10, 1, 2, 7, 6, 1, 5);
+        int target = 8;
+//        System.out.println(CombinationSumII.combinationSum2(new ArrayList<Integer>(arr), arr.size(), target));
+        System.out.println(CombinationSumII.combinationSum2_1(new ArrayList<Integer>(arr), arr.size(), target));
     }
 }
