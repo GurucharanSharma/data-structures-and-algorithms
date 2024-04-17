@@ -1,10 +1,6 @@
 package recursion;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import recursion.problems.CombinationSum;
-import recursion.problems.CombinationSumII;
+import recursion.problems.UniqueSubsets;
 
 public class RecursionRunner {
 
@@ -84,9 +80,15 @@ public class RecursionRunner {
 //        System.out.println(CombinationSum.combSum(ARR, B));
 //        System.out.println(CombinationSum.combinationSum(ARR, B));
 
-        List<Integer> arr = Arrays.asList(10, 1, 2, 7, 6, 1, 5);
-        int target = 8;
+//        List<Integer> arr = Arrays.asList(10, 1, 2, 7, 6, 1, 5);
+//        int target = 8;
 //        System.out.println(CombinationSumII.combinationSum2(new ArrayList<Integer>(arr), arr.size(), target));
-        System.out.println(CombinationSumII.combinationSum2_1(new ArrayList<Integer>(arr), arr.size(), target));
+//        System.out.println(CombinationSumII.combinationSum2_1(new ArrayList<Integer>(arr), arr.size(), target));
+
+//        int[] nums = {1, 2};
+//        System.out.println(SubsetSum.subsetSum(nums));
+
+        int[] arr = {1, 1, 2};
+        UniqueSubsets.printSubsets(arr);
     }
 }

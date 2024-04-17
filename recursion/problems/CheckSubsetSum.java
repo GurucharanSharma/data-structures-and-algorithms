@@ -1,6 +1,6 @@
 package recursion.problems;
 
-public class CheckSubsequence {
+public class CheckSubsetSum {
 
     public static boolean isSubsetPresent(int n, int k, int[] a) {
         return subsetSum(n, k, a, 0, 0);
