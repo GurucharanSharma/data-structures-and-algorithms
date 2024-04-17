@@ -1,5 +1,7 @@
 package recursion;
 
+import recursion.problems.CombinationSumIII;
+import recursion.problems.LetterPhone;
 import recursion.problems.UniqueSubsets;
 
 public class RecursionRunner {
@@ -88,7 +90,23 @@ public class RecursionRunner {
 //        int[] nums = {1, 2};
 //        System.out.println(SubsetSum.subsetSum(nums));
 
-        int[] arr = {1, 1, 2};
-        UniqueSubsets.printSubsets(arr);
+//        int[] arr = {1, 1, 2};
+//        UniqueSubsets.printSubsets(arr);
+
+//        System.out.println(CombinationSumIII.combinationSum3(2, 5));
+//        System.out.println(CombinationSumIII.combinationSum3_1(2, 5));
+//        System.out.println();
+//
+//        System.out.println(CombinationSumIII.combinationSum3(3, 8));
+//        System.out.println(CombinationSumIII.combinationSum3_1(3, 8));
+//        System.out.println();
+
+        System.out.println(LetterPhone.letterCombinations("92"));
+        System.out.println();
+        System.out.println(LetterPhone.letterCombinations("23"));
+        System.out.println();
+        System.out.println(LetterPhone.letterCombinations("5"));
+        System.out.println();
+        System.out.println(LetterPhone.letterCombinations("0"));
     }
 }
