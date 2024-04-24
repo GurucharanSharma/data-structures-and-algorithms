@@ -10,12 +10,13 @@ public class PowerSet {
     static void printPowerSet(String str) {
         int n = str.length();
 
-        int powSize = (int) Math.pow(2, n);
+        // Same as doing Math.pow(2, n)
+        int powSize = (1 << n);
 
-        for (int counter = 0; counter < powSize; counter++) {
+        for (int i = 0; i < powSize; i++) {
             for (int j = 0; j < n; j++) {
-                if ((counter & (1 << j)) != 0) {
-                    System.out.print(str.charAt(j));
+                if ((i & (1 << j)) != 0) {
+                    System.out.print(str.charAt(j) + " ");
                 }
             }
 

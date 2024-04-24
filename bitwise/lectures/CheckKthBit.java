@@ -16,6 +16,6 @@ public class CheckKthBit {
     static boolean isKthBitSet_2(int n, int k) {
         int x = n >> (k - 1);
 
-        return (x & 1) != 0;
+        return (x & 1) != 0; // or (1 & x) == 1
     }
 }
