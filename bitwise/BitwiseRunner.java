@@ -1,5 +1,6 @@
 package bitwise;
 
+import bitwise.problems.BitDifference;
 import bitwise.problems.CountTotalSetBits;
 import bitwise.problems.FindFirstSetBit;
 import bitwise.problems.RightmostDifferentBit;
@@ -20,8 +21,11 @@ public class BitwiseRunner {
 //        System.out.println(CountTotalSetBits.countSetBits2(17));
 //        System.out.println();
 
-        System.out.println(RightmostDifferentBit.posOfRightMostDiffBit(11, 9));
-        System.out.println(RightmostDifferentBit.posOfRightMostDiffBit(52, 4));
-        System.out.println(RightmostDifferentBit.posOfRightMostDiffBit(15, 3));
+//        System.out.println(RightmostDifferentBit.posOfRightMostDiffBit(11, 9));
+//        System.out.println(RightmostDifferentBit.posOfRightMostDiffBit(52, 4));
+//        System.out.println(RightmostDifferentBit.posOfRightMostDiffBit(15, 3));
+
+        System.out.println(BitDifference.countBitsFlip(10, 20));
+        System.out.println(BitDifference.countBitsFlip(20, 25));
     }
 }
