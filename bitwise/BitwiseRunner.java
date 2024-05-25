@@ -1,10 +1,6 @@
 package bitwise;
 
-import bitwise.problems.BitDifference;
-import bitwise.problems.CountTotalSetBits;
-import bitwise.problems.FindFirstSetBit;
-import bitwise.problems.RightmostDifferentBit;
-import bitwise.problems.SwapOddAndEvenBits;
+import bitwise.problems.MaximumAndValue;
 
 public class BitwiseRunner {
 
@@ -29,6 +25,10 @@ public class BitwiseRunner {
 //        System.out.println(BitDifference.countBitsFlip(10, 20));
 //        System.out.println(BitDifference.countBitsFlip(20, 25));
 
-        System.out.println(SwapOddAndEvenBits.swapBits(23));
+//        System.out.println(SwapOddAndEvenBits.swapBits(23));
+
+        int[] arr = {4, 8, 16, 2};
+        System.out.println(MaximumAndValue.maxAND(arr, arr.length));
+        System.out.println(MaximumAndValue.maxAND1(arr, arr.length));
     }
 }
