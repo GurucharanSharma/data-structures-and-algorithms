@@ -1,6 +1,7 @@
 package bitwise;
 
 import bitwise.problems.BinaryToGrayCode;
+import bitwise.problems.CheckOddOrEven;
 import bitwise.problems.GrayToBinaryCode;
 
 public class BitwiseRunner {
@@ -48,5 +49,8 @@ public class BitwiseRunner {
 //
 //        System.out.println(GrayToBinaryCode.grayToBinary1(4));
 //        System.out.println(GrayToBinaryCode.grayToBinary1(15));
+
+        System.out.println(CheckOddOrEven.oddEven(1));
+        System.out.println(CheckOddOrEven.oddEven(2));
     }
 }

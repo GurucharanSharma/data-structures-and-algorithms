@@ -42,13 +42,13 @@ public class CountTotalSetBits {
     }
 
     public static int countSetBits2(int n) {
-        //Ignoring 0 as all the bits are unset.
+        // Ignoring 0 as all the bits are unset.
         n += 1;
         int count = 0;
 
-        //Counting set bits from 1 to n.
+        // Counting set bits from 1 to n.
         for (int x = 2; x / 2 < n; x = x * 2) {
-            //Total count of pairs of 0s and 1s.
+            // Total count of pairs of 0s and 1s.
             int quotient = n / x;
             // quotient gives the complete count of pairs of 1s.
             // Multiplying it with the (current power of 2)/2 will give
