@@ -1,6 +1,7 @@
 package bitwise;
 
-import bitwise.problems.MaximumAndValue;
+import bitwise.problems.BinaryToGrayCode;
+import bitwise.problems.GrayToBinaryCode;
 
 public class BitwiseRunner {
 
@@ -27,8 +28,25 @@ public class BitwiseRunner {
 
 //        System.out.println(SwapOddAndEvenBits.swapBits(23));
 
-        int[] arr = {4, 8, 16, 2};
-        System.out.println(MaximumAndValue.maxAND(arr, arr.length));
-        System.out.println(MaximumAndValue.maxAND1(arr, arr.length));
+//        int[] arr = {4, 8, 16, 2};
+//        System.out.println(MaximumAndValue.maxAND(arr, arr.length));
+//        System.out.println(MaximumAndValue.maxAND1(arr, arr.length));
+
+//        System.out.println(SparseNumber.isSparse(2));
+//        System.out.println(SparseNumber.isSparse(3));
+
+//        System.out.println(BinaryToGrayCode.greyConverter(0));
+//        System.out.println(BinaryToGrayCode.greyConverter(7));
+//        System.out.println(BinaryToGrayCode.greyConverter(10));
+//
+//        System.out.println(BinaryToGrayCode.greyConverter1(0));
+//        System.out.println(BinaryToGrayCode.greyConverter1(7));
+//        System.out.println(BinaryToGrayCode.greyConverter1(10));
+
+//        System.out.println(GrayToBinaryCode.grayToBinary(4));
+//        System.out.println(GrayToBinaryCode.grayToBinary(15));
+//
+//        System.out.println(GrayToBinaryCode.grayToBinary1(4));
+//        System.out.println(GrayToBinaryCode.grayToBinary1(15));
     }
 }
