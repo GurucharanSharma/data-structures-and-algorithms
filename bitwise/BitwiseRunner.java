@@ -1,11 +1,7 @@
 package bitwise;
 
-import bitwise.problems.BinaryToGrayCode;
-import bitwise.problems.CheckOddOrEven;
-import bitwise.problems.DivideTwoIntegers;
-import bitwise.problems.GrayToBinaryCode;
-import bitwise.problems.SetRightmostUnsetBit;
-import bitwise.problems.SwapTwoNumbers;
+import bitwise.problems.FindXOR;
+import bitwise.problems.Subsets;
 
 public class BitwiseRunner {
 
@@ -62,18 +58,27 @@ public class BitwiseRunner {
 //        System.out.println(SwapTwoNumbers.get(13, 9));
 //        System.out.println(SwapTwoNumbers.get(15, 8));
 
-        System.out.println("Approach 1");
-        System.out.println(DivideTwoIntegers.divide(10, 3));
-        System.out.println(DivideTwoIntegers.divide(7, -3));
-        System.out.println(DivideTwoIntegers.divide(1, -1));
-        System.out.println(DivideTwoIntegers.divide(-1, 1));
+//        System.out.println("Approach 1");
+//        System.out.println(DivideTwoIntegers.divide(10, 3));
+//        System.out.println(DivideTwoIntegers.divide(7, -3));
+//        System.out.println(DivideTwoIntegers.divide(1, -1));
+//        System.out.println(DivideTwoIntegers.divide(-1, 1));
 //        System.out.println(DivideTwoIntegers.divide(-2147483648, -1));
 
-        System.out.println("Approach 2");
+//        System.out.println("Approach 2");
 //        System.out.println(DivideTwoIntegers.divide1(10, 3));
 //        System.out.println(DivideTwoIntegers.divide1(7, -3));
 //        System.out.println(DivideTwoIntegers.divide1(1, -1));
 //        System.out.println(DivideTwoIntegers.divide1(-1, 1));
-        System.out.println(DivideTwoIntegers.divide1(-2147483648, -1));
+//        System.out.println(DivideTwoIntegers.divide1(-2147483648, -1));
+
+//        System.out.println(MinimumBitFlips.minBitFlips(10, 7));
+//        System.out.println(MinimumBitFlips.minBitFlips(3, 4));
+
+//        int[] nums = {1, 2, 3};
+//        System.out.println(Subsets.subsets(nums));
+
+        System.out.println(FindXOR.findXOR(4, 8));
+        System.out.println(FindXOR.findXOR1(4, 8));
     }
 }
