@@ -2,7 +2,10 @@ package bitwise;
 
 import bitwise.problems.BinaryToGrayCode;
 import bitwise.problems.CheckOddOrEven;
+import bitwise.problems.DivideTwoIntegers;
 import bitwise.problems.GrayToBinaryCode;
+import bitwise.problems.SetRightmostUnsetBit;
+import bitwise.problems.SwapTwoNumbers;
 
 public class BitwiseRunner {
 
@@ -50,7 +53,16 @@ public class BitwiseRunner {
 //        System.out.println(GrayToBinaryCode.grayToBinary1(4));
 //        System.out.println(GrayToBinaryCode.grayToBinary1(15));
 
-        System.out.println(CheckOddOrEven.oddEven(1));
-        System.out.println(CheckOddOrEven.oddEven(2));
+//        System.out.println(CheckOddOrEven.oddEven(1));
+//        System.out.println(CheckOddOrEven.oddEven(2));
+
+//        System.out.println(SetRightmostUnsetBit.setBit(6));
+//        System.out.println(SetRightmostUnsetBit.setBit(15));
+
+//        System.out.println(SwapTwoNumbers.get(13, 9));
+//        System.out.println(SwapTwoNumbers.get(15, 8));
+
+        System.out.println(DivideTwoIntegers.divide(10, 3));
+        System.out.println(DivideTwoIntegers.divide(7, -3));
     }
 }
