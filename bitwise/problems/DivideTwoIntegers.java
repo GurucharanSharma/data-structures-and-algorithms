@@ -13,34 +13,62 @@ package bitwise.problems;
  */
 public class DivideTwoIntegers {
 
+    /**
+     * Naive approach
+     */
     public static int divide(int dividend, int divisor) {
-        boolean flag = false;
-        if ((divisor < 0 && dividend >= 0) || (divisor >= 0 && dividend < 0)) {
-            divisor = Math.abs(divisor);
-            flag = true;
+        if (dividend == divisor) {
+            return 1;
         }
 
-        int sum = divisor;
+        boolean flag = (divisor < 0 && dividend >= 0) || (divisor >= 0 && dividend < 0);
+        long n = Math.abs((long) dividend);
+        long d = Math.abs((long) divisor);
+
+        long sum = d;
         int count = 0;
 
-        while (sum < dividend) {
+        while (sum <= n) {
             count++;
-            sum = sum + divisor;
+            sum = sum + d;
         }
 
-        return flag ? -count : count;
+        if (sum >= Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        } else {
+            return flag ? -count : count;
+        }
     }
 
+    /**
+     * Efficient approach
+     */
     public static int divide1(int dividend, int divisor) {
         if (dividend == divisor) {
             return 1;
         }
 
-        boolean flag = false;
-        if ((divisor < 0 && dividend >= 0) || (divisor >= 0 && dividend < 0)) {
-            divisor = Math.abs(divisor);
-            dividend = Math.abs(dividend);
-            flag = true;
+        boolean isNegative = (divisor < 0 && dividend >= 0) || (divisor >= 0 && dividend < 0);
+        long n = Math.abs((long) dividend);
+        long d = Math.abs((long) divisor);
+        long quotient = 0;
+
+        while (n >= d) {
+            int count = 0;
+            while (n >= (d << (count + 1))) {
+                count++;
+            }
+
+            quotient = quotient + (1L << count);
+            n = n - (d << count);
+        }
+
+        if (quotient == (1L << 31) && !isNegative) {
+            return Integer.MAX_VALUE;
+        } else if (quotient == (1L << 31) && isNegative) {
+            return Integer.MIN_VALUE;
+        } else {
+            return isNegative ? (int) -quotient : (int) quotient;
         }
     }
 }

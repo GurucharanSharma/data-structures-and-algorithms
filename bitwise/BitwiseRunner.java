@@ -62,7 +62,18 @@ public class BitwiseRunner {
 //        System.out.println(SwapTwoNumbers.get(13, 9));
 //        System.out.println(SwapTwoNumbers.get(15, 8));
 
+        System.out.println("Approach 1");
         System.out.println(DivideTwoIntegers.divide(10, 3));
         System.out.println(DivideTwoIntegers.divide(7, -3));
+        System.out.println(DivideTwoIntegers.divide(1, -1));
+        System.out.println(DivideTwoIntegers.divide(-1, 1));
+//        System.out.println(DivideTwoIntegers.divide(-2147483648, -1));
+
+        System.out.println("Approach 2");
+//        System.out.println(DivideTwoIntegers.divide1(10, 3));
+//        System.out.println(DivideTwoIntegers.divide1(7, -3));
+//        System.out.println(DivideTwoIntegers.divide1(1, -1));
+//        System.out.println(DivideTwoIntegers.divide1(-1, 1));
+        System.out.println(DivideTwoIntegers.divide1(-2147483648, -1));
     }
 }
