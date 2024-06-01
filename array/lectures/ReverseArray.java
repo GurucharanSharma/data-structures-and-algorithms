@@ -1,8 +1,9 @@
 package array.lectures;
 
 public class ReverseArray {
+
     public static void main(String[] args) {
-        int[] array = new int[] { 30, 7, 6, 5, 10 };
+        int[] array = new int[]{30, 7, 6, 5, 10};
 
         // Print the array
         for (int i = 0; i < array.length; i++) {

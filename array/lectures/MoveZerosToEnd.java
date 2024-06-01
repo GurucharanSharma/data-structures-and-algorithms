@@ -1,8 +1,9 @@
 package array.lectures;
 
-public class MoveAllZerosToEnd {
+public class MoveZerosToEnd {
+
     public static void main(String[] args) {
-        int[] array = new int[] { 8, 5, 0, 10, 0, 20 };
+        int[] array = new int[]{8, 5, 0, 10, 0, 20};
 
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
@@ -17,10 +18,13 @@ public class MoveAllZerosToEnd {
         System.out.println();
     }
 
+    /**
+     * Naive approach
+     */
     static void moveZerosToEnd1(int[] array) {
         int lastZeroIndex = array.length - 1;
 
-        for (int i = 0; i < array.length;) {
+        for (int i = 0; i < array.length; ) {
             if (array[i] == 0 && i < lastZeroIndex) {
                 for (int j = i; j < array.length - 1; j++) {
                     int temp = array[j];
@@ -35,6 +39,9 @@ public class MoveAllZerosToEnd {
         }
     }
 
+    /**
+     * Efficient approach
+     */
     static void moveZerosToEnd2(int[] array) {
         int count = 0;
 
