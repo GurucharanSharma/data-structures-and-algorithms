@@ -7,6 +7,11 @@ public class MaximumCircularSubArraySum {
         System.out.println(getMaximumCircularSubArraySum_2(array));
     }
 
+    /**
+     * Naive approach <br>
+     * Time Complexity: O(n2) <br>
+     * Auxiliary Space: O(1)
+     */
     static int getMaximumCircularSubArraySum_1(int[] array) {
         int res = array[0];
         int n = array.length;
@@ -27,6 +32,11 @@ public class MaximumCircularSubArraySum {
         return res;
     }
 
+    /**
+     * Efficient approach <br>
+     * Time Complexity: O(n), where n is the number of elements in the input array. Linear traversal of the array is needed. <br>
+     * Auxiliary Space: O(1), No extra space is required.
+     */
     static int getMaximumCircularSubArraySum_2(int[] array) {
         int n = array.length;
         int normalMaxSum = getMaximumSubArraySum(array);
