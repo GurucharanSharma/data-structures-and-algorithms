@@ -1,8 +1,9 @@
 package array.lectures;
 
 public class MaximumConsecutive1s {
+
     public static void main(String[] args) {
-        int[] array = new int[] { 0, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        int[] array = new int[]{0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         System.out.println(maxConsecutiveCount(array));
         System.out.println(maxConsecutiveCount_1(array));
     }
