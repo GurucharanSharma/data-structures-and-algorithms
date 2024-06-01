@@ -1,8 +1,9 @@
 package array.lectures;
 
-public class MaximumDifference {
+public class MaximumDifferenceWithOrder {
+
     public static void main(String[] args) {
-        int[] array = new int[] {34, 8, 10, 3, 2, 80, 30, 33, 1};
+        int[] array = new int[]{34, 8, 10, 3, 2, 80, 30, 33, 1};
 
         System.out.println(findMaximumDifference(array));
     }
