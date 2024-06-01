@@ -17,23 +17,21 @@ public class FindXOR {
         return xor;
     }
 
-    // Function to find XOR of all elements in range [L, R]
+    /**
+     * Efficient approach
+     */
     public static int findXOR1(int l, int r) {
         return xorFromZeroTo(r) ^ xorFromZeroTo(l - 1);
     }
 
     // Function to compute XOR from 0 to n
     private static int xorFromZeroTo(int n) {
-        switch (n % 4) {
-            case 0:
-                return n;
-            case 1:
-                return 1;
-            case 2:
-                return n + 1;
-            default:
-                return 0;
-        }
+        return switch (n % 4) {
+            case 0 -> n;
+            case 1 -> 1;
+            case 2 -> n + 1;
+            default -> 0;
+        };
     }
 
 }

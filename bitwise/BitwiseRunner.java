@@ -2,6 +2,8 @@ package bitwise;
 
 import bitwise.problems.FindXOR;
 import bitwise.problems.Subsets;
+import bitwise.problems.UniquePrimeFactors;
+import java.util.Arrays;
 
 public class BitwiseRunner {
 
@@ -78,7 +80,13 @@ public class BitwiseRunner {
 //        int[] nums = {1, 2, 3};
 //        System.out.println(Subsets.subsets(nums));
 
-        System.out.println(FindXOR.findXOR(4, 8));
-        System.out.println(FindXOR.findXOR1(4, 8));
+//        System.out.println(FindXOR.findXOR(4, 8));
+//        System.out.println(FindXOR.findXOR1(4, 8));
+
+        System.out.println(Arrays.toString(UniquePrimeFactors.AllPrimeFactors(100)));
+        System.out.println(Arrays.toString(UniquePrimeFactors.AllPrimeFactors1(100)));
+
+        System.out.println(Arrays.toString(UniquePrimeFactors.AllPrimeFactors(35)));
+        System.out.println(Arrays.toString(UniquePrimeFactors.AllPrimeFactors1(35)));
     }
 }

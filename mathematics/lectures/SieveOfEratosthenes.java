@@ -70,7 +70,8 @@ public class SieveOfEratosthenes {
         if (N == 2 || N == 3 || N == 5 || N == 7) {
             return true;
         }
-        if (N == 1 || N % 2 == 0 || N % 3 == 0 || N % 7 == 0) {
+
+        if (N == 1 || N % 2 == 0 || N % 3 == 0 || N % 5 == 0 || N % 7 == 0) {
             return false;
         }
 
