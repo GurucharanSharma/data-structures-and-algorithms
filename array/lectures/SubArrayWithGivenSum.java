@@ -1,4 +1,4 @@
-package array;
+package array.lectures;
 
 public class SubArrayWithGivenSum {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package array;
+package array.problems;
 
 import java.util.*;
 
