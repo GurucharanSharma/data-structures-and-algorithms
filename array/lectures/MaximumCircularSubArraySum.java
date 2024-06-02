@@ -1,6 +1,7 @@
 package array.lectures;
 
 public class MaximumCircularSubArraySum {
+
     public static void main(String[] args) {
         int[] array = new int[]{5, -2, 3, 4};
         System.out.println(getMaximumCircularSubArraySum_1(array));
@@ -8,9 +9,7 @@ public class MaximumCircularSubArraySum {
     }
 
     /**
-     * Naive approach <br>
-     * Time Complexity: O(n2) <br>
-     * Auxiliary Space: O(1)
+     * Naive approach <br> Time Complexity: O(n2) <br> Auxiliary Space: O(1)
      */
     static int getMaximumCircularSubArraySum_1(int[] array) {
         int res = array[0];
@@ -33,20 +32,23 @@ public class MaximumCircularSubArraySum {
     }
 
     /**
-     * Efficient approach <br>
-     * Time Complexity: O(n), where n is the number of elements in the input array. Linear traversal of the array is needed. <br>
-     * Auxiliary Space: O(1), No extra space is required.
+     * Efficient approach <br> Time Complexity: O(n), where n is the number of elements in the input array. Linear traversal of the array is needed.
+     * <br> Auxiliary Space: O(1), No extra space is required.
      */
     static int getMaximumCircularSubArraySum_2(int[] array) {
         int n = array.length;
         int normalMaxSum = getMaximumSubArraySum(array);
         System.out.println("Normal max sum: " + normalMaxSum);
 
-        if (normalMaxSum < 0) return normalMaxSum;
+        if (normalMaxSum < 0) {
+            return normalMaxSum;
+        }
 
         int arrSum = 0;
         for (int i = 0; i < n; i++) {
             arrSum += array[i];
+            // Simultaneously, each element of the array is negated. This transformation is necessary for
+            // finding the minimum subarray sum using getMaximumSubArraySum on the negated array.
             array[i] = -1 * array[i];
         }
 
