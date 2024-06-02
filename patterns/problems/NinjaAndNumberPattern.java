@@ -1,6 +1,6 @@
 package patterns.problems;
 
-public class NinjaAndStartPattern {
+public class NinjaAndNumberPattern {
 
     public static void getStarPattern(int n) {
         for (int i = 0; i < n; i++) {
