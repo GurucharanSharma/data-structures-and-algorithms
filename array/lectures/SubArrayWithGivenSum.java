@@ -1,9 +1,10 @@
 package array.lectures;
 
 public class SubArrayWithGivenSum {
+
     public static void main(String[] args) {
-        int[] array = new int[] { 1, 4, 0, 0, 3, 10, 5 };
-        System.out.println(hasSubarrayWithGivenSum(array, 7));
+        int[] array = new int[]{1, 4};
+        System.out.println(hasSubarrayWithGivenSum(array, 0));
     }
 
     static boolean hasSubarrayWithGivenSum(int[] array, int givenSum) {
@@ -16,8 +17,9 @@ public class SubArrayWithGivenSum {
                 sum = sum - array[start++];
             }
 
-            if (sum == givenSum)
+            if (sum == givenSum && start <= i) {
                 return true;
+            }
         }
 
         return false;

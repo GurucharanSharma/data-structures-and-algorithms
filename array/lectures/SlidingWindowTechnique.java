@@ -1,13 +1,19 @@
 package array.lectures;
 
 public class SlidingWindowTechnique {
+
     public static void main(String[] args) {
-        int[] array = new int[] { 2, 3 };
+        int[] array = new int[]{2, 3};
         System.out.println(getMaximumSumInWindow(array, 3));
     }
 
+    /**
+     * Efficient approach <br> Time Complexity is O(n) <br> Auxiliary Space:  O(1)
+     */
     static int getMaximumSumInWindow(int[] array, int window) {
-        if (window > array.length) return -1;
+        if (window > array.length) {
+            return -1;
+        }
 
         int result = 0;
         int sum = 0;
