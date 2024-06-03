@@ -1,8 +1,9 @@
 package array.lectures;
 
 public class MajorityElement {
+
     public static void main(String[] args) {
-        int[] array = new int[] { 8, 8, 6, 6, 6, 7, 6 };
+        int[] array = new int[]{8, 8, 6, 6, 6, 7, 6};
         System.out.println(getMajorityElement(array));
     }
 
@@ -12,10 +13,11 @@ public class MajorityElement {
         int res = 0;
 
         for (int i = 1; i < n; i++) {
-            if (array[i] == array[res])
+            if (array[i] == array[res]) {
                 count++;
-            else
+            } else {
                 count--;
+            }
 
             if (count == 0) {
                 res = i;
@@ -25,13 +27,15 @@ public class MajorityElement {
 
         count = 0;
         for (int i = 0; i < n; i++) {
-            if (array[i] == array[res])
+            if (array[i] == array[res]) {
                 count++;
+            }
         }
 
-        if (count > n / 2)
+        if (count > n / 2) {
             return array[res];
-        else
+        } else {
             return -1;
+        }
     }
 }
