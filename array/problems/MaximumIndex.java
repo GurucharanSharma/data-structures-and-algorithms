@@ -24,7 +24,7 @@ public class MaximumIndex {
             suffixMax[n - (i + 1)] = Math.max(suffixMax[n - i], a[n - (i + 1)]);
         }
 
-        int i = 0;
+        int i = 0;  
         int j = 0;
         int difference = 0;
         while (i < n && j < n) {
