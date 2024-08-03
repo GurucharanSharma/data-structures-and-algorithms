@@ -16,6 +16,9 @@ public class SmallestPositiveMissing {
     System.out.println(Arrays.toString(arr));
   }
 
+  /**
+   * Without using swap function
+   */
   static int missingNumber(int[] arr, int size) {
     for (int i = 0; i < size; i++) {
       int index = arr[i] - 1;
@@ -36,6 +39,9 @@ public class SmallestPositiveMissing {
     return size + 1;
   }
 
+  /**
+   * Using swap function
+   */
   static int missingNumber1(int[] arr, int size) {
     int index = -1;
 
