@@ -1,5 +1,8 @@
 package array.lectures;
 
+/**
+ * Kadane's Algorithm
+ */
 public class MaximumSubarraySum {
 
     public static void main(String[] args) {
