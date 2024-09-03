@@ -20,7 +20,7 @@ public class PeakElement {
   }
 
   /**
-   * Finds a peak element in an array, if it exists.
+   * Finds a peak element in an unsorted array, if it exists.
    *
    * @param arr The input array in which to find a peak element.
    * @return The index of a peak element in the array, or -1 if no peak element is found.
