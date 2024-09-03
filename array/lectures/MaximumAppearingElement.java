@@ -29,7 +29,6 @@ public class MaximumAppearingElement {
         for (int i = 0; i < n; i++) {
             freq[L[i]] += 1;
             freq[R[i] + 1] += -1;
-
         }
 
         int max = freq[0];
