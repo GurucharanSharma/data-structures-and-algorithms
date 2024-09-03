@@ -35,9 +35,9 @@ public class SearchInInfiniteSizedArray {
   }
 
   /**
-   * Searches for a specified number in an infinite array.
+   * Searches for a specified number in an infinite sorted array.
    *
-   * @param infinite An infinite array in which to search.
+   * @param infinite An infinite sorted array in which to search.
    * @param num      The number to search for.
    * @return The index of the specified number in the infinite array, or -1 if the number is not found.
    */
@@ -52,6 +52,8 @@ public class SearchInInfiniteSizedArray {
       }
       // If the element at the current index is greater than the specified number,
       // return -1, as it indicates that the number is not present in the array.
+      // This is only true if the infinite array is sorted. Else we will have to
+      // keep searching infinitely.
       if (infinite[i] > num) {
         return -1;
       }
