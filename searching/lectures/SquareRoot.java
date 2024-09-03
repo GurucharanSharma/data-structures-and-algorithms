@@ -10,6 +10,14 @@ public class SquareRoot {
     System.out.println(squareRootIterative(65536));
     System.out.println(squareRootIterative(4));
     System.out.println(squareRootIterative(10));
+
+    System.out.println(squareRootRecursive(-1, -1, 0, -1));
+    System.out.println(squareRootRecursive(0, -1, 0, 0));
+    System.out.println(squareRootRecursive(1, -1, 0, 1));
+    System.out.println(squareRootRecursive(16, -1, 0, 16));
+    System.out.println(squareRootRecursive(65536, -1, 0, 65536));
+    System.out.println(squareRootRecursive(4, -1, 0, 4));
+    System.out.println(squareRootRecursive(10, -1, 0, 10));
   }
 
   /**
@@ -54,4 +62,24 @@ public class SquareRoot {
     return ans;
   }
 
+  /**
+   * Recursive approach
+   */
+  static int squareRootRecursive(int N, int root, int start, int end) {
+    if (start > end) {
+      return root;
+    }
+
+    int mid = (start + end) / 2;
+    if (mid * mid == N) {
+      return mid;
+    } else if (mid * mid > N) {
+      end = mid - 1;
+    } else {
+      root = mid;
+      start = mid + 1;
+    }
+
+    return squareRootRecursive(N, root, start, end);
+  }
 }
