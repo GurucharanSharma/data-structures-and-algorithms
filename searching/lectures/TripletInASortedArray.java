@@ -40,6 +40,8 @@ public class TripletInASortedArray {
     // Iterate through the array with a loop to consider each element as the potential first element of the triplet.
     for (int i = 0; i < arr.length - 2; i++) {
       // Check if there is a pair in the remaining elements of the array that sums up to (num - arr[i]).
+      // we only consider the elements beginning from i + 1 because earlier elements would have already
+      // been covered.
       if (isPair(arr, num - arr[i], i + 1)) {
         return true; // Return true if a triplet is found.
       }

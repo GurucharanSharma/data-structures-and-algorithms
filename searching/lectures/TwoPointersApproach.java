@@ -6,7 +6,7 @@ public class TwoPointersApproach {
   /**
    * <strong>Explanation</strong>
    * <p>
-   * The method aims to find a pair of elements in the array arr whose sum equals the specified number num. It initializes two indices, i and j, which
+   * The method aims to find a pair of elements in the sorted array arr whose sum equals the specified number num. It initializes two indices, i and j, which
    * represent the starting and ending positions of the array. The method uses a two-pointer approach with i and j, and it continues searching as long
    * as i is less than j. If the sum of elements at indices i and j is equal to num, it indicates a valid pair, and the method returns true. If the
    * sum is greater than num, it means that the sum needs to be reduced, so the j index is decremented to consider a smaller value. If the sum is less
@@ -26,7 +26,7 @@ public class TwoPointersApproach {
   }
 
   /**
-   * Checks if there is a pair of elements in the array that sums up to the specified number.
+   * Checks if there is a pair of elements in the sorted array that sums up to the specified number.
    *
    * @param arr The input array in which to search for a pair.
    * @param num The target sum to be matched.

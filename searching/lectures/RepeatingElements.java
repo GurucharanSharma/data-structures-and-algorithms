@@ -1,5 +1,7 @@
 package searching.lectures;
 
+import java.util.Arrays;
+
 public class RepeatingElements {
 
   /**
@@ -28,11 +30,70 @@ public class RepeatingElements {
   public static void main(String[] args) {
     // When the array contains numbers beginning with 0
     int[] arr1 = {0, 2, 1, 3, 5, 4, 6, 2};
+    System.out.println(findRepeating(arr1));
+    System.out.println(findRepeating1(arr1));
+    System.out.println(findRepeating2(arr1));
     System.out.println(findRepeatingWith0(arr1));
 
     // When the array contains numbers beginning with 1
     int[] arr2 = {1, 3, 2, 4, 6, 5, 7, 3};
+    System.out.println(findRepeating(arr2));
+    System.out.println(findRepeating1(arr2));
+    System.out.println(findRepeating2(arr2));
     System.out.println(findRepeatingWith1(arr2));
+  }
+
+  /**
+   * Naive Solution
+   * <p>Time Complexity: O(n<sup>2</sup>)</p>
+   * <p>Auxiliary Space: O(1)</p>
+   */
+  static int findRepeating(int[] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = i + 1; j < arr.length; j++) {
+        if (arr[j] == arr[i]) {
+          return arr[i];
+        }
+      }
+    }
+
+    return -1;
+  }
+
+  /**
+   * Better Solution
+   * <p>Time Complexity: O(n * log(n))</p>
+   * <p>Auxiliary Space: O(1)</p>
+   */
+  static int findRepeating1(int[] arr) {
+    Arrays.sort(arr);
+
+    for (int i = 1; i < arr.length; i++) {
+      if (arr[i] == arr[i - 1]) {
+        return arr[i];
+      }
+    }
+
+    return -1;
+  }
+
+  /**
+   * Better Approach
+   * <p>Time Complexity: O(n)</p>
+   * <p>Auxiliary Space: O(n)</p>
+   */
+  static int findRepeating2(int[] arr) {
+    boolean[] visited = new boolean[arr.length];
+
+    for (int i = 0; i < arr.length; i++) {
+      if (visited[arr[i]]) {
+        return arr[i];
+      }
+
+      visited[arr[i]] = true;
+    }
+
+    return -1;
   }
 
   /**
@@ -49,7 +110,6 @@ public class RepeatingElements {
     do {
       slow = arr[slow] + 1;         // Move the 'slow' pointer one step.
       fast = arr[arr[fast] + 1] + 1;    // Move the 'fast' pointer two steps.
-
     } while (slow != fast);  // Continue until the 'slow' and 'fast' pointers meet within the loop.
 
     // Reset the 'slow' pointer to the value at the first index plus 1 and find the entrance to the loop.
