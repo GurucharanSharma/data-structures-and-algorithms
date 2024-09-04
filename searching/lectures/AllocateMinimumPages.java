@@ -28,10 +28,6 @@ public class AllocateMinimumPages {
    * @return The minimum number of pages that need to be allocated to each student.
    */
   static int minimumPages(int[] arr, int n) {
-    if (n > arr.length) {
-      return -1;
-    }
-
     int sum = 0;         // Initialize a variable to calculate the total number of pages.
     int max = -1;        // Initialize a variable to find the book with the maximum number of pages.
 
@@ -51,9 +47,9 @@ public class AllocateMinimumPages {
       int mid = (start + end) / 2;  // Calculate the middle value for the binary search.
 
       // Check if it's possible to allocate pages such that no student gets more than 'mid' pages.
-      if (isAllocated(arr, n, mid)) {
+      if (isFeasible(arr, n, mid)) {
         res = mid;       // Update the result to the current middle value.
-        end = mid - 1;  // Adjust the end range for binary search to the left.
+        end = mid - 1;   // Adjust the end range for binary search to the left.
       } else {
         start = mid + 1;  // Adjust the start range for binary search to the right.
       }
@@ -70,20 +66,21 @@ public class AllocateMinimumPages {
    * @param mid The maximum number of pages that can be allocated to any student.
    * @return True if it's possible to allocate pages as per the criteria, false otherwise.
    */
-  private static boolean isAllocated(int[] arr, int n, int mid) {
+  private static boolean isFeasible(int[] arr, int n, int mid) {
     int student = 1;    // Initialize a variable to count the number of students.
     int pages = 0;      // Initialize a variable to keep track of the pages allocated to the current student.
 
     // Iterate through the array to check if it's possible to allocate pages according to the criteria.
-    for (int j : arr) {
-      if (j + pages <= mid) {
-        pages += j;  // Allocate the pages to the current student.
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] + pages <= mid) {
+        pages += arr[i];  // Allocate the pages to the current student.
       } else {
         student++;    // Move to the next student.
-        if (student > n || j > mid) {
+        if (student > n || arr[i] > mid) {
           return false;  // If the number of students exceeds the available students or a book has more pages than 'mid,' it's not possible.
         }
-        pages = j;  // Start allocating pages to the next student with the current book.
+
+        pages = arr[i];  // Start allocating pages to the next student with the current book.
       }
     }
 
