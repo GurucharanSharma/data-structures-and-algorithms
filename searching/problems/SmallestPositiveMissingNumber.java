@@ -7,6 +7,9 @@ public class SmallestPositiveMissingNumber {
     System.out.println(missingNumber(arr, arr.length));
   }
 
+  /**
+   * Approach 1
+   */
   //Function to find the smallest positive number missing from the array.
   static int missingNumber(int[] arr, int size) {
     int index = -1;
@@ -22,6 +25,28 @@ public class SmallestPositiveMissingNumber {
     for (int i = 0; i < size; i++) {
       if (arr[i] != (i + 1)) {
         return (i + 1);
+      }
+    }
+
+    return size + 1;
+  }
+
+  /**
+   * Approach 2
+   */
+  static int missingNumber1(int[] arr, int size) {
+    for (int i = 0; i < size; i++) {
+      int index = arr[i];
+
+      while (index > 0 && index < size && arr[index - 1] != index) {
+        swap(arr, index - 1, i);
+        index = arr[i];
+      }
+    }
+
+    for (int i = 0; i < size; i++) {
+      if (arr[i] != (i + 1)) {
+        return i + 1;
       }
     }
 
