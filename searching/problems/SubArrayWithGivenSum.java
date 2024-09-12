@@ -1,6 +1,7 @@
 package searching.problems;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SubArrayWithGivenSum {
 
@@ -9,7 +10,8 @@ public class SubArrayWithGivenSum {
     int s = 12;
 
     System.out.println(subarraySum(A, A.length, s));
-    System.out.println(subarraySum_1(A, A.length, s));
+    System.out.println(subarraySum1(A, A.length, s));
+    System.out.println(subarraySum2(A, A.length, s));
   }
 
   //Function to find a continuous sub-array which adds up to a given number.
@@ -49,7 +51,7 @@ public class SubArrayWithGivenSum {
   }
 
   //Function to find a continuous sub-array which adds up to a given number.
-  private static ArrayList<Integer> subarraySum_1(int[] arr, int n, int s) {
+  private static ArrayList<Integer> subarraySum1(int[] arr, int n, int s) {
     ArrayList<Integer> range = new ArrayList<>();
     int sum = 0;
     int start = 0;
@@ -75,5 +77,24 @@ public class SubArrayWithGivenSum {
 
     range.add(-1);
     return range;
+  }
+
+  public static ArrayList<Integer> subarraySum2(int[] arr, int n, int s) {
+    int currSum = 0;
+    int start = 0;
+
+    for (int i = 0; i < n; i++) {
+      currSum += arr[i];
+
+      while (currSum > s && start <= i) {
+        currSum = currSum - arr[start++];
+      }
+
+      if (currSum == s) {
+        return new ArrayList<>(List.of(start + 1, i + 1));
+      }
+    }
+
+    return new ArrayList<>(List.of(-1));
   }
 }

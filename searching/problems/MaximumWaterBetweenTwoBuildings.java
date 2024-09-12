@@ -21,9 +21,12 @@ public class MaximumWaterBetweenTwoBuildings {
       int capacity = Math.min(height[start], height[end]) * (end - start - 1);
       max = Math.max(max, capacity);
 
-      if (height[start] <= height[end]) {
+      if (height[start] < height[end]) {
         start++;
+      } else if (height[start] > height[end]) {
+        end--;
       } else {
+        start++;
         end--;
       }
     }
