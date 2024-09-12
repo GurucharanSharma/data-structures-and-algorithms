@@ -15,9 +15,13 @@ public class AllocateMinimumPages {
    * pages to allocate, taking into account the constraints and optimizing the allocation for 'n' students.
    */
   public static void main(String[] args) {
-    int[] arr = new int[]{12, 34, 67, 90};
+//    int[] arr = new int[]{12, 34, 67, 90};
+//    int m = 5;
 
-    System.out.println(minimumPages(arr, 5));
+    int[] arr = new int[]{15, 17, 20};
+    int m = 5;
+
+    System.out.println(minimumPages(arr, m));
   }
 
   /**
@@ -28,6 +32,10 @@ public class AllocateMinimumPages {
    * @return The minimum number of pages that need to be allocated to each student.
    */
   static int minimumPages(int[] arr, int n) {
+    if (arr.length < n) {
+      return -1;         // Every student must have at least 1 book to read.
+    }
+
     int sum = 0;         // Initialize a variable to calculate the total number of pages.
     int max = -1;        // Initialize a variable to find the book with the maximum number of pages.
 
