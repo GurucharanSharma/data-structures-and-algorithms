@@ -38,5 +38,20 @@ public class InsertionSort {
     }
   }
 
+  private static void sort1(int[] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      int j = i;
 
+      while (j > 0 && arr[j] < arr[j - 1]) {
+        swap(arr, j, j - 1);
+        j--;
+      }
+    }
+  }
+
+  static void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
 }
