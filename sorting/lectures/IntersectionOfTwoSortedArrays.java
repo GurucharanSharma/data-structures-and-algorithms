@@ -19,6 +19,13 @@ public class IntersectionOfTwoSortedArrays {
         continue;
       }
 
+      // We can include this or not, it does not make a difference in intersection. Even if we do not skip the repeating elements
+      // in the brr array, they will not match with the next element in the arr array and would be skipped anyways.
+//      if (j > 0 && brr[j] == brr[j - 1]) {
+//        j++;
+//        continue;
+//      }
+
       if (arr[i] < brr[j]) {
         i++;
       } else if (arr[i] > brr[j]) {

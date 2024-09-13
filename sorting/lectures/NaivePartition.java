@@ -15,21 +15,27 @@ public class NaivePartition {
     int pivot = arr[high];
     int index = 0;
 
+    // Copying all the elements less than pivot in the temp array
     for (int i = low; i <= high; i++) {
       if (arr[i] < pivot) {
         temp[index++] = arr[i];
       }
     }
 
+    // Storing the position of the pivot element
     int position = index;
+
+    // Copying the pivot element into the temp array
     temp[index++] = pivot;
 
+    // Copying all the elements greater than pivot in the temp array
     for (int i = low; i <= high; i++) {
       if (arr[i] > pivot) {
         temp[index++] = arr[i];
       }
     }
 
+    // copying the elements from temp array back to the original array arr.
     if (high + 1 - low >= 0) {
       System.arraycopy(temp, 0, arr, low, high + 1 - low);
     }

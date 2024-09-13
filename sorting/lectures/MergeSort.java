@@ -32,26 +32,36 @@ public class MergeSort {
     int[] left = new int[n];
     int[] right = new int[m];
 
-    System.arraycopy(arr, low, left, 0, n);
-    System.arraycopy(arr, mid + 1, right, 0, m);
+//    System.arraycopy(arr, low, left, 0, n);
+//    System.arraycopy(arr, mid + 1, right, 0, m);
+
+    int index = 0;
+    for (int i = low; i <= mid; i++) {
+      left[index++] = arr[i];
+    }
+
+    index = 0;
+    for (int i = mid + 1; i <= high; i++) {
+      right[index++] = arr[i];
+    }
 
     int i = 0;
     int j = 0;
-    int k = low;
+    index = low;
     while (i < n && j < m) {
       if (left[i] <= right[j]) {
-        arr[k++] = left[i++];
+        arr[index++] = left[i++];
       } else {
-        arr[k++] = right[j++];
+        arr[index++] = right[j++];
       }
     }
 
     while (i < n) {
-      arr[k++] = left[i++];
+      arr[index++] = left[i++];
     }
 
     while (j < m) {
-      arr[k++] = right[j++];
+      arr[index++] = right[j++];
     }
   }
 }
