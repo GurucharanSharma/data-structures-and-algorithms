@@ -48,12 +48,12 @@ public class TailCallEliminationInQuickSort {
 
       // Decide whether to recursively call lSort on the left or the right half
       // We choose the smaller half to reduce the maximum recursion depth
-      if (pivot - low < high - pivot) {
+      if (pivot - low < high - pivot) {     // Left part if smaller than the right part
         // Recursively sort the smaller left part
         lSort(arr, low, pivot - 1);
         // Update low to sort the right part iteratively in the next loop iteration
         low = pivot + 1;
-      } else {
+      } else {                              // Right part is smaller than the left part
         // Recursively sort the smaller right part
         lSort(arr, pivot + 1, high);
         // Update high to sort the left part iteratively in the next loop iteration
