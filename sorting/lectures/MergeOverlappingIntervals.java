@@ -22,6 +22,9 @@ public class MergeOverlappingIntervals {
 
     int res = 0;
     for (int i = 1; i < intervals.length; i++) {
+      // This if condition checks if the current interval (intervals[i]) overlaps with the interval at intervals[res]
+      // (the most recent merged interval). Overlapping occurs when the start time of the current interval is less
+      // than or equal to the end time of the interval at res.
       if (intervals[i].startTime <= intervals[res].endTime) {
         intervals[res].startTime = Math.min(intervals[i].startTime, intervals[res].startTime);
         intervals[res].endTime = Math.max(intervals[i].endTime, intervals[res].endTime);
@@ -48,10 +51,7 @@ class Interval {
 
   @Override
   public String toString() {
-    return "Interval{" +
-        "startTime=" + startTime +
-        ", endTime=" + endTime +
-        '}';
+    return "Interval{" + "startTime=" + startTime + ", endTime=" + endTime + '}';
   }
 }
 
