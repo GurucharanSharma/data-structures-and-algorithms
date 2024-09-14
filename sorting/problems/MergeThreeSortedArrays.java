@@ -12,7 +12,6 @@ public class MergeThreeSortedArrays {
   // A[], B[], C[]: input arrays
   //Function to merge three sorted lists into a single list.
   static ArrayList<Integer> merge3sorted(int[] A, int[] B, int[] C) {
-    // add your code here
     int i = 0, j = 0, k = 0;
     ArrayList<Integer> result = new ArrayList<>(A.length + B.length + C.length);
 
