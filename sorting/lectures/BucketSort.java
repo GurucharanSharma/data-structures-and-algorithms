@@ -29,9 +29,9 @@ public class BucketSort {
     }
 
     // Adding the elements to the buckets one by one.
-    for (int j : arr) {
-      int bucket = k * j / max;
-      buckets.get(bucket).add(j);
+    for (int i = 0; i < arr.length; i++) {
+      int bucket = k * arr[i] / max;
+      buckets.get(bucket).add(arr[i]);
     }
 
     // Sorting each bucket
