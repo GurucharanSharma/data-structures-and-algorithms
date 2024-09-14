@@ -20,7 +20,7 @@ public class RadixSort {
   }
 
   private static void countingSort(int[] arr, int exp) {
-    int[] count = new int[10];
+    int[] count = new int[10];    // we have only 10 single digit numbers
     Arrays.fill(count, 0);
 
     for (int j : arr) {

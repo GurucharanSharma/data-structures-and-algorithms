@@ -13,12 +13,13 @@ public class CountingSort {
   }
 
   private static void sortNaive(int[] arr, int k) {
+    // k is max element in arr + 1.
 
     int[] count = new int[k];
     Arrays.fill(count, 0);
 
-    for (int value : arr) {
-      count[value]++;
+    for (int i = 0; i < arr.length; i++) {
+      count[arr[i]]++;
     }
 
     int index = 0;
@@ -45,9 +46,9 @@ public class CountingSort {
     // If you run the loop from 0 to n - 1, then the algorithm is unstable.
     // If you run the loop from n - 1 to 0, then the algorithm is stable.
     int[] output = new int[arr.length];
-    for (int j : arr) {
-      output[count[j] - 1] = j;
-      count[j]--;
+    for (int i = 0; i < arr.length; i++) {
+      output[count[arr[i]] - 1] = arr[i];
+      count[arr[i]]--;
     }
 
     System.arraycopy(output, 0, arr, 0, arr.length);
