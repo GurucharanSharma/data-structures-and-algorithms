@@ -32,6 +32,35 @@ public class CountingSort {
     return String.valueOf(charArray);
   }
 
+  //Function to arrange all letters of a string in lexicographical
+  //order using Counting Sort.
+  public static String countSort1(String arr) {
+    int[] freq = new int[26];
+
+    for (int i = 0; i < arr.length(); i++) {
+      freq[arr.charAt(i) - 'a']++;
+    }
+
+    for (int i = 1; i < freq.length; i++) {
+      freq[i] = freq[i] + freq[i - 1];
+    }
+
+    char[] output = new char[arr.length()];
+
+    for (int i = arr.length() - 1; i >= 0; i--) {
+      output[freq[arr.charAt(i) - 'a'] - 1] = arr.charAt(i);
+      freq[arr.charAt(i) - 'a']--;
+    }
+
+    StringBuilder builder = new StringBuilder();
+    for (int i = 0; i < output.length; i++) {
+      builder.append(output[i]);
+    }
+
+    // System.out.println(Arrays.toString(output));
+    return builder.toString();
+  }
+
   private static void testCountSort1() {
     String str = "edsab";
     System.out.println(countSort(str));

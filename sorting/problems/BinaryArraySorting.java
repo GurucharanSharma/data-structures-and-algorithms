@@ -11,7 +11,7 @@ public class BinaryArraySorting {
     testBinaryArraySorting4();
   }
 
-  //Function to sort the binary array.
+  // Function to sort the binary array. Using Hoare partition approach.
   private static void binSort(int[] A, int N) {
     // add your code here
     int i = -1;
@@ -32,6 +32,23 @@ public class BinaryArraySorting {
       }
 
       swap(A, i, j);
+    }
+  }
+
+  // Function to sort the binary array. Using Lomuto partition approach
+  static void binSort1(int[] A, int N) {
+    int i = -1;
+    // Always selecting 1 as it will be maximum element in the binary array.
+    // Selecting 0 as the pivot will result in incorrect result because we are
+    // only doing one iteration and not looping over all the pivots as we usually
+    // do in quick sort.
+    int pivot = 1;
+
+    for (int j = 0; j < N; j++) {
+      if (A[j] < pivot) {
+        i++;
+        swap(A, i, j);
+      }
     }
   }
 

@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class CountNumberOfPossibleTriangles {
 
   public static void main(String[] args) {
-    testFindNumberOfTriangles1();
-    testFindNumberOfTriangles2();
+//    testFindNumberOfTriangles1();
+//    testFindNumberOfTriangles2();
     testFindNumberOfTriangles3();
   }
 

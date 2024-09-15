@@ -35,6 +35,36 @@ public class TripletSumInArray {
     return false;
   }
 
+  // Should return true if there is a triplet with sum equal
+  // to x in arr[], otherwise false
+  public static boolean find3Numbers1(int[] arr, int n, int x) {
+    Arrays.sort(arr);
+
+    for (int i = 0; i < n - 1; i++) {
+      if (isPairPossible(arr, n, x - arr[i], i + 1)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  static boolean isPairPossible(int[] arr, int n, int x, int i) {
+    int j = n - 1;
+
+    while (i < j) {
+      if (arr[i] + arr[j] == x) {
+        return true;
+      } else if (arr[i] + arr[j] < x) {
+        i++;
+      } else {
+        j--;
+      }
+    }
+
+    return false;
+  }
+
   private static void testFind3Numbers() {
     int[] arr = {1, 4, 45, 6, 10, 8};
     System.out.println(find3Numbers(arr, arr.length, 13));
