@@ -57,6 +57,7 @@ public class UnionOfTwoSortedArrays {
     return result;
   }
 
+  // Not a very good solution. Messy solution.
   public static ArrayList<Integer> findUnion1(int[] arr1, int[] arr2, int n, int m) {
     int i = 0;
     int j = 0;
