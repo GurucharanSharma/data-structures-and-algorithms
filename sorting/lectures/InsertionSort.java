@@ -49,6 +49,20 @@ public class InsertionSort {
     }
   }
 
+  private static void sort2(int[] arr, int n) {
+    for (int i = 0; i < n; i++) {
+      int item = arr[i];
+      int j = i;
+
+      for (; j > 0; j--) {
+        if (arr[j] < arr[j - 1]) {
+          arr[j] = arr[j - 1];
+          arr[j - 1] = item;
+        }
+      }
+    }
+  }
+
   static void swap(int[] arr, int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
