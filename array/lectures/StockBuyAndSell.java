@@ -5,7 +5,9 @@ public class StockBuyAndSell {
   public static void main(String[] args) {
     int[] array = new int[]{8, 5, 0, 10, 0, 20};
     System.out.println(maximumProfit_1(array, 0, array.length));
+    System.out.println();
     System.out.println(maximumProfit_2(array));
+    System.out.println();
     System.out.println(maximumProfit_3(array));
   }
 
@@ -55,18 +57,20 @@ public class StockBuyAndSell {
     int start = arr[0];
     int end = arr[0];
     int profit = 0;
-    int res = Integer.MIN_VALUE;
 
     for (int i = 1; i < arr.length; i++) {
       if (arr[i] > arr[i - 1]) {
         end = arr[i];
       } else {
+        System.out.println(start + " " + end);
+
         profit += (end - start);
         start = arr[i];
         end = arr[i];
       }
     }
 
+    System.out.println(start + " " + end);
     return profit + (end - start);
   }
 }

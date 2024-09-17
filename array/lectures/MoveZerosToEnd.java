@@ -58,6 +58,26 @@ public class MoveZerosToEnd {
   }
 
   /**
+   * Naive approach 3
+   */
+  static void moveZerosToEnd4(int[] arr) {
+    int n = arr.length;
+
+    for (int i = 0; i < n; i++) {
+      if (arr[i] == 0) {
+        int j = i + 1;
+        while (j < n && arr[j] == 0) {
+          j++;
+        }
+
+        if (j < n) {
+          swap(arr, i, j);
+        }
+      }
+    }
+  }
+
+  /**
    * Efficient approach
    */
   static void moveZerosToEnd2(int[] array) {
@@ -71,5 +91,11 @@ public class MoveZerosToEnd {
         count++;
       }
     }
+  }
+
+  static void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
 }
