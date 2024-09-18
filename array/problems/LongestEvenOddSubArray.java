@@ -1,6 +1,6 @@
 package array.problems;
 
-public class LongestEvenOffSubArray {
+public class LongestEvenOddSubArray {
 
   public static void main(String[] args) {
 //    int[] a = {10, 12, 14, 7, 8};
@@ -61,5 +61,33 @@ public class LongestEvenOffSubArray {
 
   public static boolean isEven(int n) {
     return n % 2 == 0;
+  }
+
+  public static int maxEvenOdd2(int[] arr, int n) {
+    int res = 1;
+    int count = 1;
+    boolean even = arr[0] % 2 == 0;
+
+    for (int i = 1; i < n; i++) {
+      if (even) {
+        even = arr[i] % 2 == 0;
+        if (!even) {
+          count++;
+          res = Math.max(count, res);
+        } else {
+          count = 1;
+        }
+      } else {
+        even = arr[i] % 2 == 0;
+        if (even) {
+          count++;
+          res = Math.max(count, res);
+        } else {
+          count = 1;
+        }
+      }
+    }
+
+    return res;
   }
 }

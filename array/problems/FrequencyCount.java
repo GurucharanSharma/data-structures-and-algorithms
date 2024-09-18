@@ -14,10 +14,13 @@ public class FrequencyCount {
 //    int[] arr = {1};
 //    int p = 10;
 
-    int[] arr = {8, 9};
-    int p = 9;
+//    int[] arr = {8, 9};
+//    int p = 9;
 
-    frequencyCount(arr, arr.length, p);
+    int[] arr = {4, 5, 6, 7, 8};
+    int p = 1000;
+
+    frequencyCount1(arr, arr.length, p);
     System.out.println(Arrays.toString(arr));
   }
 
@@ -43,7 +46,7 @@ public class FrequencyCount {
    * Approach 2
    */
   //Function to count the frequency of all elements from 1 to N in the array.
-  public static void frequencyCount1(int arr[], int N, int P) {
+  public static void frequencyCount1(int[] arr, int N, int P) {
     for (int i = 0; i < N; i++) {
       arr[i] = arr[i] - 1;
     }

@@ -6,20 +6,25 @@ public class PatternSearching {
     System.out.println("Naive");
     search("Geeks for Geeks", "for");
     search("Hello World", "o Wo");
+    search("eeeeeeeeeeeeeeee", "eeeee");
     System.out.println();
 
     System.out.println("Better - 1");
     search1("Geeks for Geeks", "for");
     search1("Hello World", "o Wo");
+    search1("eeeeeeeeeeeeeeee", "eeeee");
     System.out.println();
 
     System.out.println("Better - 2");
     search2("Geeks for Geeks", "for");
     search2("Hello World", "o Wo");
+    search2("eeeeeeeeeeeeeeee", "eeeee");
     System.out.println();
 
-    System.out.println("Better - 2");
-    search2("eeeeeeeeeeeeeeee", "eeeee");
+    System.out.println("Better - 3");
+    search3("Geeks for Geeks", "for");
+    search3("Hello World", "o Wo");
+    search3("eeeeeeeeeeeeeeee", "eeeee");
     System.out.println();
   }
 
@@ -61,9 +66,8 @@ public class PatternSearching {
   }
 
   /**
-   * Time Complexity: O(m * n) <br>
-   * Space Complexity: O(1) <br>
-   * NOTE: At least the <code>pattern.length()</code> characters in the string should not be repeating.
+   * Time Complexity: O(m * n) <br> Space Complexity: O(1) <br> NOTE: At least the <code>pattern.length()</code> characters in the string should not
+   * be repeating.
    */
   private static void search2(String text, String pattern) {
     int m = text.length();
@@ -91,6 +95,43 @@ public class PatternSearching {
       } else {
         i = i + j;
       }
+    }
+  }
+
+  static void search3(String text, String pattern) {
+    int m = text.length();
+    int n = pattern.length();
+    boolean found = false;
+
+    if (m < n) {
+      System.out.println("Not Found");
+      return;
+    }
+
+    int j = 0;
+    int start = -1;
+    for (int i = 0; i < m; i++) {
+      if (text.charAt(i) == pattern.charAt(j)) {
+        j++;
+
+        if (start == -1) {
+          start = i;
+        }
+
+        if (j == n) {
+          found = true;
+          System.out.println("Found at: " + start);
+          start = -1;
+          j = 0;
+        }
+      } else {
+        start = -1;
+        j = 0;
+      }
+    }
+
+    if (!found) {
+      System.out.println("Not Found");
     }
   }
 }

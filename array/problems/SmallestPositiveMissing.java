@@ -12,7 +12,7 @@ public class SmallestPositiveMissing {
         -19, -29, -13, -10, 4, -20, 48};
 
     System.out.println(Arrays.toString(arr));
-    System.out.println(missingNumber(arr, arr.length));
+    System.out.println(missingNumber1(arr, arr.length));
     System.out.println(Arrays.toString(arr));
   }
 
@@ -60,6 +60,28 @@ public class SmallestPositiveMissing {
     }
 
     return size + 1;
+  }
+
+  static int missingNumber2(int[] arr, int size) {
+      for (int i = 0; i < size; i++) {
+        while (arr[i] > 0 && (arr[i] - 1) < size && (i + 1) != arr[i]) {
+          // To handle the scenarios when there are repeating elements in the array
+          if (arr[i] == arr[arr[i] - 1]) {
+            break;
+          }
+
+          swap(arr, i, arr[i] - 1);
+        }
+      }
+
+      int i = 0;
+      for (; i < size; i++) {
+        if (i + 1 != arr[i]) {
+          return i + 1;
+        }
+      }
+
+      return i + 1;
   }
 
   private static void swap(int[] arr, int i, int j) {
