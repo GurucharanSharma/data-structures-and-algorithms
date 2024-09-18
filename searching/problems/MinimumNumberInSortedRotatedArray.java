@@ -32,24 +32,7 @@ public class MinimumNumberInSortedRotatedArray {
    * @return The minimum element in the sorted rotated array.
    */
   private static int minNumber(int[] arr, int low, int high) {
-    int min = Integer.MAX_VALUE; // Initialize a variable to store the minimum element, initially set to a high value.
-
-    // Continue searching as long as the 'low' index is less than or equal to the 'high' index.
-    while (low <= high) {
-      int mid = (low + high) / 2; // Calculate the middle index within the search range.
-
-      if (arr[low] <= arr[mid]) {
-        // Left half is sorted
-        min = Math.min(min, arr[low]); // Update the minimum value with the minimum of the current minimum and the element at 'low'.
-        low = mid + 1; // Adjust the 'low' index to search in the right half.
-      } else {
-        // Right half is sorted
-        min = Math.min(min, arr[mid]); // Update the minimum value with the minimum of the current minimum and the element at 'mid'.
-        high = mid - 1; // Adjust the 'high' index to search in the left half.
-      }
-    }
-
-    return min; // Return the minimum element in the sorted and rotated array.
+    // TODO
   }
 
 }

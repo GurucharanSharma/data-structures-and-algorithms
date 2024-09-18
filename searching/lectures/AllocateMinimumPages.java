@@ -95,4 +95,26 @@ public class AllocateMinimumPages {
     return (student <= n);  // Return true if it's possible to allocate pages as per the criteria.
   }
 
+  static boolean isFeasible1(int[] arr, int max, int m) {
+    int students = 1;
+    int pages = 0;
+    int i = 0;
+
+    while (i < arr.length) {
+      pages = pages + arr[i];
+      if (pages > max) {
+        pages = arr[i];
+        students++;
+
+        if (pages > max || students > m) {
+          return false;
+        }
+      }
+
+      i++;
+    }
+
+    return true;
+  }
+
 }

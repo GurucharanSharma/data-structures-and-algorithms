@@ -20,6 +20,13 @@ public class SearchInSortedRotatedArray {
     System.out.println(search(arr, 8));
     System.out.println(search(arr, 60));
     System.out.println(search(arr, 1));
+    System.out.println();
+
+    System.out.println(search1(arr, 5));
+    System.out.println(search1(arr, 10));
+    System.out.println(search1(arr, 8));
+    System.out.println(search1(arr, 60));
+    System.out.println(search1(arr, 1));
   }
 
   /**
@@ -62,6 +69,27 @@ public class SearchInSortedRotatedArray {
     }
 
     // If the number is not found in the array, return -1.
+    return -1;
+  }
+
+  static int search1(int[] arr, int k) {
+    int start = 0;
+    int end = arr.length - 1;
+
+    while (start <= end) {
+      int mid = (start + end) / 2;
+
+      if (arr[mid] == k) {
+        return mid;
+      } else {
+        if (arr[start] <= arr[mid] && (k >= arr[start] && k < arr[mid])) { // left sorted
+          end = mid - 1;
+        } else {
+          start = start + 1;
+        }
+      }
+    }
+
     return -1;
   }
 
