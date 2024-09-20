@@ -3,14 +3,14 @@ package searching.problems;
 public class CountOnlyRepeated {
 
   public static void main(String[] args) {
-    Long[] arr = {1L, 2L, 3L, 4L, 5L, 5L};
+    long[] arr = {1L, 2L, 3L, 4L, 5L, 5L};
 
-    Pair pair = findRepeating(arr, arr.length);
+    Pair pair = findRepeating2(arr, arr.length);
     System.out.println(pair.x + " " + pair.y);
   }
 
   //Function to find repeated element and its frequency.
-  private static Pair findRepeating(Long[] arr, int n) {
+  private static Pair findRepeating(long[] arr, int n) {
     if ((n - (arr[n - 1] - arr[0])) == 1) {
       return new Pair(-1L, -1L);
     }
@@ -96,6 +96,31 @@ public class CountOnlyRepeated {
     }
 
     return -1;
+  }
+
+  // Function to find repeated element and its frequency.
+  static Pair findRepeating2(long[] arr, int n) {
+    int start = 0;
+    int end = n - 1;
+
+    if ((end) == (arr[end] - arr[0])) {
+      // no repetition
+      return new Pair(-1, -1);
+    }
+
+    while (start <= end) {
+
+      int mid = start + (end - start) / 2;
+
+      if ((mid) == (arr[mid] - arr[0])) {
+        // No repetition in the left half
+        start = mid + 1;
+      } else {
+        end = mid - 1;
+      }
+    }
+
+    return new Pair(arr[start], n - (arr[n - 1] - arr[0]));
   }
 
   // Pair Class
