@@ -5,6 +5,8 @@ public class CountInversionsInArray {
   public static void main(String[] args) {
 
     int[] arr = {2, 5, 8, 11, 3, 6, 9, 13};
+//    int[] arr = {5, 4, 3, 2, 1};
+
     System.out.println(count(arr, 0, arr.length - 1));
   }
 

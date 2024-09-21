@@ -6,10 +6,10 @@ public class CountingSort {
 
   public static void main(String[] args) {
 
-    testCountingSortNaive1();
-    testCountingSortNaive2();
+//    testCountingSortNaive1();
+//    testCountingSortNaive2();
     testCountingSortOptimised1();
-    testCountingSortOptimised2();
+//    testCountingSortOptimised2();
   }
 
   private static void sortNaive(int[] arr, int k) {
@@ -67,7 +67,7 @@ public class CountingSort {
   }
 
   private static void testCountingSortOptimised1() {
-    int[] arr = {1, 4, 4, 1, 0, 1};
+    int[] arr = {1,1,1,1,1,1};
     sortOptimised(arr, 5);
     System.out.println(Arrays.toString(arr));
   }

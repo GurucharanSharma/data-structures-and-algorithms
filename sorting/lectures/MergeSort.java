@@ -64,4 +64,40 @@ public class MergeSort {
       arr[index++] = right[j++];
     }
   }
+
+  static void merge1(int[] arr, int start, int mid, int end) {
+    int m = mid - start + 1;
+    int n = end - mid;
+
+    int[] left = new int[m];
+    int[] right = new int[n];
+
+    for (int i = 0; i < m; i++) {
+      left[i] = arr[start + i];
+    }
+
+    for (int i = 0; i < n; i++) {
+      right[i] = arr[start + m + i];
+    }
+
+    int i = 0;
+    int j = 0;
+    int index = start;
+    while (i < m && j < n) {
+      if (left[i] <= right[j]) {
+        arr[index++] = left[i++];
+      } else {
+        arr[index++] = right[j++];
+      }
+    }
+
+    while (i < m) {
+      arr[index++] = left[i++];
+    }
+
+    while (j < n) {
+      arr[index++] = right[j++];
+    }
+
+  }
 }

@@ -71,9 +71,10 @@ public class MergeWithoutExtraSpace {
     int len = n + m;
 
     // Initial gap:
-    int gap = (len / 2) + (len % 2); // ceil((size of arr1[] + size of arr2[]) / 2)
+//    int gap = (len / 2) + (len % 2); // ceil((size of arr1[] + size of arr2[]) / 2)
+    int gap = (int) Math.ceil(len / 2.0);
 
-    while (gap > 0) {
+    while (true) {
       // Place 2 pointers:
       int left = 0;
       int right = left + gap;
@@ -102,7 +103,8 @@ public class MergeWithoutExtraSpace {
       }
 
       // Otherwise, calculate new gap:
-      gap = (gap / 2) + (gap % 2);
+//      gap = (gap / 2) + (gap % 2);
+      gap = (int) Math.ceil(gap / 2.0);
     }
   }
 
