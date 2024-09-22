@@ -7,7 +7,8 @@ public class RotateMatrixAntiClockwiseBy90 {
         {1, 2, 3, 4},
         {5, 6, 7, 8},
         {9, 10, 11, 12},
-        {13, 14, 15, 16}
+        {13, 14, 15, 16},
+        {17, 18, 19, 20}
     };
 
     rotateMatrixOptimised(arr);
@@ -41,7 +42,7 @@ public class RotateMatrixAntiClockwiseBy90 {
       int low = 0;
       int high = arr.length - 1;
 
-      while (low <= high) {
+      while (low < high) {
         int temp = arr[low][i];
         arr[low][i] = arr[high][i];
         arr[high][i] = temp;
