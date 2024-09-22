@@ -1,6 +1,6 @@
 package sorting.problems;
 
-public class SearchInKSortedArray {
+public class CloserToSort {
 
   public static void main(String[] args) {
     int[] arr = {3, 2, 10, 4, 40};

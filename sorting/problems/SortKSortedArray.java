@@ -20,9 +20,7 @@ public class SortKSortedArray {
   static void insertionSort(int[] arr, int n) {
     for (int i = 0; i < n; i++) {
       int item = arr[i];
-      int j = i;
-
-      for (; j > 0; j--) {
+      for (int j = i; j > 0; j--) {
         if (arr[j] < arr[j - 1]) {
           arr[j] = arr[j - 1];
           arr[j - 1] = item;
@@ -41,13 +39,11 @@ public class SortKSortedArray {
   static void insertionSort(int[] arr, int n, int k) {
     for (int i = 0; i < n; i++) {
       int item = arr[i];
-      int j = i;
-
       // Check if the previous element is greater than the current
       // element, and shift elements to the right until the correct
       // position is found, but only if the current element is more
       // than k positions away from its correct position
-      for (; j > Math.max(0, i - k); j--) {
+      for (int j = i; j > Math.max(0, i - k); j--) {
         if (arr[j] < arr[j - 1]) {
           arr[j] = arr[j - 1];
           arr[j - 1] = item;
@@ -78,23 +74,22 @@ public class SortKSortedArray {
   // Lomuto partition
   static int partition(int[] arr, int start, int end, int k) {
     int mid = start + (end - start) / 2;
-    swap(arr, end, mid);
-
-    int pivot = arr[end];
-    int i = Math.max(start, mid - k);
+    start = Math.max(start, mid - k);
     end = Math.min(end, mid + k);
-    int j = i;
 
-    while (j < end) {
+    swap(arr, end, mid);
+    int pivot = arr[end];
+
+    int i = start - 1;
+    for (int j = start; j < end; j++) {
       if (arr[j] < pivot) {
-        swap(arr, i++, j);
+        i++;
+        swap(arr, i, j);
       }
-
-      j++;
     }
 
-    swap(arr, i, end);
-    return i;
+    swap(arr, i + 1, end);
+    return i + 1;
   }
 
   static void swap(int[] arr, int i, int j) {
