@@ -25,11 +25,12 @@ public class MedianOfARowWiseSortedMatrix {
       max = Math.max(max, arr[arr.length - 1]);
     }
 
-    int medianIndex = (max + min + 1) / 2;
+    int medianIndex = (matrix.length * matrix[0].length + 1) / 2;
     while (min < max) {
       int mid = (max + min) / 2;
       int midIndex = 0;
 
+      // Find the number of elements which are smaller than mid
       for (int[] arr : matrix) {
         int position = Arrays.binarySearch(arr, mid) + 1;
         midIndex += Math.abs(position);
