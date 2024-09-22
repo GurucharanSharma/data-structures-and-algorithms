@@ -21,7 +21,8 @@ public class CycleSort {
 
       // Count the number of elements smaller than 'item' in the array, to find the correct position of 'item'.
       // 'i' is initialised to 'start + 1' because 'index' is initialised to start. We find the position to the
-      // right of start that we have to move the item to put it in its right place.
+      // right of start that we have to move the item to put it in its right place. All the elements before the
+      // index 'index' are already in their right place.
       for (int i = start + 1; i < arr.length; i++) {
         if (arr[i] < item) {
           index++;

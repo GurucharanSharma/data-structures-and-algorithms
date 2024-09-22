@@ -65,7 +65,7 @@ public class SortKSortedArray {
    * <p>
    * Scans the array from max(low, mid – k) to min(mid + k, high) instead of low to high.
    * <p>
-   * The middle element is chosen as the pivot for diving the array into almost 2 halves for logarithmic time complexity
+   * The middle element is chosen as the pivot for dividing the array into almost 2 halves for logarithmic time complexity
    */
   static void quickSort(int[] arr, int start, int end, int k) {
     if (start < end) {

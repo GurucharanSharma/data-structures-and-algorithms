@@ -2,21 +2,30 @@ package sorting.problems;
 
 import java.util.Arrays;
 
+/**
+ * Given two sorted arrays arr1[] and arr2[] of sizes n and m in non-decreasing order. Merge them in sorted order without using any extra space.
+ * Modify arr1 so that it contains the first N elements and modify arr2 so that it contains the last M elements.
+ */
 public class MergeWithoutExtraSpace {
 
   public static void main(String[] args) {
-    long[] arr1 = {1, 3, 5, 7};
-    long[] arr2 = {0, 2, 6, 8, 9};
+//    long[] arr1 = {1, 3, 5, 7};
+//    long[] arr2 = {0, 2, 6, 8, 9};
+
+    long[] arr1 = {10, 9, 8, 7};
+    long[] arr2 = {6, 5, 4, 3, 2, 1};
 
     System.out.println(Arrays.toString(arr1));
     System.out.println(Arrays.toString(arr2));
-    merge2(arr1, arr2, arr1.length, arr2.length);
+    merge(arr1, arr2, arr1.length, arr2.length);
     System.out.println(Arrays.toString(arr1));
     System.out.println(Arrays.toString(arr2));
   }
 
   /**
    * Approach 1: Function to merge the arrays.
+   * <p>
+   * arr1 and arr2 are sorted arrays
    */
   public static void merge(long[] arr1, long[] arr2, int n, int m) {
     int i = n - 1;
@@ -24,9 +33,7 @@ public class MergeWithoutExtraSpace {
 
     while (i >= 0 && j < m) {
       if (arr1[i] > arr2[j]) {
-        long temp = arr1[i];
-        arr1[i] = arr2[j];
-        arr2[j] = temp;
+        swapIfGreater(arr1, arr2, i, j);
       } else {
         break;
       }
@@ -41,6 +48,8 @@ public class MergeWithoutExtraSpace {
 
   /**
    * Approach 2: Function to merge the arrays.
+   * <p>
+   * arr1 and arr2 are sorted arrays.
    */
   public static void merge1(long[] arr1, long[] arr2, int n, int m) {
     int i = 0;
@@ -51,9 +60,8 @@ public class MergeWithoutExtraSpace {
       if (arr1[i] < arr2[j]) {
         i++;
       } else {
-        long temp = arr1[k];
-        arr1[k] = arr2[j];
-        arr2[j] = temp;
+        swapIfGreater(arr1, arr2, k, j);
+
         k--;
         j++;
       }

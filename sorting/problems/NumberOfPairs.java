@@ -2,6 +2,10 @@ package sorting.problems;
 
 import java.util.Arrays;
 
+/**
+ * Given two positive integer arrays arr and brr, find the number of pairs such that x<sup>y</sup> > y<sup>x</sup> (raised to power of) where x is an
+ * element from arr and y is an element from brr.
+ */
 public class NumberOfPairs {
 
   public static void main(String[] args) {
@@ -13,7 +17,7 @@ public class NumberOfPairs {
 
   // Function to count number of pairs such that x^y is greater than y^x.
   public static long countPairs(int[] x, int[] y, int M, int N) {
-    // count frequencies of 0, 1, 2, 3, 4
+    // count frequencies of 0, 1, 2, 3, 4 in array y
     int[] freqY = new int[5];
     for (int i = 0; i < N; i++) {
       if (y[i] < 5) {
@@ -46,18 +50,23 @@ public class NumberOfPairs {
 
     int result;
 
-    // Find number of elements in Y[] with values
-    // greater than x getting upperbound of x with
-    // binary search
-    int idx = Arrays.binarySearch(Y, x);
+    // Find number of elements in Y[] with values greater than x getting upperbound of x with binary search
+//    int idx = Arrays.binarySearch(Y, x);
+    int idx = upperBound(Y, x);
+
     if (idx < 0) {
       idx = Math.abs(idx + 1);
     } else {
+      // The method Arrays.binarySearch(Y, x) will give the first index of x in Y.
+      // In case x is repeated in Y, we have to increment the idx till all the repeated
+      // x's are counted.
       while (idx < N && Y[idx] == x) {
         idx++;
       }
     }
 
+    // idx contains the index, in the array Y, below which all the elements are lesser than x.
+    // So the count of elements which are greater than x will be N - idx.
     result = N - idx;
 
     // If we have reached here, then x must be greater
@@ -75,5 +84,19 @@ public class NumberOfPairs {
     }
 
     return result;
+  }
+
+  // Helper function to find the first index in brr[] where brr[idx] > x.
+  static int upperBound(int[] brr, int x) {
+    int low = 0, high = brr.length;
+    while (low < high) {
+      int mid = (low + high) / 2;
+      if (brr[mid] > x) {
+        high = mid;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return low;
   }
 }

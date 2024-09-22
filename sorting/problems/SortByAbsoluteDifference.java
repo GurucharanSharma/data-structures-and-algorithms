@@ -17,9 +17,32 @@ public class SortByAbsoluteDifference {
     arr.sort(Comparator.comparingInt(x -> Math.abs(x - k)));
   }
 
+  static void sortABS(Integer[] arr, int n, int x) {
+    // Below lines are similar to insertion sort
+    for (int i = 1; i < n; i++) {
+      int diff = Math.abs(arr[i] - x);
+
+      // Insert arr[i] at correct place
+      int j = i - 1;
+      if (Math.abs(arr[j] - x) > diff) {
+        int temp = arr[i];
+        while (j >= 0 && Math.abs(arr[j] - x) > diff) {
+          arr[j + 1] = arr[j];
+          j--;
+        }
+
+        arr[j + 1] = temp;
+      }
+    }
+  }
+
   private static void testSortABS1() {
     Integer[] arr = {10, 5, 3, 9, 2};
+
     sortABS(Arrays.asList(arr), arr.length, 7);
+    System.out.println(Arrays.toString(arr));
+
+    sortABS(arr, arr.length, 7);
     System.out.println(Arrays.toString(arr));
   }
 }

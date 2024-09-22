@@ -6,10 +6,10 @@ public class CountingSort {
 
   public static void main(String[] args) {
 
-//    testCountingSortNaive1();
-//    testCountingSortNaive2();
+    testCountingSortNaive1();
+    testCountingSortNaive2();
     testCountingSortOptimised1();
-//    testCountingSortOptimised2();
+    testCountingSortOptimised2();
   }
 
   private static void sortNaive(int[] arr, int k) {
