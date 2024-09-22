@@ -46,4 +46,18 @@ public class MatrixBoundaryTraversal {
       }
     }
   }
+
+  // Better implementation
+  static void boundaryTraversal1(int[][] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        if (i == 0 || j == 0 || i == arr.length - 1 || j == arr[i].length - 1) {
+          System.out.printf("%2d ", arr[i][j]);
+        } else {
+          System.out.print("   ");
+        }
+      }
+      System.out.println();
+    }
+  }
 }
