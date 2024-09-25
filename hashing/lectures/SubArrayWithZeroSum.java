@@ -38,10 +38,10 @@ public class SubArrayWithZeroSum {
     HashSet<Integer> hashSet = new HashSet<>();
     int sum = 0;
 
-    for (int i : arr) {
-      sum += i;
+    for (int i = 0; i < arr.length; i++) {
+      sum += arr[i];
 
-      if (i == 0 || sum == 0 || hashSet.contains(sum)) {
+      if (arr[i] == 0 || sum == 0 || hashSet.contains(sum)) {
         return true;
       } else {
         hashSet.add(sum);

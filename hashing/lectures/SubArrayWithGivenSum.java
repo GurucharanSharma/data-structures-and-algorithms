@@ -41,8 +41,8 @@ public class SubArrayWithGivenSum {
     HashSet<Integer> hashSet = new HashSet<>();
     int prefixSum = 0;
 
-    for (int i : arr) {
-      prefixSum += i;
+    for (int i = 0; i < arr.length; i++) {
+      prefixSum += arr[i];
 
       if (hashSet.contains(prefixSum - sum) || prefixSum == sum) {
         return true;
