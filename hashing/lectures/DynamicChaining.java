@@ -38,19 +38,25 @@ public class DynamicChaining<T> {
     dynamicChaining.insert("H", 14);
     dynamicChaining.insert("I", 14);
     dynamicChaining.insert("J", 14);
-    dynamicChaining.insert("K", 14);
+    dynamicChaining.insert("K", 17);
 
-    System.out.println("Value of GeeksForGeeks : " + dynamicChaining.search("GeeksForGeeks"));
-    System.out.println("Value of Manish : " + dynamicChaining.search("Manish"));
+    System.out.println(dynamicChaining.numOfElements + " of " + dynamicChaining.capacity);
+    System.out.println(dynamicChaining.search("K"));
+
+    System.out.println(dynamicChaining.delete("K"));
+
+    System.out.println(dynamicChaining.numOfElements + " of " + dynamicChaining.capacity);
+    System.out.println(dynamicChaining.search("K"));
   }
 
-  // Hash function
+  // Hash function: Assume that this hash function works, and it gives the correct index.
   private int hashFunction(String key) {
     long sum = 0, factor = 31;
     for (int i = 0; i < key.length(); i++) {
       sum = ((sum % capacity) + ((key.charAt(i)) * factor) % capacity) % capacity;
       factor = ((factor % Short.MAX_VALUE) * (31 % Short.MAX_VALUE)) % Short.MAX_VALUE;
     }
+
     return (int) sum;
   }
 
@@ -63,8 +69,9 @@ public class DynamicChaining<T> {
     int oldCapacity = capacity;
     HashMap<Integer, Node<T>> temp = new HashMap<>(arr);
 
-    capacity = oldCapacity * 2;
-    arr = new HashMap<>(capacity); // Casting is necessary in Java
+    capacity = oldCapacity * 2;     // Resetting the capacity
+    numOfElements = 0;              // Resetting the size
+    arr = new HashMap<>(capacity);  // Casting is necessary in Java
 
     for (int i = 0; i < oldCapacity; i++) {
       Node<T> currentBucketHead = temp.get(i);
@@ -89,6 +96,49 @@ public class DynamicChaining<T> {
     numOfElements++;
   }
 
+  // Delete method
+  public T delete(String key) {
+    int index = hashFunction(key);
+    Node<T> head = arr.get(index);
+
+    // If the list is empty, return null
+    if (head == null) {
+      return null;
+    }
+
+    // Special case: If the head node is the node to be deleted
+    if (head.key.equals(key)) {
+      arr.put(index, head.next); // Move the head to the next node
+      numOfElements--;
+      return head.value;
+    }
+
+    // Traverse the list to find the node with the given key
+    Node<T> prev = null;
+    Node<T> current = head;
+
+    while (current != null && !current.key.equals(key)) {
+      prev = current;
+      current = current.next;
+    }
+
+    // If the node with the key is not found, return null
+    if (current == null) {
+      return null;
+    }
+
+    // If the node to be deleted is the last node (current.next is null)
+    if (current.next == null) {
+      prev.next = null; // Update the previous node's next to null
+    } else {
+      // If the node to be deleted is in the middle
+      prev.next = current.next;
+    }
+
+    numOfElements--;
+    return current.value;
+  }
+
   private T search(String key) {
     int bucketIndex = this.hashFunction(key);
     Node<T> bucketHead = this.arr.get(bucketIndex);
@@ -103,7 +153,6 @@ public class DynamicChaining<T> {
   }
 }
 
-
 class Node<T> {
 
   String key;
@@ -113,14 +162,6 @@ class Node<T> {
   Node(String key, T value) {
     this.key = key;
     this.value = value;
-    this.next = null;
-  }
-
-  @SuppressWarnings("unchecked")
-    // Suppress warning for unchecked cast in copy constructor
-  Node(Node<T> obj) {
-    this.key = obj.key;
-    this.value = obj.value;  // Use explicit cast to address type safety
     this.next = null;
   }
 }
