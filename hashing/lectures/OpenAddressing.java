@@ -4,76 +4,96 @@ import java.util.Arrays;
 
 public class OpenAddressing {
 
-  private final int capacity;
-  private final int[] arr;
-  private int size;
+  /**
+   * Using linear probing
+   */
+  static class LinearProbing {
 
-  OpenAddressing(int capacity) {
-    this.capacity = capacity;
-    this.size = 0;
-    this.arr = new int[capacity];
+    private final int capacity;
+    private final int[] arr;
+    private int size;
 
-    Arrays.fill(arr, -1);
-  }
+    LinearProbing(int capacity) {
+      this.capacity = capacity;
+      this.size = 0;
+      this.arr = new int[capacity];
 
-  private int hash(int key) {
-    return key % this.capacity;
-  }
-
-  private boolean search(int key) {
-    int h = hash(key);
-    int i = h;
-
-    while (arr[i] != -1) {
-      if (arr[i] == key) {
-        return true;
-      }
-
-      i = (i + 1) % capacity;
-
-      if (i == h) {
-        return false;
-      }
+      Arrays.fill(arr, -1);
     }
 
-    return false;
-  }
+    private int hash(int key) {
+      return key % this.capacity;
+    }
 
-  private boolean insert(int key) {
-    if (size == capacity) {
+    private boolean search(int key) {
+      int h = hash(key);
+      int i = h;
+
+      while (arr[i] != -1) {
+        if (arr[i] == key) {
+          return true;
+        }
+
+        i = (i + 1) % capacity;
+
+        if (i == h) {
+          return false;
+        }
+      }
+
       return false;
     }
 
-    int i = hash(key);
-    while (arr[i] != -1 && arr[i] != -2 && arr[i] != key) {
-      i = (i + 1) % capacity;
+    private boolean insert(int key) {
+      if (size == capacity) {
+        return false;
+      }
+
+      int i = hash(key);
+      while (arr[i] != -1 && arr[i] != -2 && arr[i] != key) {
+        i = (i + 1) % capacity;
+      }
+
+      if (arr[i] == key) {
+        return false;
+      } else {
+        arr[i] = key;
+        size++;
+        return true;
+      }
     }
 
-    if (arr[i] == key) {
+    private boolean erase(int key) {
+      int h = hash(key);
+      int i = h;
+
+      while (arr[i] != -1) {
+        if (arr[i] == key) {
+          arr[i] = -2;
+          return true;
+        }
+
+        i = (i + 1) % capacity;
+        if (i == h) {
+          return false;
+        }
+      }
+
       return false;
-    } else {
-      arr[i] = key;
-      size++;
-      return true;
     }
   }
 
-  private boolean erase(int key) {
-    int h = hash(key);
-    int i = h;
+  /**
+   * Using quadratic probing
+   */
+  static class QuadraticProbing {
+    // TODO
+  }
 
-    while (arr[i] != -1) {
-      if (arr[i] == key) {
-        arr[i] = -2;
-        return true;
-      }
-
-      i = (i + 1) % capacity;
-      if (i == h) {
-        return false;
-      }
-    }
-
-    return false;
+  /**
+   * Using double hashing
+   */
+  static class DoubleHashing {
+    // TODO
   }
 }

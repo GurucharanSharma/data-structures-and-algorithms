@@ -24,7 +24,6 @@ public class CountDistinctElements {
         }
       }
 
-      // If not printed earlier, then print it
       if (i == j) {
         res++;
       }
@@ -59,6 +58,7 @@ public class CountDistinctElements {
    */
   private static int countDistinct2(Integer[] arr) {
     HashSet<Integer> hashSet = new HashSet<>(Arrays.asList(arr));
+//    HashSet<Integer> hashSet = new HashSet<Integer>(Arrays.asList(Arrays.stream(arr).boxed().toArray(Integer[]::new))); // In case of an int[] as input
     return hashSet.size();
   }
 

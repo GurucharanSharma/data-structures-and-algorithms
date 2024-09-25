@@ -55,14 +55,13 @@ public class FrequenciesOfArrayElements {
   static void printFrequencies2(int[] arr) {
     Map<Integer, Integer> mp = new HashMap<>();
 
-    // Traverse through array elements and
-    // count frequencies
+    // Traverse through array elements and count frequencies
     for (int element : arr) {
-      mp.put(element, mp.get(element) == null ? 1 : mp.get(element) + 1);
+      mp.put(element, mp.getOrDefault(element, 0) + 1);
     }
 
-    // To print elements according to first occurrence, traverse array one more time print
-    // frequencies of elements and mark frequencies as -1 so that same element is not printed multiple times.
+    // To print elements according to first occurrence, traverse array one more time.
+    // Print the frequencies of elements and mark frequencies as -1 so that same element is not printed multiple times.
     for (int element : arr) {
       if (mp.get(element) != -1) {
         System.out.println(element + " " + mp.get(element));
