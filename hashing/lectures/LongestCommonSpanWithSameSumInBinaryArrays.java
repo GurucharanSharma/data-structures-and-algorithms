@@ -41,12 +41,19 @@ public class LongestCommonSpanWithSameSumInBinaryArrays {
     return res;
   }
 
+  /**
+   * Efficient approach
+   * <p>
+   * Time Complexity: O(n)
+   * <p>
+   * Space Complexity: O(n)
+   */
   private static int longestCommonSpan1(int[] arr, int[] brr) {
     if (arr.length != brr.length) {
       System.out.println("Both the arrays must be of equal length!");
       return -1;
     }
-    
+
     int[] temp = new int[arr.length];
     for (int i = 0; i < arr.length; i++) {
       temp[i] = arr[i] - brr[i];
