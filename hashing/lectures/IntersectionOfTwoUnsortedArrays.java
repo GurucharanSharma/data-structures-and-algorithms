@@ -21,6 +21,7 @@ public class IntersectionOfTwoUnsortedArrays {
 
       for (int i : brr) {
         if (hashSet.contains(i)) {
+          hashSet.remove(i);      // In case arr contains duplicates
           System.out.println(i);
         }
       }
@@ -31,6 +32,7 @@ public class IntersectionOfTwoUnsortedArrays {
 
       for (int i : arr) {
         if (hashSet.contains(i)) {
+          hashSet.remove(i);      // In case brr contains duplicates
           System.out.println(i);
         }
       }
