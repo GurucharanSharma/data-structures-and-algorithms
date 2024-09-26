@@ -151,6 +151,18 @@ public class DynamicChaining<T> {
     System.out.println("Oops!! Data not found.");
     return null;  // Return null instead of -1 for better Java practice
   }
+
+  public void print() {
+    for (HashMap.Entry<Integer, Node<T>> entry : arr.entrySet()) {
+      Node<T> head = entry.getValue();
+      while (head != null) {
+        System.out.print("[" + head.key + ", " + head.value + "]");
+        head = head.next;
+      }
+
+      System.out.println();
+    }
+  }
 }
 
 class Node<T> {
