@@ -39,6 +39,7 @@ public class LongestSubArrayWithGivenSum {
   private static int longestSubArray1(int[] arr, int sum) {
     Map<Integer, Integer> hashMap = new HashMap<>();
     int prefixSum = 0, res = 0;
+    int start = 0, end = 0;
 
     for (int i = 0; i < arr.length; i++) {
       prefixSum += arr[i];
@@ -52,10 +53,16 @@ public class LongestSubArrayWithGivenSum {
       }
 
       if (hashMap.containsKey(prefixSum - sum)) {
-        res = Math.max(res, i - hashMap.get(prefixSum - sum));
+//        res = Math.max(res, i - hashMap.get(prefixSum - sum));
+        if (i - hashMap.get(prefixSum - sum) > res) {
+          res = i - hashMap.get(prefixSum - sum);
+          start = hashMap.get(prefixSum - sum) + 1;
+          end = i;
+        }
       }
     }
 
+    System.out.println(start + " " + end);
     return res;
   }
 
