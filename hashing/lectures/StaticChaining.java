@@ -36,18 +36,44 @@ public class StaticChaining {
     }
   }
 
-  private void insert(int key) {
-    int i = key % bucket;
-    table.get(i).add(key);
+  public int hash(int key) {
+    return key % bucket;
   }
 
-  private boolean search(int key) {
-    int i = key % bucket;
-    return table.get(i).contains(key);
+  public void insert(int key) {
+    int index = hash(key);
+    table.get(index).add(key);
   }
 
-  private void remove(int key) {
-    int i = key % bucket;
-    table.get(i).remove(key);
+  public boolean search(int key) {
+    int index = hash(key);
+    LinkedList<Integer> linkedList = table.get(index);
+    return linkedList.contains(key);
+  }
+
+  public boolean delete(int key) {
+    int index = hash(key);
+    LinkedList<Integer> linkedList = table.get(index);
+
+    int keyIndex = -1;
+    for (int i = 0; i < linkedList.size(); i++) {
+      if (linkedList.get(i) == key) {
+        keyIndex = i;
+        break;
+      }
+    }
+
+    if (keyIndex >= 0) {
+      linkedList.remove(keyIndex);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public void printList() {
+    for (LinkedList<Integer> list : table) {
+      System.out.println(list);
+    }
   }
 }
