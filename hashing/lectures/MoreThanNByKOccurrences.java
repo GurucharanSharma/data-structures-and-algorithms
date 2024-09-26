@@ -73,14 +73,13 @@ public class MoreThanNByKOccurrences {
    */
   private static void printNByK2(int[] arr, int k) {
     // HashMap to store elements and their counts
-    HashMap<Integer, Integer> m = new HashMap<Integer, Integer>();
+    HashMap<Integer, Integer> m = new HashMap<>();
 
     // Iterate over each element in the array
     for (int value : arr) {
       // If the element is already in the map, increment its count
       if (m.containsKey(value)) {
-        int count = m.get(value);
-        m.put(value, count + 1);
+        m.put(value, m.get(value) + 1);
       }
       // If the map size is less than k-1, add the new element with count 1
       else if (m.size() < k - 1) {
