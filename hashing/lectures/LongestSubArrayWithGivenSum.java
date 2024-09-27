@@ -48,17 +48,19 @@ public class LongestSubArrayWithGivenSum {
         res = i + 1;
       }
 
-      if (!hashMap.containsKey(prefixSum)) {
-        hashMap.put(prefixSum, i);
-      }
-
       if (hashMap.containsKey(prefixSum - sum)) {
-//        res = Math.max(res, i - hashMap.get(prefixSum - sum));
+        // We can use the below method in case start and end indexes are not required.
+        // res = Math.max(res, i - hashMap.get(prefixSum - sum));
+
+        // To capture the start and end indexes of this max sub array
         if (i - hashMap.get(prefixSum - sum) > res) {
-          res = i - hashMap.get(prefixSum - sum);
-          start = hashMap.get(prefixSum - sum) + 1;
+          int index = hashMap.get(prefixSum - sum);
+          res = i - index;
+          start = index + 1;
           end = i;
         }
+      } else {
+        hashMap.put(prefixSum, i);
       }
     }
 
