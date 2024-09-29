@@ -54,6 +54,5 @@ public class SortArrayAccordingToAnother {
 
     left.addAll(right);
     return left.stream().mapToInt(Integer::intValue).toArray();
-
   }
 }
