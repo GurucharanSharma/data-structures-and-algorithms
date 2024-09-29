@@ -33,10 +33,40 @@ public class MoreThanNByKOccurrences {
   }
 
   /**
+   * Time Complexity: O(n * log(n)) <br> Auxiliary Space: O(1)
+   */
+  private static void printNByK1(int[] arr, int k) {
+    for (int i = 0; i < arr.length; i++) {
+      boolean flag = false;
+      for (int j = 0; j < i; j++) {
+        if (arr[i] == arr[j]) {
+          flag = true;
+          break;
+        }
+      }
+
+      if (flag) {
+        continue;
+      }
+
+      int count = 1;
+      for (int j = i + 1; j < arr.length; j++) {
+        if (arr[j] == arr[i]) {
+          count++;
+        }
+      }
+
+      if (count > arr.length / k) {
+        System.out.println(arr[i] + " ");
+      }
+    }
+  }
+
+  /**
    * Time Complexity: θ(n) <br> Auxiliary Space: O(n/k) <br>
    * <b>NOTE:</b> If k is very small and n is very large, the required auxiliary space would be very large
    */
-  private static void printNByK1(int[] arr, int k) {
+  private static void printNByK2(int[] arr, int k) {
     HashMap<Integer, Integer> map = new HashMap<>();
 
     for (int i : arr) {
@@ -71,35 +101,34 @@ public class MoreThanNByKOccurrences {
    * Time Complexity: O(nk) <br> Auxiliary Space: O(n/k) <br>
    * </p>
    */
-  private static void printNByK2(int[] arr, int k) {
+  private static void printNByK3(int[] arr, int k) {
     // HashMap to store elements and their counts
-    HashMap<Integer, Integer> m = new HashMap<>();
+    HashMap<Integer, Integer> freqMap = new HashMap<>();
 
     // Iterate over each element in the array
     for (int value : arr) {
       // If the element is already in the map, increment its count
-      if (m.containsKey(value)) {
-        m.put(value, m.get(value) + 1);
+      if (freqMap.containsKey(value)) {
+        freqMap.put(value, freqMap.get(value) + 1);
       }
       // If the map size is less than k-1, add the new element with count 1
-      else if (m.size() < k - 1) {
-        m.put(value, 1);
+      else if (freqMap.size() < k - 1) {
+        freqMap.put(value, 1);
       }
       // If map size is equal to k-1, reduce count of all elements by 1
       else {
-        for (Entry<Integer, Integer> x : m.entrySet()) {
-          Integer c = x.getValue();
-          m.put(x.getKey(), c - 1);
+        for (Entry<Integer, Integer> entry : freqMap.entrySet()) {
+          freqMap.put(entry.getKey(), entry.getValue() - 1);
           // Remove the element if its count becomes 0
-          if (m.get(x.getKey()) == 0) {
-            m.remove(x.getKey());
+          if (freqMap.get(entry.getKey()) == 0) {
+            freqMap.remove(entry.getKey());
           }
         }
       }
     }
 
     // Second pass to check actual counts of elements in the map
-    for (Entry<Integer, Integer> x : m.entrySet()) {
+    for (Entry<Integer, Integer> x : freqMap.entrySet()) {
       int count = 0;
       // Count the occurrences of each element in the array
       for (int j : arr) {
@@ -118,13 +147,16 @@ public class MoreThanNByKOccurrences {
     int[] arr = {10, 20, 30, 10, 10, 20};
     int k = 3;
 
-    System.out.println("Naive");
+    System.out.println("Naive - 1:");
     printNByK(arr, k);
 
-    System.out.println("Optimised");
+    System.out.println("Naive - 2:");
     printNByK1(arr, k);
 
-    System.out.println("Boyer-Moore");
+    System.out.println("Optimised");
     printNByK2(arr, k);
+
+    System.out.println("Boyer-Moore");
+    printNByK3(arr, k);
   }
 }

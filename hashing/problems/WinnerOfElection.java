@@ -7,10 +7,12 @@ import java.util.Map;
 public class WinnerOfElection {
 
   public static void main(String[] args) {
-//    String[] arr = {"john", "johnny", "jackie", "johnny", "john", "jackie", "jamie", "jamie", "john", "johnny", "jamie", "johnny", "john"};
-    String[] arr = {"andy", "blake", "clark"};
+    String[] arr = {"john", "johnny", "jackie", "johnny", "john", "jackie", "jamie", "jamie", "john", "johnny", "jamie", "johnny", "john"};
+//    String[] arr = {"andy", "blake", "clark"};
 
     System.out.println(Arrays.toString(winner(arr, arr.length)));
+    System.out.println();
+    System.out.println(Arrays.toString(winner1(arr, arr.length)));
   }
 
   //Function to return the name of candidate that received maximum votes.
@@ -32,7 +34,7 @@ public class WinnerOfElection {
   }
 
   //Function to return the name of candidate that received maximum votes.
-  public static String[] winner2(String[] arr, int n) {
+  public static String[] winner1(String[] arr, int n) {
     HashMap<String, Integer> freqLookup = new HashMap<>();
     for (String str : arr) {
       freqLookup.put(str, freqLookup.getOrDefault(str, 0) + 1);

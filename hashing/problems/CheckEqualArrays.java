@@ -21,6 +21,10 @@ public class CheckEqualArrays {
    */
   // Function to check if two arrays are equal or not.
   public static boolean check(int[] arr1, int[] arr2) {
+    if (arr1.length != arr2.length) {
+      return false;
+    }
+
     ArrayList<Integer> lookup = new ArrayList<>(arr1.length);
     for (int num : arr1) {
       lookup.add(num);
@@ -42,6 +46,10 @@ public class CheckEqualArrays {
    */
   // Function to check if two arrays are equal or not.
   public static boolean check1(int[] arr1, int[] arr2) {
+    if (arr1.length != arr2.length) {
+      return false;
+    }
+
     Map<Integer, Integer> lookup = new HashMap<>();
     for (int num : arr1) {
       lookup.put(num, lookup.getOrDefault(num, 0) + 1);

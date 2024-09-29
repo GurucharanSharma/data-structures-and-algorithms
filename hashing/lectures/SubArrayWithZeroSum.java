@@ -1,5 +1,6 @@
 package hashing.lectures;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class SubArrayWithZeroSum {
@@ -51,11 +52,30 @@ public class SubArrayWithZeroSum {
     return false;
   }
 
+  private static boolean is0SubArray2(int[] arr) {
+    HashMap<Integer, Integer> indexLookup = new HashMap<>();
+
+    int prefixSum = 0;
+    for (int i = 0; i < arr.length; i++) {
+      prefixSum += arr[i];
+
+      if (arr[i] == 0 || prefixSum == 0 || indexLookup.containsKey(prefixSum)) {
+        System.out.println(indexLookup.get(prefixSum) + " - " + i);
+        return true;
+      }
+
+      indexLookup.put(prefixSum, i + 1);
+    }
+
+    return false;
+  }
+
   private static void testIs0SubArray() {
     int[] arr = {-3, 4, -3, -1, 1};
 
     System.out.println(is0SubArray(arr));
     System.out.println(is0SubArray1(arr));
+    System.out.println(is0SubArray2(arr));
   }
 
   private static void testIs0SubArray1() {
@@ -63,5 +83,6 @@ public class SubArrayWithZeroSum {
 
     System.out.println(is0SubArray(arr));
     System.out.println(is0SubArray1(arr));
+    System.out.println(is0SubArray2(arr));
   }
 }

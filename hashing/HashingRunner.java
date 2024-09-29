@@ -1,58 +1,38 @@
 package hashing;
 
+import java.util.Arrays;
+
 /**
  * Practice Session
  */
 public class HashingRunner {
 
   public static void main(String[] args) {
-//    int[] arr = {9, 1, 1, 1, 2, 3, 4, 1, 1, 3, 4, 5, 5, 6, 7, 1, 2, 3, 4, 5};
-//    int[] arr = {1, 2, 3, 4, 5, 6, 7};
-//    int[] arr = {1, 1, 1, 1, 1, 1, 6};
-    int[] arr = {1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3};
+    int[] arr = {880, 995, 647, 172};
+    int hashSize = 11;
 
-    int[] brr = {1, 2, 1, 1, 2, 2};
-
-    intersection(arr, brr);
+    int[] hash = new int[hashSize];
+    quadraticProbing(hash, hashSize, arr, arr.length);
+    System.out.println(Arrays.toString(hash));
   }
 
-  private static void intersection(int[] arr, int[] brr) {
-    for (int i = 0; i < arr.length; i++) {
-      boolean flag = false;
-      for (int j = 0; j < i; j++) {
-        if (arr[i] == arr[j]) {
-          flag = true;
-          break;
+  //Function to fill the array elements into a hash table
+  //using Quadratic Probing to handle collisions.
+  static void quadraticProbing(int[] hash, int hash_size, int[] arr, int N) {
+    Arrays.fill(hash, -1);
+
+    for (int i = 0; i < N; i++) {
+      int index = arr[i] % hash_size;
+      if (hash[index] == -1 || hash[index] == arr[i]) {
+        hash[index] = arr[i];
+      } else {
+        for (int j = 1; j < hash_size; j++) {
+          index = ((arr[i] % hash_size) + j * j) % hash_size;
+          if (hash[index] == -1 || hash[index] == arr[i]) {
+            hash[index] = arr[i];
+            break;
+          }
         }
-      }
-
-      if (flag) {
-        continue;
-      }
-
-      for (int j = 0; j < brr.length; j++) {
-        if (arr[i] == brr[j]) {
-          flag = true;
-          break;
-        }
-      }
-
-      if (!flag) {
-        System.out.print(arr[i] + " ");
-      }
-    }
-
-    for (int i = 0; i < brr.length; i++) {
-      boolean flag = false;
-      for (int j = 0; j < i; j++) {
-        if (brr[i] == brr[j]) {
-          flag = true;
-          break;
-        }
-      }
-
-      if (!flag) {
-        System.out.print(brr[i] + " ");
       }
     }
   }
