@@ -1,5 +1,6 @@
 package hashing.lectures;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,11 +71,41 @@ public class FrequenciesOfArrayElements {
     }
   }
 
+  /**
+   * Sorting the array and then counting the occurrences of each element in the array.
+   * <p>
+   * Time Complexity: O(n * log(n))
+   * <p>
+   * Auxiliary Space: O(1)
+   */
+  private static void printFrequencies3(int[] arr) {
+    int n = arr.length;
+
+    Arrays.sort(arr);
+
+    for (int i = 0; i < n - 1; i++) {
+      int count = 1;
+      while (i < n - 1 && arr[i] == arr[i + 1]) {
+        count++;
+        i++;
+      }
+
+      System.out.println(arr[i] + " = " + count);
+    }
+
+    if (arr[n - 1] != arr[n - 2]) {
+      System.out.println(arr[n - 1] + " = " + 1);
+    }
+  }
+
   private static void testPrintFrequencies() {
     int[] arr = {10, 12, 12, 20, 10, 20, 10, 10};
 
     System.out.println("Naive");
     printFrequencies(arr);
+
+    System.out.println("\nBetter");
+    printFrequencies3(arr);
 
     System.out.println("\nOptimised");
     printFrequencies1(arr);

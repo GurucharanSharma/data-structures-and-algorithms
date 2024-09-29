@@ -2,6 +2,8 @@ package hashing.lectures;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class CountDistinctElements {
 
@@ -42,6 +44,8 @@ public class CountDistinctElements {
     // Traverse the sorted array
     int res = 0;
     for (int i = 0; i < arr.length; i++) {
+      System.out.print(arr[i] + " ");
+
       // Move the index ahead while there are duplicates
       while (i < arr.length - 1 && arr[i].intValue() == arr[i + 1].intValue()) {
         i++;
@@ -49,16 +53,37 @@ public class CountDistinctElements {
 
       res++;
     }
+    System.out.println();
 
     return res;
   }
 
   /**
-   * Time Complexity: O(n) <br> Auxiliary Space: O(n)
+   * Time Complexity: O(n)
+   * <p>
+   * Auxiliary Space: O(n)
+   * <p>
+   * NOTE: Sorts the elements of the array
    */
   private static int countDistinct2(Integer[] arr) {
     HashSet<Integer> hashSet = new HashSet<>(Arrays.asList(arr));
 //    HashSet<Integer> hashSet = new HashSet<Integer>(Arrays.asList(Arrays.stream(arr).boxed().toArray(Integer[]::new))); // In case of an int[] as input
+
+    System.out.println(hashSet);
+    return hashSet.size();
+  }
+
+  /**
+   * Time Complexity: O(n)
+   * <p>
+   * Auxiliary Space: O(n)
+   * <p>
+   * NOTE: Preserves the order of elements in the arr
+   */
+  private static int countDistinct3(Integer[] arr) {
+    Set<Integer> hashSet = new LinkedHashSet<>(Arrays.asList(arr));
+
+    System.out.println(hashSet);
     return hashSet.size();
   }
 
@@ -68,5 +93,6 @@ public class CountDistinctElements {
     System.out.println(countDistinct(arr));
     System.out.println(countDistinct1(arr));
     System.out.println(countDistinct2(arr));
+    System.out.println(countDistinct3(arr));
   }
 }
