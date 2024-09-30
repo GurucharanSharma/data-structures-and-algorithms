@@ -44,15 +44,15 @@ public class SortElementsByFrequency {
    */
   private static ArrayList<Integer> sortByFreq1(int[] arr) {
     Node[] nodes = new Node[arr.length];
-    Map<Integer, Integer> lookup = new HashMap<>();
+    Map<Integer, Integer> freqLookup = new HashMap<>();
     for (int i = 0; i < arr.length; i++) {
       nodes[i] = new Node(arr[i], 0);
-      lookup.put(arr[i], lookup.getOrDefault(arr[i], 0) + 1);
+      freqLookup.put(arr[i], freqLookup.getOrDefault(arr[i], 0) + 1);
     }
 
-    // Calculating frequencies of each array elements
+    // Updating frequencies/count of each node in nodes array using the freqLookup.
     for (int i = 0; i < arr.length; i++) {
-      nodes[i].count = lookup.getOrDefault(arr[i], 0);
+      nodes[i].count = freqLookup.getOrDefault(arr[i], 0);
     }
 
     System.out.println(Arrays.toString(nodes));
