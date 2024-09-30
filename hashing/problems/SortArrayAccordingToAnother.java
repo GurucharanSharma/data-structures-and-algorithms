@@ -76,12 +76,16 @@ public class SortArrayAccordingToAnother {
           int idx2 = indexLookup.getOrDefault(o2, -1);
 
           if (idx1 == -1 && idx2 == -1) {
+            // Elements not present in A2
             return o1 - o2;
           } else if (idx1 == -1) {
+            // First element not present in A2
             return 1;
           } else if (idx2 == -1) {
+            // Second element not present in A2
             return -1;
           } else {
+            // Both elements are present in A2
             return idx1 - idx2;
           }
         })

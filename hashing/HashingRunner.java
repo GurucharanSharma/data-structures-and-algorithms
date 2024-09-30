@@ -1,6 +1,6 @@
 package hashing;
 
-import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Practice Session
@@ -8,32 +8,28 @@ import java.util.Arrays;
 public class HashingRunner {
 
   public static void main(String[] args) {
-    int[] arr = {880, 995, 647, 172};
-    int hashSize = 11;
+//    long[] arr = {0, 0, 5, 5, 0, 0};
+    long[] arr = {6, -1, -3, 4, -2, 2, 4, 6, -12, -7};
 
-    int[] hash = new int[hashSize];
-    quadraticProbing(hash, hashSize, arr, arr.length);
-    System.out.println(Arrays.toString(hash));
+    System.out.println(findSubarray(arr, arr.length));
   }
 
-  //Function to fill the array elements into a hash table
-  //using Quadratic Probing to handle collisions.
-  static void quadraticProbing(int[] hash, int hash_size, int[] arr, int N) {
-    Arrays.fill(hash, -1);
+  //Function to count subarrays with sum equal to 0.
+  public static long findSubarray(long[] arr, int n) {
+    HashMap<Long, Integer> freqLookup = new HashMap<>();
+    freqLookup.put(0L, 1);
 
-    for (int i = 0; i < N; i++) {
-      int index = arr[i] % hash_size;
-      if (hash[index] == -1 || hash[index] == arr[i]) {
-        hash[index] = arr[i];
-      } else {
-        for (int j = 1; j < hash_size; j++) {
-          index = ((arr[i] % hash_size) + j * j) % hash_size;
-          if (hash[index] == -1 || hash[index] == arr[i]) {
-            hash[index] = arr[i];
-            break;
-          }
-        }
+    long sum = 0;
+    int count = 0;
+    for (long e : arr) {
+      sum += e;
+      if (freqLookup.containsKey(sum)) {
+        count += freqLookup.get(sum);
       }
+
+      freqLookup.put(sum, freqLookup.getOrDefault(sum, 0) + 1);
     }
+
+    return count;
   }
 }
