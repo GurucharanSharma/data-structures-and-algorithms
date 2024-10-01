@@ -8,9 +8,25 @@ public class IterativePower {
 
     System.out.println(iterativePower(x, n));
     System.out.println(iterativePower1(x, n));
+    System.out.println(iterativePower2(x, n));
   }
 
-  private static int iterativePower(int x, int n) {
+  // Naive approach
+  // Time Complexity: O(n)
+  // Auxiliary Space: O(1)
+  private static int iterativePower(int n, int p) {
+    int result = 1;
+    for (int i = 0; i < p; i++) {
+      result = result * n;
+    }
+
+    return result;
+  }
+
+  // Naive approach
+  // Time Complexity: O(log(n))
+  // Auxiliary Space: O(1)
+  private static int iterativePower1(int x, int n) {
     int result = 1;
     while (n > 0) {
       if (n % 2 != 0) {
@@ -25,7 +41,10 @@ public class IterativePower {
     return result;
   }
 
-  private static int iterativePower1(int n, int p) {
+  // Efficient approach
+  // Time Complexity: O(log(p))
+  // Auxiliary Space: O(1)
+  private static int iterativePower2(int n, int p) {
     int result = 1;
     int pow = n;
 
