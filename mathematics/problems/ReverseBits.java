@@ -110,7 +110,7 @@ public class ReverseBits {
         ans += (long) 1 << (31 - i);
       }
     }
-    
+
     return ans;
   }
 }
