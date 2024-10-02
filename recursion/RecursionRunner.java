@@ -3,20 +3,23 @@ package recursion;
 public class RecursionRunner {
 
   public static void main(String[] args) {
-    String input = "abbas";
-
-    System.out.println(isPalindrome(input, 0, input.length() - 1));
+    System.out.println(maximumCuts(10, 9, 7, 11));
   }
 
-  private static boolean isPalindrome(String input, int start, int end) {
-    if (start >= end) {
-      return true;
+  private static int maximumCuts(int n, int a, int b, int c) {
+    if (n == 0) {
+      return 0;
     }
 
-    if (input.charAt(start) != input.charAt(end)) {
-      return false;
+    if (n < 0) {
+      return -1;
     }
 
-    return isPalindrome(input, start + 1, end - 1);
+    int res = Math.max(Math.max(maximumCuts(n - a, a, b, c), maximumCuts(n - b, a, b, c)), maximumCuts(n - c, a, b, c));
+    if (res < 0) {
+      return -1;
+    }
+
+    return res + 1;
   }
 }
