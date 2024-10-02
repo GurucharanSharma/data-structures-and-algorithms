@@ -1,6 +1,6 @@
 package strings.lectures;
 
-public class PatternSearching {
+public class NaivePatternSearching {
 
   public static void main(String[] args) {
     System.out.println("Naive");
@@ -65,10 +65,10 @@ public class PatternSearching {
     }
   }
 
-  /**
-   * Time Complexity: O(m * n) <br> Space Complexity: O(1) <br> NOTE: At least the <code>pattern.length()</code> characters in the string should not
-   * be repeating.
-   */
+  // Improved naive pattern searching for distinct characters
+  // NOTE: At least the <code>pattern.length()</code> characters in the string should not be repeating.
+  // Time Complexity: O(m * n)
+  // Auxiliary Space: O(1)
   private static void search2(String text, String pattern) {
     int m = text.length();
     int n = pattern.length();
