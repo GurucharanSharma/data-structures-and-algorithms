@@ -1,6 +1,8 @@
 package strings.lectures;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class LeftmostNonRepeatingCharacter {
 
@@ -78,6 +80,50 @@ public class LeftmostNonRepeatingCharacter {
     System.out.println(Arrays.toString(fIndex));
 
     return res == Integer.MAX_VALUE ? -1 : res;
+  }
+
+  // Using HashMap
+  // NOTE: It traverses twice through the input string
+  private static int getLeftmostNonRepeatingCharacter3(String input) {
+    HashMap<Character, Integer> freqLookup = new HashMap<>();
+    HashMap<Character, Integer> indexLookup = new HashMap<>();
+
+    for (int i = 0; i < input.length(); i++) {
+      char ch = input.charAt(i);
+      freqLookup.put(ch, freqLookup.getOrDefault(ch, 0) + 1);
+      indexLookup.put(ch, indexLookup.getOrDefault(ch, i));
+    }
+
+    for (int i = 0; i < input.length(); i++) {
+      char ch = input.charAt(i);
+      if (freqLookup.containsKey(ch) && freqLookup.get(ch) == 1) {
+        return indexLookup.get(ch);
+      }
+    }
+
+    return -1;
+  }
+
+  // Using HashMap
+  // NOTE: It traverses only once through the input string
+  private static int getLeftmostNonRepeatingCharacter4(String input) {
+    HashMap<Character, Integer> freqLookup = new HashMap<>();
+    HashMap<Character, Integer> indexLookup = new HashMap<>();
+
+    for (int i = 0; i < input.length(); i++) {
+      char ch = input.charAt(i);
+      freqLookup.put(ch, freqLookup.getOrDefault(ch, 0) + 1);
+      indexLookup.put(ch, indexLookup.getOrDefault(ch, i));
+    }
+
+    int result = Integer.MAX_VALUE;
+    for (Entry<Character, Integer> entry : freqLookup.entrySet()) {
+      if (entry.getValue() == 1) {
+        result = Math.min(result, indexLookup.get(entry.getKey()));
+      }
+    }
+
+    return result == Integer.MAX_VALUE ? -1 : result;
   }
 
   private static void testGetLeftmostNonRepeatingCharacter() {
