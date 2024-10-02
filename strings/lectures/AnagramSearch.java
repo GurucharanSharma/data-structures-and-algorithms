@@ -23,8 +23,7 @@ public class AnagramSearch {
 
   /**
    * <b>Naive Approach</b> <br>
-   * Time Complexity: O(n<sup>2</sup>) <br>
-   * Auxiliary Space: O(1)
+   * Time Complexity: O(n<sup>2</sup>) <br> Auxiliary Space: O(1)
    */
   private static boolean search(String text, String pattern) {
     for (int i = 0; i < (text.length() - pattern.length()); i++) {
@@ -44,8 +43,7 @@ public class AnagramSearch {
 
   /**
    * <b>Naive Approach</b> <br>
-   * Time Complexity: O(n<sup>2</sup>) <br>
-   * Auxiliary Space: O(1)
+   * Time Complexity: O(n<sup>2</sup>) <br> Auxiliary Space: O(1)
    */
   private static boolean search1(String text, String pattern) {
     for (int i = 0; i < (text.length() - pattern.length()); i++) {
@@ -93,6 +91,30 @@ public class AnagramSearch {
       } else {
         cT[text.charAt(i)]++;
         cT[text.charAt(i - pattern.length())]--;
+      }
+    }
+
+    return false;
+  }
+
+  // Better approach: Single loop for initial population and then comparison
+  // Time Complexity: O(n)
+  // Auxiliary Space: O(1)
+  private static boolean search3(String input, String str) {
+    int[] inputFreq = new int[256];
+    int[] strFreq = new int[256];
+
+    for (int i = 0; i <= input.length() - str.length(); i++) {
+      if (i < str.length()) {
+        inputFreq[input.charAt(i)]++;
+        strFreq[str.charAt(i)]++;
+      } else {
+        if (Arrays.equals(inputFreq, strFreq)) {
+          return true;
+        } else {
+          inputFreq[input.charAt(i - str.length())]--;
+          inputFreq[input.charAt(i)]++;
+        }
       }
     }
 
