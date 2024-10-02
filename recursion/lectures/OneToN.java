@@ -14,6 +14,7 @@ public class OneToN {
         System.out.print(n + " ");
     }
 
+    // It is tail recursion as the last statement is the recursive method call
     private static void print1toNTail(int n, int k) {
         if (n <= 0) return; // Base case or terminating condition
         

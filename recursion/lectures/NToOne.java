@@ -5,6 +5,7 @@ public class NToOne {
         printNto1(4);
     }
 
+    // It is a tail recursion as the last statement is the recursive method call
     private static void printNto1(int n) {
         if (n <= 0) return;
 
