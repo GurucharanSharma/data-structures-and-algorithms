@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class ReverseBits {
 
   public static void main(String[] args) {
-    long n = 153;
+    long n = 10;
 
     System.out.println(reverseBits(n));
     System.out.println();
@@ -62,7 +62,6 @@ public class ReverseBits {
 
     // Preparing the bits array.
     for (int i = 0; i < 32; i++) {
-
       // If the ith bit is set.
       if ((n & (long) 1 << i) > 0) {
         bits[i] = 1;
@@ -70,7 +69,6 @@ public class ReverseBits {
     }
 
     for (int i = 0; i < 16; i++) {
-
       // Swapping the left and rightmost bits.
       swap(i, 31 - i, bits);
     }
@@ -79,14 +77,13 @@ public class ReverseBits {
     long ans = 0;
 
     for (int i = 0; i < 32; i++) {
-
       // If the i'th bit is set.
       if (bits[i] == 1) {
         ans += (long) 1 << i;
       }
     }
-    return ans;
 
+    return ans;
   }
 
   public static void swap(int i, int j, int[] arr) {
@@ -109,11 +106,11 @@ public class ReverseBits {
 
       // If the i'th bit from right is Set.
       if (k > 0) {
-
         // Increase the value of ans by value of i'th bit from left.
         ans += (long) 1 << (31 - i);
       }
     }
+    
     return ans;
   }
 }
