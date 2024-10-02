@@ -6,7 +6,7 @@ package mathematics.lectures;
 public class DivisorsOfANumber {
 
   public static void main(String[] args) {
-    int n = 6;
+    int n = 67;
 
     printAllDivisors(n);
     System.out.println();
