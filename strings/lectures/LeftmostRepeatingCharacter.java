@@ -1,6 +1,7 @@
 package strings.lectures;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class LeftmostRepeatingCharacter {
 
@@ -79,6 +80,44 @@ public class LeftmostRepeatingCharacter {
     return res;
   }
 
+  // Efficient approach: Using HashMap
+  // Time Complexity: O(n)
+  // Auxiliary Space: O(1), because the hashmap can at most contain 256 keys, one for each character.
+  private static int getLeftmostRepeatingCharacter4(String str) {
+    HashMap<Character, Integer> freqLookup = new HashMap<>();
+
+    int result = -1;
+    for (int i = str.length() - 1; i >= 0; i--) {
+      char ch = str.charAt(i);
+      if (freqLookup.containsKey(ch)) {
+        result = i;
+      }
+
+      freqLookup.put(ch, freqLookup.getOrDefault(ch, 0) + 1);
+    }
+
+    return result;
+  }
+
+  // Efficient approach: Using HashMap
+  // Time Complexity: O(n)
+  // Auxiliary Space: O(1), because the hashmap can at most contain 256 keys, one for each character.
+  private static int getLeftmostRepeatingCharacter5(String input) {
+    HashMap<Character, Integer> indexLookup = new HashMap<>();
+
+    int result = Integer.MAX_VALUE;
+    for (int i = 0; i < input.length(); i++) {
+      char ch = input.charAt(i);
+      if (indexLookup.containsKey(ch)) {
+        result = Math.min(result, indexLookup.get(ch));
+      }
+
+      indexLookup.put(ch, indexLookup.getOrDefault(ch, i));
+    }
+
+    return result == Integer.MAX_VALUE ? -1 : result;
+  }
+
   public static void main(String[] args) {
     testGetLeftmostRepeatingCharacter();
   }
@@ -97,5 +136,11 @@ public class LeftmostRepeatingCharacter {
 
     System.out.println("Optimised - 3: ");
     System.out.println(getLeftmostRepeatingCharacter3(str));
+
+    System.out.println("Optimised - 4: ");
+    System.out.println(getLeftmostRepeatingCharacter4(str));
+
+    System.out.println("Optimised - 5: ");
+    System.out.println(getLeftmostRepeatingCharacter5(str));
   }
 }
