@@ -9,8 +9,9 @@ public class Josephus {
     int n = 10;
     int k = 3;
 
-    System.out.println(josephus(n, k)); // If indexes being with 0
-    System.out.println(josephus(n, k) + 1); // If indexes being with 1
+    System.out.println(josephus(n, k));     // If indexes begin with 0
+    System.out.println(josephus(n, k) + 1); // If indexes begin with 1
+    System.out.println();
 
     // Iterative approach
     ArrayList<Integer> list = new ArrayList<>();
@@ -18,9 +19,14 @@ public class Josephus {
       list.add(i);
     }
 
-    System.out.println(josephus1(list, (k - 1), 0));
+    System.out.println(josephus1(list, (k - 1), 0));      // 0 based index
+    System.out.println(josephus1(list, (k - 1), 0) + 1);  // 1 based index
+    System.out.println();
+    System.out.println(josephus3(n, k));      // 0 based index
+    System.out.println(josephus3(n, k) + 1);  // 1 based index
   }
 
+  // Recursive approach
   static int josephus(int n, int k) {
     if (n == 1) {
       return 0;
@@ -34,7 +40,7 @@ public class Josephus {
     return (josephus(n - 1, k) + k) % n;
   }
 
-  // Iterative approach using list
+  // Recursive approach using list
   static int josephus1(ArrayList<Integer> list, int k, int index) {
     if (list.size() == 1) {
       return list.get(0);
@@ -50,6 +56,7 @@ public class Josephus {
     return josephus1(list, k, index);
   }
 
+  // Iterative approach 1
   static int josephus2(int n, int k) {
     k--;
     int[] arr = new int[n];
@@ -79,6 +86,8 @@ public class Josephus {
     return cut + 1; // Output is the position of the last man alive(Index + 1);
   }
 
+  // Iterative approach 2: This uses the same logic as the recursive approach, only difference is that
+  // it uses loop rather than recursive calls to go over all the scenarios.
   static int josephus3(int N, int k) {
     // Initialize variables i and ans with 1 and 0 respectively.
     int i = 1, ans = 0;
@@ -91,6 +100,6 @@ public class Josephus {
     }
 
     // Return required answer
-    return ans + 1;
+    return ans;
   }
 }

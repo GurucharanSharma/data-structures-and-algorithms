@@ -3,23 +3,42 @@ package recursion;
 public class RecursionRunner {
 
   public static void main(String[] args) {
-    System.out.println(maximumCuts(10, 9, 7, 11));
+    int[] arr = {1, 2, 3, 1, 1, 1};
+
+    System.out.println(subsetSum(arr, 0, 0, 3));
+    System.out.println();
+    System.out.println(countSubsets(arr, 0, 3));
   }
 
-  private static int maximumCuts(int n, int a, int b, int c) {
-    if (n == 0) {
+  private static boolean subsetSum(int[] arr, int i, int curr, int sum) {
+    if (i == arr.length) {
+      return curr == sum;
+    }
+
+    return subsetSum(arr, i + 1, curr, sum) || subsetSum(arr, i + 1, curr + arr[i], sum);
+  }
+
+  private static int countSubsets(int[] arr, int i, int sum) {
+    if (i == arr.length) {
+      if (sum == 0) {
+        return 1;
+      }
+
       return 0;
     }
 
-    if (n < 0) {
-      return -1;
+    return countSubsets(arr, i + 1, sum) + countSubsets(arr, i + 1, sum - arr[i]);
+  }
+
+  private static int countSubsets(int[] arr, int curr, int i, int sum) {
+    if (i == arr.length) {
+      if (sum == 0) {
+        return 1;
+      }
+
+      return 0;
     }
 
-    int res = Math.max(Math.max(maximumCuts(n - a, a, b, c), maximumCuts(n - b, a, b, c)), maximumCuts(n - c, a, b, c));
-    if (res < 0) {
-      return -1;
-    }
-
-    return res + 1;
+    return countSubsets(arr, i + 1, sum) + countSubsets(arr, i + 1, sum - arr[i]);
   }
 }
