@@ -16,6 +16,10 @@ public class CheckForRotations {
   }
 
   private static boolean isRotation(String input, String pattern) {
+    if (input.length() != pattern.length()) {
+      return false;
+    }
+
     return (input + input).contains(pattern);
   }
 }
