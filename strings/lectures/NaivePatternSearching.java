@@ -86,7 +86,7 @@ public class NaivePatternSearching {
         j++;
       }
 
-      if (flag) {
+      if (flag) {               // Rather than a flag, j == pattern.length() function can also be used.
         System.out.println(i);
       }
 
@@ -98,6 +98,7 @@ public class NaivePatternSearching {
     }
   }
 
+  // Improved naive pattern searching for distinct characters. Only 1 loop.
   static void search3(String text, String pattern) {
     int m = text.length();
     int n = pattern.length();
