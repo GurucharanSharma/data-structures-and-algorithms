@@ -1,6 +1,7 @@
 package strings.lectures;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class LongestSubstringWithDistinctCharacters {
 
@@ -21,6 +22,12 @@ public class LongestSubstringWithDistinctCharacters {
     System.out.println(longestDistinct2("applesauce"));
     System.out.println(longestDistinct2("jjjjjjjjj"));
     System.out.println(longestDistinct2("jjjjwertyui"));
+    System.out.println();
+
+    System.out.println("Better Approach 3: ");
+    System.out.println(longestDistinct3("applesauce"));
+    System.out.println(longestDistinct3("jjjjjjjjj"));
+    System.out.println(longestDistinct3("jjjjwertyui"));
     System.out.println();
   }
 
@@ -94,5 +101,20 @@ public class LongestSubstringWithDistinctCharacters {
     }
 
     return res;
+  }
+
+  // Using HashMap
+  private static int longestDistinct3(String input) {
+    HashMap<Character, Integer> indexLookup = new HashMap<>();
+
+    int result = 0;
+    int index = 0;
+    for (int i = 0; i < input.length(); i++) {
+      index = Math.max(index, indexLookup.getOrDefault(input.charAt(i), 0));
+      result = Math.max(result, i - index);
+      indexLookup.put(input.charAt(i), i);
+    }
+
+    return result;
   }
 }
