@@ -1,6 +1,8 @@
 package strings.lectures;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class CheckForAnagram {
 
@@ -49,6 +51,25 @@ public class CheckForAnagram {
     return true;
   }
 
+  // Using HashMap
+  private static boolean isAnagram2(String input, String pattern) {
+    assert input.length() == pattern.length();
+
+    HashMap<Character, Integer> freqLookup = new HashMap<>();
+    for (int i = 0; i < input.length(); i++) {
+      freqLookup.put(input.charAt(i), freqLookup.getOrDefault(input.charAt(i), 0) + 1);
+      freqLookup.put(pattern.charAt(i), freqLookup.getOrDefault(pattern.charAt(i), 0) - 1);
+    }
+
+    for (Entry<Character, Integer> entry : freqLookup.entrySet()) {
+      if (entry.getValue() != 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   public static void main(String[] args) {
     testIsAnagram();
   }
@@ -60,7 +81,10 @@ public class CheckForAnagram {
     System.out.println("Naive:");
     System.out.println(isAnagram(str1, str2));
 
-    System.out.println("\nOptimised:");
+    System.out.println("\nOptimised - 1:");
     System.out.println(isAnagram1(str1, str2));
+
+    System.out.println("\nOptimised - 2:");
+    System.out.println(isAnagram2(str1, str2));
   }
 }
