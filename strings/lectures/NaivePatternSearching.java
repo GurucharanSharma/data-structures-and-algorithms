@@ -135,4 +135,87 @@ public class NaivePatternSearching {
       System.out.println("Not Found");
     }
   }
+
+  private static int search4(String input, String pattern) {
+    if (input.isEmpty() || pattern.isEmpty()) {
+      return -1;
+    }
+
+    int j = 0;
+    int pos = -1;
+    for (int i = 0; i < input.length(); i++) {
+      if (input.charAt(i) == pattern.charAt(j)) {
+        if (pos == -1) {
+          pos = i;
+        }
+
+        j++;
+      } else {
+        j = 0;
+        pos = -1;
+      }
+
+      if (j == pattern.length()) {
+        return pos;
+      }
+    }
+
+    return -1;
+  }
+
+  private static int search5(String input, String pattern) {
+    if (input.isEmpty() || pattern.isEmpty()) {
+      return -1;
+    }
+
+    int j = 0;
+    int pos = -1;
+    for (int i = 0; i < input.length(); i++) {
+      if (input.charAt(i) == pattern.charAt(j)) {
+        pos = i;
+        while (i < input.length() && j < pattern.length() && input.charAt(i) == pattern.charAt(j)) {
+          i++;
+          j++;
+        }
+
+        if (j == pattern.length()) {
+          return pos;
+        } else {
+          pos = -1;
+          j = 0;
+        }
+      }
+    }
+
+    return pos;
+  }
+
+  private static int search6(String input, String pattern) {
+    if (input.isEmpty() || pattern.isEmpty()) {
+      return -1;
+    }
+
+    int i = 0;
+    int pos = -1;
+    while (i < input.length()) {
+      boolean flag = true;
+      int j = 0;
+      while (j < pattern.length()) {
+        if (input.charAt(i + j) != pattern.charAt(j)) {
+          flag = false;
+          break;
+        }
+
+        j++;
+      }
+
+      if (flag) {
+        return i;
+      } else {
+        i += (j + 1);
+      }
+    }
+
+    return pos;
+  }
 }
