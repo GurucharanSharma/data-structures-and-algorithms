@@ -2,7 +2,8 @@ package strings.lectures;
 
 public class CheckIfAStringIsSubsequenceOfOther {
 
-  // Iterative approach
+  // Iterative approach: Keeps going till the end of the input string
+  // Uses only 1 loop for traversal
   private static boolean isSubSequence(String str, String sub) {
 
     assert sub.length() < str.length();
@@ -23,7 +24,29 @@ public class CheckIfAStringIsSubsequenceOfOther {
   }
 
   // Iterative approach: Returns immediately if the given string is a subsequence
-  private static boolean isSubSequence1(String input, String str) {
+  // Uses only 1 loop for traversal
+  private static boolean isSubSequence1(String input, String pattern) {
+    if (pattern.length() > input.length()) {
+      return false;
+    }
+
+    int j = 0;
+    for (int i = 0; i < input.length(); i++) {
+      if (input.charAt(i) == pattern.charAt(j)) {
+        j++;
+      }
+
+      if (j == pattern.length()) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  // Iterative approach: Returns immediately if the given string is a subsequence
+  // Uses two loops for traversal
+  private static boolean isSubSequence2(String input, String str) {
     if (str.length() > input.length()) {
       return false;
     }
