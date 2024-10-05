@@ -53,7 +53,5 @@ public class KMPAlgorithm {
         }
       }
     }
-
-//    System.out.println(Arrays.toString(lps));
   }
 }
