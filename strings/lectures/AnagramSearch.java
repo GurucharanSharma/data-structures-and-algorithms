@@ -7,17 +7,17 @@ public class AnagramSearch {
   public static void main(String[] args) {
     System.out.println("Naive: ");
     System.out.println(search("geeksforgeeks", "frog"));
-    System.out.println(search("forgetfulness", "fork"));
+    System.out.println(search("forgetfulness", "ness"));
     System.out.println();
 
     System.out.println("Naive - 1: ");
     System.out.println(search1("geeksforgeeks", "frog"));
-    System.out.println(search1("forgetfulness", "fork"));
+    System.out.println(search1("forgetfulness", "ness"));
     System.out.println();
 
     System.out.println("Better: ");
     System.out.println(search2("geeksforgeeks", "frog"));
-    System.out.println(search2("forgetfulness", "fork"));
+    System.out.println(search2("forgetfulness", "ness"));
     System.out.println();
   }
 
@@ -26,7 +26,7 @@ public class AnagramSearch {
    * Time Complexity: O(n<sup>2</sup>) <br> Auxiliary Space: O(1)
    */
   private static boolean search(String text, String pattern) {
-    for (int i = 0; i < (text.length() - pattern.length()); i++) {
+    for (int i = 0; i <= (text.length() - pattern.length()); i++) {
       char[] txtArr = text.substring(i, i + pattern.length()).toCharArray();
       char[] patArr = pattern.toCharArray();
 
@@ -94,7 +94,7 @@ public class AnagramSearch {
       }
     }
 
-    return false;
+    return Arrays.equals(cT, cP);
   }
 
   // Better approach: Single loop for initial population and then comparison
@@ -118,6 +118,6 @@ public class AnagramSearch {
       }
     }
 
-    return false;
+    return Arrays.equals(inputFreq, strFreq);
   }
 }
