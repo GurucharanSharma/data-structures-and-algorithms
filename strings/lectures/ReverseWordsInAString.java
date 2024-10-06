@@ -65,6 +65,23 @@ public class ReverseWordsInAString {
     str[end] = temp;
   }
 
+  private static String reverseWords2(String input) {
+    String output = "";
+    int end = input.length();
+
+    for (int i = input.length() - 1; i >= 0; i--) {
+      char ch = input.charAt(i);
+      if (ch == ' ') {
+        output = output.concat(input.substring(i, end));
+        end = i;
+      }
+    }
+
+    output = output.concat(" ").concat(input.substring(0, end)).trim();
+
+    return output;
+  }
+
   public static void main(String[] args) {
     testReverseWords();
     testReverseWords1();
@@ -75,6 +92,8 @@ public class ReverseWordsInAString {
     System.out.println(reverseWords(str));
     System.out.println();
     System.out.println(reverseWords1(str));
+    System.out.println();
+    System.out.println(reverseWords2(str));
   }
 
   private static void testReverseWords1() {
@@ -82,5 +101,7 @@ public class ReverseWordsInAString {
     System.out.println(reverseWords(str));
     System.out.println();
     System.out.println(reverseWords1(str));
+    System.out.println();
+    System.out.println(reverseWords2(str));
   }
 }
