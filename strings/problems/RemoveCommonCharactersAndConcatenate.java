@@ -31,6 +31,8 @@ public class RemoveCommonCharactersAndConcatenate {
     System.out.println(concatenatedString2(s1, s2));
     System.out.println();
     System.out.println(concatenatedString3(s1, s2));
+    System.out.println();
+    System.out.println(concatenatedString4(s1, s2));
   }
 
   // Function to remove common characters and concatenate two strings.
@@ -63,7 +65,6 @@ public class RemoveCommonCharactersAndConcatenate {
   }
 
   // Function to remove common characters and concatenate two strings.
-  // NOTE: Order of elements not maintained
   public static String concatenatedString1(String s1, String s2) {
     Map<Character, Integer> s1Lookup = new LinkedHashMap<>();
     Map<Character, Integer> s2Lookup = new LinkedHashMap<>();
@@ -89,9 +90,7 @@ public class RemoveCommonCharactersAndConcatenate {
   }
 
   // Function to remove common characters and concatenate two strings.
-  // NOTE: Order of elements not maintained
   public static String concatenatedString2(String s1, String s2) {
-    // Result
     StringBuilder res = new StringBuilder();
     int i;
 
@@ -101,8 +100,7 @@ public class RemoveCommonCharactersAndConcatenate {
       m.put(s2.charAt(i), 1);
     }
 
-    // Find characters of s1 that are not
-    // present in s2 and append to result
+    // Find characters of s1 that are not present in s2 and append to result
     for (i = 0; i < s1.length(); i++) {
       if (!m.containsKey(s1.charAt(i))) {
         res.append(s1.charAt(i));
@@ -159,5 +157,34 @@ public class RemoveCommonCharactersAndConcatenate {
     }
 
     return modified.toString();
+  }
+
+  public static String concatenatedString4(String s1, String s2) {
+    Map<Character, Integer> lookupStr1 = new HashMap<>();
+    Map<Character, Integer> lookupStr2 = new HashMap<>();
+
+    for (int i = 0; i < s1.length(); i++) {
+      lookupStr1.put(s1.charAt(i), i);
+    }
+
+    for (int i = 0; i < s2.length(); i++) {
+      lookupStr2.put(s2.charAt(i), i);
+    }
+
+    StringBuilder builder = new StringBuilder();
+
+    for (int i = 0; i < s1.length(); i++) {
+      if (!lookupStr2.containsKey(s1.charAt(i))) {
+        builder.append(s1.charAt(i));
+      }
+    }
+
+    for (int i = 0; i < s2.length(); i++) {
+      if (!lookupStr1.containsKey(s2.charAt(i))) {
+        builder.append(s2.charAt(i));
+      }
+    }
+
+    return builder.toString();
   }
 }
