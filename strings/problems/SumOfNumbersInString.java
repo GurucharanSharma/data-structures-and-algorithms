@@ -9,6 +9,8 @@ public class SumOfNumbersInString {
     String str = "1234";
 
     System.out.println(findSum(str));
+    System.out.println();
+    System.out.println(findSum1(str));
   }
 
   //Function to calculate sum of all numbers present in a string.
@@ -30,4 +32,23 @@ public class SumOfNumbersInString {
 
     return result;
   }
+
+  //Function to calculate sum of all numbers present in a string.
+  public static long findSum1(String str) {
+    StringBuilder temp = new StringBuilder("0");
+    int sum = 0;
+
+    for (int i = 0; i < str.length(); i++) {
+      char ch = str.charAt(i);
+      if (Character.isDigit(ch)) {
+        temp.append(ch);
+      } else {
+        sum += Integer.parseInt(temp.toString());
+        temp = new StringBuilder("0");
+      }
+    }
+
+    return sum + Integer.parseInt(temp.toString());
+  }
 }
+
