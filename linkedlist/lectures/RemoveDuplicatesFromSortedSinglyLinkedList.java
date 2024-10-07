@@ -18,4 +18,19 @@ public class RemoveDuplicatesFromSortedSinglyLinkedList {
       }
     }
   }
+
+  public static void execute1(Node head) {
+    if (head == null || head.next == null) {
+      return;
+    }
+
+    Node curr = head;
+    while (curr != null) {
+      while (curr.next != null && curr.data == curr.next.data) {
+        curr.next = curr.next.next;
+      }
+
+      curr = curr.next;
+    }
+  }
 }
