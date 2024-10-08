@@ -26,7 +26,7 @@ public class CircularDoublyLinkedList {
     print(head);
   }
 
-  private static void print(Node head) {
+  public static void print(Node head) {
     if (head == null) {
       System.out.println("[X]");
       return;
