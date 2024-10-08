@@ -24,7 +24,7 @@ public class DeleteAtPositionDLL {
     if (x == 1) {
       head = head.next;
       head.prev = null;
-      
+
       return head;
     }
 
