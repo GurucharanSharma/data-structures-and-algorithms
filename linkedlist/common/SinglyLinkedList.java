@@ -107,7 +107,7 @@ public class SinglyLinkedList {
 
     // RemoveLoopInLinkedList
     System.out.println("\nDetect and remove loop => ");
-    head = RemoveLoopInLinkedList.execute(head);
+    head = RemoveLoopInLinkedList.removeLoop(head);
     System.out.println(DetectLoopInLinkedList.execute(head));
     System.out.println(DetectLoopInLinkedList.lengthOfLoop(head));
     System.out.println(DetectLoopInLinkedList.firstNodeOfLoop(head).data);
