@@ -112,4 +112,25 @@ public class LuckyNumbers {
     counter++;
     return isLucky2(n);
   }
+
+  // Approach 4: Recursive
+  static boolean isLucky3(int n, int counter) {
+    if (counter > n) {
+      return true;
+    }
+
+    if (n % counter == 0) {
+      return false;
+    }
+
+    /*
+    calculate next position of input no.
+    Variable "next_position" is just for
+    readability of the program we can
+    remove it and update in "n" only
+    */
+    n = n - (n / counter);
+
+    return isLucky3(n, counter + 1);
+  }
 }
