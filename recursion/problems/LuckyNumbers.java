@@ -8,7 +8,9 @@ public class LuckyNumbers {
   public static int counter = 2;
 
   public static void main(String[] args) {
-    int n = 5;
+//    int n = 19;
+//    int n = 5;
+    int n = 1111;
 
     System.out.println(isLucky(n));
     System.out.println();
@@ -57,6 +59,9 @@ public class LuckyNumbers {
    * Approach 2
    */
   public static boolean isLucky1(int n) {
+    // 	If n is less than or equal to zero, it immediately returns false because
+    // 	negative numbers and zero cannot be considered lucky. Lucky numbers are
+    // 	always positive integers.
     if (n <= 0) {
       return false;
     }
@@ -70,11 +75,15 @@ public class LuckyNumbers {
       }
 
       // If n is less than counter squared
-      if (n < counter) {
+      if (n < counter * counter) {
         return true;
       }
 
       // Shift the position
+      // The expression n / counter gives you the number of positions that are eliminated in this step.
+      // After eliminating every counter-th number, the size of the remaining sequence is reduced by n / counter elements.
+      // Updates n to reflect the new position of the number being checked after the current elimination step.
+      // This simulates the fact that after each elimination, the total number of positions is reduced.
       n = n - (n / counter);
       counter++;
     }
@@ -87,6 +96,7 @@ public class LuckyNumbers {
     if (counter > n) {
       return true;
     }
+
     if (n % counter == 0) {
       return false;
     }
@@ -97,9 +107,9 @@ public class LuckyNumbers {
     readability of the program we can
     remove it and update in "n" only
     */
-    int next_position = n - (n / counter);
+    n = n - (n / counter);
 
     counter++;
-    return isLucky2(next_position);
+    return isLucky2(n);
   }
 }
