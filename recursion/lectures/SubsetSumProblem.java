@@ -36,7 +36,7 @@ public class SubsetSumProblem {
     subsetSum(set, Stream.concat(curr.stream(), Stream.of(set.get(i))).collect(Collectors.toList()), i + 1, sum);
   }
 
-  // Approach 2: If the list of sub arrays not required.
+  // Approach 2: If the list of sub arrays not required. Simple returns true is the subset is found.
   static boolean subsetSum(List<Integer> set, int curr, int i, int sum) {
     if (i >= set.size()) {
       return curr == sum;
@@ -45,7 +45,7 @@ public class SubsetSumProblem {
     return subsetSum(set, curr, i + 1, sum) || subsetSum(set, curr + set.get(i), i + 1, sum);
   }
 
-  // Approach 1: Without using an extra variable to hold current sum
+  // Approach 1: Using an extra variable to hold current sum
   static int countSubsets(List<Integer> set, int curr, int i, int sum) {
     if (i == set.size()) {
       return (sum == curr) ? 1 : 0;
