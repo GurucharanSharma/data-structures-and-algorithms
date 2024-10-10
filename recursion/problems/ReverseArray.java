@@ -1,5 +1,7 @@
 package recursion.problems;
 
+import java.util.Arrays;
+
 /**
  * <p>
  * Reverse an Array
@@ -16,24 +18,46 @@ package recursion.problems;
  */
 public class ReverseArray {
 
-    public static int[] reverseArray(int n, int[] nums) {
-        if (n == 0 || n == 1) {
-            return nums;
-        }
+  public static void main(String[] args) {
+    int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    System.out.println(Arrays.toString(arr));
 
-        reverseNums(nums, 0, n - 1);
-        return nums;
+    reverseArray(arr, arr.length);
+    System.out.println(Arrays.toString(arr));
+
+    reverseArray1(arr, 0);
+    System.out.println(Arrays.toString(arr));
+  }
+
+  public static void reverseArray(int[] arr, int n) {
+    if (n == 0 || n == 1) {
+      return;
     }
 
-    private static void reverseNums(int[] nums, int start, int end) {
-        if (start >= end) {
-            return;
-        }
+    reverseNums(arr, 0, n - 1);
+  }
 
-        int temp = nums[start];
-        nums[start] = nums[end];
-        nums[end] = temp;
-
-        reverseNums(nums, start + 1, end - 1);
+  private static void reverseNums(int[] nums, int start, int end) {
+    if (start >= end) {
+      return;
     }
+
+    int temp = nums[start];
+    nums[start] = nums[end];
+    nums[end] = temp;
+
+    reverseNums(nums, start + 1, end - 1);
+  }
+
+  private static void reverseArray1(int[] arr, int index) {
+    if (index >= arr.length / 2) {
+      return;
+    }
+
+    int temp = arr[index];
+    arr[index] = arr[arr.length - index - 1];
+    arr[arr.length - index - 1] = temp;
+
+    reverseArray1(arr, index + 1);
+  }
 }
