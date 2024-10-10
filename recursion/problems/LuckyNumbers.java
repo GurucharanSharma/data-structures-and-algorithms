@@ -10,10 +10,11 @@ public class LuckyNumbers {
   public static void main(String[] args) {
 //    int n = 19;
 //    int n = 5;
-    int n = 1111;
+//    int n = 1111;
+    int n = 123456789;
 
-    System.out.println(isLucky(n));
-    System.out.println();
+//    System.out.println(isLucky(n));
+//    System.out.println();
     System.out.println(isLucky1(n));
     System.out.println();
     System.out.println(isLucky2(n));
@@ -93,7 +94,7 @@ public class LuckyNumbers {
    * Approach 3: Recursive
    */
   static boolean isLucky2(int n) {
-    if (counter > n) {
+    if (counter * counter > n) {
       return true;
     }
 
@@ -115,7 +116,7 @@ public class LuckyNumbers {
 
   // Approach 4: Recursive
   static boolean isLucky3(int n, int counter) {
-    if (counter > n) {
+    if (counter * counter > n) {
       return true;
     }
 
