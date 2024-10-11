@@ -29,6 +29,9 @@ public class LargestRectangularArea {
 
       for (int j = i - 1; j >= 0; j--) {
         if (hist[j] < hist[i]) {
+          // Do not consider the smaller element in the range. Only consider the elements that are greater than arr[i].
+          // Hence, if jth element is smaller than arr[i], all the elements after j (i.e. till j + 1) are greater than
+          // arr[i] and that is why we are doing j + 1.
           pse = j + 1;
           break;
         }
@@ -36,6 +39,9 @@ public class LargestRectangularArea {
 
       for (int j = i + 1; j < hist.length; j++) {
         if (hist[j] < hist[i]) {
+          // Do not consider the smaller element in the range. Only consider the elements that are greater than arr[i].
+          // Hence, if jth element is smaller than arr[i], all the elements before j (i.e. till j - 1) are greater than
+          // arr[i] and that is why we are doing j - 1.
           nse = j - 1;
           break;
         }
