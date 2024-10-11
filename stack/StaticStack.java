@@ -180,6 +180,7 @@ public class StaticStack {
     System.out.println(PrefixEvaluation.execute(prefix));
   }
 
+  // Implemented using arrays
   static class Stack {
 
     private final int[] arr;
