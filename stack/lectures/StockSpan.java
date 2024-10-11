@@ -6,6 +6,7 @@ import java.util.Stack;
 
 public class StockSpan {
 
+  //  Naive approach
   public static List<Integer> execute(int[] prices) {
     List<Integer> spans = new ArrayList<>();
 
@@ -25,6 +26,7 @@ public class StockSpan {
     return spans;
   }
 
+  // Efficient approach
   public static List<Integer> execute1(int[] prices) {
     List<Integer> spans = new ArrayList<>();
     Stack<Integer> stack = new Stack<>();
