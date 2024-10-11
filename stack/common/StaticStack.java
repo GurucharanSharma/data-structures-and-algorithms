@@ -1,4 +1,4 @@
-package stack;
+package stack.common;
 
 import stack.lectures.BalancedParenthesis;
 import stack.lectures.GetMinInStack.ConstantMinStack;

@@ -1,4 +1,4 @@
-package stack;
+package stack.common;
 
 public class LinkedStack {
 
