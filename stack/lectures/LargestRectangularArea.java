@@ -21,6 +21,7 @@ public class LargestRectangularArea {
     return res;
   }
 
+  // Naive approach 1
   public static int execute1(int[] hist) {
     int res = 0;
     for (int i = 0; i < hist.length; i++) {
@@ -54,7 +55,7 @@ public class LargestRectangularArea {
     return res;
   }
 
-  // Naive approach
+  // Naive approach 2
   public static int execute2(int[] hist) {
     int res = 0;
     for (int i = 0; i < hist.length; i++) {
