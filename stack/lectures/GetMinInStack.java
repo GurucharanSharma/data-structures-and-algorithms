@@ -43,7 +43,7 @@ public class GetMinInStack {
     }
 
     public Integer getMin() {
-      if (auxStack.isEmpty()) {
+      if (auxStack.isEmpty()) { // We could have checked mainStack.isEmpty().
         return null;
       } else {
         return auxStack.peek();
