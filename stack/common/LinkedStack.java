@@ -32,40 +32,40 @@ public class LinkedStack {
 
   static class Stack {
 
-    Node head;
+    Node top;
     int size;
 
     Stack() {
       this.size = 0;
-      this.head = null;
+      this.top = null;
     }
 
     public void push(int data) {
       size++;
       Node node = new Node(data);
-      node.next = head;
-      head = node;
+      node.next = top;
+      top = node;
     }
 
     public int pop() {
-      if (head == null) {
+      if (top == null) {
         System.out.println("Stack empty");
         return Integer.MIN_VALUE;
       }
 
       size--;
-      int val = head.data;
-      head = head.next;
+      int val = top.data;
+      top = top.next;
       return val;
     }
 
     public int peek() {
-      if (head == null) {
+      if (top == null) {
         System.out.println("Stack empty");
         return Integer.MIN_VALUE;
       }
 
-      return head.data;
+      return top.data;
     }
 
     public int getSize() {
@@ -73,7 +73,7 @@ public class LinkedStack {
     }
 
     public boolean isEmpty() {
-      return head == null;
+      return top == null;
     }
 
     private static class Node {
