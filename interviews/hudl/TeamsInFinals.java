@@ -1,11 +1,11 @@
-package interviews;
+package interviews.hudl;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Finals {
+public class TeamsInFinals {
 
   public static void main(String[] args) {
     String[] A = {"a:Essendon", "b:East Coast", "c:Swans", "d:Tigers"};
