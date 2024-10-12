@@ -4,6 +4,14 @@ import java.util.Stack;
 
 public class PrefixEvaluation {
 
+  public static void main(String[] args) {
+//    String expr = "+9*26";
+    String expr = "-+8/632";
+//    String expr = "-+7*45+20";
+
+    System.out.println(execute(expr));
+  }
+
   public static Integer execute(String prefix) {
     Stack<Integer> stack = new Stack<>();
 
@@ -18,19 +26,19 @@ public class PrefixEvaluation {
 
         switch (ch) {
           case '*':
-            stack.push(right * left);
+            stack.push(left * right);
             break;
           case '/':
-            stack.push(right / left);
+            stack.push(left / right);
             break;
           case '+':
-            stack.push(right + left);
+            stack.push(left + right);
             break;
           case '-':
-            stack.push(right - left);
+            stack.push(left - right);
             break;
           case '^':
-            stack.push((int) Math.pow(right, left));
+            stack.push((int) Math.pow(left, right));
           default:
             System.out.println("Invalid operator");
             break;
