@@ -5,7 +5,9 @@ import java.util.Stack;
 public class InfixToPostfix {
 
   public static void main(String[] args) {
-    String expString = "a+b*(c^d-e)^(f+g*h)-i";
+    String expString = "a+b*(c^d-e)^(f+g*h)-i";       // Without whitespaces
+//    String expString = "((A + B) - C * (D / E)) + F";   // With whitespaces
+
     System.out.println(InfixToPostfix.execute(expString));
   }
 
@@ -27,11 +29,14 @@ public class InfixToPostfix {
 
         stack.pop();
       } else {
-        while (!stack.isEmpty() && precedence(ch) <= precedence(stack.peek())) {
-          builder.append(stack.pop());
-        }
+        // To handle the whitespaces in the input expression
+        if (isOperator(ch)) {
+          while (!stack.isEmpty() && precedence(ch) <= precedence(stack.peek())) {
+            builder.append(stack.pop());
+          }
 
-        stack.push(ch);
+          stack.push(ch);
+        }
       }
     }
 
@@ -40,6 +45,10 @@ public class InfixToPostfix {
     }
 
     return builder.toString();
+  }
+
+  private static boolean isOperator(char ch) {
+    return (ch == '^' || ch == '*' || ch == '/' || ch == '+' || ch == '-');
   }
 
   private static int precedence(char ch) {

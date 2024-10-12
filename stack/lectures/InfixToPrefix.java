@@ -22,11 +22,14 @@ public class InfixToPrefix {
 
         stack.pop();
       } else {
-        while (!stack.isEmpty() && (precedence(ch) < precedence(stack.peek()))) {
-          builder.append(stack.pop());
-        }
+        // To handle the whitespaces in the input expression
+        if (isOperator(ch)) {
+          while (!stack.isEmpty() && (precedence(ch) < precedence(stack.peek()))) {
+            builder.append(stack.pop());
+          }
 
-        stack.push(ch);
+          stack.push(ch);
+        }
       }
     }
 
@@ -35,6 +38,10 @@ public class InfixToPrefix {
     }
 
     return builder.reverse().toString();
+  }
+
+  private static boolean isOperator(char ch) {
+    return (ch == '^' || ch == '*' || ch == '/' || ch == '+' || ch == '-');
   }
 
   private static int precedence(char ch) {
