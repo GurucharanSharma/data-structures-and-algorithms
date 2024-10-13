@@ -15,21 +15,20 @@ public class SimpleArrayQueue {
       this.arr = new int[capacity];
     }
 
-    public boolean enqueue(int data) {
-      if (size == capacity) {
+    public void enqueue(int data) {
+      if (isFull()) {
         System.out.println("Queue full !");
-        return false;
+        return;
       }
 
-      rear = getRear() + 1;
-      arr[rear] = data;
-      size++;
-
-      return true;
+//      rear = getRear() + 1;
+//      arr[rear] = data;
+//      size++;
+      arr[size++] = data;
     }
 
     public int deque() {
-      if (size == -1) {
+      if (isEmpty()) {
         System.out.println("Queue empty !");
         return -1;
       } else {
@@ -52,7 +51,7 @@ public class SimpleArrayQueue {
     }
 
     private int getRear() {
-      if (size == 0) {
+      if (isEmpty()) {
         return -1;
       }
 
@@ -64,7 +63,7 @@ public class SimpleArrayQueue {
     }
 
     public void print() {
-      if (size == 0) {
+      if (isEmpty()) {
         return;
       }
 
