@@ -23,7 +23,7 @@ public class LinkedQueue {
       this.head = this.tail = null;
     }
 
-    public boolean enqueue(int data) {
+    public void enqueue(int data) {
       Node node = new Node(data);
 
       if (size == 0) {
@@ -32,13 +32,12 @@ public class LinkedQueue {
         tail.next = node;
         tail = node;
       }
-      size++;
 
-      return true;
+      size++;
     }
 
     public int dequeue() {
-      if (size == 0) {
+      if (isEmpty()) {
         return -1;
       } else {
         Node node = head;
