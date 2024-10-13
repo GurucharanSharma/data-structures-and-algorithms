@@ -72,6 +72,10 @@ public class StackUsingQueue {
     }
 
     public int dequeue() {
+      if (isEmpty()) {
+        return -1;
+      }
+
       while (mQueue.size() > 1) {
         aQueue.offer(mQueue.poll());
       }
@@ -120,6 +124,8 @@ public class StackUsingQueue {
 
     public boolean enqueue(int data) {
       queue.offer(data);
+
+      // Reverse the queue to give the impression that the newly inserted item is inserted at the end.
       for (int i = 0; i < queue.size() - 1; i++) {
         queue.offer(queue.poll());
       }
