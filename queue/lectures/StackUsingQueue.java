@@ -153,4 +153,45 @@ public class StackUsingQueue {
       return queue.isEmpty();
     }
   }
+
+  /**
+   * Pop costly stack using single queue.
+   */
+  public static class SingleQueue1 {
+
+    Queue<Integer> queue;
+
+    public SingleQueue1() {
+      this.queue = new LinkedList<>();
+    }
+
+    public boolean enqueue(int data) {
+      return queue.offer(data);
+    }
+
+    public int dequeue() {
+      if (queue.isEmpty()) {
+        return -1;
+      }
+
+      int n = queue.size();
+      for (int i = 1; i < n; i++) {
+        queue.offer(queue.poll());
+      }
+
+      return queue.poll();
+    }
+
+    public int getSize() {
+      return queue.size();
+    }
+
+    public int peek() {
+      return queue.peek() == null ? -1 : queue.peek();
+    }
+
+    public boolean isEmpty() {
+      return queue.isEmpty();
+    }
+  }
 }
