@@ -2,6 +2,55 @@ package deque.lectures;
 
 public class ArrayDeque {
 
+  public static void main(String[] args) {
+    ArrayDeque.CircularQueue circularQueue = new CircularQueue(5);
+
+    System.out.println(circularQueue.isEmpty());
+    System.out.println(circularQueue.getRear());
+    System.out.println(circularQueue.getFront());
+    System.out.println(circularQueue.isFull());
+    System.out.println(circularQueue.getSize());
+    System.out.println();
+
+    System.out.println(circularQueue.deleteFront());
+    System.out.println(circularQueue.deleteRear());
+    System.out.println();
+
+    System.out.println(circularQueue.insertFront(10));
+    System.out.println(circularQueue.insertFront(20));
+    System.out.println(circularQueue.insertRear(30));
+    System.out.println(circularQueue.insertRear(40));
+    System.out.println(circularQueue.insertFront(50));
+    System.out.println(circularQueue.insertRear(60));
+    System.out.println();
+
+    System.out.println(circularQueue.isEmpty());
+    System.out.println(circularQueue.getRear());
+    System.out.println(circularQueue.getFront());
+    System.out.println(circularQueue.isFull());
+    System.out.println(circularQueue.getSize());
+    System.out.println();
+
+    System.out.println(circularQueue.deleteFront());
+    System.out.println(circularQueue.deleteRear());
+    System.out.println();
+
+    System.out.println(circularQueue.isEmpty());
+    System.out.println(circularQueue.getRear());
+    System.out.println(circularQueue.getFront());
+    System.out.println(circularQueue.isFull());
+    System.out.println(circularQueue.getSize());
+  }
+
+  // Operations on Deque:
+  //  void insertfront(int key);
+  //  void insertrear(int key);
+  //  void deletefront();
+  //  void deleterear();
+  //  bool isFull();
+  //  bool isEmpty();
+  //  int getFront();
+  //  int getRear();
   public static class CircularQueue {
 
     int[] arr;

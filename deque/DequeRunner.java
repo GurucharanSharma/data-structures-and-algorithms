@@ -63,5 +63,6 @@ public class DequeRunner {
     System.out.println(FirstCircularTour.execute(petrol, distance));
     System.out.println(FirstCircularTour.execute1(petrol, distance));
     System.out.println(FirstCircularTour.execute2(petrol, distance));
+    System.out.println(FirstCircularTour.execute3(petrol, distance));
   }
 }
