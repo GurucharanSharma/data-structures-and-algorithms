@@ -6,6 +6,8 @@ public class BinaryRepresentation {
     int n = 10;
 
     System.out.println(binaryRepresentation(n));
+    System.out.println();
+    binaryRepresentation1(n);
   }
 
   private static String binaryRepresentation(int n) {
@@ -17,5 +19,14 @@ public class BinaryRepresentation {
 
     reverseBinary.reverse();
     return reverseBinary.toString();
+  }
+
+  private static void binaryRepresentation1(int n) {
+    if (n == 0) {
+      return;
+    }
+
+    binaryRepresentation1(n / 2);
+    System.out.print(n % 2);
   }
 }
