@@ -1,5 +1,6 @@
 package tree.binarytree.lectures;
 
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 import tree.BinaryTree.Node;
@@ -49,5 +50,27 @@ public class SizeOfBinaryTree {
     }
 
     return size;
+  }
+
+  // Iterative approach 2
+  private static int execute2(Node root) {
+    Queue<Node> queue = new ArrayDeque<>();
+    int count = 0;
+
+    queue.offer(root);
+    while (!queue.isEmpty()) {
+      count++;
+      Node curr = queue.poll();
+
+      if (curr.left != null) {
+        queue.offer(curr.left);
+      }
+
+      if (curr.right != null) {
+        queue.offer(curr.right);
+      }
+    }
+
+    return count;
   }
 }
