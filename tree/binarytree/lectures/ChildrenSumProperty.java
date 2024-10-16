@@ -8,12 +8,14 @@ import tree.BinaryTree.Node;
  */
 public class ChildrenSumProperty {
 
+  // Approach 1
   public static boolean execute(Node root) {
     if (root == null || (root.left == null && root.right == null)) {
       return true;
     }
 
     int sum = 0;
+
     if (root.left != null) {
       sum += root.left.key;
     }
@@ -23,5 +25,18 @@ public class ChildrenSumProperty {
     }
 
     return root.key == sum && execute(root.left) && execute(root.right);
+  }
+
+  // Approach 2
+  private static boolean execute1(Node root) {
+    if (root == null || root.left == null && root.right == null) {
+      return true;
+    }
+
+    int sum = 0;
+    sum += root.left != null ? root.left.key : 0;
+    sum += root.right != null ? root.right.key : 0;
+
+    return (root.key == sum) && execute1(root.left) && execute1(root.right);
   }
 }
