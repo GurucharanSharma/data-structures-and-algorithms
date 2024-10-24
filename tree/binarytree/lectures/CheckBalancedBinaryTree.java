@@ -27,8 +27,7 @@ public class CheckBalancedBinaryTree {
 
   /**
    * Time Complexity: O(n), because we are only one dfs call and utilizing the height returned from that to determine the height balance, it is
-   * performing the task in linear time.<br>
-   * Auxiliary Space: O(n)
+   * performing the task in linear time.<br> Auxiliary Space: O(n)
    */
   public static int execute1(Node root) {
     if (root == null) {
@@ -46,6 +45,25 @@ public class CheckBalancedBinaryTree {
     }
 
     if (Math.abs(lH - rH) > 1) {
+      return -1;
+    } else {
+      return 1 + Math.max(lH, rH);
+    }
+  }
+
+  /**
+   * Time Complexity: O(n), because we are only one dfs call and utilizing the height returned from that to determine the height balance, it is
+   * performing the task in linear time.<br> Auxiliary Space: O(n)
+   */
+  private static int execute2(Node root) {
+    if (root == null) {
+      return 0;
+    }
+
+    int lH = execute2(root.left);
+    int rH = execute2(root.right);
+
+    if (Math.abs(lH - rH) > 1 || lH == -1 || rH == -1) {
       return -1;
     } else {
       return 1 + Math.max(lH, rH);
