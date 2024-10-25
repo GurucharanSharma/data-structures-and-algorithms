@@ -39,4 +39,21 @@ public class ChildrenSumProperty {
 
     return (root.key == sum) && execute1(root.left) && execute1(root.right);
   }
+
+  // Approach 3
+  private static boolean execute2(Node root) {
+    if (root == null) {
+      return true;
+    }
+
+    if (root.left == null && root.right == null) {
+      return true;
+    } else if (root.left == null) {
+      return root.key == root.right.key && execute2(root.right);
+    } else if (root.right == null) {
+      return root.key == root.left.key && execute2(root.left);
+    } else {
+      return (root.key == (root.left.key + root.right.key)) && execute2(root.left) && execute2(root.right);
+    }
+  }
 }
