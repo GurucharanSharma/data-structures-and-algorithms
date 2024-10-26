@@ -24,7 +24,8 @@ public class TopViewOfBinaryTree {
     queue.add(new Pair(root, 0));
 
     while (!queue.isEmpty()) {
-      Pair pair = queue.poll();
+      Pair pair = queue.remove();
+
       if (!map.containsKey(pair.dist())) {
         map.put(pair.dist(), pair.node().key);
       }
@@ -32,6 +33,7 @@ public class TopViewOfBinaryTree {
       if (pair.node().left != null) {
         queue.offer(new Pair(pair.node().left, pair.dist() - 1));
       }
+
       if (pair.node().right != null) {
         queue.offer(new Pair(pair.node().right, pair.dist() + 1));
       }
@@ -40,7 +42,6 @@ public class TopViewOfBinaryTree {
     for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
       System.out.print(entry.getValue() + " ");
     }
-    System.out.println();
   }
 
   /**
@@ -60,7 +61,8 @@ public class TopViewOfBinaryTree {
     int max = 0;
 
     while (!queue.isEmpty()) {
-      Pair pair = queue.poll();
+      Pair pair = queue.remove();
+
       if (!map.containsKey(pair.dist())) {
         map.put(pair.dist(), pair.node().key);
       }
@@ -69,6 +71,7 @@ public class TopViewOfBinaryTree {
         min = Math.min(min, pair.dist() - 1);
         queue.offer(new Pair(pair.node().left, pair.dist() - 1));
       }
+
       if (pair.node().right != null) {
         max = Math.max(max, pair.dist() + 1);
         queue.offer(new Pair(pair.node().right, pair.dist() + 1));
@@ -78,7 +81,6 @@ public class TopViewOfBinaryTree {
     for (; min <= max; min++) {
       System.out.print(map.get(min) + " ");
     }
-    System.out.println();
   }
 
   // TODO: https://www.geeksforgeeks.org/print-nodes-top-view-binary-tree/
