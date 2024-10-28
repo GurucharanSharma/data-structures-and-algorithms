@@ -126,9 +126,9 @@ public class BinaryTreeRunner {
     // Top view of a Binary Tree
     System.out.println("\n# TopViewOfBinaryTree => ");
     System.out.println("Iterative Approach (1): ");
-    TopViewOfBinaryTree.execute(tree.root);
+    TopViewOfBinaryTree.printTopView(tree.root);
     System.out.println("Iterative Approach (2): ");
-    TopViewOfBinaryTree.execute1(tree.root);
+    TopViewOfBinaryTree.printTopView1(tree.root);
 
     // Bottom view of a Binary Tree
     System.out.println("\n# BottomViewOfBinaryTree => ");
