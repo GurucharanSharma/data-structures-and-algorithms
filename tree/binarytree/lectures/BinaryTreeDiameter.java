@@ -38,8 +38,8 @@ public class BinaryTreeDiameter {
       return 0;
     }
 
-    int lH = height(root.left);
-    int rH = height(root.right);
+    int lH = execute1(root.left);
+    int rH = execute1(root.right);
 
     res = Math.max(res, 1 + lH + rH);
     return 1 + Math.max(lH, rH);
