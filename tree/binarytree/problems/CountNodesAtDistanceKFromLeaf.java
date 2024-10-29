@@ -57,7 +57,7 @@ public class CountNodesAtDistanceKFromLeaf {
       int depth = pathLen - k - 1;
       if (depth >= 0 && !visited[depth]) {
         count++;
-//        System.out.print(path[depth] + " ");
+        System.out.print(path[depth] + " ");
         visited[depth] = true;
         return;
       }
@@ -94,7 +94,7 @@ public class CountNodesAtDistanceKFromLeaf {
         int depth = path.size() - k - 1;
         if (depth >= 0 && !visited.get(depth)) {
           nodes++;
-//          System.out.print(path.get(depth) + " ");
+          System.out.print(path.get(depth) + " ");
           visited.set(depth, true);
         }
       }
