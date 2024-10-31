@@ -40,7 +40,7 @@ public class FoldableBinaryTrees {
     if (node == null) {
       return true;
     }
-    
+
     return areMirrorImages(node.left, node.right);
   }
 
