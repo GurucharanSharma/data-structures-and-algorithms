@@ -37,6 +37,10 @@ public class FoldableBinaryTrees {
 
   // Approach 1: Using recursion
   private static boolean IsFoldable(Node node) {
+    if (node == null) {
+      return true;
+    }
+    
     return areMirrorImages(node.left, node.right);
   }
 
@@ -54,6 +58,10 @@ public class FoldableBinaryTrees {
 
   // Approach 2: Finding the mirror image of left subtree and comparing it with the right subtree
   private static boolean IsFoldable1(Node node) {
+    if (node == null) {
+      return true;
+    }
+
     Node mirror = getMirrorImage(node.left);
     return areIdentical(mirror, node.right);
   }
