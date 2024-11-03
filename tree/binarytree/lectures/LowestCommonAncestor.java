@@ -37,6 +37,32 @@ public class LowestCommonAncestor {
     }
   }
 
+  public static void execute2(Node root, int n1, int n2) {
+    if (root == null) {
+      return;
+    }
+
+    ArrayList<Node> path1 = new ArrayList<>();
+    ArrayList<Node> path2 = new ArrayList<>();
+
+    if (!findPath(root, path1, n1) || !findPath(root, path2, n2)) {
+      return;
+    }
+
+    int i = 0;
+    for (; i < path1.size() && i < path2.size(); i++) {
+      if (path1.get(i) != path2.get(i)) {
+        if (i > 0) {
+          System.out.println(path1.get(i - 1).key);
+        } else {
+          System.out.println(-1);
+        }
+
+        break;
+      }
+    }
+  }
+
   private static boolean findPath(Node root, ArrayList<Node> arr, int n) {
     if (root == null) {
       return false;
