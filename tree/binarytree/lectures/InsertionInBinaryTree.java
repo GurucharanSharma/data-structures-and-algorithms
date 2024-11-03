@@ -38,21 +38,39 @@ public class InsertionInBinaryTree {
     return false;
   }
 
-  // Recursive approach: Does not follow the level order traversal insertion order.
-  private static boolean insertInBinaryTree(Node root, int key) {
+  // Recursive approach: Does not follow the exact level order traversal insertion order.
+  public static boolean insertInBinaryTree(Node root, int key) {
     if (root == null) {
       root = new Node(key);
       return true;
     }
 
-    if (root.left == null) {
-      root.left = new Node(key);
-      return true;
-    } else if (root.right == null) {
-      root.right = new Node(key);
-      return true;
+    // Calculate heights of left and right subtrees
+    int leftHeight = getHeight(root.left);
+    int rightHeight = getHeight(root.right);
+
+    // Insert into the shorter subtree to maintain balance (approximate level-order)
+    if (leftHeight <= rightHeight) {
+      if (root.left == null) {
+        root.left = new Node(key);
+        return true;
+      } else {
+        return insertInBinaryTree(root.left, key);
+      }
     } else {
-      return insertInBinaryTree(root.left, key) || insertInBinaryTree(root.right, key);
+      if (root.right == null) {
+        root.right = new Node(key);
+        return true;
+      } else {
+        return insertInBinaryTree(root.right, key);
+      }
     }
+  }
+
+  private static int getHeight(Node node) {
+    if (node == null) {
+      return 0;
+    }
+    return 1 + Math.max(getHeight(node.left), getHeight(node.right));
   }
 }
