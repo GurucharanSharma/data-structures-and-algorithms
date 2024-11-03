@@ -6,9 +6,9 @@ import tree.BinaryTree.Node;
 
 public class MaximumInBinaryTree {
 
-  /**
-   * Recursive Appraoch
-   */
+  private static int max = Integer.MIN_VALUE;
+
+  // Recursive Approach 1
   public static int execute(Node root) {
     if (root == null) {
       return Integer.MIN_VALUE;
@@ -19,9 +19,18 @@ public class MaximumInBinaryTree {
     return Math.max(root.key, Math.max(lMax, rMax));
   }
 
-  /**
-   * Iterative Approach
-   */
+  // Recursive Approach 2
+  public static void execute2(Node root) {
+    if (root == null) {
+      return;
+    }
+
+    max = Math.max(max, root.key);
+    execute2(root.left);
+    execute2(root.right);
+  }
+
+  // Iterative Approach
   public static int execute1(Node root) {
     if (root == null) {
       return Integer.MIN_VALUE;
