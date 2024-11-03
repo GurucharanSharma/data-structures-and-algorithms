@@ -6,6 +6,11 @@ import tree.BinaryTree.Node;
 
 public class InsertionInBinaryTree {
 
+  // Iterative Approach 1: Using level order traversal
+  // The idea is to do iterative level order traversal of the given tree using a queue.
+  // If we find a node whose left child is empty, we make new key as the left child of the node.
+  // Else if we find a node whose right child is empty, we make new key as the right child of that node.
+  // We keep traversing the tree until we find a node whose either left or right child is empty.
   public static boolean execute(Node root, int val) {
     if (root == null) {
       root = new Node(val);
@@ -31,5 +36,23 @@ public class InsertionInBinaryTree {
     }
 
     return false;
+  }
+
+  // Recursive approach: Does not follow the level order traversal insertion order.
+  private static boolean insertInBinaryTree(Node root, int key) {
+    if (root == null) {
+      root = new Node(key);
+      return true;
+    }
+
+    if (root.left == null) {
+      root.left = new Node(key);
+      return true;
+    } else if (root.right == null) {
+      root.right = new Node(key);
+      return true;
+    } else {
+      return insertInBinaryTree(root.left, key) || insertInBinaryTree(root.right, key);
+    }
   }
 }
