@@ -127,7 +127,7 @@ public class CheckIfSubtree {
     }
 
     Stack<Node> stack = new Stack<>();
-    stack.push(S);
+    stack.push(T);
 
     while (!stack.isEmpty()) {
       Node curr = stack.pop();
