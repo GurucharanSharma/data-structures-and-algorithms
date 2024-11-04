@@ -10,7 +10,6 @@ import tree.TreeFormatter;
 public class CountNodesAtDistanceKFromLeaf {
 
   private static final TreeFormatter formatter = new TreeFormatter();
-  private static int count = 0;
 
   public static void main(String[] args) {
     Node root = new Node(1);
@@ -18,9 +17,11 @@ public class CountNodesAtDistanceKFromLeaf {
     root.right = new Node(3);
     root.left.left = new Node(4);
     root.left.right = new Node(5);
-    root.right.left = new Node(6);
-    root.right.right = new Node(7);
-    root.right.left.right = new Node(8);
+    root.right.left = new Node(8);
+    root.right.left.right = new Node(9);
+    root.left.left.left = new Node(10);
+    root.left.left.right = new Node(11);
+    root.left.left.right.right = new Node(12);
 
     int k = 2;
 
@@ -31,7 +32,7 @@ public class CountNodesAtDistanceKFromLeaf {
   }
 
   // Recursive approach
-  private static int countNodes(Node root, int k) {
+  private static int countNodes(Node root, int K) {
     if (root == null) {
       return 0;
     }
@@ -39,12 +40,15 @@ public class CountNodesAtDistanceKFromLeaf {
     int[] path = new int[1000];
     boolean[] visited = new boolean[1000];
 
-    findNodes(root, path, visited, 0, k);
+    List<Integer> nodes = new ArrayList<>();
+    findNodes(root, path, visited, nodes, 0, K);
 
-    return count;
+    System.out.println(nodes);
+
+    return nodes.size();
   }
 
-  private static void findNodes(Node root, int[] path, boolean[] visited, int pathLen, int k) {
+  private static void findNodes(Node root, int[] path, boolean[] visited, List<Integer> nodes, int pathLen, int K) {
     if (root == null) {
       return;
     }
@@ -54,17 +58,16 @@ public class CountNodesAtDistanceKFromLeaf {
     pathLen++;
 
     if (root.left == null && root.right == null) {
-      int depth = pathLen - k - 1;
+      int depth = pathLen - K - 1;
       if (depth >= 0 && !visited[depth]) {
-        count++;
-        System.out.print(path[depth] + " ");
+        nodes.add(path[depth]);
         visited[depth] = true;
         return;
       }
     }
 
-    findNodes(root.left, path, visited, pathLen, k);
-    findNodes(root.right, path, visited, pathLen, k);
+    findNodes(root.left, path, visited, nodes, pathLen, K);
+    findNodes(root.right, path, visited, nodes, pathLen, K);
   }
 
   // Iterative approach
@@ -99,6 +102,7 @@ public class CountNodesAtDistanceKFromLeaf {
         }
       }
 
+      // Here the dist is vertical distance of the node. Hence, it increases for both, the left and right subtree.
       stack.push(new Pair(curr.left, pair.dist() + 1));
       stack.push(new Pair(curr.right, pair.dist() + 1));
 
