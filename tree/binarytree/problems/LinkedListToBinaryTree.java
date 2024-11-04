@@ -42,9 +42,11 @@ public class LinkedListToBinaryTree {
       Node parent = queue.remove();
       Node lChild = null, rChild = null;
 
-      lChild = new Node(head.data);
-      queue.add(lChild);
-      head = head.next;
+      if (head != null) {
+        lChild = new Node(head.data);
+        queue.add(lChild);
+        head = head.next;
+      }
 
       if (head != null) {
         rChild = new Node(head.data);
