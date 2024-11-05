@@ -62,7 +62,7 @@ public class ConnectNodesAtSameLevel {
       return root;
     }
 
-    root.nextRight = null;
+    root.nextRight = null;  // Ideally not required. By default, it should be null.
     connectNextRight(root);
 
     return root;
