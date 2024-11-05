@@ -28,6 +28,7 @@ public class MaximumPathSumFromAnyNode {
     System.out.println(findMaxSum1(root));
   }
 
+  // Approach 1: Using Recursion
   private static int findMaxSum(Node node) {
     if (node == null) {
       return 0;
