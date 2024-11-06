@@ -57,6 +57,7 @@ public class CountNodesAtDistanceKFromLeaf {
     visited[pathLen] = false;
     pathLen++;
 
+    // If it is a leaf node
     if (root.left == null && root.right == null) {
       int depth = pathLen - K - 1;
       if (depth >= 0 && !visited[depth]) {
