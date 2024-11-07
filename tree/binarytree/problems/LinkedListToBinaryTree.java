@@ -23,9 +23,11 @@ public class LinkedListToBinaryTree {
     head.next.next.next.next = new LNode(1);
 
     Node root = convert(head, null);
+//    Node root = convert(head);
     formatter.topDown(root);
   }
 
+  // Approach 1
   private static Node convert(LNode head, Node node) {
     if (head == null) {
       return null;
@@ -59,6 +61,37 @@ public class LinkedListToBinaryTree {
     }
 
     return node;
+  }
+
+  // Approach 2
+  private static Node convert(LNode head) {
+    if (head == null) {
+      return null;
+    }
+
+    Node root = new Node(head.data);
+    Queue<Node> queue = new ArrayDeque<>();
+
+    queue.add(root);
+
+    head = head.next;
+    while (head != null) {
+      Node curr = queue.remove();
+
+      if (head != null) {
+        curr.left = new Node(head.data);
+        queue.add(curr.left);
+        head = head.next;
+      }
+
+      if (head != null) {
+        curr.right = new Node(head.data);
+        queue.add(curr.right);
+        head = head.next;
+      }
+    }
+
+    return root;
   }
 
   static class LNode {
