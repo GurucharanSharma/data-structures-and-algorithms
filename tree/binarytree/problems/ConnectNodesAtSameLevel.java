@@ -31,6 +31,8 @@ public class ConnectNodesAtSameLevel {
 
     Queue<Node> queue = new LinkedList<>();
     queue.add(root);
+    // Adding 'null' to the queue at the end of each level to differentiate the levels.
+    // Otherwise, the last node of a level connects to the first node of next level.
     queue.add(null);
 
     while (!queue.isEmpty()) {
