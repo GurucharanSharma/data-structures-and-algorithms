@@ -66,4 +66,24 @@ public class DeletionInBinaryTree {
       }
     }
   }
+
+  // Alternate approach to delete the last node
+  private static void deleteNode1(Node root, Node node) {
+    if (root == null) {
+      return;
+    }
+
+    if (root.left == node) {
+      root.left = null;
+      return;
+    }
+
+    if (root.right == node) {
+      root.right = null;
+      return;
+    }
+
+    deleteNode1(root.left, node);
+    deleteNode1(root.right, node);
+  }
 }
