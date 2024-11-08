@@ -12,6 +12,7 @@ public class PrintPermutations {
     permute(str);
   }
 
+  // Approach 1: Iterative approach (Steinhaus–Johnson–Trotter algorithm)
   private static void permute(String str) {
     char[] chars = str.toCharArray();
     Arrays.sort(chars); // Start with the lexicographically smallest permutation
@@ -61,6 +62,7 @@ public class PrintPermutations {
     }
   }
 
+  // Approach 2: Recursive approach
   private static void permute(String str, int i) {
     if (i == str.length() - 1) {
       System.out.print(str + " ");
