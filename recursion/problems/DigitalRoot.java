@@ -3,9 +3,14 @@ package recursion.problems;
 public class DigitalRoot {
 
   public static void main(String[] args) {
-    System.out.println(digitalRoot(99999));
+//    int n = 99999;
+    int n = 1345433;
+    
+    System.out.println(digitalRoot(n));
     System.out.println();
-    System.out.println(digitalRoot1(99999));
+    System.out.println(digitalRoot1(n));
+    System.out.println();
+    System.out.println(digitalRoot2(n));
   }
 
   // Recursive approach
@@ -25,7 +30,7 @@ public class DigitalRoot {
     return n % 10 + digitSum(n / 10);
   }
 
-  // Iterative approach
+  // Iterative approach 1
   private static int digitalRoot1(int n) {
     int sum;
 
@@ -40,5 +45,20 @@ public class DigitalRoot {
     } while (sum / 10 != 0);
 
     return sum;
+  }
+
+  // Iterative approach 2
+  private static int digitalRoot2(int n) {
+    while (n / 10 != 0) {
+      int sum = 0;
+      while (n != 0) {
+        sum = sum + (n % 10);
+        n = n / 10;
+      }
+
+      n = sum;
+    }
+
+    return n;
   }
 }
