@@ -11,6 +11,7 @@ public class PowerOfNumbers {
     System.out.println(power(N, R));
   }
 
+  // Approach 1
   private static long power(int N, int R) {
     // Base cases
     if (N == 0) {
@@ -39,5 +40,26 @@ public class PowerOfNumbers {
     }
     // finally return the answer (y+mod)%mod = (y%mod+mod%mod)%mod = (y%mod)%mod
     return ((res + 1000000007) % 1000000007);
+  }
+
+  // Approach 2
+  private static long power1(int N, int R) {
+    if (N == 0) {
+      return 0;
+    }
+
+    if (R == 0) {
+      return 1;
+    }
+
+    long res = 1;
+    if (R % 2 == 0) {
+      res = power1(N, R / 2);
+      res = (res * res) % 1000000007;
+    } else {
+      res = ((N % 1000000007) * (power1(N, R - 1) % 1000000007)) % 1000000007;
+    }
+
+    return res % 1000000007;
   }
 }
