@@ -6,6 +6,7 @@ public class FloorInBST {
 
   public static Node floor;
 
+  // Approach 1: Recursive approach
   public static void execute(Node root, int key) {
     if (root == null) {
       return;
@@ -21,6 +22,7 @@ public class FloorInBST {
     }
   }
 
+  // Approach 2: Recursive approach
   public static void execute1(Node root, int key) {
     if (root == null) {
       return;
@@ -35,6 +37,7 @@ public class FloorInBST {
     execute1(root.right, key);
   }
 
+  // Approach 3: Iterative approach
   public static Node execute2(Node root, int key) {
     Node res = null;
 
