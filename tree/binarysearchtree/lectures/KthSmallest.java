@@ -7,6 +7,7 @@ public class KthSmallest {
 
   private static int count = 0;
 
+  // Naive Approach
   public static void execute(Node root, int k) {
     if (root == null) {
       return;
@@ -22,6 +23,7 @@ public class KthSmallest {
     execute(root.right, k);
   }
 
+  // Efficient Approach
   public static KSmallestTree.Node execute(KSmallestTree.Node root, int k) {
     if (root == null) {
       return null;
