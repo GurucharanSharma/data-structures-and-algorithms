@@ -4,6 +4,9 @@ import java.util.TreeSet;
 
 public class CeilingOnLeftSideInArray {
 
+  // Naive approach:
+  // Time Complexity: O(n^2)
+  // Auxiliary Space: O(1)
   public static void execute(int[] arr) {
     System.out.print("-1 ");
     for (int i = 1; i < arr.length; i++) {
@@ -18,6 +21,9 @@ public class CeilingOnLeftSideInArray {
     System.out.println();
   }
 
+  // Efficient Approach: Using a self-balancing BST (TreeSet in Java)
+  // Time Complexity: O(n * log(n))
+  // Auxiliary Space: O(n)
   public static void execute1(int[] arr) {
     TreeSet<Integer> set = new TreeSet<>();
     set.add(arr[0]);
