@@ -13,16 +13,14 @@ public class LuckyNumbers {
 //    int n = 1111;
     int n = 123456789;
 
-//    System.out.println(isLucky(n));
-//    System.out.println();
+    System.out.println(isLucky(n));
+    System.out.println();
     System.out.println(isLucky1(n));
     System.out.println();
     System.out.println(isLucky2(n));
   }
 
-  /**
-   * Approach 1
-   */
+  // Approach 1: Naive recursive approach (Does not work for all the test cases)
   // Complete the function
   // n: Input n
   // Return True if the given number is a lucky number else return False
@@ -56,9 +54,7 @@ public class LuckyNumbers {
     return status;
   }
 
-  /**
-   * Approach 2
-   */
+  // Approach 2: Iterative approach
   public static boolean isLucky1(int n) {
     // 	If n is less than or equal to zero, it immediately returns false because
     // 	negative numbers and zero cannot be considered lucky. Lucky numbers are
@@ -75,7 +71,9 @@ public class LuckyNumbers {
         return false;
       }
 
-      // If n is less than counter squared
+      // If n is less than counter squared. One of the factors of n must be smaller than Math.sqrt(n). So if counter
+      // is already greater than Math.sqrt(n) and no value of counter has yet divided n, there cannot be any other number left
+      // now that would divide n. Hence, we can safely return true at this point.
       if (n < counter * counter) {
         return true;
       }
@@ -90,10 +88,11 @@ public class LuckyNumbers {
     }
   }
 
-  /**
-   * Approach 3: Recursive
-   */
+  // Approach 3: Recursive (without using an extra function parameter)
   static boolean isLucky2(int n) {
+    // If n is less than counter squared. One of the factors of n must be smaller than Math.sqrt(n). So if counter
+    // is already greater than Math.sqrt(n) and no value of counter has yet divided n, there cannot be any other number left
+    // now that would divide n. Hence, we can safely return true at this point.
     if (counter * counter > n) {
       return true;
     }
@@ -114,8 +113,11 @@ public class LuckyNumbers {
     return isLucky2(n);
   }
 
-  // Approach 4: Recursive
+  // Approach 4: Recursive approach (with an extra function counter parameter)
   static boolean isLucky3(int n, int counter) {
+    // If n is less than counter squared. One of the factors of n must be smaller than Math.sqrt(n). So if counter
+    // is already greater than Math.sqrt(n) and no value of counter has yet divided n, there cannot be any other number left
+    // now that would divide n. Hence, we can safely return true at this point.
     if (counter * counter > n) {
       return true;
     }

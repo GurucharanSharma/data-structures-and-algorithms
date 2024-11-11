@@ -5,7 +5,7 @@ public class DigitalRoot {
   public static void main(String[] args) {
 //    int n = 99999;
     int n = 1345433;
-    
+
     System.out.println(digitalRoot(n));
     System.out.println();
     System.out.println(digitalRoot1(n));
