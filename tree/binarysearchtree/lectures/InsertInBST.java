@@ -4,6 +4,7 @@ import tree.BinaryTree.Node;
 
 public class InsertInBST {
 
+  // Recursive Approach
   public static Node execute(Node root, int key) {
     if (root == null) {
       return new Node(key);
@@ -18,27 +19,29 @@ public class InsertInBST {
     return root;
   }
 
+  // Iterative Approach
   public static Node execute1(Node root, int key) {
     if (root == null) {
       return new Node(key);
     }
 
+    Node curr = root;
     while (true) {
-      if (root.key == key) {
+      if (curr.key == key) {
         break;
-      } else if (root.key < key) {
-        if (root.right == null) {
-          root.right = new Node(key);
+      } else if (curr.key < key) {
+        if (curr.right == null) {
+          curr.right = new Node(key);
           break;
         } else {
-          root = root.right;
+          curr = curr.right;
         }
       } else {
-        if (root.left == null) {
-          root.left = new Node(key);
+        if (curr.left == null) {
+          curr.left = new Node(key);
           break;
         } else {
-          root = root.left;
+          curr = curr.left;
         }
       }
     }
