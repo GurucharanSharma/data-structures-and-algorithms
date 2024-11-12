@@ -8,6 +8,9 @@ import tree.BinaryTree.Node;
 
 public class PairSumInBST {
 
+  // Naive Approach: Using in-order traversal and two pointer approach
+  // Time Complexity: O(n)
+  // Auxiliary Space: O(n)
   public static boolean execute(Node root, int sum) {
     if (root == null) {
       return false;
@@ -17,6 +20,7 @@ public class PairSumInBST {
     Stack<Node> stack = new Stack<>();
     Node curr = root;
 
+    // Iterative inorder traversal of the binary tree
     while (curr != null || !stack.isEmpty()) {
       while (curr != null) {
         stack.push(curr);
@@ -28,6 +32,7 @@ public class PairSumInBST {
       curr = curr.right;
     }
 
+    // Two pointer approach to check whether the sum exists
     int i = 0;
     int j = list.size() - 1;
     int res = 0;
@@ -45,6 +50,9 @@ public class PairSumInBST {
     return false;
   }
 
+  // Efficient Approach: Using Hashing
+  // Time Complexity: O(n) (does better than O(n) in most cases)
+  // Auxiliary Space: O(n)
   public static boolean execute1(Node root, int sum, HashSet<Integer> set) {
     if (root == null) {
       return false;
@@ -57,6 +65,7 @@ public class PairSumInBST {
     if (set.contains(Math.abs(sum - root.key))) {
       return true;
     }
+
     set.add(root.key);
 
     return execute1(root.right, sum, set);
