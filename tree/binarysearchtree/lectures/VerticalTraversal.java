@@ -10,6 +10,7 @@ import tree.BinaryTree.Node;
 
 public class VerticalTraversal {
 
+  // Iterative Approach
   public static void execute(Node root) {
     if (root == null) {
       return;
@@ -41,6 +42,7 @@ public class VerticalTraversal {
     System.out.println();
   }
 
+  // Recursive Approach
   public static void execute1(Node root) {
     if (root == null) {
       return;
@@ -65,7 +67,6 @@ public class VerticalTraversal {
     map.put(hd, list);
 
     traverse(root.left, hd - 1, map);
-
     traverse(root.right, hd + 1, map);
   }
 
