@@ -6,7 +6,8 @@ public class CheckForBST {
 
   private static int prev = Integer.MIN_VALUE;
 
-  public static boolean execute(Node root) {
+  // Naive Approach
+  public static boolean isBST(Node root) {
     if (root == null) {
       return true;
     }
@@ -19,7 +20,7 @@ public class CheckForBST {
       return false;
     }
 
-    return execute(root.left) && execute(root.right);
+    return isBST(root.left) && isBST(root.right);
   }
 
   private static int getMax(Node root) {
@@ -52,7 +53,8 @@ public class CheckForBST {
     return min;
   }
 
-  public static boolean execute1(Node root) {
+  // Efficient Approach 1: Using the upper and lower bounds for each node
+  public static boolean isBST1(Node root) {
     return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
   }
 
@@ -64,20 +66,21 @@ public class CheckForBST {
     return (root.key > min && root.key < max && isBST(root.left, min, root.key) && isBST(root.right, root.key, max));
   }
 
-  public static boolean execute2(Node root) {
+  // Efficient Approach 2: Using In-order traversal
+  public static boolean isBST2(Node root) {
     if (root == null) {
       return true;
     }
 
-    if (!execute2(root.left)) {
+    if (!isBST2(root.left)) {
       return false;
     }
 
-    if (prev > root.key) {
+    if (prev >= root.key) {
       return false;
     }
 
     prev = root.key;
-    return execute2(root.right);
+    return isBST2(root.right);
   }
 }
