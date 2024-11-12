@@ -173,16 +173,16 @@ public class BinarySearchTreeRunner {
     root.left.right = new Node(6);
 
     System.out.println("Approach 1: ");
-    System.out.println(CheckForBST.execute(tree.root));
-    System.out.println(CheckForBST.execute(root));
+    System.out.println(CheckForBST.isBST(tree.root));
+    System.out.println(CheckForBST.isBST(root));
 
     System.out.println("Approach 2: ");
-    System.out.println(CheckForBST.execute1(tree.root));
-    System.out.println(CheckForBST.execute1(root));
+    System.out.println(CheckForBST.isBST1(tree.root));
+    System.out.println(CheckForBST.isBST1(root));
 
     System.out.println("Approach 3: ");
-    System.out.println(CheckForBST.execute2(tree.root));
-    System.out.println(CheckForBST.execute2(root));
+    System.out.println(CheckForBST.isBST2(tree.root));
+    System.out.println(CheckForBST.isBST2(root));
 
     // Fix BST with Two Nodes Swapped
     System.out.println("\n# FixBSTWithTwoSwappedNodes => ");
