@@ -1,5 +1,6 @@
 package tree.binarysearchtree.lectures;
 
+import java.util.Objects;
 import java.util.TreeSet;
 
 public class CeilingOnLeftSideInArray {
@@ -8,6 +9,10 @@ public class CeilingOnLeftSideInArray {
   // Time Complexity: O(n^2)
   // Auxiliary Space: O(1)
   public static void execute(int[] arr) {
+    if (arr.length == 0) {
+      return;
+    }
+
     System.out.print("-1 ");
     for (int i = 1; i < arr.length; i++) {
       int res = Integer.MAX_VALUE;
@@ -25,6 +30,10 @@ public class CeilingOnLeftSideInArray {
   // Time Complexity: O(n * log(n))
   // Auxiliary Space: O(n)
   public static void execute1(int[] arr) {
+    if (arr.length == 0) {
+      return;
+    }
+
     TreeSet<Integer> set = new TreeSet<>();
     set.add(arr[0]);
     System.out.print(-1 + " ");
@@ -40,5 +49,21 @@ public class CeilingOnLeftSideInArray {
       set.add(arr[i]);
     }
     System.out.println();
+  }
+
+  // Approach 3
+  private static void ceilingOnLeftSide(int[] arr) {
+    if (arr.length == 0) {
+      return;
+    }
+
+    TreeSet<Integer> treeSet = new TreeSet<>();
+    treeSet.add(arr[0]);
+    System.out.print(-1 + " ");
+
+    for (int i = 1; i < arr.length; i++) {
+      System.out.print(Objects.requireNonNullElse(treeSet.ceiling(arr[i]), -1) + " ");
+      treeSet.add(arr[i]);
+    }
   }
 }
