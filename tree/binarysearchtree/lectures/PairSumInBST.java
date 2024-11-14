@@ -8,6 +8,8 @@ import tree.BinaryTree.Node;
 
 public class PairSumInBST {
 
+  private static final HashSet<Integer> hashSet = new HashSet<>();
+
   // Naive Approach: Using in-order traversal and two pointer approach
   // Time Complexity: O(n)
   // Auxiliary Space: O(n)
@@ -69,5 +71,20 @@ public class PairSumInBST {
     set.add(root.key);
 
     return execute1(root.right, sum, set);
+  }
+
+  // Approach 2
+  private static boolean pairSum(Node root, int sum) {
+    if (root == null) {
+      return false;
+    }
+
+    if (hashSet.contains(sum - root.key)) {
+      return true;
+    }
+
+    hashSet.add(root.key);
+
+    return pairSum(root.left, sum) || pairSum(root.right, sum);
   }
 }
