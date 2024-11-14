@@ -216,7 +216,7 @@ public class BinarySearchTreeRunner {
     System.out.println("\n# VerticalSum => ");
     formatter.topDown(tree.root);
 
-    VerticalSum.execute(tree.root);
+    VerticalSum.verticalSum(tree.root);
 
     // Vertical Traversal of Binary Tree
     System.out.println("\n# VerticalTraversal => ");
