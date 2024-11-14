@@ -46,25 +46,30 @@ public class TopView {
       return;
     }
 
-    Map<Integer, Integer> map = new TreeMap<>();
-    traverse(root, 0, map);
+    Map<Integer, Pair> map = new TreeMap<>();
+    traverse(root, 0, 0, map);
 
-    for (Entry<Integer, Integer> entry : map.entrySet()) {
-      System.out.print(entry.getValue() + " ");
+    for (Entry<Integer, Pair> entry : map.entrySet()) {
+      System.out.print(entry.getValue().node().key + " ");
     }
     System.out.println();
   }
 
-  private static void traverse(Node root, int hd, Map<Integer, Integer> map) {
+  private static void traverse(Node root, int hd, int level, Map<Integer, Pair> treeMap) {
     if (root == null) {
       return;
     }
 
-    if (!map.containsKey(hd)) {
-      map.put(hd, root.key);
+    if (!treeMap.containsKey(hd)) {
+      treeMap.put(hd, new Pair(root, level));
+    } else {
+      Pair pair = treeMap.get(hd);
+      if (level < pair.dist()) {
+        treeMap.put(hd, new Pair(root, level));
+      }
     }
 
-    traverse(root.left, hd - 1, map);
-    traverse(root.right, hd + 1, map);
+    traverse(root.left, hd - 1, level + 1, treeMap);
+    traverse(root.right, hd + 1, level + 1, treeMap);
   }
 }
