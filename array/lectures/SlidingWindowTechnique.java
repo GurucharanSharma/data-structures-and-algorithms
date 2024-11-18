@@ -34,6 +34,7 @@ public class SlidingWindowTechnique {
     return result;
   }
 
+  // Efficient Approach 2
   static int getMaximumSumInWindow1(int[] arr, int k) {
     int n = arr.length;
     int sum = 0;
@@ -54,5 +55,24 @@ public class SlidingWindowTechnique {
     }
 
     return max;
+  }
+
+  // Naive Approach
+  private static int getMaximumSumInWindow2(int[] arr, int k) {
+    if (arr.length < k) {
+      return -1;
+    }
+
+    int res = 0;
+    for (int i = 0; i <= arr.length - k; i++) {
+      int sum = 0;
+      for (int j = i; j < i + k; j++) {
+        sum += arr[j];
+      }
+
+      res = Math.max(res, sum);
+    }
+
+    return res;
   }
 }
