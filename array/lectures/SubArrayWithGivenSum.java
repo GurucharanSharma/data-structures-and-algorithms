@@ -10,6 +10,7 @@ public class SubArrayWithGivenSum {
     System.out.println(hasSubarrayWithGivenSum1(array, givenSum));
   }
 
+  // Efficient Approach 1
   static boolean hasSubarrayWithGivenSum(int[] array, int givenSum) {
     int start = 0;
     int sum = 0;
@@ -28,6 +29,7 @@ public class SubArrayWithGivenSum {
     return false;
   }
 
+  // Efficient Approach 2
   static boolean hasSubarrayWithGivenSum1(int[] arr, int givenSum) {
     int n = arr.length;
     int sum = 0;
@@ -56,6 +58,30 @@ public class SubArrayWithGivenSum {
 
         System.out.print((i + 1) + " " + j);
         return true;
+      }
+    }
+
+    return false;
+  }
+
+  // Naive Approach
+  private static boolean hasSubarrayWithGivenSum2(int[] arr, int sum) {
+    if (arr.length == 0) {
+      return false;
+    }
+
+    for (int i = 0; i < arr.length; i++) {
+      int curr = 0;
+      for (int j = i; j < arr.length; j++) {
+        curr += arr[j];
+        if (curr == sum) {
+          System.out.println("From " + i + " to " + j);
+          return true;
+        }
+
+        if (curr > sum) {
+          break;
+        }
       }
     }
 
