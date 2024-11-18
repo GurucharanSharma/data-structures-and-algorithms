@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class ReverseArrayInGroups {
 
   public static void main(String[] args) {
-    ArrayList<Long> arr = new ArrayList<Long>(Arrays.asList(1L, 2L, 3L, 4L, 5L));
+    ArrayList<Long> arr = new ArrayList<>(Arrays.asList(1L, 2L, 3L, 4L, 5L));
     int k = 3;
 //    ArrayList<Long> arr = new ArrayList<Long>(Arrays.asList(5L, 6L, 8L, 9L));
 //    int k = 5
@@ -18,6 +18,10 @@ public class ReverseArrayInGroups {
 
     System.out.println(arr);
     reverseInGroups1(arr, k);
+    System.out.println(arr);
+
+    System.out.println(arr);
+    reverseInGroups2(arr, k);
     System.out.println(arr);
   }
 
@@ -54,6 +58,28 @@ public class ReverseArrayInGroups {
 
       start++;
       end--;
+    }
+  }
+
+  private static void reverseInGroups2(ArrayList<Long> arr, int k) {
+    if (arr.size() < k) {
+      reverse(arr, 0, arr.size() - 1);
+    }
+
+    int start = 0;
+    int counter = 1;
+    for (int i = 0; i < arr.size(); i++) {
+      if (counter < k) {
+        counter++;
+      } else {
+        reverse(arr, start, start + counter - 1);
+        start += counter;
+        counter = 1;
+      }
+    }
+
+    if (start < arr.size()) {
+      reverse(arr, start, arr.size() - 1);
     }
   }
 }
