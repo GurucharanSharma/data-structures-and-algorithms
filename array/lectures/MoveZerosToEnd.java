@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class MoveZerosToEnd {
 
   public static void main(String[] args) {
-    int[] array = new int[]{8, 5, 0, 10, 0, 20};
+    int[] array = {0, 1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
 
-    moveZerosToEnd2(array);
+    moveZerosToEnd3(array);
     System.out.println(Arrays.toString(array));
   }
 
@@ -30,9 +30,7 @@ public class MoveZerosToEnd {
     }
   }
 
-  /**
-   * Naive approach 2
-   */
+  // Naive Approach 2: We move the 0s to the right and insert the non-zero at its correct position.
   static void moveZerosToEnd3(int[] arr) {
     for (int i = 0; i < arr.length; i++) {
       if (arr[i] != 0) {
@@ -46,6 +44,29 @@ public class MoveZerosToEnd {
         arr[j + 1] = num;
       }
     }
+  }
+
+  // Naive Approach 6: Opposite of Naive Approach 2.
+  // In Naive Approach 2, we move the 0s to the right and insert the non-zero at its correct position.
+  // Here we move the non-zero to the left and then insert the 0 at its correct position.
+  private static void moveZerosToEnd6(int[] arr) {
+    if (arr.length == 0) {
+      return;
+    }
+
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] != 0) {
+        int j = i;
+        while (j > 0 && arr[j - 1] == 0) {
+          swap(arr, j, j - 1);
+          j--;
+        }
+
+        arr[i] = 0;
+      }
+    }
+
+    System.out.println(Arrays.toString(arr));
   }
 
   /**
@@ -78,6 +99,25 @@ public class MoveZerosToEnd {
       if (array[i] != 0) {
         swap(array, count, i);
         count++;
+      }
+    }
+  }
+
+  // Efficient Approach: Does not maintain the order of non-zero elements
+  private static void moveZerosToEnd5(int[] arr) {
+    int lastPos = arr.length - 1;
+
+    for (int i = 0; i < arr.length; i++) {
+      if (i > lastPos) {
+        break;
+      }
+
+      if (arr[i] == 0) {
+        swap(arr, i, lastPos);
+
+        while (lastPos >= 0 && arr[lastPos] == 0) {
+          lastPos--;
+        }
       }
     }
   }
