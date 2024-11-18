@@ -63,6 +63,7 @@ public class LongestEvenOddSubArray {
     return n % 2 == 0;
   }
 
+  // Approach 3
   public static int maxEvenOdd2(int[] arr, int n) {
     int res = 1;
     int count = 1;
