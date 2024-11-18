@@ -11,6 +11,9 @@ public class MinimumGroupFlipsToMakeSame {
     System.out.println();
 
     System.out.println(getMinimumGroupFlips2(array));
+    System.out.println();
+
+    System.out.println(getMinimumGroupFlips3(array));
   }
 
   /**
@@ -51,6 +54,7 @@ public class MinimumGroupFlipsToMakeSame {
     return groupFlipCount;
   }
 
+  // Efficient Approach 1
   static int getMinimumGroupFlips1(int[] arr) {
     int first = arr[0];
     int flips = 0;
@@ -78,6 +82,7 @@ public class MinimumGroupFlipsToMakeSame {
     return flips;
   }
 
+  // Efficient Approach 2
   static int getMinimumGroupFlips2(int[] arr) {
     int n = arr.length;
     int start = arr[0];
@@ -96,5 +101,41 @@ public class MinimumGroupFlipsToMakeSame {
     }
 
     return flips;
+  }
+
+  // Naive Approach:
+  // 1. Traverse the two traversals of the array.
+  // 2. We first traverse to find the number of groups of 0s and the number of groups of 1.
+  // 3. We find the minimum of these two.
+  // 4. Then we traverse the array and flip the 1s if groups of 1s are less. Otherwise, we flip 0s.
+  private static int getMinimumGroupFlips3(int[] arr) {
+    int groups0 = 0;
+    int groups1 = 0;
+
+    for (int i = 0; i < arr.length - 1; i++) {
+      if (arr[i] == 0) {
+        groups0++;
+        while (i < arr.length && arr[i + 1] == 0) {
+          i++;
+        }
+      } else {
+        groups1++;
+        while (i < arr.length && arr[i + 1] == 1) {
+          i++;
+        }
+      }
+    }
+
+    if (arr[arr.length - 1] != arr[arr.length - 2]) {
+      if (arr[arr.length - 1] == 0) {
+        groups0++;
+      } else {
+        groups1++;
+      }
+    }
+
+    System.out.println(groups0 + " " + groups1);
+
+    return Math.min(groups0, groups1);
   }
 }
