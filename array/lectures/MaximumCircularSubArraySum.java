@@ -47,7 +47,8 @@ public class MaximumCircularSubArraySum {
         int arrSum = 0;
         for (int i = 0; i < n; i++) {
             arrSum += array[i];
-            // Simultaneously, each element of the array is negated. This transformation is necessary for finding the minimum subarray sum using getMaximumSubArraySum on the negated array.
+            // Simultaneously, each element of the array is negated. This transformation is necessary for
+            // finding the minimum subarray sum using getMaximumSubArraySum on the negated array.
             array[i] = -1 * array[i];
         }
 
