@@ -9,8 +9,7 @@ public class EquilibriumPoint {
     System.out.println(equilibriumPoint(arr));
   }
 
-  // arr: input array
-  // Function to find equilibrium point in the array.
+  // Efficient Approach: Without precalculating prefix sum or suffix sum
   public static int equilibriumPoint(long[] arr) {
     if (arr.length == 1) {
       return 1;
@@ -36,7 +35,28 @@ public class EquilibriumPoint {
     return -1;
   }
 
+
+  // Efficient Approach: Only using suffix sum array
+  private static int equilibriumPoint2(long[] arr) {
+    long[] suffixSum = new long[arr.length];
+    suffixSum[arr.length - 1] = arr[arr.length - 1];
+    for (int i = arr.length - 2; i >= 0; i--) {
+      suffixSum[i] = suffixSum[i + 1] + arr[i];
+    }
+
+    long sum = 0;
+    for (int i = 0; i < arr.length; i++) {
+      sum = sum + arr[i];
+      if (sum == suffixSum[i]) {
+        return i + 1;
+      }
+    }
+
+    return -1;
+  }
+
   // Not a very efficient solution. Uses O(n) auxiliary space.
+  // Using both, suffix sum array and prefix sum array
   public static int equilibriumPoint1(long[] arr) {
     if (arr.length == 1) {
       return 1;
