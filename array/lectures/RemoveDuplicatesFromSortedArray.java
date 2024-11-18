@@ -21,6 +21,7 @@ public class RemoveDuplicatesFromSortedArray {
     }
   }
 
+  // Efficient Approach 1
   static int removeDuplicates(int[] array) {
     int size = 1;
 
@@ -33,6 +34,7 @@ public class RemoveDuplicatesFromSortedArray {
     return size;
   }
 
+  // Efficient Approach 2
   static int removeDuplicates1(int[] arr) {
     int n = arr.length;
     int start = 0;
@@ -49,5 +51,25 @@ public class RemoveDuplicatesFromSortedArray {
     }
 
     return start;
+  }
+
+  // Naive Approach
+  private static int removeDuplicates2(int[] arr) {
+    int[] temp = new int[arr.length];
+
+    int index = 0;
+    for (int i = 0; i < arr.length; i++) {
+      if (i == 0) {
+        temp[index++] = arr[i];
+      } else if (arr[i] != arr[i - 1]) {
+        temp[index++] = arr[i];
+      }
+    }
+
+    if (index >= 0) {
+      System.arraycopy(temp, 0, arr, 0, index);
+    }
+
+    return index;
   }
 }
