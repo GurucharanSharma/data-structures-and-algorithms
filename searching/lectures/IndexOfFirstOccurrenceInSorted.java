@@ -5,8 +5,23 @@ public class IndexOfFirstOccurrenceInSorted {
   public static void main(String[] args) {
     int[] arr = new int[]{5, 10, 10, 15, 20, 20, 20};
     int num = 0;
+
+    System.out.println(search(arr, num));
+    System.out.println();
     System.out.println(searchIterative(arr, num));
+    System.out.println();
     System.out.println(searchRecursive(arr, num, 0, arr.length - 1));
+  }
+
+  // Naive Approach
+  private static int search(int[] arr, int num) {
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] == num) {
+        return i;
+      }
+    }
+
+    return -1;
   }
 
   /**
