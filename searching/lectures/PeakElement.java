@@ -15,16 +15,32 @@ public class PeakElement {
    */
   public static void main(String[] args) {
     int[] arr = new int[]{1, 7, 5, 9, 2, 3};
+
     System.out.println(peakElement(arr));
-    System.out.println(peakElement(arr, arr.length));
+    System.out.println();
+    System.out.println(peakElement1(arr));
   }
 
-  /**
-   * Finds a peak element in an unsorted array, if it exists.
-   *
-   * @param arr The input array in which to find a peak element.
-   * @return The index of a peak element in the array, or -1 if no peak element is found.
-   */
+  // Naive Approach
+  private static int peakElement1(int[] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      if (i == 0 && arr[i] > arr[i + 1]) {
+        return arr[i];
+      }
+
+      if (i == arr.length - 1 && arr[i] > arr[i - 1]) {
+        return arr[i];
+      }
+
+      if (i > 0 && i < arr.length - 1 && arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+        return arr[i];
+      }
+    }
+
+    return -1;
+  }
+
+  // Efficient Approach
   static int peakElement(int[] arr) {
     int start = 0;                // Initialize the start index for the search.
     int end = arr.length - 1;     // Initialize the end index for the search.
@@ -49,25 +65,4 @@ public class PeakElement {
     // If no peak element is found in the array, return -1.
     return -1;
   }
-
-  private static int peakElement(int[] arr, int n) {
-    int start = 0;
-    int end = n - 1;
-
-    while (start <= end) {
-      int mid = (start + end) / 2;
-      if ((mid == 0 || arr[mid - 1] <= arr[mid]) && (mid == end || arr[mid + 1] <= arr[mid])) {
-        return 1;
-      }
-
-      if (mid > 0 && arr[mid - 1] >= arr[mid]) {
-        end = mid - 1;
-      } else {
-        start = mid + 1;
-      }
-    }
-
-    return 0;
-  }
-
 }
