@@ -29,6 +29,22 @@ public class TripletInASortedArray {
     System.out.println(isTriplet(arr, 26));
   }
 
+  // Naive Approach
+  private static boolean isTriplet1(int[] arr, int sum) {
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = i + 1; j < arr.length; j++) {
+        for (int k = j + 1; k < arr.length; k++) {
+          int curr = arr[i] + arr[j] + arr[k];
+          if (curr == sum) {
+            return true;
+          }
+        }
+      }
+    }
+
+    return false;
+  }
+
   /**
    * Checks if there is a triplet of elements in the array that sums up to the specified number.
    *
