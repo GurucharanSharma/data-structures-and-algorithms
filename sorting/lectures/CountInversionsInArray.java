@@ -10,6 +10,22 @@ public class CountInversionsInArray {
     System.out.println(count(arr, 0, arr.length - 1));
   }
 
+  // Naive Approach
+  private static int count(int[] arr) {
+    int inversions = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = i + 1; j < arr.length; j++) {
+        if (arr[i] > arr[j]) {
+          inversions++;
+        }
+      }
+    }
+
+    return inversions;
+  }
+
+  // Efficient Approach: Using merge sort approach
   private static int count(int[] arr, int start, int end) {
     int res = 0;
     if (end > start) {
