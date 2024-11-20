@@ -14,6 +14,7 @@ public class ChocolateDistributionProblem {
    *  chocolates given to the students is minimum.</li>
    * </ul>
    *
+   * Note: All the packets are not distributed. Only m packets are distributed among m students. There can/will be undistributed packets left.
    * @param args
    */
   public static void main(String[] args) {
