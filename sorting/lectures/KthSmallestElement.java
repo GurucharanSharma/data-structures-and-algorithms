@@ -7,16 +7,20 @@ public class KthSmallestElement {
   public static void main(String[] args) {
 
     int[] arr = {10, 3, 5, 20};
-    System.out.println(kthSmallestNaive(arr, 2));
-    System.out.println(kthSmallestOptimised(arr, 2));
+
+    System.out.println(kthSmallest(arr, 2));
+    System.out.println();
+    System.out.println(kthSmallest1(arr, 2));
   }
 
-  private static int kthSmallestNaive(int[] arr, int k) {
+  // Naive Approach: Sort the array and select the (k - 1)th element.
+  private static int kthSmallest(int[] arr, int k) {
     Arrays.sort(arr);
     return arr[k - 1];
   }
 
-  private static int kthSmallestOptimised(int[] arr, int k) {
+  // Efficient Approach: Using quick sort partition algorithm to determine the kth smallest number.
+  private static int kthSmallest1(int[] arr, int k) {
     int low = 0;
     int high = arr.length - 1;
 
