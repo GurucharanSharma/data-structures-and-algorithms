@@ -13,8 +13,9 @@ public class ChocolateDistributionProblem {
    *   <li>The difference between the number of chocolates in the packet with maximum chocolates and the packet with minimum
    *  chocolates given to the students is minimum.</li>
    * </ul>
-   *
+   * <p>
    * Note: All the packets are not distributed. Only m packets are distributed among m students. There can/will be undistributed packets left.
+   *
    * @param args
    */
   public static void main(String[] args) {
@@ -23,6 +24,7 @@ public class ChocolateDistributionProblem {
     System.out.println(minimumDifference(arr, 3));
   }
 
+  // Efficient Approach 1
   private static int minimumDifference(int[] arr, int m) {
     // Check if there are enough packets for all students. If not, return -1.
     if (m > arr.length) {
@@ -51,5 +53,38 @@ public class ChocolateDistributionProblem {
 
     // Return the minimum difference found.
     return res;
+  }
+
+  // Efficient Approach 2
+  private static int minimumDifference1(int[] arr, int m) {
+    Arrays.sort(arr);
+
+    int minDiff = arr[m - 1] - arr[0];
+    for (int i = m; i < arr.length; i++) {
+      int currDiff = arr[i] - arr[i - m + 1];
+      minDiff = Math.min(minDiff, currDiff);
+    }
+
+    return minDiff;
+  }
+
+  // Naive Approach
+  private static int minimumDifference2(int[] arr, int m) {
+    Arrays.sort(arr);
+
+    int minDiff = Integer.MAX_VALUE;
+    for (int i = 0; i <= arr.length - m; i++) {
+      int min = Integer.MAX_VALUE;
+      int max = Integer.MIN_VALUE;
+
+      for (int j = i; j < i + m; j++) {
+        min = Math.min(min, arr[j]);
+        max = Math.max(max, arr[j]);
+      }
+
+      minDiff = Math.min(minDiff, max - min);
+    }
+
+    return minDiff;
   }
 }
