@@ -39,4 +39,23 @@ public class StockBuyAndSell {
 
     return result;
   }
+
+  // Approach 2
+  private static ArrayList<ArrayList<Integer>> stockBuySell1(int[] A, int n) {
+    ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+    for (int i = 0; i < n; i++) {
+      ArrayList<Integer> subList = new ArrayList<>();
+      if (i < n - 1 && A[i] < A[i + 1]) {
+        subList.add(i);
+        while (i < n - 1 && A[i] < A[i + 1]) {
+          i++;
+        }
+
+        subList.add(i);
+        list.add(subList);
+      }
+    }
+
+    return list;
+  }
 }
