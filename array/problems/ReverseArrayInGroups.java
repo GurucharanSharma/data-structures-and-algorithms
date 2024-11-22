@@ -82,4 +82,34 @@ public class ReverseArrayInGroups {
       reverse(arr, start, arr.size() - 1);
     }
   }
+
+  private static void reverseInGroups3(int[] arr, int k) {
+    int start = 0;
+    for (int i = k; i < arr.length; i = i + k) {
+      reverseArray(arr, start, i - 1);
+      start = i;
+    }
+
+    if (start < arr.length) {
+      reverseArray(arr, start, arr.length - 1);
+    }
+  }
+
+  private static void reverseInGroups4(int[] arr, int k) {
+    for (int i = 0; i < arr.length; i = i + k) {
+      int end = Math.min(i + k - 1, arr.length - 1);
+      reverseArray(arr, i, end);
+    }
+  }
+
+  public static void reverseArray(int[] arr, int start, int end) {
+    while (start < end) {
+      int temp = arr[start];
+      arr[start] = arr[end];
+      arr[end] = temp;
+
+      start++;
+      end--;
+    }
+  }
 }
