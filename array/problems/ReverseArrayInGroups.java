@@ -50,17 +50,6 @@ public class ReverseArrayInGroups {
     }
   }
 
-  private static void reverse(ArrayList<Long> arr, int start, int end) {
-    while (start < end) {
-      long temp = arr.get(start);
-      arr.set(start, arr.get(end));
-      arr.set(end, temp);
-
-      start++;
-      end--;
-    }
-  }
-
   private static void reverseInGroups2(ArrayList<Long> arr, int k) {
     if (arr.size() < k) {
       reverse(arr, 0, arr.size() - 1);
@@ -86,23 +75,36 @@ public class ReverseArrayInGroups {
   private static void reverseInGroups3(int[] arr, int k) {
     int start = 0;
     for (int i = k; i < arr.length; i = i + k) {
-      reverseArray(arr, start, i - 1);
+      reverse(arr, start, i - 1);
       start = i;
     }
 
     if (start < arr.length) {
-      reverseArray(arr, start, arr.length - 1);
+      reverse(arr, start, arr.length - 1);
     }
   }
 
   private static void reverseInGroups4(int[] arr, int k) {
     for (int i = 0; i < arr.length; i = i + k) {
       int end = Math.min(i + k - 1, arr.length - 1);
-      reverseArray(arr, i, end);
+      reverse(arr, i, end);
     }
   }
 
-  public static void reverseArray(int[] arr, int start, int end) {
+  ///// HELPER METHODS ////////////////////////////////////////////////////////////////////////////////////
+
+  private static void reverse(ArrayList<Long> arr, int start, int end) {
+    while (start < end) {
+      long temp = arr.get(start);
+      arr.set(start, arr.get(end));
+      arr.set(end, temp);
+
+      start++;
+      end--;
+    }
+  }
+
+  public static void reverse(int[] arr, int start, int end) {
     while (start < end) {
       int temp = arr[start];
       arr[start] = arr[end];
