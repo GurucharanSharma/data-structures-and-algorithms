@@ -37,7 +37,7 @@ public class EquilibriumPoint {
 
 
   // Efficient Approach: Only using suffix sum array
-  private static int equilibriumPoint2(long[] arr) {
+  private static int equilibriumPoint1(long[] arr) {
     long[] suffixSum = new long[arr.length];
     suffixSum[arr.length - 1] = arr[arr.length - 1];
     for (int i = arr.length - 2; i >= 0; i--) {
@@ -55,9 +55,28 @@ public class EquilibriumPoint {
     return -1;
   }
 
+  // Efficient Approach: Using only prefix sum array
+  private static int equilibriumPoint2(long[] arr) {
+    long[] prefixSum = new long[arr.length];
+    prefixSum[0] = arr[0];
+    long total = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+      prefixSum[i] = arr[i] + prefixSum[i - 1];
+      total += arr[i];
+    }
+
+    for (int i = 1; i < arr.length; i++) {
+      if (prefixSum[i] == (total - prefixSum[i - 1])) {
+        return i + 1;
+      }
+    }
+
+    return -1;
+  }
+
   // Not a very efficient solution. Uses O(n) auxiliary space.
   // Using both, suffix sum array and prefix sum array
-  public static int equilibriumPoint1(long[] arr) {
+  public static int equilibriumPoint3(long[] arr) {
     if (arr.length == 1) {
       return 1;
     }
