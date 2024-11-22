@@ -91,4 +91,26 @@ public class LongestEvenOddSubArray {
 
     return res;
   }
+
+  // Approach 4
+  public static int maxEvenOdd3(int[] arr, int n) {
+    int maxLen = Integer.MIN_VALUE;
+    int currLen = 1;
+    boolean even = (arr[0] % 2 == 0);
+
+    for (int i = 1; i < n; i++) {
+      if ((even && arr[i] % 2 != 0) || (!even && arr[i] % 2 == 0)) {
+        currLen++;
+        even = !even;
+      } else {
+        currLen = 1;
+        even = arr[i] % 2 == 0;
+      }
+
+      maxLen = Math.max(maxLen, currLen);
+    }
+
+    maxLen = Math.max(maxLen, currLen);
+    return maxLen;
+  }
 }
