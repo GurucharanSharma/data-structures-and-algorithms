@@ -76,7 +76,7 @@ public class StockBuyAndSell {
     if (start != end) {
       System.out.println("Starting Price " + start + " | Ending Price: " + end);
     }
-    
+
     return profit + (end - start);
   }
 }
