@@ -3,7 +3,8 @@ package array.lectures;
 public class StockBuyAndSell {
 
   public static void main(String[] args) {
-    int[] array = new int[]{8, 5, 0, 10, 0, 20};
+    int[] array = {4, 2, 2, 2, 4};
+
     System.out.println(maximumProfit_1(array, 0, array.length));
     System.out.println();
     System.out.println(maximumProfit_2(array));
@@ -62,7 +63,9 @@ public class StockBuyAndSell {
       if (arr[i] > arr[i - 1]) {
         end = arr[i];
       } else {
-        System.out.println(start + " " + end);
+        if (start != end) {
+          System.out.println("Starting Price " + start + " | Ending Price: " + end);
+        }
 
         profit += (end - start);
         start = arr[i];
@@ -70,7 +73,10 @@ public class StockBuyAndSell {
       }
     }
 
-    System.out.println(start + " " + end);
+    if (start != end) {
+      System.out.println("Starting Price " + start + " | Ending Price: " + end);
+    }
+    
     return profit + (end - start);
   }
 }
