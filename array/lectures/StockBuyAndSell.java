@@ -10,6 +10,8 @@ public class StockBuyAndSell {
     System.out.println(maximumProfit_2(array));
     System.out.println();
     System.out.println(maximumProfit_3(array));
+    System.out.println();
+    System.out.println(maximumProfit_4(array));
   }
 
   /**
@@ -78,5 +80,25 @@ public class StockBuyAndSell {
     }
 
     return profit + (end - start);
+  }
+
+  private static int maximumProfit_4(int[] arr) {
+    int maxProfit = 0;
+    int start = 0;
+
+    for (int i = 1; i < arr.length; i++) {
+      if (arr[i] >= arr[i - 1]) {
+        maxProfit += (arr[i] - arr[i - 1]);
+      } else {
+        if (start != (i - 1)) {
+          System.out.println("From " + start + " to " + (i - 1));
+        }
+        start = i;
+      }
+    }
+
+    System.out.println("From " + start + " to " + (arr.length - 1));
+
+    return maxProfit;
   }
 }
