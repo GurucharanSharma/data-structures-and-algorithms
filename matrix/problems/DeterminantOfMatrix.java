@@ -20,10 +20,7 @@ public class DeterminantOfMatrix {
     System.out.println(determinantOfMatrix1(matrix, matrix.length));
   }
 
-  /**
-   * Approach 1: Using recursion
-   */
-  //Function for finding determinant of matrix.
+  // Recursive Approach
   static int determinantOfMatrix(int[][] matrix, int n) {
     if (n == 1) {
       return matrix[0][0];
@@ -38,7 +35,7 @@ public class DeterminantOfMatrix {
     int[][] temp = new int[n][n];
 
     for (int i = 0; i < n; i++) {
-      getCofactor(matrix, temp, 0, i, n);
+      getCofactor(matrix, temp, i, n);
       det += sign * matrix[0][i] * determinantOfMatrix(temp, n - 1);
       sign = -sign;
     }
@@ -46,13 +43,13 @@ public class DeterminantOfMatrix {
     return det;
   }
 
-  static void getCofactor(int[][] matrix, int[][] temp, int p, int q, int n) {
+  static void getCofactor(int[][] matrix, int[][] temp, int q, int n) {
     int i = 0;
     int j = 0;
 
     for (int r = 0; r < n; r++) {
       for (int c = 0; c < n; c++) {
-        if (r != p && c != q) {
+        if (r != 0 && c != q) {
           temp[i][j++] = matrix[r][c];
 
           if (j == n - 1) {
@@ -64,6 +61,7 @@ public class DeterminantOfMatrix {
     }
   }
 
+  // Iterative Approach
   static int determinantOfMatrix1(int[][] matrix, int n) {
     int num1, num2, det = 1, index, total = 1; // Initialize result
 
