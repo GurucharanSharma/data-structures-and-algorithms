@@ -24,16 +24,9 @@ public class BooleanMatrix {
     }
   }
 
-  /**
-   * Naive Approach
-   * <p>
-   * Time Complexity:O((N*M)*(N + M)). O(N*M) for traversing through each element and (N+M)for traversing to row and column of elements having value
-   * 1.
-   * <p>
-   * Space Complexity:O(1)
-   */
-  //Function to modify the matrix such that if a matrix cell matrix[i][j]
-  //is 1 then all the cells in its ith row and jth column will become 1.
+  // Naive Approach
+  // Time Complexity: O((N*M)*(N + M)). O(N*M) for traversing through each element and (N+M)for traversing to row and column of elements having value 1.
+  // Auxiliary Space: O(1)
   static void booleanMatrix(int[][] matrix) {
     int m = matrix.length;
     int n = matrix[0].length;
@@ -71,8 +64,7 @@ public class BooleanMatrix {
     }
   }
 
-  //Function to modify the matrix such that if a matrix cell matrix[i][j]
-  //is 1 then all the cells in its ith row and jth column will become 1.
+  // Efficient Approach 1: Using 2 arrays to keep track of 1s in the matrix.
   static void booleanMatrix1(int[][] matrix) {
     int m = matrix.length;
     int n = matrix[0].length;
@@ -98,8 +90,7 @@ public class BooleanMatrix {
     }
   }
 
-  //Function to modify the matrix such that if a matrix cell matrix[i][j]
-  //is 1 then all the cells in its ith row and jth column will become 1.
+  // Efficient Approach 2: Without using extra space. Using the first two rows of the matrix to keep track of 1s in the matrix.
   static void booleanMatrix2(int[][] matrix) {
     int m = matrix.length;
     int n = matrix[0].length;
