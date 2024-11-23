@@ -19,19 +19,38 @@ public class TwoRepeatedElements {
   public static void main(String[] args) {
 
     int[] array1 = {1, 2, 1, 3, 4, 3};
-    System.out.println(Arrays.toString(twoRepeated(array1, 4)));
+//    System.out.println(Arrays.toString(twoRepeated(array1, 4)));
+    System.out.println(Arrays.toString(twoRepeated1(array1, 4)));
 
     int[] array2 = {1, 2, 2, 1};
-    System.out.println(Arrays.toString(twoRepeated(array2, 2)));
+//    System.out.println(Arrays.toString(twoRepeated(array2, 2)));
+    System.out.println(Arrays.toString(twoRepeated1(array2, 2)));
   }
 
-  /**
-   * Finds two repeated elements in an array of integers.
-   *
-   * @param arr The input array containing integers with two repeated elements.
-   * @param N   The size of the array.
-   * @return An array containing the two repeated elements.
-   */
+  // Naive Approach: Using a visited array to track the visited elements
+  private static int[] twoRepeated1(int[] arr, int N) {
+    boolean[] visited = new boolean[N + 2];
+
+    int[] repeats = new int[2];
+    Arrays.fill(repeats, -1);
+
+    for (int i = 0; i < (N + 2); i++) {
+      if (visited[arr[i]]) {
+        if (repeats[0] == -1) {
+          repeats[0] = arr[i];
+        } else {
+          repeats[1] = arr[i];
+          break;
+        }
+      } else {
+        visited[arr[i]] = true;
+      }
+    }
+
+    return repeats;
+  }
+
+  // Efficient Approach: Using the original array itself to track the visited elements
   private static int[] twoRepeated(int[] arr, int N) {
     int[] repeats = new int[2]; // Array to store the two repeated elements.
     Arrays.fill(repeats, -1);   // Initialize the repeats array with -1.
