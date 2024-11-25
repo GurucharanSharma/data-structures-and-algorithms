@@ -113,14 +113,18 @@ public class Chaining {
       int index = hash(key);
       LinkedList<Integer> linkedList = table.get(index);
 
-      for (int i = 0; i < linkedList.size(); i++) {
-        if (linkedList.get(i) == key) {
-          linkedList.remove(i);
-          return true;
-        }
-      }
+      // Approach 1: Using utility method
+      return linkedList.remove(Integer.valueOf(key));
 
-      return false;
+//      // Approach 2: Long method
+//      for (int i = 0; i < linkedList.size(); i++) {
+//        if (linkedList.get(i) == key) {
+//          linkedList.remove(i);
+//          return true;
+//        }
+//      }
+//
+//      return false;
     }
 
     public void printList() {
