@@ -7,7 +7,6 @@ public class LFUCache {
 
   int lfuKey;
   int lfuCount;
-  int size;
   int capacity;
   Map<Integer, Integer> accessLookup;
   Map<Integer, Integer> cacheLookup;
@@ -15,7 +14,6 @@ public class LFUCache {
   public LFUCache(int capacity) {
     lfuKey = -1;
     lfuCount = Integer.MAX_VALUE;
-    this.size = 0;
     this.capacity = capacity;
     this.accessLookup = new HashMap<>();
     this.cacheLookup = new HashMap<>();
@@ -45,7 +43,7 @@ public class LFUCache {
       cacheLookup.put(key, value);
       accessLookup.put(key, accessLookup.getOrDefault(key, 0));
     } else {
-      int delKey = lfuKey;
+      int delKey = getLFUKey(); // TODO: Do this in O(1) time complexity
       accessLookup.remove(delKey);
       cacheLookup.remove(delKey);
 
@@ -55,16 +53,16 @@ public class LFUCache {
   }
 
   ///// HELPER METHOD /////
-//    private int getLFUKey() {
-//      int key = -1;
-//      int min = Integer.MAX_VALUE;
-//      for (Map.Entry<Integer, Integer> entry : accessLookup.entrySet()) {
-//        if (entry.getValue() < min) {
-//          min = entry.getValue();
-//          key = entry.getKey();
-//        }
-//      }
-//
-//      return key;
-//    }
+  private int getLFUKey() {
+    int key = -1;
+    int min = Integer.MAX_VALUE;
+    for (Map.Entry<Integer, Integer> entry : accessLookup.entrySet()) {
+      if (entry.getValue() < min) {
+        min = entry.getValue();
+        key = entry.getKey();
+      }
+    }
+
+    return key;
+  }
 }
