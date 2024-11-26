@@ -7,13 +7,13 @@ import java.util.List;
 public class ZeroSumSubArrays {
 
   public static void main(String[] args) {
-//    long[] arr = {0, 0, 5, 5, 0, 0};
-    long[] arr = {6, -1, -3, 4, -2, 2, 4, 6, -12, -7};
+    long[] arr = {0, 0, 5, 5, 0, 0};
+//    long[] arr = {6, -1, -3, 4, -2, 2, 4, 6, -12, -7};
 
-//    System.out.println(findSubarray(arr, arr.length));
-//    System.out.println();
-//    System.out.println(findSubarray1(arr, arr.length));
-//    System.out.println();
+    System.out.println(findSubarray(arr, arr.length));
+    System.out.println();
+    System.out.println(findSubarray1(arr, arr.length));
+    System.out.println();
     System.out.println(findSubarray2(arr, arr.length));
   }
 
@@ -42,7 +42,7 @@ public class ZeroSumSubArrays {
       indexLookup.put(sum, list);
     }
 
-    System.out.println(pairs);
+    System.out.println(indexLookup);
     return pairs.size();
   }
 
