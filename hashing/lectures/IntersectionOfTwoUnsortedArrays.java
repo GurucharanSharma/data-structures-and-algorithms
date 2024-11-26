@@ -89,6 +89,22 @@ public class IntersectionOfTwoUnsortedArrays {
     }
   }
 
+  // Efficient Approach: Using HashMap with flag
+  private static void intersect3(int[] arr, int[] brr) {
+    HashMap<Integer, Boolean> lookup = new HashMap<>();
+
+    for (int i = 0; i < arr.length; i++) {
+      lookup.put(arr[i], true);
+    }
+
+    for (int i = 0; i < brr.length; i++) {
+      if (lookup.getOrDefault(brr[i], false)) {
+        System.out.print(brr[i] + " ");
+        lookup.put(brr[i], false);
+      }
+    }
+  }
+
   private static void testIntersect() {
     int[] arr = {10, 20, 30};
     int[] brr = {30, 10};
