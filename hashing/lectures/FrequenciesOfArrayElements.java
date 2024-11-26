@@ -3,6 +3,7 @@ package hashing.lectures;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class FrequenciesOfArrayElements {
 
@@ -69,6 +70,21 @@ public class FrequenciesOfArrayElements {
         mp.put(element, -1);
       }
     }
+  }
+
+  /**
+   * Printing elements in the same order as they appear in the array <br> Time Complexity: O(n) <br> Auxiliary Space: O(n)
+   * <p>
+   * Note: Uses a TreeMap to preserve the order
+   */
+  private static void printFrequencies4(int[] arr) {
+    Map<Integer, Integer> lookup = new TreeMap<>();
+
+    for (int j : arr) {
+      lookup.put(j, lookup.getOrDefault(j, 0) + 1);
+    }
+
+    System.out.println(lookup);
   }
 
   /**
