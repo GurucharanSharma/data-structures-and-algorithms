@@ -1,5 +1,6 @@
 package hashing.lectures;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,7 +12,11 @@ public class UnionOfTwoUnsortedArrays {
   }
 
   /**
-   * Time Complexity: θ(arr.length + brr.length) <br> Auxiliary Space: O(arr.length + brr.length)
+   * <p>Efficient Approach</p>
+   * <p>
+   * Time Complexity: θ(arr.length + brr.length)<br>
+   * Auxiliary Space: O(arr.length + brr.length)
+   * </p>
    */
   private static void union(int[] arr, int[] brr) {
     Set<Integer> set = new HashSet<>();
@@ -27,6 +32,7 @@ public class UnionOfTwoUnsortedArrays {
     System.out.println(set);
   }
 
+  // Naive Approach
   private static void union1(int[] arr, int[] brr) {
     // Printing the elements in arr, which are not in brr
     for (int i = 0; i < arr.length; i++) {
@@ -67,6 +73,51 @@ public class UnionOfTwoUnsortedArrays {
       if (!flag) {
         System.out.print(brr[i] + " ");
       }
+    }
+  }
+
+  // Better Approach
+  private static void union2(int[] arr, int[] brr) {
+    Arrays.sort(arr);
+    Arrays.sort(brr);
+
+    int i = 0;
+    int j = 0;
+
+    while (i < arr.length && j < brr.length) {
+      while (i < arr.length - 1 && arr[i] == arr[i + 1]) {
+        i++;
+      }
+
+      while (j < brr.length - 1 && brr[j] == brr[j + 1]) {
+        j++;
+      }
+
+      if (arr[i] < brr[j]) {
+        System.out.print(arr[i] + " ");
+        i++;
+      } else if (arr[i] > brr[j]) {
+        System.out.print(brr[j] + " ");
+        j++;
+      } else {
+        System.out.print(arr[i] + " ");
+        i++;
+        j++;
+      }
+    }
+
+    while (i < arr.length) {
+      if (arr[i] != arr[i - 1]) {
+        System.out.print(arr[i] + " ");
+      }
+      i++;
+    }
+
+    while (j < brr.length) {
+      if (brr[j] != brr[j - 1]) {
+        System.out.print(brr[j] + " ");
+      }
+      j++;
     }
   }
 
