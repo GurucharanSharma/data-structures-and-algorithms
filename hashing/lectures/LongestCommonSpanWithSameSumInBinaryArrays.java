@@ -7,6 +7,8 @@ public class LongestCommonSpanWithSameSumInBinaryArrays {
 
   public static void main(String[] args) {
     testLongestCommonSpan();
+    System.out.println("==========================================");
+    testLongestCommonSpan1();
   }
 
   /**
@@ -86,6 +88,16 @@ public class LongestCommonSpanWithSameSumInBinaryArrays {
     int[] brr = {1, 0, 1, 0, 0, 1};
 
     System.out.println(longestCommonSpan(arr, brr));
+    System.out.println();
+    System.out.println(longestCommonSpan1(arr, brr));
+  }
+
+  private static void testLongestCommonSpan1() {
+    int[] arr = {0, 1, 0, 1, 1, 0, 1, 0, 0, 1};
+    int[] brr = {1, 1, 1, 0, 0, 1, 1, 1, 1, 0};
+
+    System.out.println(longestCommonSpan(arr, brr));
+    System.out.println();
     System.out.println(longestCommonSpan1(arr, brr));
   }
 }
