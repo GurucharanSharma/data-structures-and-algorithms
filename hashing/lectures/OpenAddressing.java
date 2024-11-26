@@ -6,6 +6,17 @@ import java.util.BitSet;
 
 public class OpenAddressing {
 
+  public static void main(String[] args) {
+    LinearProbing linearProbing = new LinearProbing(10);
+
+    System.out.println(linearProbing.insert(10));
+    System.out.println(linearProbing.insert(20));
+    System.out.println();
+
+    System.out.println(linearProbing.search(10));
+    System.out.println();
+  }
+
   /**
    * Using linear probing
    */
