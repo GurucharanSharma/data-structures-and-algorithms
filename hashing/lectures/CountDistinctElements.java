@@ -34,6 +34,28 @@ public class CountDistinctElements {
     return res;
   }
 
+  // Naive Approach
+  // Time Complexity: O(n^2)
+  // Auxiliary Space: O(1)
+  private static int countDistinct(int[] arr) {
+    int count = 0;
+    for (int i = 0; i < arr.length; i++) {
+      boolean found = false;
+      for (int j = i - 1; j >= 0; j--) {
+        if (arr[j] == arr[i]) {
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+
   /**
    * Time Complexity: O(n * log(n)) <br> Auxiliary Space: O(1)
    */
