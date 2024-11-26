@@ -33,6 +33,36 @@ public class LongestSubArrayWithGivenSum {
     return res;
   }
 
+  // Better Approach
+  private static int longestSubArray2(int[] arr, int sum) {
+    int currSum = 0;
+    int index = 0;
+    int maxLength = Integer.MIN_VALUE;
+
+    int start = 0;
+    int end = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+      currSum += arr[i];
+      while (index < i && currSum > sum) {
+        currSum -= arr[index];
+        index++;
+      }
+
+      if (currSum == sum && index != i) {
+        int currLength = i - index + 1;
+        if (currLength > maxLength) {
+          maxLength = currLength;
+          start = index;
+          end = i;
+        }
+      }
+    }
+
+    System.out.println("From " + start + " to " + end);
+    return maxLength;
+  }
+
   /**
    * Time Complexity: O(n) <br> Auxiliary Space: O(n)
    */
@@ -73,6 +103,9 @@ public class LongestSubArrayWithGivenSum {
     int sum = 5;
 
     System.out.println(longestSubArray(arr, sum));
+    System.out.println();
+    System.out.println(longestSubArray2(arr, sum));
+    System.out.println();
     System.out.println(longestSubArray1(arr, sum));
   }
 
@@ -81,6 +114,9 @@ public class LongestSubArrayWithGivenSum {
     int sum = 5;
 
     System.out.println(longestSubArray(arr, sum));
+    System.out.println();
+    System.out.println(longestSubArray2(arr, sum));
+    System.out.println();
     System.out.println(longestSubArray1(arr, sum));
   }
 }
