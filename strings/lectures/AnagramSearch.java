@@ -26,12 +26,13 @@ public class AnagramSearch {
    * Time Complexity: O(n<sup>2</sup>) <br> Auxiliary Space: O(1)
    */
   private static boolean search(String text, String pattern) {
+    char[] patArr = pattern.toCharArray();
+    Arrays.sort(patArr);
+
     for (int i = 0; i <= (text.length() - pattern.length()); i++) {
       char[] txtArr = text.substring(i, i + pattern.length()).toCharArray();
-      char[] patArr = pattern.toCharArray();
 
       Arrays.sort(txtArr);
-      Arrays.sort(patArr);
 
       if (Arrays.equals(txtArr, patArr)) {
         return true;
@@ -46,7 +47,7 @@ public class AnagramSearch {
    * Time Complexity: O(n<sup>2</sup>) <br> Auxiliary Space: O(1)
    */
   private static boolean search1(String text, String pattern) {
-    for (int i = 0; i < (text.length() - pattern.length()); i++) {
+    for (int i = 0; i <= (text.length() - pattern.length()); i++) {
       if (isAnagram(text, pattern, i)) {
         return true;
       }
