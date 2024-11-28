@@ -3,12 +3,14 @@ package strings.problems;
 public class StringRotatedBy2Places {
 
   public static void main(String[] args) {
-    String a = "amazon";
+//    String a = "amazon";
 //    String b = "azonam";
-    String b = "onamaz";
+//    String b = "onamaz";
 
 //    String a = "geeksforgeeks";
 //    String b = "geeksgeeksfor";
+
+    String a = "ab", b = "ab";
 
     System.out.println(isRotated(a, b));
   }
@@ -16,7 +18,7 @@ public class StringRotatedBy2Places {
   //Function to check if a string can be obtained by rotating
   //another string by exactly 2 places.
   public static boolean isRotated(String str1, String str2) {
-    if (str1.length() < 2) {
+    if (str1.length() <= 2 || str1.length() != str2.length()) {
       return false;
     }
 
