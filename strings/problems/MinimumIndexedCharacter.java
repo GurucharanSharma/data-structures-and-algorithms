@@ -95,4 +95,19 @@ public class MinimumIndexedCharacter {
 
     return -1;
   }
+
+  public static int minIndexChar4(String str, String patt) {
+    Map<Character, Integer> indexLookup = new HashMap<>();
+    for (int i = 0; i < patt.length(); i++) {
+      indexLookup.put(patt.charAt(i), i);
+    }
+
+    for (int i = 0; i < str.length(); i++) {
+      if (indexLookup.containsKey(str.charAt(i))) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
 }
