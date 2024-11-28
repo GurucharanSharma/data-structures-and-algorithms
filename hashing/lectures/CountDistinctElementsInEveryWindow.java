@@ -1,6 +1,7 @@
 package hashing.lectures;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class CountDistinctElementsInEveryWindow {
@@ -105,6 +106,17 @@ public class CountDistinctElementsInEveryWindow {
     }
 
     System.out.println(freqMap.size());
+  }
+
+  private static void printDistinctWindow4(int[] arr, int k) {
+    for (int i = 0; i <= arr.length - k; i++) {
+      HashSet<Integer> set = new HashSet<>();
+      for (int j = i; j < i + k; j++) {
+        set.add(arr[j]);
+      }
+
+      System.out.print(set.size() + " ");
+    }
   }
 
   private static void testPrintDistinctWindow() {
