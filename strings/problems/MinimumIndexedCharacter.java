@@ -17,6 +17,8 @@ public class MinimumIndexedCharacter {
     System.out.println(minIndexChar1(str, patt));
     System.out.println();
     System.out.println(minIndexChar2(str, patt));
+    System.out.println();
+    System.out.println(minIndexChar3(str, patt));
   }
 
   // Function to find the minimum indexed character.
@@ -77,5 +79,20 @@ public class MinimumIndexedCharacter {
     }
 
     return minIndex == Integer.MAX_VALUE ? -1 : minIndex;
+  }
+
+  public static int minIndexChar3(String str, String patt) {
+    int[] freq = new int[256];
+    for (int i = 0; i < patt.length(); i++) {
+      freq[patt.charAt(i)]++;
+    }
+
+    for (int i = 0; i < str.length(); i++) {
+      if (freq[str.charAt(i)] > 0) {
+        return i;
+      }
+    }
+
+    return -1;
   }
 }
