@@ -1,5 +1,6 @@
 package hashing.lectures;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -105,15 +106,83 @@ public class IntersectionOfTwoUnsortedArrays {
     }
   }
 
+  private static void intersect4(int[] arr, int[] brr) {
+    Arrays.sort(arr);
+    Arrays.sort(brr);
+
+    int i = 0;
+    int j = 0;
+
+    while (i < arr.length && j < brr.length) {
+      if (i > 0 && arr[i] == arr[i - 1]) {
+        i++;
+        continue;
+      }
+
+      if (j > 0 && brr[j] == brr[j - 1]) {
+        j++;
+        continue;
+      }
+
+      if (arr[i] == brr[j]) {
+        System.out.println(arr[i]);
+        i++;
+        j++;
+      } else if (arr[i] < brr[j]) {
+        i++;
+      } else {
+        j++;
+      }
+    }
+  }
+
+  private static void intersect5(int[] arr, int[] brr) {
+    Arrays.sort(arr);
+    Arrays.sort(brr);
+
+    int i = 0;
+    int j = 0;
+    while (i < arr.length - 1 && j < brr.length - 1) {
+      if (arr[i] == arr[i + 1]) {
+        i++;
+        continue;
+      }
+
+      if (brr[j] == brr[j + 1]) {
+        j++;
+        continue;
+      }
+
+      if (arr[i] == brr[j]) {
+        System.out.println(arr[i]);
+        i++;
+        j++;
+      } else if (arr[i] < brr[j]) {
+        i++;
+      } else {
+        j++;
+      }
+    }
+
+    if (arr[arr.length - 1] != arr[arr.length - 2] && brr[brr.length - 1] != brr[brr.length - 2] && arr[arr.length - 1] == brr[brr.length - 1]) {
+      System.out.println(arr[arr.length - 1]);
+    }
+  }
+
   private static void testIntersect() {
     int[] arr = {10, 20, 30};
     int[] brr = {30, 10};
 
-    System.out.println();
     intersect(arr, brr);
     System.out.println();
     intersect1(arr, brr);
     System.out.println();
     intersect2(arr, brr);
+    System.out.println();
+    intersect3(arr, brr);
+    System.out.println();
+    intersect4(arr, brr);
+    System.out.println();
+    intersect5(arr, brr);
   }
 }
