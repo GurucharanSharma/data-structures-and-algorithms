@@ -62,4 +62,43 @@ public class CountNonRepeatedElements {
 
     return count;
   }
+
+  static int countNonRepeated1(int[] arr) {
+    int count = 0;
+    for (int i = 0; i < arr.length; i++) {
+      boolean repeated = false;
+      for (int j = 0; j < arr.length; j++) {
+        if (arr[i] == arr[j] && i != j) {
+          repeated = true;
+          break;
+        }
+      }
+
+      if (!repeated) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+
+  static int countNonRepeated(int[] arr) {
+    Map<Integer, Boolean> lookup = new HashMap<>();
+    for (int i = 0; i < arr.length; i++) {
+      if (lookup.containsKey(arr[i])) {
+        lookup.put(arr[i], true);
+      } else {
+        lookup.put(arr[i], false);
+      }
+    }
+
+    int count = 0;
+    for (Map.Entry<Integer, Boolean> entry : lookup.entrySet()) {
+      if (!entry.getValue()) {
+        count++;
+      }
+    }
+
+    return count;
+  }
 }
