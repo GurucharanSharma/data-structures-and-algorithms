@@ -1,5 +1,8 @@
 package strings.problems;
 
+/**
+ * <a href="https://leetcode.com/problems/string-compression/description/?envType=study-plan-v2&envId=leetcode-75">443. String Compression</a>
+ */
 public class StringCompression {
 
   public static void main(String[] args) {
