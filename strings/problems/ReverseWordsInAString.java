@@ -1,4 +1,4 @@
-package array.problems;
+package strings.problems;
 
 /**
  * <a href="https://leetcode.com/problems/reverse-words-in-a-string/description/?envType=study-plan-v2&envId=leetcode-75">151. Reverse Words in a
