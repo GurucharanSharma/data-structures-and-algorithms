@@ -14,8 +14,6 @@ public class StringCompression {
       System.out.print(chars[i]);
     }
     System.out.println();
-
-
   }
 
   static class Solution {
