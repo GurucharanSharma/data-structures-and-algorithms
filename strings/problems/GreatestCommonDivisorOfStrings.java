@@ -1,5 +1,9 @@
 package strings.problems;
 
+/**
+ * <a href="https://leetcode.com/problems/greatest-common-divisor-of-strings/description/?envType=study-plan-v2&envId=leetcode-75">1071. Greatest
+ * Common Divisor of Strings</a>
+ */
 public class GreatestCommonDivisorOfStrings {
 
   public static void main(String[] args) {
