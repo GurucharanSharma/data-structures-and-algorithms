@@ -9,6 +9,12 @@ public class EquilibriumPoint {
     long[] arr = {2, 1, -1}; // Expected 0
 
     System.out.println(equilibriumPoint(arr));
+    System.out.println();
+    System.out.println(equilibriumPoint1(arr));
+    System.out.println();
+    System.out.println(equilibriumPoint2(arr));
+    System.out.println();
+    System.out.println(equilibriumPoint3(arr));
   }
 
   // Efficient Approach: Without precalculating prefix sum or suffix sum
