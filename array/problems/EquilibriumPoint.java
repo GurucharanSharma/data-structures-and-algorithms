@@ -4,7 +4,9 @@ public class EquilibriumPoint {
 
   public static void main(String[] args) {
 //    long[] arr = {1, 3, 5, 2, 2};
-    long[] arr = {1};
+//    long[] arr = {1};
+//    long[] arr = {-1, -1, 0, 1, 1, 0};
+    long[] arr = {2, 1, -1}; // Expected 0
 
     System.out.println(equilibriumPoint(arr));
   }
