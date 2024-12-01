@@ -1,5 +1,7 @@
 package array.lectures;
 
+import java.util.HashSet;
+
 public class RemoveDuplicatesFromSortedArray {
 
   public static void main(String[] args) {
@@ -71,5 +73,20 @@ public class RemoveDuplicatesFromSortedArray {
     }
 
     return index;
+  }
+
+  // Efficient Approach: Using Hashset
+  private static int removeDuplicates3(int[] arr) {
+    HashSet<Integer> set = new HashSet<>();
+    for (int i = 0; i < arr.length; i++) {
+      set.add(arr[i]);
+    }
+
+    int i = 0;
+    for (Integer e : set) {
+      arr[i++] = e;
+    }
+
+    return set.size();
   }
 }
