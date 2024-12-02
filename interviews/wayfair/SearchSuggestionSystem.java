@@ -12,6 +12,8 @@ public class SearchSuggestionSystem {
     String pattern = "camera";
 
     System.out.println(result.suggestResult(products, pattern));
+
+    // TODO: Do using trie data structure
   }
 
   static class Result {
