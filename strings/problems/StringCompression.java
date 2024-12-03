@@ -11,12 +11,12 @@ public class StringCompression {
     char[] chars = {'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'};
 
     Solution solution = new Solution();
+
     int size = solution.compress(chars);
     System.out.println(size);
     for (int i = 0; i < size; i++) {
       System.out.print(chars[i]);
     }
-    System.out.println();
   }
 
   static class Solution {
