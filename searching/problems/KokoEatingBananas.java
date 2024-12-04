@@ -31,6 +31,7 @@ public class KokoEatingBananas {
         int time = 0;
         for (int i = 0; i < piles.length; i++) {
           time += (piles[i] + mid - 1) / mid;
+          // Alternatively, time += ((piles[i] / max) + (piles[i] % max > 0 ? 1 : 0));
         }
 
         if (time > h) {
