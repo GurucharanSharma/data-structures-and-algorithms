@@ -19,48 +19,45 @@ public class SubArrayWithGivenSum {
 //    int[] A = {1, 2, 3, 4};
 //    int s = 0;
 
-    int[] A = {1, 4, 5, 6, 0};
-    int s = 0;
+//    int[] A = {1, 4, 5, 6, 0};
+//    int s = 0;
+
+    int[] A = {38, 22, 20, 12, 47, 23, 18, 13, 18, 47, 36, 42};
+    int s = 174;
 
     System.out.println(subarraySum(A, A.length, s));
+    System.out.println();
     System.out.println(subarraySum1(A, A.length, s));
+    System.out.println();
     System.out.println(subarraySum2(A, A.length, s));
   }
 
   //Function to find a continuous sub-array which adds up to a given number.
   private static ArrayList<Integer> subarraySum(int[] arr, int n, int s) {
-    // Your code here
-    ArrayList<Integer> range = new ArrayList<>();
     int start = 0;
-    int end = 1;
-    int sum = arr[start];
+    int end = 0;
 
     if (s == 0) {
-      range.add(-1);
-      return range;
+      return new ArrayList<>(List.of(-1));
     } else if (arr[0] == s) {
-      range.add(1);
-      range.add(1);
-      return range;
+      return new ArrayList<>(List.of(1, 1));
     }
 
-    while (start <= end && start <= n && end <= n) {
-      //System.out.println(start + " " + end + " " + sum);
-      if (sum == s) {
-        range.add(start + 1);
-        range.add(end);
-        return range;
-      } else if (sum < s) {
-        sum = sum + arr[end];
-        end++;
+    int currSum = 0;
+
+    while (start <= end && start <= arr.length && end <= arr.length) {
+      if (currSum == s) {
+        return new ArrayList<>(List.of(start + 1, end));
+      } else if (end < arr.length && currSum < s) {
+        currSum += arr[end++];
+      } else if (start < arr.length) {
+        currSum -= arr[start++];
       } else {
-        sum = sum - arr[start];
-        start++;
+        break;
       }
     }
 
-    range.add(-1);
-    return range;
+    return new ArrayList<>(List.of(-1));
   }
 
   //Function to find a continuous sub-array which adds up to a given number.
