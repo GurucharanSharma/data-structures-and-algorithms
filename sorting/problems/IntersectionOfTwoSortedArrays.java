@@ -48,6 +48,34 @@ public class IntersectionOfTwoSortedArrays {
     return result;
   }
 
+  private static ArrayList<Integer> intersection(int[] arr1, int[] arr2) {
+    ArrayList<Integer> intersection = new ArrayList<>();
+    int i = 0;
+    int j = 0;
+
+    while (i < arr1.length && j < arr2.length) {
+      while (i < arr1.length - 1 && arr1[i] == arr1[i + 1]) {
+        i++;
+      }
+
+      while (j < arr2.length - 1 && arr2[j] == arr2[j + 1]) {
+        j++;
+      }
+
+      if (arr1[i] == arr2[j]) {
+        intersection.add(arr1[i]);
+        i++;
+        j++;
+      } else if (arr1[i] < arr2[j]) {
+        i++;
+      } else {
+        j++;
+      }
+    }
+
+    return intersection;
+  }
+
   private static void testIntersectionOfTwoSortedArrays1() {
     int[] arr1 = {1, 2, 3, 4};
     int[] arr2 = {2, 4, 6, 7, 8};
