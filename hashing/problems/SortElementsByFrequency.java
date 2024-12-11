@@ -14,7 +14,8 @@ public class SortElementsByFrequency {
     int[] arr = {4, 6, 9, 19, 2, 16, 13, 11, 16, 17, 16, 8, 12, 16, 12, 18}; // 16 16 16 16 12 12 2 4 6 8 9 11 13 17 18 19
 
 //    System.out.println(sortByFreq(arr));
-    System.out.println(sortByFreq1(arr));
+//    System.out.println(sortByFreq1(arr));
+    System.out.println(sortByFreq2(arr));
   }
 
   /**
@@ -95,6 +96,55 @@ public class SortElementsByFrequency {
     Node temp = nodes[i];
     nodes[i] = nodes[j];
     nodes[j] = temp;
+  }
+
+  private static ArrayList<Integer> sortByFreq2(int[] arr) {
+    HashMap<Integer, Integer> lookup = new HashMap<>();
+
+    for (int i = 0; i < arr.length; i++) {
+      lookup.put(arr[i], lookup.getOrDefault(arr[i], 0) + 1);
+    }
+
+    quickSortByFreq(arr, 0, arr.length - 1, lookup);
+
+    return new ArrayList<>(Arrays.stream(arr).boxed().toList());
+  }
+
+  private static void quickSortByFreq(int[] arr, int start, int end, HashMap<Integer, Integer> lookup) {
+    if (start < end) {
+      int pivot = partition(arr, start, end, lookup);
+      quickSortByFreq(arr, start, pivot - 1, lookup);
+      quickSortByFreq(arr, pivot + 1, end, lookup);
+    }
+  }
+
+  private static int partition(int[] arr, int start, int end, HashMap<Integer, Integer> lookup) {
+    int pivot = arr[end];
+    int index = start - 1;
+
+    int pF = lookup.getOrDefault(pivot, 0);
+
+    for (int i = start; i <= end; i++) {
+      int f1 = lookup.getOrDefault(arr[i], 0);
+      if (f1 == pF) {
+        if (arr[i] < pivot) {
+          index++;
+          swap(arr, index, i);
+        }
+      } else if (f1 > pF) {
+        index++;
+        swap(arr, index, i);
+      }
+    }
+
+    swap(arr, index + 1, end);
+    return index + 1;
+  }
+
+  private static void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
 
   private static class Node {
