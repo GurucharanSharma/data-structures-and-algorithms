@@ -90,9 +90,7 @@ public class DeterminantOfMatrix {
       }
 
       // storing the values of diagonal row elements
-      for (int j = 0; j < n; j++) {
-        temp[j] = matrix[i][j];
-      }
+      System.arraycopy(matrix[i], 0, temp, 0, n);
 
       // traversing every row below the diagonal element
       for (int j = i + 1; j < n; j++) {
@@ -118,6 +116,47 @@ public class DeterminantOfMatrix {
 
     return (det / total); // Det(kA)/k=Det(A);
   }
+
+  public static double calculateDeterminant(int[][] matrix) {
+    int n = matrix.length;
+    double determinant = 1;
+
+    // Convert the matrix to an upper triangular form
+    for (int col = 0; col < n; col++) {
+      // Find the pivot (maximum element in the current column)
+      int maxRow = col;
+      for (int row = col + 1; row < n; row++) {
+        if (Math.abs(matrix[row][col]) > Math.abs(matrix[maxRow][col])) {
+          maxRow = row;
+        }
+      }
+
+      // If the pivot is zero, the determinant is zero
+      if (matrix[maxRow][col] == 0) {
+        return 0;
+      }
+
+      // Swap rows if needed
+      if (maxRow != col) {
+        swapRows(matrix, col, maxRow, n);
+        determinant *= -1; // Swapping rows changes the sign of the determinant
+      }
+
+      // Eliminate entries below the pivot
+      for (int row = col + 1; row < n; row++) {
+        double factor = (double) matrix[row][col] / matrix[col][col];
+        for (int k = col; k < n; k++) {
+          matrix[row][k] -= (int) (factor * matrix[col][k]);
+        }
+      }
+
+      // Multiply determinant by the diagonal element
+      determinant *= matrix[col][col];
+    }
+
+    return determinant;
+  }
+
 
   // Function to swap two rows
   static void swapRows(int[][] matrix, int row1, int row2, int n) {
