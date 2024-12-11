@@ -32,7 +32,16 @@ public class MedianOfARowWiseSortedMatrix {
 
       // Find the number of elements which are smaller than mid
       for (int[] arr : matrix) {
-        midIndex += Math.abs(Arrays.binarySearch(arr, mid) + 1);
+        int pos = Arrays.binarySearch(arr, mid);
+        if (pos < 0) {
+          pos = Math.abs(pos + 1);
+        } else {
+          while (pos < arr.length && arr[pos] == mid) {
+            pos++;
+          }
+        }
+
+        midIndex += pos;
       }
 
       if (midIndex < medianIndex) {
