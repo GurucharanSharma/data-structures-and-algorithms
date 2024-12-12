@@ -41,26 +41,19 @@ public class OrderManagement {
 
     private final Map<String, Integer> categoryDiscountsLookup = new TreeMap<>();
     private final Map<String, Integer> cartItemsLookup = new TreeMap<>();
-    // List<IOrder> cart = new ArrayList<>();
-    // List<Integer> prices = new ArrayList<>(); // TODO
     private int totalPrice = 0;
 
     public void addToCart(IOrder order) {
-      // cart.add(order);
-
       ProductCategory category = getProductCategory(order.getPrice());
       int discountedPrice = getDiscountedPrice(category, order.getPrice());
       int discount = order.getPrice() - discountedPrice;
 
-      // prices.add(discountedPrice);
       totalPrice += discountedPrice;
       cartItemsLookup.put(order.getName(), cartItemsLookup.getOrDefault(order.getName(), 0) + 1);
       categoryDiscountsLookup.put(category.name(), categoryDiscountsLookup.getOrDefault(category.name(), 0) + discount);
     }
 
     public void removeFromCart(IOrder order) {
-      // cart.remove(order);
-
       ProductCategory category = getProductCategory(order.getPrice());
       int discountedPrice = getDiscountedPrice(category, order.getPrice());
       int discount = order.getPrice() - discountedPrice;
