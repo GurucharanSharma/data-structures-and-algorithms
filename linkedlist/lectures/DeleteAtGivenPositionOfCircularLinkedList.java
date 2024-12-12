@@ -5,7 +5,7 @@ import linkedlist.common.CircularLinkedList.Node;
 public class DeleteAtGivenPositionOfCircularLinkedList {
 
   public static Node execute(Node head, int k) {
-    if (head == null) {
+    if (head == null || head.next == head) {
       return null;
     }
 
