@@ -1,5 +1,8 @@
 package linkedlist.problems;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CloneLinkedListWithRandomPointer {
 
   public static void main(String[] args) {
@@ -8,16 +11,56 @@ public class CloneLinkedListWithRandomPointer {
     head.next.next = new Node(30);
     head.next.next.next = new Node(40);
     head.next.next.next.next = new Node(50);
+    head.next.next.next.next.next = new Node(60);
 
-    head = copyList(head);
-    printList(head);
+    head.random = head.next.next;
+    head.next.random = head.next.next.next.next;
+    head.next.next.random = head;
+    head.next.next.next.random = head.next;
+    head.next.next.next.next.random = head.next.next.next.next.next;
+    head.next.next.next.next.next.random = head.next.next.next;
+
+    Node cHead = copyList(head);
+    printList(cHead);
+    System.out.println();
+
+    Node cHead1 = copyList1(head);
+    printList(cHead1);
+    System.out.println();
   }
 
-  private static void printList(Node head) {
-    for (Node curr = head; curr != null; curr = curr.next) {
-      System.out.print(curr.data + " ");
+  private static Node copyList1(Node head) {
+    if (head == null) {
+      return null;
     }
-    System.out.println();
+
+    Node cHead = new Node(head.data);
+    Map<Integer, Node> lookup = new HashMap<>();
+
+    Node curr = head.next;
+    Node cCurr = cHead;
+
+    lookup.put(cCurr.data, cCurr);
+
+    while (curr != null) {
+      cCurr.next = new Node(curr.data);
+      lookup.put(cCurr.next.data, cCurr.next);
+      cCurr = cCurr.next;
+      curr = curr.next;
+    }
+
+    curr = head;
+    cCurr = cHead;
+    while (curr != null) {
+      if (curr.random != null) {
+        cCurr.random = lookup.get(curr.random.data);
+      }
+
+      cCurr = cCurr.next;
+      curr = curr.next;
+    }
+
+    return cHead;
   }
 
   // Function to clone a linked list with next and random pointer.
@@ -52,6 +95,20 @@ public class CloneLinkedListWithRandomPointer {
     }
 
     return cHead;
+  }
+
+  ///// HELPER METHOD /////
+  private static void printList(Node head) {
+    while (head != null) {
+      if (head.random != null) {
+        System.out.print("[ " + head.data + ", " + head.random.data + " ] -> ");
+      } else {
+        System.out.print("[ " + head.data + ", - ] -> ");
+      }
+
+      head = head.next;
+    }
+    System.out.println("[X]");
   }
 }
 
