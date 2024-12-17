@@ -16,11 +16,39 @@ public class SwapKthNodesFromEnds {
 
     SinglyLinkedList.print(head);
 
-    Node head1 = swapKthNode1(head, 2);
+    Node head1 = swapKthNode(head, 2);
 
     SinglyLinkedList.print(head1);
   }
 
+  // Naive Approach
+  // If swapping nodes data is allowed
+  private static Node swapKthNode2(Node head, int k) {
+    int n = countNodes(head);
+
+    if (k > n) {
+      return head;
+    }
+
+    Node first = head;
+    for (int i = 1; i < k; i++) {
+      first = first.next;
+    }
+
+    Node second = head;
+    for (int i = 1; i < n - k + 1; i++) {
+      second = second.next;
+    }
+
+    int temp = first.data;
+    first.data = second.data;
+    second.data = temp;
+
+    return head;
+  }
+
+  // Naive Approach
+  // If only physical swapping of the nodes is allowed. No data swapping is allowed.
   private static Node swapKthNode1(Node head, int k) {
     if (head == null || head.next == null) {
       return head;
@@ -82,6 +110,8 @@ public class SwapKthNodesFromEnds {
     return count;
   }
 
+  // Efficient Approach
+  // If swapping nodes data is allowed
   private static Node swapKthNode(Node head, int k) {
     if (head == null || head.next == null) {
       return head;
@@ -110,6 +140,6 @@ public class SwapKthNodesFromEnds {
     first.data = second.data;
     second.data = temp;
 
-    return first.next;
+    return head;
   }
 }
