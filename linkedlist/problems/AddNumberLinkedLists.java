@@ -28,6 +28,15 @@ public class AddNumberLinkedLists {
   // Function to add two numbers represented by linked list.
   // Here we are using a third linked list to store the result
   private static Node addTwoLists(Node num1, Node num2) {
+    // To handle the scenario where there are leading 0s
+    while (num1 != null && num1.data == 0) {
+      num1 = num1.next;
+    }
+
+    while (num2 != null && num2.data == 0) {
+      num2 = num2.next;
+    }
+
     int carry = 0, sum = 0;
     Node output = null;
     Node oHead = null;
