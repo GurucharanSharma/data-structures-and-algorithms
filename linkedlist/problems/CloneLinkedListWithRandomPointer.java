@@ -29,6 +29,38 @@ public class CloneLinkedListWithRandomPointer {
     System.out.println();
   }
 
+  private static Node copyList2(Node head) {
+    if (head == null) {
+      return null;
+    }
+
+    Node curr = head;
+    while (curr != null) {
+      Node next = curr.next;
+      curr.next = new Node(curr.data);
+      curr.next.next = next;
+      curr = next;
+    }
+
+    curr = head;
+    Node cHead = head.next;
+
+    while (curr != null) {
+      Node next = curr.next.next;
+      if (next != null) {
+        curr.next.next = next.next;
+        curr.next.random = curr.random;
+      } else {
+        curr.next.random = curr.random;
+      }
+
+      curr.next = next;
+      curr = curr.next;
+    }
+
+    return cHead;
+  }
+
   private static Node copyList1(Node head) {
     if (head == null) {
       return null;
