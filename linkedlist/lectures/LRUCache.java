@@ -33,7 +33,7 @@ public class LRUCache {
     }
 
     Node curr = head.next;
-    while (curr.next != tail) {
+    while (curr != tail) {
       System.out.print("[" + curr.key + " : " + curr.value + "]");
       curr = curr.next;
     }
@@ -75,13 +75,12 @@ public class LRUCache {
     } else {
       Node node = new Node(key, value);
       lookup.put(node.key, node);
+      insertAtHead(node);
 
       if (capacity >= size) {
         lookup.remove(tail.prev.key);
         deleteNode(tail.prev);
-        insertAtHead(node);
       } else {
-        insertAtHead(node);
         capacity++;
       }
     }
