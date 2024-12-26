@@ -115,4 +115,71 @@ public class MedianOfTwoSortedArrays {
     return -1; // Return -1 if the median is not found.
   }
 
+  // Naive Approach: Without using extra space
+  public double getMedian1(int[] nums1, int[] nums2) {
+    int m = nums1.length;
+    int n = nums2.length;
+    int count = 0;
+    int i = 0, j = 0;
+    int idx1 = (m + n) / 2 - 1, idx2 = (m + n) / 2;
+    int item1 = -1, item2 = -1;
+
+    while (i < m && j < n) {
+      if (nums1[i] <= nums2[j]) {
+        if (count == idx1) {
+          item1 = nums1[i];
+        }
+
+        if (count == idx2) {
+          item2 = nums1[i];
+        }
+
+        i++;
+      } else {
+        if (count == idx1) {
+          item1 = nums2[j];
+        }
+
+        if (count == idx2) {
+          item2 = nums2[j];
+        }
+
+        j++;
+      }
+
+      count++;
+    }
+
+    while (i < m) {
+      if (count == idx1) {
+        item1 = nums1[i];
+      }
+
+      if (count == idx2) {
+        item2 = nums1[i];
+      }
+
+      i++;
+      count++;
+    }
+
+    while (j < n) {
+      if (count == idx1) {
+        item1 = nums2[j];
+      }
+
+      if (count == idx2) {
+        item2 = nums2[j];
+      }
+
+      j++;
+      count++;
+    }
+
+    if ((m + n) % 2 == 0) {
+      return (item1 + item2) / 2.0;
+    } else {
+      return item2;
+    }
+  }
 }
