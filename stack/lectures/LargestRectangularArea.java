@@ -1,9 +1,16 @@
 package stack.lectures;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
 public class LargestRectangularArea {
+
+  public static void main(String[] args) {
+    int[] arr = {3, 5, 1, 7, 5, 9};
+
+    System.out.println(execute3(arr));
+  }
 
   public static int execute(int[] hist) {
     List<Integer> pse = PreviousSmallerElement.execute(hist);
