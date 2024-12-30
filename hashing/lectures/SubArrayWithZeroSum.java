@@ -59,7 +59,7 @@ public class SubArrayWithZeroSum {
     for (int i = 0; i < arr.length; i++) {
       prefixSum += arr[i];
 
-      if (arr[i] == 0 || prefixSum == 0 || indexLookup.containsKey(prefixSum)) {
+      if (prefixSum == 0 || indexLookup.containsKey(prefixSum)) {
         System.out.println(indexLookup.get(prefixSum) + " - " + i);
         return true;
       }
@@ -71,7 +71,7 @@ public class SubArrayWithZeroSum {
   }
 
   private static void testIs0SubArray() {
-    int[] arr = {-3, 4, -3, -1, 1};
+    int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 
     System.out.println(is0SubArray(arr));
     System.out.println(is0SubArray1(arr));
