@@ -16,6 +16,7 @@ import linkedlist.lectures.ReverseLinkedList;
 import linkedlist.lectures.ReverseLinkedListInGroupsOfSizeK;
 import linkedlist.lectures.SegregateEvenAndOddNodes;
 import linkedlist.lectures.SortedInsertInSinglyLinkedList;
+import linkedlist.problems.LFUCache;
 
 public class SinglyLinkedList {
 
@@ -181,6 +182,19 @@ public class SinglyLinkedList {
 
     cache.set(6, 600);
     cache.print();
+
+    // LFU Cache
+    LFUCache lfuCache = new LFUCache(2);
+    lfuCache.put(1, 1);
+    lfuCache.put(2, 2);
+    System.out.println(lfuCache.get(1));
+    lfuCache.put(3, 3);
+    System.out.println(lfuCache.get(2));
+    System.out.println(lfuCache.get(3));
+    lfuCache.put(4, 4);
+    System.out.println(lfuCache.get(1));
+    System.out.println(lfuCache.get(3));
+    System.out.println(lfuCache.get(4));
 
     // MergeTwoSortedLInkedLists
     head1 = new Node(5);
