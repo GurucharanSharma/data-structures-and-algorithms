@@ -70,6 +70,7 @@ public class TheCelebrityProblem {
     int celebrity = stack.pop();
 
     for (int i = 0; i < mat.length; i++) {
+      // If any person doesn't know 'C' or 'C' knows any person, return -1
       if (i != celebrity && (mat[i][celebrity] != 1 || mat[celebrity][i] == 1)) {
         return -1;
       }
