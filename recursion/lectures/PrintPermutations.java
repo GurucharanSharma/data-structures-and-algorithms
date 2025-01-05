@@ -1,6 +1,8 @@
 package recursion.lectures;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class PrintPermutations {
 
@@ -10,6 +12,8 @@ public class PrintPermutations {
     permute(str, 0);
     System.out.println();
     permute(str);
+    System.out.println();
+    permute1(str);
   }
 
   // Approach 1: Iterative approach (Steinhaus–Johnson–Trotter algorithm)
@@ -62,6 +66,13 @@ public class PrintPermutations {
     }
   }
 
+  // Helper method to swap characters at indices i and j
+  private static void swap(char[] chars, int i, int j) {
+    char temp = chars[i];
+    chars[i] = chars[j];
+    chars[j] = temp;
+  }
+
   // Approach 2: Recursive approach
   private static void permute(String str, int i) {
     if (i == str.length() - 1) {
@@ -70,11 +81,11 @@ public class PrintPermutations {
     }
 
     for (int j = i; j < str.length(); j++) {
-      permute(swap(str, i, j), i + 1);
+      permute(swapAndReturn(str, i, j), i + 1);
     }
   }
 
-  private static String swap(String a, int i, int j) {
+  private static String swapAndReturn(String a, int i, int j) {
     // converting string to array
     char temp;
     char[] charArray = a.toCharArray();
@@ -88,10 +99,26 @@ public class PrintPermutations {
     return String.valueOf(charArray);
   }
 
-  // Helper method to swap characters at indices i and j
-  private static void swap(char[] chars, int i, int j) {
-    char temp = chars[i];
-    chars[i] = chars[j];
-    chars[j] = temp;
+  // Approach 3: Recursive Approach
+  private static void permute1(String str) {
+    boolean[] freq = new boolean[str.length()];
+    generatePermutations(str, new ArrayList<>(), freq);
+  }
+
+  private static void generatePermutations(String str, List<Character> list, boolean[] freq) {
+    if (list.size() == str.length()) {
+      System.out.print(list + " ");
+      return;
+    }
+
+    for (int i = 0; i < str.length(); i++) {
+      if (!freq[i]) {
+        freq[i] = true;
+        list.add(str.charAt(i));
+        generatePermutations(str, list, freq);
+        list.remove(list.size() - 1);
+        freq[i] = false;
+      }
+    }
   }
 }
