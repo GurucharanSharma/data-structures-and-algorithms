@@ -9,9 +9,9 @@ import java.util.stream.Stream;
 public class SubsetSumProblem {
 
   public static void main(String[] args) {
-    List<Integer> set = Arrays.asList(1, 2, 3, 1, 1, 1);
+    List<Integer> set = Arrays.asList(0, 10, 0);
 //    int sum = 9;
-    int sum = 3;
+    int sum = 0;
 
     subsetSum(set, new ArrayList<>(), 0, sum);
     System.out.println();
