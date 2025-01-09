@@ -1,7 +1,9 @@
 package recursion.problems;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CombinationSumII {
 
@@ -12,6 +14,8 @@ public class CombinationSumII {
     System.out.println(combinationSum2(candidates, candidates.size(), target));
     System.out.println();
     System.out.println(combinationSum2_1(candidates, candidates.size(), target));
+    System.out.println();
+    System.out.println(combinationSum2_2(candidates, candidates.size(), target));
   }
 
   /**
@@ -84,5 +88,32 @@ public class CombinationSumII {
         list.remove(list.size() - 1);
       }
     }
+  }
+
+  // Approach 3
+  public static ArrayList<ArrayList<Integer>> combinationSum2_2(ArrayList<Integer> arr, int n, int target) {
+    Set<ArrayList<Integer>> result = new HashSet<>();
+    findCombination_2(arr, n, target, 0, 0, new ArrayList<>(), result);
+
+    return new ArrayList<>(result);
+  }
+
+  private static void findCombination_2(ArrayList<Integer> arr, int n, int target, int sum, int i, ArrayList<Integer> list,
+      Set<ArrayList<Integer>> result) {
+    if (i == arr.size()) {
+      if (sum == target) {
+        result.add(new ArrayList<>(list));
+      }
+
+      return;
+    }
+
+    if (arr.get(i) <= target) {
+      list.add(arr.get(i));
+      findCombination_2(arr, n, target, sum + arr.get(i), i + 1, list, result);
+      list.remove(list.size() - 1);
+    }
+
+    findCombination_2(arr, n, target, sum, i + 1, list, result);
   }
 }
