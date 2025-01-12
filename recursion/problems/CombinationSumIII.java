@@ -1,6 +1,7 @@
 package recursion.problems;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Problem statement
@@ -22,78 +23,102 @@ import java.util.ArrayList;
  */
 public class CombinationSumIII {
 
-    /**
-     * Approach 1
-     */
-    public static ArrayList<ArrayList<Integer>> combinationSum3(int k, int n) {
-        int[] input = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+  // Approach 1
+  public static ArrayList<ArrayList<Integer>> combinationSum3(int k, int n) {
+    int[] input = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    ArrayList<ArrayList<Integer>> result = new ArrayList<>();
 
-        findCombination(input, k, n, 0, 0, new ArrayList<>(), result);
+    findCombination(input, k, n, 0, 0, new ArrayList<>(), result);
 
-        return result;
+    return result;
+  }
+
+  private static void findCombination(int[] input, int k, int n, int i, int s, ArrayList<Integer> curr, ArrayList<ArrayList<Integer>> result) {
+    if (curr.size() == k) {
+      if (s == n) {
+        result.add(new ArrayList<>(curr));
+        return;
+      }
+
+      return;
     }
 
-    private static void findCombination(int[] input, int k, int n, int i, int s, ArrayList<Integer> curr, ArrayList<ArrayList<Integer>> result) {
-        if (curr.size() == k) {
-            if (s == n) {
-                result.add(new ArrayList<>(curr));
-                return;
-            }
-
-            return;
-        }
-
-        if (i >= input.length || s > n || curr.size() > k) {
-            return;
-        }
-
-        curr.add(input[i]);
-        findCombination(input, k, n, i + 1, s + input[i], curr, result);
-
-        if (!curr.isEmpty()) {
-            curr.remove(curr.size() - 1);
-        }
-        findCombination(input, k, n, i + 1, s, curr, result);
+    if (i >= input.length || s > n || curr.size() > k) {
+      return;
     }
 
-    /**
-     * Approach 2
-     */
-    public static ArrayList<ArrayList<Integer>> combinationSum3_1(int k, int n) {
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        findCombination(0, k, n, 0, new ArrayList<>(), result);
-        return result;
+    curr.add(input[i]);
+    findCombination(input, k, n, i + 1, s + input[i], curr, result);
+
+    if (!curr.isEmpty()) {
+      curr.remove(curr.size() - 1);
+    }
+    findCombination(input, k, n, i + 1, s, curr, result);
+  }
+
+  // Approach 2
+  public static ArrayList<ArrayList<Integer>> combinationSum3_1(int k, int n) {
+    ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+    findCombination(0, k, n, 0, new ArrayList<>(), result);
+    return result;
+  }
+
+  static void findCombination(int i, int k, int n, int last, ArrayList<Integer> curr, ArrayList<ArrayList<Integer>> result) {
+
+    // If we have reached the last element then we can not add any more elements so check.
+    // The sum of elements in temp is equal to 'n' or not.
+    // If it is then add it to the answer.
+    if (i == k) {
+      if (n == 0) {
+        result.add(new ArrayList<>(curr));
+      }
     }
 
-    static void findCombination(int i, int k, int n, int last, ArrayList<Integer> curr, ArrayList<ArrayList<Integer>> result) {
+    // We can use every element once only so we will use the element greater than the previous elements.
+    // So for 'j' in range [last+1, 9]
+    for (int j = last + 1; j < 10; j++) {
 
-        // If we have reached the last element then we can not add any more elements so check.
-        // The sum of elements in temp is equal to 'n' or not.
-        // If it is then add it to the answer.
-        if (i == k) {
-            if (n == 0) {
-                result.add(new ArrayList<>(curr));
-            }
-        }
+      // If 'j' is greater than 'n' then we can not add it to 'curr'.
+      if (n - j < 0) {
+        break;
+      }
 
-        // We can use every element once only so we will use the element greater than the previous elements.
-        // So for 'j' in range [last+1, 9]
-        for (int j = last + 1; j < 10; j++) {
+      // Add the current element to 'temp' and call the create function with n-curr.
+      curr.add(j);
+      findCombination(i + 1, k, n - j, j, curr, result);
 
-            // If 'j' is greater than 'n' then we can not add it to 'curr'.
-            if (n - j < 0) {
-                break;
-            }
-
-            // Add the current element to 'temp' and call the create function with n-curr.
-            curr.add(j);
-            findCombination(i + 1, k, n - j, j, curr, result);
-
-            // Backtrack.
-            if (!curr.isEmpty()) {
-                curr.remove(curr.size() - 1);
-            }
-        }
+      // Backtrack.
+      if (!curr.isEmpty()) {
+        curr.remove(curr.size() - 1);
+      }
     }
+  }
+
+  // Approach 3
+  public List<List<Integer>> combinationSum3_2(int k, int n) {
+    List<List<Integer>> result = new ArrayList<>();
+    findCombinations(k, n, 1, 0, new ArrayList<>(), result);
+
+    return result;
+  }
+
+  private void findCombinations(int k, int n, int i, int sum, List<Integer> list, List<List<Integer>> result) {
+    if (list.size() == k) {
+      if (sum == n) {
+        result.add(new ArrayList<>(list));
+      }
+
+      return;
+    }
+
+    if (i > 9) {
+      return;
+    }
+
+    list.add(i);
+    findCombinations(k, n, i + 1, sum + i, list, result);
+
+    list.remove(list.size() - 1);
+    findCombinations(k, n, i + 1, sum, list, result);
+  }
 }
