@@ -8,8 +8,8 @@ public class NQueenProblem {
   public static void main(String[] args) {
     int N = 4;
 
-//    Solution solution = new Solution();
-//    List<List<String>> queen = solution.solveNQueens(N);
+//    NQueenSolution nQueenSolution = new NQueenSolution();
+//    List<List<String>> queen = nQueenSolution.solveNQueens(N);
 //    int i = 1;
 //    for (List<String> it : queen) {
 //      System.out.println("Arrangement " + i);
@@ -21,8 +21,8 @@ public class NQueenProblem {
 //      i += 1;
 //    }
 
-    Solution1 solution1 = new Solution1();
-    List<List<String>> queen1 = solution1.solveNQueens(N);
+    NQueenSolution1 nQueenSolution1 = new NQueenSolution1();
+    List<List<String>> queen1 = nQueenSolution1.solveNQueens(N);
     int i = 1;
     for (List<String> it : queen1) {
       System.out.println("Arrangement " + i);
@@ -36,7 +36,7 @@ public class NQueenProblem {
   }
 }
 
-class Solution1 {
+class NQueenSolution1 {
   public List<List<String>> solveNQueens(int n) {
     List<List<String>> result = new ArrayList<>();
     char[][] board = new char[n][n];
@@ -93,7 +93,7 @@ class Solution1 {
   }
 }
 
-class Solution {
+class NQueenSolution {
 
   public List<List<String>> solveNQueens(int n) {
     List<List<String>> result = new ArrayList<>();
