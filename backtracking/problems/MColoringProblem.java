@@ -84,20 +84,35 @@ public class MColoringProblem {
   static class Solution1 {
 
     boolean graphColoring(int v, List<int[]> edges, int m) {
+      // Create an adjacency list for the graph
+      List<List<Integer>> graph = new ArrayList<>();
+      for (int i = 0; i < v; i++) {
+        graph.add(new ArrayList<>());
+      }
+
+      // Populate the adjacency list
+      for (int[] edge : edges) {
+        int i = edge[0];
+        int j = edge[1];
+        graph.get(i).add(j);
+        graph.get(j).add(i);
+      }
+
       int[] colors = new int[v];
-      return colorGraph(v, edges, m, 0, colors);
+
+      return colorGraph(graph, m, 0, colors);
     }
 
-    private boolean colorGraph(int v, List<int[]> edges, int m, int node, int[] colors) {
-      if (node == v) {
+    private boolean colorGraph(List<List<Integer>> graph, int m, int node, int[] colors) {
+      if (node == graph.size()) {
         return true;
       }
 
       for (int i = 1; i <= m; i++) {
-        if (isValid(v, edges, i, node, colors)) {
+        if (isValid(graph, i, node, colors)) {
           colors[node] = i;
 
-          if (colorGraph(v, edges, m, node + 1, colors)) {
+          if (colorGraph(graph, m, node + 1, colors)) {
             return true;
           } else {
             colors[node] = 0;
@@ -108,13 +123,8 @@ public class MColoringProblem {
       return false;
     }
 
-    private boolean isValid(int v, List<int[]> edges, int color, int node, int[] colors) {
-      if (node >= edges.size()) {
-        return false;
-      }
-
-      int[] neighbors = edges.get(node);
-      for (int neighbor : neighbors) {
+    private boolean isValid(List<List<Integer>> graph, int color, int node, int[] colors) {
+      for (int neighbor : graph.get(node)) {
         if (colors[neighbor] == color) {
           return false;
         }
