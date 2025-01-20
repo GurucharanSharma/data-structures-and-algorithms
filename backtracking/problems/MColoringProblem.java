@@ -8,37 +8,34 @@ public class MColoringProblem {
   public static void main(String[] args) {
     int N = 4, M = 3;
 
+    List<Integer>[] G = new ArrayList[N];
+    for (int i = 0; i < N; i++) {
+      G[i] = new ArrayList<>();
+    }
+
+    G[0].add(1);
+    G[1].add(0);
+    G[1].add(2);
+    G[2].add(1);
+    G[2].add(3);
+    G[3].add(2);
+    G[3].add(0);
+    G[0].add(3);
+    G[0].add(2);
+    G[2].add(0);
+
+    int[] color = new int[N];
+
     Solution solution = new Solution();
-    solution.graphColoring(N, M);
+    boolean ans = solution.graphColoring(G, color, 0, M);
+    if (ans) {
+      System.out.println("1");
+    } else {
+      System.out.println("0");
+    }
   }
 
   static class Solution {
-
-    public void graphColoring(int N, int M) {
-      List<Integer>[] G = new ArrayList[N];
-      for (int i = 0; i < N; i++) {
-        G[i] = new ArrayList<>();
-      }
-
-      G[0].add(1);
-      G[1].add(0);
-      G[1].add(2);
-      G[2].add(1);
-      G[2].add(3);
-      G[3].add(2);
-      G[3].add(0);
-      G[0].add(3);
-      G[0].add(2);
-      G[2].add(0);
-
-      int[] color = new int[N];
-      boolean ans = graphColoring(G, color, 0, M);
-      if (ans) {
-        System.out.println("1");
-      } else {
-        System.out.println("0");
-      }
-    }
 
     private boolean graphColoring(List<Integer>[] G, int[] color, int i, int M) {
       int nodes = G.length;
