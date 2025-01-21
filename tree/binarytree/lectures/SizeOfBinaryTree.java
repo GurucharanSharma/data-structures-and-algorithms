@@ -20,6 +20,25 @@ public class SizeOfBinaryTree {
     return 1 + lSize + rSize;
   }
 
+  // Recursive Approach 2
+  public static int size(Node root) {
+    if (root.left == null && root.right == null) {
+      return 1;
+    }
+
+    int res = 1;
+
+    if (root.left != null) {
+      res += size(root.left);
+    }
+
+    if (root.right != null) {
+      res += size(root.right);
+    }
+
+    return res;
+  }
+
   /**
    * Iterative Approach
    */
