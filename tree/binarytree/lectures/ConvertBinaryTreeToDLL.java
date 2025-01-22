@@ -8,7 +8,7 @@ public class ConvertBinaryTreeToDLL {
 
   public static Node execute(Node root) {
     if (root == null) {
-      return root;
+      return null;
     }
 
     Node head = execute(root.left);
