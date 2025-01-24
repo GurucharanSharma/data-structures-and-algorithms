@@ -63,5 +63,12 @@ public class BinaryTree {
       this.left = null;
       this.right = null;
     }
+
+    @Override
+    public String toString() {
+      return "Node{" +
+          "key=" + key +
+          '}';
+    }
   }
 }
