@@ -40,17 +40,19 @@ public class ConvertBinaryTreeToDLL {
     while (!stack.isEmpty()) {
       Node currNode = stack.pop();
 
-      if (currNode.left != null) {
-        stack.push(currNode.left);
-      }
-
       if (currNode.right != null) {
         stack.push(currNode.right);
+      }
+
+      if (currNode.left != null) {
+        stack.push(currNode.left);
       }
 
       if (!stack.isEmpty()) {
         currNode.right = stack.peek();
       }
+
+      currNode.left = null;
     }
 
     return root;
