@@ -28,14 +28,10 @@ public class CheckForBST {
       return Integer.MIN_VALUE;
     }
 
-    int max = root.key;
     int lMax = getMax(root.left);
-    max = Math.max(max, lMax);
-
     int rMax = getMax(root.right);
-    max = Math.max(max, rMax);
 
-    return max;
+    return Math.max(root.key, Math.max(lMax, rMax));
   }
 
   private static int getMin(Node root) {
@@ -43,14 +39,10 @@ public class CheckForBST {
       return Integer.MAX_VALUE;
     }
 
-    int min = root.key;
     int lMin = getMin(root.left);
-    min = Math.min(lMin, min);
-
     int rMin = getMin(root.right);
-    min = Math.min(rMin, min);
 
-    return min;
+    return Math.min(root.key, Math.min(lMin, rMin));
   }
 
   // Efficient Approach 1: Using the upper and lower bounds for each node
