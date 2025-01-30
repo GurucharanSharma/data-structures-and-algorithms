@@ -5,6 +5,16 @@ import java.util.TreeSet;
 
 public class CeilingOnLeftSideInArray {
 
+  public static void main(String[] args) {
+    int[] arr = {2, 8, 30, 15, 25, 12};
+
+    System.out.println("Approach 1: ");
+    execute(arr);
+
+    System.out.println("Approach 2: ");
+    execute1(arr);
+  }
+
   // Naive approach:
   // Time Complexity: O(n^2)
   // Auxiliary Space: O(1)
