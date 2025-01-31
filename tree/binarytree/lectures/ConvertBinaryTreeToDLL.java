@@ -7,6 +7,7 @@ import tree.BinaryTree.Node;
 public class ConvertBinaryTreeToDLL {
 
   private static Node prev;
+  private static Node head;
 
   public static void main(String[] args) {
     BinaryTree dllTree = new BinaryTree();
@@ -20,12 +21,15 @@ public class ConvertBinaryTreeToDLL {
     dllTree.root.right.right.right = new Node(7);
 
 //    [X] ← [1] ↔ [3] ↔ [8] ↔ [7] ↔ [6] ↔ [2] ↔ [5] ↔ [4] → [X]
-    Node head = convertToDLL(dllTree.root);
-    print(head);
+//    Node head = convertToDLL(dllTree.root);
+//    print(head);
 
 //    [X] ← [4] ↔ [2] ↔ [5] ↔ [1] ↔ [3] ↔ [6] ↔ [8] ↔ [7] → [X]
 //    Node head = execute(dllTree.root);
 //    print(head);
+
+    convertToDLL1(dllTree.root);
+    print(head);
   }
 
   // Approach 1: Uses pre order traversal
@@ -76,6 +80,24 @@ public class ConvertBinaryTreeToDLL {
     execute(root.right);
 
     return head;
+  }
+
+  // Approach 3
+  public static void convertToDLL1(Node root) {
+    if (root == null) {
+      return;
+    }
+
+    convertToDLL1(root.right);
+
+    root.right = head;
+    if (head != null) {
+      head.left = root;
+    }
+
+    head = root;
+
+    convertToDLL1(root.left);
   }
 
   public static void print(Node head) {
