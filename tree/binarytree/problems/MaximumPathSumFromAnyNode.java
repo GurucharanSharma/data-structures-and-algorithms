@@ -6,7 +6,7 @@ import tree.BinaryTree.Node;
 
 public class MaximumPathSumFromAnyNode {
 
-  private static int max = 0;
+  private static int max = Integer.MIN_VALUE;
 
   public static void main(String[] args) {
 //    Node root = new Node(10);
@@ -29,6 +29,7 @@ public class MaximumPathSumFromAnyNode {
   }
 
   // Approach 1: Using Recursion
+  // Assumes that the maximum sum will always be positive. (All nodes will not be negative)
   private static int findMaxSum(Node node) {
     if (node == null) {
       return 0;
@@ -42,7 +43,8 @@ public class MaximumPathSumFromAnyNode {
     return node.key + Math.max(lSum, rSum);
   }
 
-  //  Approach 2: Using Iterative DFS
+  // Approach 2: Using Iterative DFS
+  // Handles the scenarios where the max sum can be negative. (All nodes can be negative)
   private static int findMaxSum1(Node node) {
     int max = Integer.MIN_VALUE;
     Stack<SimpleEntry<Node, Integer>> stack = new Stack<>();
