@@ -42,6 +42,7 @@ public class BreadthFirstSearch {
       // To handle disconnected components
       for (int i = 0; i < adjList.size(); i++) {
         if (!visited[i]) {
+          visited[i] = true;
           traverse(adjList, visited, i);
         }
       }
