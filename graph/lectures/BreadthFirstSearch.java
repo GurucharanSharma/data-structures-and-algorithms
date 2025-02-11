@@ -33,39 +33,41 @@ public class BreadthFirstSearch {
     Solution solution = new Solution();
     solution.traverse(adjacencyList.getAdjList());
   }
-}
 
-class Solution {
+  static class Solution {
 
-  public void traverse(List<List<Integer>> adjList) {
-    boolean[] visited = new boolean[adjList.size()];
+    public void traverse(List<List<Integer>> adjList) {
+      boolean[] visited = new boolean[adjList.size()];
 
-    // To handle disconnected components
-    for (int i = 0; i < adjList.size(); i++) {
-      if (!visited[i]) {
-        traverse(adjList, visited, i);
+      // To handle disconnected components
+      for (int i = 0; i < adjList.size(); i++) {
+        if (!visited[i]) {
+          traverse(adjList, visited, i);
+        }
       }
     }
-  }
 
-  private void traverse(List<List<Integer>> adjList, boolean[] visited, int start) {
-    if (adjList.isEmpty()) {
-      return;
-    }
+    private void traverse(List<List<Integer>> adjList, boolean[] visited, int start) {
+      if (adjList.isEmpty()) {
+        return;
+      }
 
-    Queue<Integer> queue = new LinkedList<>();
-    queue.add(start);
+      Queue<Integer> queue = new LinkedList<>();
+      queue.add(start);
 
-    while (!queue.isEmpty()) {
-      int node = queue.remove();
-      System.out.println(node);
+      while (!queue.isEmpty()) {
+        int node = queue.remove();
+        System.out.println(node);
 
-      for (Integer adjNode : adjList.get(node)) {
-        if (!visited[adjNode]) {
-          visited[adjNode] = true;
-          queue.add(adjNode);
+        for (Integer adjNode : adjList.get(node)) {
+          if (!visited[adjNode]) {
+            visited[adjNode] = true;
+            queue.add(adjNode);
+          }
         }
       }
     }
   }
 }
+
+
