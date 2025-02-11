@@ -53,7 +53,9 @@ public class BreadthFirstSearch {
       }
 
       Queue<Integer> queue = new LinkedList<>();
+
       queue.add(start);
+      visited[start] = true;
 
       while (!queue.isEmpty()) {
         int node = queue.remove();
