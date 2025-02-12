@@ -1,7 +1,7 @@
 package graph.lectures;
 
-import graph.Graph;
-import graph.Graph.AdjacencyList;
+import graph.common.Graph;
+import graph.common.Graph.AdjacencyList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
