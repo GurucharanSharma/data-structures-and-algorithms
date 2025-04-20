@@ -13,7 +13,7 @@ public class Graph {
     private final List<List<Integer>> adj = new ArrayList<>();
 
     public AdjacencyList(int n) {
-      for (int i = 1; i <= n; i++) {
+      for (int i = 0; i <= n; i++) {
         adj.add(new ArrayList<>());
       }
     }
@@ -24,9 +24,15 @@ public class Graph {
     }
 
     public void printGraph() {
-      for (int i = 0; i < adj.size(); i++) {
-        for (int edge : adj.get(i)) {
-          System.out.print("[" + i + " -> " + edge + "] ");
+      System.out.println("Adjacency List Representation:");
+      for (int i = 1; i < adj.size(); i++) {
+        System.out.print(i + " => ");
+        List<Integer> neighbors = adj.get(i);
+        for (int j = 0; j < neighbors.size(); j++) {
+          System.out.print(neighbors.get(j));
+          if (j < neighbors.size() - 1) {
+            System.out.print(" -> ");
+          }
         }
         System.out.println();
       }
@@ -48,12 +54,12 @@ public class Graph {
       this.adj = new int[n + 1][n + 1];
     }
 
-    public void addEdge(int u, int v, int[][] adj) {
+    public void addEdge(int u, int v) {
       adj[u][v] = 1;
       adj[v][u] = 1;
     }
 
-    public void printGraph(int[][] adj) {
+    public void printGraph() {
       for (int i = 0; i < adj.length; i++) {
         for (int j = 0; j < adj[0].length; j++) {
           if (adj[i][j] == 1) {
