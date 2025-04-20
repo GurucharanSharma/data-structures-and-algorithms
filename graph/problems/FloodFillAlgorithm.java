@@ -1,16 +1,24 @@
 package graph.problems;
 
+import java.util.Arrays;
+
 public class FloodFillAlgorithm {
 
   static class Solution {
 
     public static void main(String[] args) {
+      int[][] image = {
+          {1, 1, 1},
+          {2, 2, 0},
+          {2, 2, 2}
+      };
 
+      System.out.println(Arrays.deepToString(floodFill(image, 2, 0, 3)));
     }
 
-    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+    private static int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
       int initColor = image[sr][sc];
-      int[][] result = image;
+      int[][] result = Arrays.stream(image).map(a -> Arrays.copyOf(a, a.length)).toArray(int[][]::new);
 
       int[] delRow = {-1, 0, 1, 0};
       int[] delCol = {0, -1, 0, 1};
@@ -19,8 +27,8 @@ public class FloodFillAlgorithm {
       return result;
     }
 
-    public void traverse(int[][] image, int[][] result, int sr, int sc, int[] delRow, int[] delCol, int newColor, int initColor) {
-      image[sr][sc] = newColor;
+    private static void traverse(int[][] image, int[][] result, int sr, int sc, int[] delRow, int[] delCol, int newColor, int initColor) {
+      result[sr][sc] = newColor;
 
       int n = image.length;
       int m = image[0].length;
