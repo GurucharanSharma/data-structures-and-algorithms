@@ -13,22 +13,13 @@ public class NumberOfProvinces {
 
     adjacencyList.addEdge(1, 2);
     adjacencyList.addEdge(1, 6);
-    adjacencyList.addEdge(2, 1);
     adjacencyList.addEdge(2, 3);
     adjacencyList.addEdge(2, 4);
-    adjacencyList.addEdge(3, 2);
-    adjacencyList.addEdge(4, 2);
     adjacencyList.addEdge(4, 5);
-    adjacencyList.addEdge(5, 4);
     adjacencyList.addEdge(5, 8);
-    adjacencyList.addEdge(6, 1);
     adjacencyList.addEdge(6, 7);
     adjacencyList.addEdge(6, 9);
-    adjacencyList.addEdge(7, 6);
     adjacencyList.addEdge(7, 8);
-    adjacencyList.addEdge(8, 5);
-    adjacencyList.addEdge(8, 7);
-    adjacencyList.addEdge(9, 6);
 
     Solution solution = new Solution();
     System.out.println(solution.countProvinces(adjacencyList.getAdjList()));
