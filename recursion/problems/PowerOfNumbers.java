@@ -9,6 +9,8 @@ public class PowerOfNumbers {
     int R = 21;
 
     System.out.println(power(N, R));
+    System.out.println();
+    System.out.println(power1(N, R));
   }
 
   // Approach 1
