@@ -73,10 +73,15 @@ public class LuckyNumbers {
 
       // If n is less than counter squared. One of the factors of n must be smaller than Math.sqrt(n). So if counter
       // is already greater than Math.sqrt(n) and no value of counter has yet divided n, there cannot be any other number left
-      // now that would divide n. Hence, we can safely return true at this point.
+      // now that would divide n. Hence, we can safely return true at this point. This is optimised approach.
       if (n < counter * counter) {
         return true;
       }
+
+      // This is the naive approach
+//      if (n < counter) {
+//        return true;
+//      }
 
       // Shift the position
       // The expression n / counter gives you the number of positions that are eliminated in this step.
@@ -84,6 +89,7 @@ public class LuckyNumbers {
       // Updates n to reflect the new position of the number being checked after the current elimination step.
       // This simulates the fact that after each elimination, the total number of positions is reduced.
       n = n - (n / counter);
+
       counter++;
     }
   }
