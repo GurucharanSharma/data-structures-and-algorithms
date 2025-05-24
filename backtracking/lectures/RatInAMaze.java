@@ -103,7 +103,7 @@ public class RatInAMaze {
 
       String directions = "URDL";
 
-      for (int d = 0; d < dI.length; d++) {
+      for (int d = 0; d < 4; d++) {
         int nextRow = row + dI[d];
         int nextCol = col + dJ[d];
 
