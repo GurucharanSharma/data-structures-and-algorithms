@@ -6,6 +6,7 @@ import java.util.List;
 public class MColoringProblem {
 
   public static void main(String[] args) {
+    // Approach 1
 //    int N = 4, M = 3;
 //
 //    List<Integer>[] G = new ArrayList[N];
@@ -34,6 +35,7 @@ public class MColoringProblem {
 //      System.out.println("0");
 //    }
 
+    // Approach 2
     int v = 3;
     int m = 2;
 
@@ -44,6 +46,7 @@ public class MColoringProblem {
     System.out.println(solution1.graphColoring(v, edges, m));
   }
 
+  // Approach 1: Given a graph
   static class Solution {
 
     private boolean graphColoring(List<Integer>[] G, int[] color, int i, int M) {
@@ -81,6 +84,7 @@ public class MColoringProblem {
     }
   }
 
+  // Approach 2: Given edges
   static class Solution1 {
 
     boolean graphColoring(int v, List<int[]> edges, int m) {
