@@ -32,7 +32,7 @@ public class ConvertBinaryTreeToDLL {
     print(head);
   }
 
-  // Approach 1: Uses pre order traversal
+  // Approach 1: Uses pre order traversal (Creates a Singly Linked List)
   public static Node convertToDLL(Node root) {
     if (root == null) {
       return null;
@@ -62,7 +62,7 @@ public class ConvertBinaryTreeToDLL {
     return root;
   }
 
-  // Approach 2L: Uses in-order traversal
+  // Approach 2: Uses in-order traversal (Start creating from head to tail)
   public static Node execute(Node root) {
     if (root == null) {
       return null;
@@ -82,7 +82,7 @@ public class ConvertBinaryTreeToDLL {
     return head;
   }
 
-  // Approach 3
+  // Approach 3: Start creating from tail to head
   public static void convertToDLL1(Node root) {
     if (root == null) {
       return;

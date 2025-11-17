@@ -25,6 +25,9 @@ public class LeftViewOfBinaryTree {
     execute(root.right, level + 1);
   }
 
+  /**
+   * Iterative Approach
+   */
   public static void execute(Node root) {
     if (root == null) {
       return;

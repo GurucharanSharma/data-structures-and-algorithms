@@ -5,6 +5,7 @@ import tree.BinaryTree.Node;
 
 public class SerializeBinaryTree {
 
+  // In-order serialization
   public static void execute(Node root, ArrayList<Integer> arr) {
     if (root == null) {
       arr.add(-1);

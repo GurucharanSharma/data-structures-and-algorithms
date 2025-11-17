@@ -66,6 +66,10 @@ public class TreeFormatter {
   }
 
   public void topDown(Node root) {
+    if (root == null) {
+      return;
+    }
+
     List<String> lines = buildLines(root);
     System.out.println(String.join("\n", lines.subList(1, lines.size())));
     System.out.println();

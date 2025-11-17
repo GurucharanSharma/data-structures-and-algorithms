@@ -8,6 +8,9 @@ public class RightViewOfBinaryTree {
 
   private static int maxLevel = 0;
 
+  /**
+   * Recursive approach
+   */
   public static void execute(Node root, int level) {
     if (root == null) {
       return;
@@ -22,6 +25,9 @@ public class RightViewOfBinaryTree {
     execute(root.left, level + 1);
   }
 
+  /**
+   * Iterative approach
+   */
   public static void execute(Node root) {
     if (root == null) {
       return;

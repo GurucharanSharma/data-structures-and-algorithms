@@ -34,10 +34,11 @@ public class ConstructBinaryTreeFromInorderAndPreorder {
 
     node.left = execute(in, pre, is, inIndex - 1);
     node.right = execute(in, pre, inIndex + 1, ie);
+
     return node;
   }
 
-  // Approach 2: Without using global variable
+  // Approach 2: Without using global variable (calculating in-index)
   public static Node execute1(int[] in, int[] pre, int ps, int pe, int is, int ie) {
     if (is > ie || ps > pe) {
       return null;
@@ -53,7 +54,7 @@ public class ConstructBinaryTreeFromInorderAndPreorder {
     return node;
   }
 
-  // Approach 3
+  // Approach 3: Without using global variable (using lookup for getting in-index)
   public static Node execute2(int[] in, int[] pre) {
     HashMap<Integer, Integer> lookup = new HashMap<>();
     for (int i = 0; i < in.length; i++) {
